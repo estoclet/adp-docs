@@ -56,7 +56,7 @@ Ces éléments sont construits dans le Theme Builder et s'appliquent à toutes l
 | Zone | Contenu |
 |------|---------|
 | Gauche | Logo rond / monogramme blanc + "Astuces De Pomme" + "Services à la personne" |
-| Centre / droite | Menu : Accueil · Prestations · Formations · À propos · Avis · Blog · Contact |
+| Centre / droite | Menu : Accueil · Prestations · Formations · À propos · Avis · Contact |
 | Extrême droite | Bouton bleu "Prendre rendez-vous" |
 
 **Modules Divi** : Logo, Menu, Button — dans une ligne 3 zones. [FAIT]
@@ -90,8 +90,6 @@ Ces modules sont les seuls à utiliser sauf besoin spécifique justifié. [FAIT 
 | Call To Action | Section CTA contact (bloc 8) |
 | Divider | Séparateurs visuels |
 | Icon | Pictos isolés |
-| Blog | Archive articles pour bloc homepage ou page /blog/ |
-
 **Module Code** : uniquement si nécessaire pour les pills / effets non faisables autrement. [FAIT]
 
 ---
@@ -172,7 +170,6 @@ Le CSS structurant reste versionné dans Git, idéalement dans le thème enfant 
 |----------|-------|--------|
 | Template Accueil | `/` | En cours de spécification |
 | Template Page statique | `/a-propos/`, `/contact/`, `/avis/` | À créer — Lot 3 |
-| Template Article Blog | `/blog/{slug}/` | À créer — Lot 3 |
 | Template Page Prestations | `/prestations/` | À créer — après spec |
 | Template Page Formations | `/formations/` | À créer — après spec |
 | Template 404 | Toute URL inexistante | À créer — Lot 3 |

@@ -14,9 +14,9 @@
 
 | Type | Rôle | Implémentation WP |
 |------|------|-------------------|
-| Articles (Posts) | Astuces, tutoriels, guides | Post type natif |
+| Articles (Posts) | Hors V1 | type natif conservé mais non exploité publiquement |
 | Pages statiques | Accueil, À propos, Contact, CGU | Page type natif |
-| Démarches | Guides démarches administratives | Post type natif avec catégorie dédiée |
+| Démarches | Contenu de service / information | pages ou sections de pages en V1 |
 | FAQ | Questions fréquentes | Hors V1 |
 
 > **Décision V1** : aucun CPT additionnel n'est prévu au démarrage.
@@ -29,8 +29,8 @@
 
 | Taxonomie | Type | Valeurs hypothétiques |
 |-----------|------|----------------------|
-| Catégories d'astuces | Hiérarchique (catégorie WP) | iPhone, Mac, iPad, iCloud, Démarches |
-| Tags | Plate (étiquette WP) | Libres, à nettoyer depuis le legacy |
+| Catégories d'astuces | Hors V1 | — |
+| Tags | Hors V1 | — |
 | Niveau de difficulté | Non retenu en V1 | —
 
 > **Règle V1** : démarrer simple, sans sous-catégories ni taxonomie additionnelle tant que le volume réel ne l'impose pas.
@@ -99,7 +99,7 @@
 |------|--------------------|-------|
 | Export complet contenu | `wp export --dir=<chemin-export>` | Produit un WXR XML |
 | Export ciblé pages | `wp export --post_type=page --dir=<chemin-export>` | Utile pour migration partielle |
-| Export ciblé articles | `wp export --post_type=post --dir=<chemin-export>` | Utile pour blog |
+| Export ciblé articles | `wp export --post_type=post --dir=<chemin-export>` | utile seulement si un blog est réintroduit plus tard |
 | Export avec date | nommer le dossier/fichier avec date ISO | ex. `2026-04-24-wxr/` |
 
 ### Import WXR
@@ -190,15 +190,15 @@ Le client ne modifie pas sans procédure :
 
 ## Formulaires de contact
 
-[HYPOTHÈSE — à valider selon les besoins client]
+[PROPOSITION V1 — à arbitrer si besoin]
 
 | Formulaire | Localisation prévue | Plugin recommandé |
 |------------|--------------------|--------------------|
-| Contact général | Page Contact | Contact Form 7 ou WPForms |
+| Contact général | Page Contact | WPForms Lite |
 | Demande d'assistance | Page Contact ou sidebar | À spécifier |
 | Newsletter [HYPOTHÈSE] | Footer, pages clés | [À ARBITRER — outil email marketing ?] |
 
-> [À ARBITRER] : Y a-t-il un outil d'email marketing en place (Mailchimp, Brevo…) ? Si oui, l'intégration au formulaire est une dépendance.
+> **Recommandation projet** : privilégier un seul formulaire simple en V1. Ne pas introduire de formulaire supplémentaire ni d'intégration marketing tant que le besoin n'est pas confirmé.
 
 ---
 
@@ -207,7 +207,6 @@ Le client ne modifie pas sans procédure :
 [HYPOTHÈSE — objectif implicite pour ce type de projet]
 
 Le client doit pouvoir, sans aide technique :
-- Créer et publier un article
 - Modifier le contenu d'une page statique
 - Ajouter un média
 - Modifier un menu de navigation

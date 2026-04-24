@@ -1,16 +1,16 @@
 # Arborescence cible du site
 
-**Statut** : Navigation validée client — structure V1 arbitrée
+**Statut** : Navigation client mise à jour — structure V1 arbitrée
 **Dernière mise à jour** : 2026-04-24
 **Lié à** : `ADR-002`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
 
-> **Note agent** : La navigation principale a été validée en réunion client (2026-04-23) — elle est ferme. Les sous-pages et leur contenu sont des hypothèses à valider.
+> **Note agent** : La navigation principale a été validée en réunion client (2026-04-23), puis ajustée le 2026-04-24 avec suppression du blog à la demande du client. Les sous-pages et leur contenu restent des hypothèses à valider.
 
 ---
 
 ## Navigation principale (validée)
 
-Les 7 items du menu principal sont **fermes** : [FAIT — réunion 2026-04-23]
+Les 6 items du menu principal sont **fermes** : [FAIT — ajustement client 2026-04-24]
 
 | Item menu | URL cible | Type WP | Statut page |
 |-----------|-----------|---------|-------------|
@@ -19,7 +19,6 @@ Les 7 items du menu principal sont **fermes** : [FAIT — réunion 2026-04-23]
 | Formations | `/formations/` | Page | [À SPÉCIFIER] |
 | À propos | `/a-propos/` | Page | [À SPÉCIFIER] |
 | Avis | `/avis/` | Page | [À SPÉCIFIER] |
-| Blog | `/blog/` | Archive Posts WP | [À SPÉCIFIER] |
 | Contact | `/contact/` | Page | [À SPÉCIFIER] |
 
 **CTA header** : "Prendre rendez-vous" [FAIT]
@@ -49,9 +48,6 @@ astucesdepomme.com/
 ├── /avis/                         Page Avis clients [VALIDÉ — page statique éditorialisée]
 │   └── Sélection d'avis GBP       Avec lien vers la source externe
 │
-├── /blog/                         Archive Blog / Astuces [VALIDÉ — libellé menu]
-│   └── /blog/{slug}/              Article individuel
-│
 ├── /contact/                      Page Contact [VALIDÉ — libellé menu]
 │
 └── Pages légales (footer uniquement)
@@ -64,19 +60,14 @@ astucesdepomme.com/
 
 ---
 
-## Structure des URLs articles de blog
+## Blog
 
-Convention retenue pour la V1 :
+Décision client du 2026-04-24 : **pas de blog sur le site en V1**.
 
-```
-/blog/{slug-article}/
-```
-
-Exemples :
-- `/blog/comment-reinitialiser-iphone/`
-- `/blog/configurer-icloud-sur-mac/`
-
-> **Règle** : Slugs en français, kebab-case, sans dates dans l'URL (les articles Apple sont mis à jour et une date dans l'URL les vieillit artificiellement).
+Conséquences :
+- aucun item `Blog` dans la navigation principale
+- aucune archive `/blog/` à créer en V1
+- aucun template d'article blog à prévoir dans le lot de développement V1
 
 ---
 
@@ -91,7 +82,7 @@ Exemples :
 | `/faq/` | hors V1 | évite une page faible sans corpus réel |
 | `/tarifs-prestations/` | page indexée | utile pour la conversion et le SEO |
 | `/infos-fiscales/` | page indexée | utile pour le cadre fiscal et la réassurance |
-| Blog | présent dès la V1 | cohérent avec le menu principal et la stratégie de contenu |
+| Blog | hors V1 | décision client explicite |
 
 ---
 

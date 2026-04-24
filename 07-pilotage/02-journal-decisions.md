@@ -18,6 +18,9 @@
 | D-003 | 2026-04-24 | Eric STOCLET | Site legacy conservé dans `adp-legacy/` pour analyse | Initialisation projet | — |
 | D-004 | 2026-04-23 | Julien HACHE + Eric STOCLET | Validation du brief complet de la page d'accueil (9 blocs, charte visuelle, navigation) | Réunion client | → ADR-002 |
 | D-005 | 2026-04-23 | Julien HACHE | Navigation principale validée : Accueil · Prestations · Formations · À propos · Avis · Blog · Contact | Réunion client | — |
+| D-009 | 2026-04-24 | Julien HACHE | Le site V1 ne comportera pas de blog ; le menu principal devient : Accueil · Prestations · Formations · À propos · Avis · Contact | Ajustement du cadrage après revue du backlog | — |
+| D-010 | 2026-04-24 | Julien HACHE | Les recommandations d'architecture V1 sont validées : pas de CPT, pas de taxonomies éditoriales publiques, pas de FAQ en V1 | Arbitrages architecture / contenus | — |
+| D-011 | 2026-04-24 | Julien HACHE | Le socle plugins V1 retient AIOSEO, UpdraftPlus, Redirection, `WPForms Lite`, `Complianz` et `Imagify` | Arbitrages WordPress / mutualisé OVH | — |
 | D-006 | 2026-04-23 | Julien HACHE | Périmètre étendu confirmé : Assistance Apple + Formation + Réseau/Wi-Fi + Démarches + Services à la personne | Réunion client | — |
 | D-007 | 2026-04-23 | Julien HACHE | Tarification : 80€/h avant déduction, 40€/h après crédit d'impôt | Réunion client | — |
 | D-008 | 2026-04-23 | Julien HACHE | Téléphone de contact : 06 51 31 15 37 | Réunion client | — |

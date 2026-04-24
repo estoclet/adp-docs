@@ -12,7 +12,7 @@
 
 | Type WP | Usage dans ADP | Notes |
 |---------|---------------|-------|
-| Post (article) | Astuces, tutoriels, guides | Type principal — taxonomie par catégorie |
+| Post (article) | Hors V1 | type natif conservé mais non exploité publiquement |
 | Page | Accueil, Contact, À propos, CGU | Contenu statique |
 | Media | Images, captures d'écran, vidéos | Bibliothèque WP standard |
 
@@ -24,10 +24,10 @@ Décision V1 : **aucun CPT supplémentaire**.
 
 | Sujet | Décision V1 | Justification |
 |-------|-------------|---------------|
-| Démarches administratives | catégorie d'articles, pas de CPT | volume attendu limité et complexité évitée |
+| Démarches administratives | page ou section éditoriale, pas de CPT | pas de blog exposé en V1 |
 | FAQ | pas de CPT, pas de page FAQ en V1 | pas de corpus suffisant à ce stade |
 
-> **Règle V1** : rester sur `Post`, `Page` et `Media` tant qu'un besoin métier ou éditorial clair ne démontre pas la nécessité d'un CPT.
+> **Règle V1** : rester principalement sur `Page` et `Media`. Le type `Post` n'entre pas dans le périmètre public V1.
 
 ---
 
@@ -35,23 +35,13 @@ Décision V1 : **aucun CPT supplémentaire**.
 
 ### Catégories (hiérarchiques)
 
-| Catégorie | Slug | Niveau | Notes |
-|-----------|------|--------|-------|
-| iPhone | iphone | 1 | catégorie V1 |
-| Mac | mac | 1 | catégorie V1 |
-| iPad | ipad | 1 | catégorie V1 |
-| iCloud | icloud | 1 | catégorie V1 |
-| Démarches | demarches | 1 | catégorie V1 |
+Non retenues en V1 publique.
 
-> **Règle V1** : pas de sous-catégories tant que le volume éditorial ne le justifie pas.
+> **Décision V1** : aucune taxonomie éditoriale publique n'est à configurer tant que le site n'expose pas de blog.
 
 ### Étiquettes (tags)
 
-| Règle | Détail |
-|-------|--------|
-| Usage | thèmes transversaux réellement utiles seulement |
-| Contrôle | liste contrôlée, pas de tags libres en production |
-| Nettoyage | aucun tag legacy repris sans audit |
+Non retenues en V1 publique.
 
 ### Taxonomie personnalisée "Niveau de difficulté"
 
@@ -67,10 +57,10 @@ Motif : ajoute de la charge éditoriale sans bénéfice démontré à ce stade.
 
 | Champ | Type | Sur quel contenu | Utilité |
 |-------|------|------------------|---------|
-| `version_apple` | Texte | Post (article) | indiquer la version iOS/macOS concernée |
-| `date_verification` | Date | Post (article) | indiquer la date de vérification du contenu |
+| `version_apple` | Texte | Hors V1 | à réactiver si un contenu éditorial est introduit plus tard |
+| `date_verification` | Date | Hors V1 | à réactiver si un contenu éditorial est introduit plus tard |
 
-> **Règle V1** : ne pas ajouter d'autres champs personnalisés sans besoin explicite de template ou de maintenance éditoriale.
+> **Règle V1** : aucun champ personnalisé éditorial n'est requis tant que le site ne publie pas d'articles.
 
 ---
 

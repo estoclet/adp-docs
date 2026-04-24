@@ -53,7 +53,7 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 | Centre / droite | Menu principal | Voir items ci-dessous |
 | Extrême droite | Bouton CTA "Prendre rendez-vous" (bleu) | [FAIT] |
 
-**Menu principal** : Accueil · Prestations · Formations · À propos · Avis · Blog · Contact [FAIT]
+**Menu principal** : Accueil · Prestations · Formations · À propos · Avis · Contact [FAIT — blog retiré sur décision client 2026-04-24]
 
 **Inconnues** :
 - [RÉSOLU — I-09] Logo disponible : `adp-app/assets/design/logo-dark.png` (fond clair) + `logo-white.png` (fond sombre)

@@ -107,24 +107,57 @@
 
 ## Plugins WordPress prévus
 
-Les plugins suivants sont **recommandés** pour ce type de projet [HYPOTHÈSE — à valider].  
+Le socle V1 doit rester **minimal** et compatible avec un mutualisé OVH.  
 Aucun plugin ne doit être ajouté sans validation dans ce document ou dans un ADR.
+
+### Socle V1 recommandé
 
 | Plugin | Rôle | Statut |
 |--------|------|--------|
-| Divi Builder | Page builder | [FAIT — inclus dans le thème] |
-| Yoast SEO ou Rank Math | SEO on-page | [RECOMMANDÉ] |
-| WP Rocket ou W3 Total Cache | Cache et performance | [RECOMMANDÉ] |
-| Smush ou Imagify | Optimisation images | [RECOMMANDÉ] |
-| UpdraftPlus | Sauvegardes | [RECOMMANDÉ] |
-| Wordfence ou iThemes Security | Sécurité | [RECOMMANDÉ] |
-| Contact Form 7 ou WPForms | Formulaire de contact | [RECOMMANDÉ] |
-| Redirection | Gestion des redirections 301 | [RECOMMANDÉ — critique pour migration] |
+| Divi | Thème / builder principal | [FAIT — décision ferme] |
+| All in One SEO | SEO on-page + sitemap | [VALIDÉ — continuité avec le legacy] |
+| UpdraftPlus | Sauvegardes | [VALIDÉ — continuité avec le legacy] |
+| Redirection | Gestion des redirections 301 | [VALIDÉ — critique pour migration] |
+| WPForms Lite | Formulaire de contact | [VALIDÉ] |
+| Imagify | Optimisation média | [VALIDÉ] |
+| Complianz | Bannière / consentement | [VALIDÉ — remplace l'héritage legacy] |
+
+### Plugins explicitement non retenus par défaut en V1
+
+| Plugin / famille | Position projet | Motif |
+|------------------|-----------------|-------|
+| Rank Math | non retenu par défaut | doublon inutile avec AIOSEO si on garde la continuité legacy |
+| WP Rocket | non retenu par défaut | potentiellement pertinent plus tard, mais pas à imposer avant mesures sur la V1 |
+| W3 Total Cache | non retenu par défaut | configuration plus lourde et risque de complexité sur mutualisé |
+| Wordfence / iThemes Security | non retenus par défaut | coût perf / complexité non justifiés à ce stade |
+
+> **Règle V1** : commencer avec le minimum viable. Ajouter un plugin seulement s'il couvre un besoin réel non couvert par WordPress, Divi ou l'hébergement.
 
 > **Pour les agents** : Ne pas ajouter de plugins à cette liste sans validation. Ne pas supposer qu'un plugin est installé s'il n'est pas marqué [FAIT].
 
 > [FAIT] Information fournie par le chef de projet le 2026-04-24 : l'instance legacy contient une licence Divi existante qui devra être reprise dans `adp-app`.  
 > [DÉPENDANCE] L'activation de Divi dans le nouveau site doit réutiliser cette licence au lieu d'introduire une nouvelle licence non tracée.
+
+## Reprise de licence Divi
+
+La licence Divi existante du legacy doit être **réutilisée** dans `adp-app` sans exposer ni versionner les secrets associés.
+
+### Procédure projet retenue
+
+| Étape | Action | Règle |
+|------|--------|-------|
+| 1 | vérifier que le legacy dispose bien d'une licence Divi active | contrôle humain ou WP admin, sans copier le secret dans Git |
+| 2 | récupérer les identifiants de licence via le canal habituel du projet | stockage hors Git, hors exports publics |
+| 3 | activer Divi dans `adp-app` avec cette licence | pas de nouvelle licence ad hoc |
+| 4 | tester mises à jour et accès aux ressources Elegant Themes | vérification en local ou préprod |
+| 5 | documenter uniquement le fait de l'activation et la date | jamais la clé ou les identifiants eux-mêmes |
+
+### Règles de sécurité
+
+- ne pas stocker la clé Divi dans `adp-docs/`, `adp-app/`, un export JSON versionné ou un commentaire GitHub
+- ne pas capturer de secret Divi dans un transcript d'agent si une simple vérification suffit
+- si une valeur de licence doit être saisie, elle l'est manuellement dans l'environnement concerné
+- toute reprise de licence doit être testée d'abord en local ou préprod, jamais directement en production
 
 ---
 
