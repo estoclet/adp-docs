@@ -275,7 +275,7 @@ Voir `ADR-002-identite-visuelle.md` pour la charte complète.
 **Police** : sans-serif moderne, sobre, très lisible. Carte blanche projet/client pour le choix final.  
 **Préconisation projet** : `Inter` en priorité, `DM Sans` en alternative. [FAIT — choix libre validé]
 
-**Inconnues couleurs** : [INCONNUE] Valeurs hex exactes — à extraire de la carte de visite du client ou à définir avec lui.
+**Inconnues couleurs** : [RÉSOLU PARTIEL — I-07] Tokens V1 fermes : `#1e3264` (primaire) + `#0070c8` (accent) + `#ffffff` (blanc). Les tons complémentaires (gris texte, bleu clair fond, bordures) restent des [HYPOTHÈSE] à confirmer lors de l'intégration Divi — référence : `adp-app/assets/design/maquette_homepage.png`.
 
 ---
 
