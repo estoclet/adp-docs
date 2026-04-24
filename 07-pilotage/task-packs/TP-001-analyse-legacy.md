@@ -1,6 +1,6 @@
 # TP-001 — Analyse structurelle du site legacy
 
-**Statut** : À lancer  
+**Statut** : Terminé — à valider par Eric STOCLET  
 **Date de création** : 2026-04-24  
 **Agent assigné** : Claude (ou autre agent d'analyse)  
 **Durée estimée** : Moyen (1 à 3 h selon volume)  

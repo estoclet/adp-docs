@@ -17,12 +17,13 @@ Si l'information manque, l'agent le dit explicitement. Si le périmètre est amb
 ## Règles anti-hallucination
 
 ### R-01 — Pas de fait sans source traçable dans ce repo
-Toute affirmation sur le site, le client, les utilisateurs ou le contenu doit être sourcée. **Une source valide est exclusivement** :
+Toute affirmation sur le site, le client, les utilisateurs ou le contenu doit être sourcée. **Une source valide est** :
 - un fichier de `adp-docs/` cité par son chemin exact (ex : `voir 00-initialisation-projet.md`)
 - un fichier de `adp-legacy/` cité par son chemin exact après analyse directe
 - une décision enregistrée dans `07-pilotage/02-journal-decisions.md`
+- une **mesure directe** effectuée par l'agent sur le site ou serveur concerné, citant explicitement l'outil, la commande et la date (ex : `Lighthouse CLI — 2026-04-24`, `ddev wp option get — 2026-04-24`, `curl -w time_total — 2026-04-24`)
 
-**Ne sont pas des sources valides** : la connaissance générale du monde, les meilleures pratiques du secteur, des expériences passées de l'agent, des articles de blog, des statistiques générales, ou toute information non présente dans ce repo.
+**Ne sont pas des sources valides** : la connaissance générale du monde, les meilleures pratiques du secteur, les expériences passées de l'agent, les articles de blog, les statistiques générales, ou toute information non mesurée et non présente dans ce repo.
 
 **Interdit** : "Le site reçoit environ 10 000 visites par mois."  
 **Interdit** : "Généralement, les sites WordPress ont entre X et Y plugins."  
@@ -236,6 +237,22 @@ Local (DDEV → adp-app/) → Préprod (vps-adp → /homez.31/astucesdib/www/dev
 **Interdit** : copier la base de données de production vers local sans anonymisation ou suppression des données personnelles.  
 **Autorisé** : correction urgente en production si la préprod est resynchronisée dans la foulée et le changement intégré dans Git.  
 **Autorisé** : déploiement de contenu éditorial simple (texte, image) directement en préprod ou prod si la structure n'est pas touchée.
+
+### R-24 — Lifecycle des task packs
+
+Un task pack traverse les statuts suivants :
+
+| Statut | Sens | Qui le change |
+|--------|------|--------------|
+| `À lancer` | Tâche créée, non démarrée | Chef de projet |
+| `En cours` | Agent en train de travailler | Agent — au début de l'exécution |
+| `Terminé` | Outputs produits, signalement rédigé | Agent — en fin d'exécution |
+| `Bloqué` | Inconnue bloquante identifiée | Agent — dès le blocage |
+| `Validé` | Chef de projet a vérifié les outputs | Chef de projet |
+
+**Règle** : l'agent met à jour le champ `**Statut**` du task pack **dans la même session** que son exécution. Il ne laisse pas un task pack en `À lancer` après avoir produit ses outputs.  
+**Règle** : l'agent ne passe pas le statut à `Validé` — c'est le chef de projet qui le fait après relecture.  
+**Règle** : si l'exécution est partielle (inconnue bloquante), le statut passe à `Bloqué`, pas à `Terminé`.
 
 ---
 

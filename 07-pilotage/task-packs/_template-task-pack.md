@@ -35,6 +35,7 @@
 |---------|---------|
 | `adp-docs/02-gouvernance-ia/01-regles-ia.md` | Règles obligatoires |
 | `adp-docs/02-gouvernance-ia/02-conventions-redaction.md` | Marqueurs et conventions |
+| `adp-docs/02-gouvernance-ia/03-perimetre-agents.md` | Périmètre d'action autorisé |
 | `adp-docs/02-gouvernance-ia/04-anti-patterns.md` | Anti-patterns à éviter |
 | `[autre fichier]` | [Raison] |
 

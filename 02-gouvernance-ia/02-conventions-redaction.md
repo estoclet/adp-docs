@@ -1,7 +1,7 @@
 # Conventions de rédaction pour agents
 
 **Statut** : Actif — s'applique à tous les documents produits par des agents  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itération 1  
+**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1 et 3  
 **Lié à** : `01-regles-ia.md`, `03-perimetre-agents.md`
 
 ---
@@ -42,6 +42,15 @@ Les agents ne marquent jamais quelque chose `[FAIT]` sans pouvoir citer la sourc
 Un agent ne peut pas **promouvoir** un marqueur (`[HYPOTHÈSE]` → `[FAIT]`) sans ajouter simultanément la source traçable.  
 Un agent peut **rétrograder** un marqueur (`[FAIT]` → `[OBSOLÈTE]`) uniquement si la décision de révision est enregistrée dans `07-pilotage/02-journal-decisions.md`.  
 Toute promotion ou rétrogradation doit être signalée dans le bloc "Signalement agent" avec la justification.
+
+### Résolution des inconnues (I-XX)
+
+Quand une inconnue identifiée par un identifiant `I-XX` est résolue :
+
+1. Dans `00-initialisation-projet.md` : remplacer `[À ARBITRER]` ou `[INCONNUE]` par `[RÉSOLU — voir décision N]` ou `[RÉSOLU — confirmé le DATE]`. Ne pas supprimer la ligne (traçabilité).
+2. Dans les documents qui citaient l'inconnue : remplacer `[DÉPENDANCE] Dépend de I-XX` par `[FAIT — I-XX résolu : valeur]` avec la source.
+3. Signaler la résolution dans le bloc "Signalement agent" : "I-XX résolu : valeur = X, source = Y."
+4. Ne pas réutiliser un identifiant I-XX pour une nouvelle inconnue — les identifiants sont uniques et permanents.
 
 ---
 
