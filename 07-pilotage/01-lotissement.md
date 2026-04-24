@@ -22,9 +22,10 @@
 | Créer l'arborescence `adp-docs/` | ✅ Fait |
 | Rédiger `00-initialisation-projet.md` | ✅ Fait |
 | Rédiger les règles IA | ✅ Fait |
-| Arbitrer les inconnues I-01, I-03, I-04, I-07, I-08 | ⏳ En attente client |
+| Arbitrer les inconnues I-01, I-03, I-07 | ✅ Fait — résolus (voir `00-initialisation-projet.md`) |
+| Arbitrer les inconnues I-04, I-08 | ⏳ En attente client |
 
-**Bloquants** : Arbitrages client sur les inconnues.
+**Bloquants** : Arbitrages client sur I-04 (budget/délais) et I-08 (persona).
 
 ---
 

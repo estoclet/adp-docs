@@ -85,7 +85,7 @@ Chaque contenu legacy sera classé dans l'une de ces catégories :
 
 ## Méthode d'export du contenu legacy
 
-[HYPOTHÈSE — dépend de I-06]
+[FAIT — I-06 résolu] Méthode retenue : Export XML WordPress natif + médias via rsync. Options documentées pour référence :
 
 Options possibles :
 
