@@ -1,7 +1,7 @@
 # Conventions de rédaction pour agents
 
 **Statut** : Actif — s'applique à tous les documents produits par des agents  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itération 1  
 **Lié à** : `01-regles-ia.md`, `03-perimetre-agents.md`
 
 ---
@@ -38,6 +38,11 @@ Un fait ne peut pas être une hypothèse simultanément : choisir le marqueur le
 ### Marqueurs interdits pour les agents
 Les agents ne marquent jamais quelque chose `[FAIT]` sans pouvoir citer la source dans le même document ou en référence à un fichier existant dans `adp-docs/`.
 
+### Promotion et rétrogradation des marqueurs
+Un agent ne peut pas **promouvoir** un marqueur (`[HYPOTHÈSE]` → `[FAIT]`) sans ajouter simultanément la source traçable.  
+Un agent peut **rétrograder** un marqueur (`[FAIT]` → `[OBSOLÈTE]`) uniquement si la décision de révision est enregistrée dans `07-pilotage/02-journal-decisions.md`.  
+Toute promotion ou rétrogradation doit être signalée dans le bloc "Signalement agent" avec la justification.
+
 ---
 
 ## Règles de formulation
@@ -53,6 +58,12 @@ Les agents ne marquent jamais quelque chose `[FAIT]` sans pouvoir citer la sourc
 | "Il faudrait sans doute…" | Vague, non actionnable | "[HYPOTHÈSE] X semble pertinent si Y est confirmé" |
 | "Comme convenu…" | Supposer un accord non documenté | Citer le document ou le journal de décision |
 | "Le site actuel est…" | Affirmation sur legacy non vérifiée | "[À VÉRIFIER — analyse legacy]" |
+| "D'après mes connaissances…" | Source externe non valide dans ce repo | "[HYPOTHÈSE] …" + citer I-XX si pertinent |
+| "Typiquement pour un site WordPress…" | Généralisation hors repo | "[HYPOTHÈSE] Sur des projets similaires…" |
+| "On peut supposer que…" | Supposition non assumée | "[HYPOTHÈSE] …" explicite |
+| "Il est probable que…" | Probabilité non sourcée | "[HYPOTHÈSE] …" avec condition de vérification |
+| "Ce type de client…" | Stéréotype non sourcé | "[HYPOTHÈSE] …" ou `[INCONNUE]` si non documenté |
+| "Comme dit précédemment…" | Référence vague sans pointeur | Citer le fichier ou la section exacte |
 
 ### Formulations recommandées
 

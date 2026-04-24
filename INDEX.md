@@ -14,6 +14,7 @@
 | 2 | `02-gouvernance-ia/01-regles-ia.md` | Règles opérationnelles pour tout agent |
 | 3 | `02-gouvernance-ia/02-conventions-redaction.md` | Marqueurs et discipline d'écriture |
 | 4 | `02-gouvernance-ia/03-perimetre-agents.md` | Ce que l'agent peut et ne peut pas faire |
+| 5 | `02-gouvernance-ia/04-anti-patterns.md` | Catalogue des dérives récurrentes à éviter |
 
 ---
 

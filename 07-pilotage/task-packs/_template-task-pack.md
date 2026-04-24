@@ -49,13 +49,27 @@
 
 ---
 
+## Comportement en cas d'ambiguïté
+
+Si une instruction de ce task pack est ambiguë, contradictoire, ou si deux règles semblent s'opposer :
+
+1. **Arrêter** la partie ambiguë — ne pas interpréter, ne pas choisir
+2. **Documenter** l'ambiguïté dans l'output : `[AMBIGUÏTÉ — en attente de clarification] Description du problème`
+3. **Continuer** les parties claires et indépendantes
+4. **Signaler** l'ambiguïté dans le bloc "Signalement agent"
+
+**Les contraintes priment sur l'objectif.** Si accomplir l'objectif implique de violer une règle de `01-regles-ia.md`, l'agent signale l'impossibilité — il ne viole pas la règle.
+
+---
+
 ## Contraintes impératives
 
-- [ ] Utiliser les marqueurs définis dans `02-conventions-redaction.md`
+- [ ] Utiliser les marqueurs définis dans `02-conventions-redaction.md` sur **chaque affirmation** (fait, hypothèse, inconnue, recommandation)
 - [ ] Ne pas modifier de fichiers hors de la liste ci-dessus
-- [ ] Ne pas inventer de fait sans source explicite
+- [ ] Ne pas inventer de fait sans source explicite dans ce repo
 - [ ] Signaler toute inconnue bloquante avec `[INCONNUE BLOQUANTE]`
 - [ ] Terminer par un bloc "Signalement agent"
+- [ ] Ne pas créer de fichier supplémentaire jugé utile sans validation humaine (R-07b)
 - [ ] [Contrainte spécifique à cette tâche]
 
 ---
