@@ -66,7 +66,7 @@ Convention : `[Zone] — [Nom du bloc]`
 - Les couleurs ne sont **jamais** saisies en dur dans les modules : elles passent par les **couleurs globales Divi** (palette définie dans les Réglages Divi).
 - Les typographies passent par les **presets de texte Divi** ou le CSS du thème enfant.
 - [DÉPENDANCE] La palette exacte est bloquée par I-07 (hex à recueillir — Julien HACHE).
-- [DÉPENDANCE] La police est bloquée par I-13 (à valider par le client).
+- [FAIT] La police n'est plus bloquante : carte blanche client. Préconisation projet actuelle : `Inter`, avec fallback `DM Sans`.
 
 ---
 

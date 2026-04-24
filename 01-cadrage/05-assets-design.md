@@ -43,4 +43,5 @@ Palette extraite directement des fichiers sources (mesure directe — Python PIL
 - Le logo est un monogramme géométrique (initiales "A", "d", "P" stylisées dans un cercle).
 - `logo-white.png` est bien blanc sur fond transparent — invisible sur fond blanc, prévu pour le header sombre.
 - La photo `hero-bg.png` est cadrée avec un espace blanc à gauche — conçue pour la colonne droite du hero (55%).
-- La typographie visible dans la maquette n'est pas déterminable avec certitude depuis le PNG. [INCONNUE — I-13]
+- La typographie visible dans la maquette n'est pas déterminable avec certitude depuis le PNG. [FAIT]
+- [FAIT — validation chef de projet / carte blanche client] Le choix de police est laissé au projet. Préconisation actuelle : `Inter`, avec `DM Sans` comme alternative crédible.

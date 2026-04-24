@@ -110,7 +110,16 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 
 **Modules Divi** : Blurb (ou Image + Texte + Bouton texte). [FAIT]
 
-**Inconnue** : [INCONNUE] Textes descriptifs à fournir par le client pour chaque carte.
+### Textes proposés
+
+| Carte | Texte proposé |
+|------|---------------|
+| Assistance Apple | Diagnostic, aide à l'usage et résolution de problèmes sur Mac, iPhone, iPad et iCloud. |
+| Formation | Des explications claires et progressives pour mieux utiliser vos appareils Apple au quotidien. |
+| Réseau & Wi-Fi | Configuration, optimisation et sécurisation de votre connexion et de vos équipements connectés à la maison. |
+| Démarches administratives | Aide pas à pas pour vos démarches en ligne : impôts, santé, retraite, documents et services utiles. |
+
+> [FAIT — validation chef de projet / carte blanche client] Les textes des cartes peuvent être proposés par le projet puis ajustés par Julien HACHE si nécessaire.
 
 ---
 
@@ -153,7 +162,18 @@ Empilement propre des 3 colonnes. [FAIT]
 
 **Contenu par carte** : icône + titre + description courte + lien "En savoir plus". [FAIT]
 
-**Inconnue** : [INCONNUE] Textes descriptifs de chaque prestation à fournir par le client.
+### Textes proposés
+
+| Carte | Texte proposé |
+|------|---------------|
+| Dépannage | Résolution de pannes, blocages, lenteurs et problèmes d'usage sur vos équipements Apple. |
+| Formation | Accompagnement personnalisé pour gagner en autonomie sur Mac, iPhone, iPad, iCloud et les usages numériques. |
+| Sauvegardes & installation | Mise en place de sauvegardes fiables, transferts, installation et remise en route de vos appareils. |
+| Réseau domestique | Amélioration du Wi-Fi, configuration du réseau local et connexion de vos périphériques à domicile. |
+| Conseil | Recommandations simples et adaptées pour achat, configuration, évolution ou remplacement de matériel. |
+| Démarches administratives | Aide concrète pour vos formalités en ligne, avec explications claires et accompagnement à votre rythme. |
+
+> [FAIT — validation chef de projet / carte blanche client] Les textes de prestations peuvent être proposés par le projet puis retouchés par Julien HACHE si nécessaire.
 
 ---
 
@@ -225,7 +245,11 @@ Empilement propre des 3 colonnes. [FAIT]
 | 4 | Contact : téléphone · email · localisation |
 | Bas | Ligne de copyright |
 
-**Inconnues** : [INCONNUE] Réseaux sociaux présents ? [INCONNUE] Email client.
+**Réseaux sociaux** :
+- Facebook : `https://www.facebook.com/astucesdepomme/`
+- LinkedIn : `https://www.linkedin.com/company/astuces-de-pomme/about/`
+
+**Email** : [RÉSOLU — I-10] `julien.hache@astucesdepomme.com`
 
 ---
 
@@ -243,7 +267,8 @@ Voir `ADR-002-identite-visuelle.md` pour la charte complète.
 | Gris foncé | À définir | Texte courant |
 | Gris clair | À définir | Bordures discrètes |
 
-**Police** : sans-serif moderne, sobre, très lisible (Inter, DM Sans, Nunito Sans ou équivalent). [RECOMMANDÉ — à valider]
+**Police** : sans-serif moderne, sobre, très lisible. Carte blanche projet/client pour le choix final.  
+**Préconisation projet** : `Inter` en priorité, `DM Sans` en alternative. [FAIT — choix libre validé]
 
 **Inconnues couleurs** : [INCONNUE] Valeurs hex exactes — à extraire de la carte de visite du client ou à définir avec lui.
 
@@ -270,11 +295,11 @@ L'agent ou le développeur peut ajouter du CSS pour : [FAIT — consigne brief]
 | I-email | Adresse email de contact | Bloc 8, footer | [RÉSOLU — I-10 — julien.hache@astucesdepomme.com] |
 | I-zone | Zone / communes d'intervention | Bloc 7 | [RÉSOLU — I-11 — "Région Lilloise, 60km autour d'Houplines"] |
 | I-hex | Valeurs hex exactes de la palette | Tous les blocs | [RÉSOLU PARTIEL — I-07 — `#1e3264` (primaire) + `#0070c8` (accent) — voir `01-cadrage/05-assets-design.md`] |
-| I-police | Police validée | Tous les blocs | [INCONNUE — I-13 — non déterminable depuis PNG] |
-| I-textes | Textes descriptifs des cartes et prestations | Blocs 3, 5 | [INCONNUE — I-12 — à recueillir auprès de Julien HACHE] |
+| I-police | Police validée | Tous les blocs | [RÉSOLU — I-13 — carte blanche client ; préconisation projet : `Inter`] |
+| I-textes | Textes descriptifs des cartes et prestations | Blocs 3, 5 | [RÉSOLU — I-12 — proposition projet autorisée, révisable par Julien HACHE] |
 | I-mention-legale | Mention légale crédit d'impôt | Bloc 4 | [RÉSOLU — I-14 — "Dans les limites prévues à l'article 199 sexdecies du code général des impôts"] |
 | I-visuels | Image hero + badge "Services à la personne" | Blocs 2, 4 | [RÉSOLU PARTIEL — hero-bg.png disponible dans `adp-app/assets/design/` ; badge SAP à créer] |
-| I-reseaux | Réseaux sociaux présents et URLs | Footer | [INCONNUE — à recueillir auprès de Julien HACHE] |
+| I-reseaux | Réseaux sociaux présents et URLs | Footer | [RÉSOLU — Facebook + LinkedIn fournis le 2026-04-24] |
 
 ---
 
@@ -299,8 +324,8 @@ Pas de module `Code` sauf si indispensable. [FAIT]
 ## Signalement
 
 - **Statut** : Brief client validé (réunion 2026-04-23) — spec rédigée en conséquence
-- **Hypothèses posées** : Liens internes (slugs des pages Prestations/Formations/Avis non encore créées), police suggérée
+- **Hypothèses posées** : Liens internes (slugs des pages Prestations/Formations/Avis non encore créées), préconisation de police (`Inter`) dans le cadre de la carte blanche client
 - **Inconnues résolues** : logo (I-09), email (I-10), zone géo (I-11), palette primaire/accent (I-07 partiel), hero image (I-visuels partiel), mention légale (I-14)
-- **Inconnues restantes** : police (I-13), textes cartes services (I-12), réseaux sociaux (I-reseaux), badge SAP
-- **Points à arbitrer** : police exacte (I-13), couleurs complémentaires (hover, fond section)
-- **Prochaine étape** : recueillir I-13 (police) et I-12 (textes cartes) auprès de Julien HACHE — le reste est débloqué pour le développement
+- **Inconnues restantes** : badge SAP, couleurs complémentaires (hover, fond section)
+- **Points à arbitrer** : uniquement les couleurs complémentaires et la forme finale du badge SAP
+- **Prochaine étape** : intégrer la homepage sur base des textes proposés et des réseaux fournis, puis laisser Julien HACHE ajuster si besoin
