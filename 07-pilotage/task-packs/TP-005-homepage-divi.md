@@ -56,6 +56,8 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 |---------|---------|
 | `adp-docs/02-gouvernance-ia/01-regles-ia.md` | Règles obligatoires |
 | `adp-docs/02-gouvernance-ia/02-conventions-redaction.md` | Conventions |
+| `adp-docs/02-gouvernance-ia/03-perimetre-agents.md` | Périmètre d'action autorisé — R-25 |
+| `adp-docs/02-gouvernance-ia/04-anti-patterns.md` | Anti-patterns à éviter |
 | `adp-docs/05-specs/pages/homepage.md` | Spec complète à implémenter — source de vérité |
 | `adp-docs/06-decisions/ADR-002-identite-visuelle.md` | Charte visuelle |
 | `adp-docs/04-architecture/03-composants-divi.md` | Modules, presets, CSS à prévoir |
@@ -92,6 +94,7 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 
 ## Contraintes impératives
 
+- [ ] Si reprise de session : lire `git log` sur `adp-app/` et les fichiers en cours avant d'agir — ne pas supposer que le résumé de contexte est à jour (R-26)
 - [ ] Respecter strictement la spec `homepage.md` — pas de blocs supplémentaires
 - [ ] Réutiliser la licence Divi issue du legacy lors de l'activation de Divi dans `adp-app`
 - [ ] Ne jamais versionner ni documenter en clair un secret de licence Divi
