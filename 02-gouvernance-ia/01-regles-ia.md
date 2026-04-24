@@ -66,8 +66,17 @@ Lorsqu'un squelette est fourni avec des sections partiellement remplies, seules 
 ### R-07d — Ambiguïté = arrêt, pas interprétation
 Si une instruction du task pack est ambiguë, contradictoire, ou si deux règles semblent s'opposer, l'agent **s'arrête sur la partie ambiguë**, documente l'ambiguïté dans son output avec `[AMBIGUÏTÉ — en attente de clarification]`, et n'agit pas sur cette partie. Il continue les parties claires si elles sont indépendantes.
 
-### R-08 — Ne pas toucher à adp-app ni à adp-legacy
+### R-08 — Ne pas toucher à adp-app ni à adp-legacy (depuis adp-docs)
 Ces répertoires sont hors du périmètre de `adp-docs`. Les agents qui travaillent dans `adp-docs` n'écrivent pas dans `adp-app` ou `adp-legacy`.
+
+### R-25 — Les agents Lot 3 opèrent dans adp-app — règles miroir
+Les task packs du Lot 3 (développement) autorisent explicitement l'écriture dans `adp-app/`. Pour ces agents :
+
+- Le task pack doit lister `adp-app/` **explicitement** dans ses outputs — sans cette mention, adp-app reste hors scope.
+- Toutes les règles R-01 à R-24 s'appliquent dans le contexte adp-app (pas d'invention, pas de dérive, traçabilité Git).
+- R-17 est particulièrement critique : tout code modifié dans adp-app passe par Git avant toute autre action.
+- Un agent Lot 3 ne modifie pas adp-docs sauf si son task pack le liste explicitement — la règle R-08 s'applique en sens inverse.
+- Les agents Lot 3 ne versionnent pas les secrets de licence, clés API, ou fichiers contenant des données personnelles dans adp-app (R-19).
 
 ---
 

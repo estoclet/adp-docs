@@ -30,50 +30,50 @@
 
 ### Lot 1 — Analyse du legacy
 **Objectif** : Comprendre l'existant avant de concevoir le nouveau.  
-**Statut** : À démarrer (dépend de Lot 0)  
+**Statut** : Terminé — à valider  
 **Livrable** : `03-legacy/` complété et validé
 
 | Tâche | Task pack | Statut |
 |-------|-----------|--------|
-| Inventaire structure et plugins | TP-001 | À lancer |
-| Analyse éditoriale du contenu | TP-002 | Après TP-001 |
-| Audit SEO et performances actuelles | TP-003 | Après TP-001 |
-| Mapping URL legacy → nouveau | TP-004 | Après TP-002 + arborescence validée |
+| Inventaire structure et plugins | TP-001 | ✅ Terminé — à valider |
+| Analyse éditoriale du contenu | TP-002 | ✅ Terminé — à valider |
+| Audit SEO et performances actuelles | TP-003 | Non planifié (V1 : hors périmètre) |
+| Mapping URL legacy → nouveau | TP-004 | ✅ Terminé — à valider (1 proposition) |
 
-**Bloquants** : Accès au site legacy (adp-legacy/ disponible [FAIT]). Accès BDD pour volume exact (I-06).
+**Bloquants** : Aucun — validation client requise sur les 3 livrables `03-legacy/`.
 
 ---
 
 ### Lot 2 — Architecture et design
 **Objectif** : Valider l'arborescence, les types de contenus, la charte Divi.  
-**Statut** : À démarrer (dépend de Lot 1 + arbitrages I-07, I-08)  
-**Livrable** : `04-architecture/` validé + charte Divi + maquettes pages clés
+**Statut** : En cours — à valider client  
+**Livrable** : `04-architecture/` validé + charte Divi + specs pages clés
 
 | Tâche | Statut |
 |-------|--------|
-| Valider l'arborescence cible | [À ARBITRER — Julien HACHE] |
-| Définir la charte Divi (couleurs, typo) | [DÉPENDANCE] → I-07 |
-| Valider types de contenus et taxonomies | [À ARBITRER] |
-| Valider specs pages principales | [À FAIRE] |
+| Valider l'arborescence cible | ✅ Rédigée — à valider Julien HACHE |
+| Définir la charte Divi (couleurs, typo) | ✅ [RÉSOLU] — `#1e3264` + `#0070c8`, Inter |
+| Valider types de contenus et taxonomies | ✅ Rédigés — à valider |
+| Rédiger specs pages principales | ✅ Fait — homepage validée client, 5 autres en brouillon |
 
-**Bloquants** : Arbitrage I-07 (identité graphique), I-08 (persona), analyse legacy.
+**Bloquants** : Validation client sur arborescence, types de contenus, specs pages secondaires. I-15/16 (photo + bio) bloquent la spec À propos. I-18/19 (avis GBP) bloquent la spec Avis.
 
 ---
 
 ### Lot 3 — Développement et intégration
 **Objectif** : Installer, configurer et construire le nouveau site dans `adp-app/`.  
-**Statut** : À démarrer (dépend de Lot 2)  
+**Statut** : En cours  
 **Livrable** : Site fonctionnel en staging
 
-| Tâche | Statut |
-|-------|--------|
-| Installation WP + configuration de base | À planifier |
-| Installation et activation Divi | À planifier |
-| Développement des composants globaux (header, footer, CTA) | À planifier |
-| Intégration des templates de pages | À planifier |
-| Configuration plugins (SEO, cache, sécurité, formulaires) | À planifier |
+| Tâche | Task pack | Statut |
+|-------|-----------|--------|
+| Installation WP + configuration de base | — | ✅ Fait — DDEV adp-app, WP 6.9.4 fr_FR |
+| Installation et activation Divi | — | ✅ Fait — Divi 5.3.3, adp-divi-child v0.1.0 (commit 069d734) |
+| Intégration Divi homepage (header, footer, 9 blocs) | TP-005 | À lancer — prérequis remplis (2026-04-24) |
+| Intégration des pages secondaires | À planifier | [DÉPENDANCE] → TP-005 + validation specs |
+| Configuration plugins (SEO, cache, sécurité, formulaires) | À planifier | À planifier |
 
-**Bloquants** : Hébergement staging (I-01), charte Divi validée, specs pages validées.
+**Bloquants** : Licence Divi (activation sur adp-app — credentials Elegant Themes Julien HACHE). Validation specs pages secondaires avant intégration.
 
 ---
 

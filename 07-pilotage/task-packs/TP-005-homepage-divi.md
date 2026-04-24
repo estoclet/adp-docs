@@ -1,6 +1,6 @@
 # TP-005 — Intégration Divi de la page d'accueil
 
-**Statut** : En attente — bloqué sur inconnues client
+**Statut** : À lancer — prérequis remplis (2026-04-24)
 **Date de création** : 2026-04-24
 **Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi
 **Durée estimée** : Long (dépend de la disponibilité des assets client)
@@ -20,16 +20,19 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 
 | Prérequis | Fournisseur | Statut |
 |-----------|------------|--------|
-| WordPress + Divi installés et configurés dans `adp-app/` | Développeur WP | [À FAIRE] |
-| Reprise de la licence Divi présente sur l'instance legacy | Eric STOCLET + développeur WP | [À PRÉPARER — voir `01-cadrage/02-architecture-cible.md`] |
-| Logo / monogramme PNG fond transparent | Julien HACHE | [À RECUEILLIR] |
-| Palette V1 documentée (ADR-002 + assets) | Projet | [FAIT] |
+| WordPress installé et configuré dans `adp-app/` | Projet | [FAIT — DDEV adp-app, WP 6.9.4 fr_FR] |
+| Divi 5.3.3 installé et actif dans `adp-app/` | Projet | [FAIT — commit 069d734 adp-app, zip fourni 2026-04-24] |
+| Thème enfant `adp-divi-child` actif | Projet | [FAIT — commit 7a389ee adp-app] |
+| Logo / monogramme PNG fond transparent | Julien HACHE | [FAIT — `adp-app/assets/design/logo-dark.png` + `logo-white.png`] |
+| Palette V1 documentée | Projet | [FAIT — `#1e3264` + `#0070c8` — voir `01-cadrage/05-assets-design.md`] |
 | Police validée | Projet (carte blanche client) | [FAIT — `Inter`] |
-| Adresse email de contact | Julien HACHE | [FAIT — documentée] |
-| Zone / communes d'intervention | Julien HACHE | [FAIT — documentée] |
-| Textes descriptifs cartes (blocs 3 et 5) | Projet, révisable par Julien HACHE | [FAIT — propositions documentées dans `homepage.md`] |
-| Image hero (bureau + devices) | Projet | [FAIT — `adp-app/assets/design/hero-bg.png`] |
-| Mention légale crédit d'impôt | Julien HACHE (ou comptable) | [À RECUEILLIR] |
+| Adresse email de contact | Julien HACHE | [FAIT — julien.hache@astucesdepomme.com] |
+| Zone / communes d'intervention | Julien HACHE | [FAIT — Région Lilloise, 60km autour d'Houplines] |
+| Textes descriptifs cartes (blocs 3 et 5) | Projet | [FAIT — propositions dans `05-specs/pages/homepage.md`] |
+| Image hero | Projet | [FAIT — `adp-app/assets/design/hero-bg.png`] |
+| Mention légale crédit d'impôt | Source legacy | [FAIT — "Dans les limites prévues à l'article 199 sexdecies du CGI"] |
+| Spec homepage complète | Projet | [FAIT — `05-specs/pages/homepage.md` validée client] |
+| Specs pages secondaires | Projet | [FAIT — `05-specs/pages/prestations.md`, `formations.md`, `a-propos.md`, `avis.md`, `contact.md`] |
 
 ---
 

@@ -1,7 +1,7 @@
 # Périmètre des agents IA
 
 **Statut** : Actif  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itération 1  
+**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1 et 5 (R-25 ajouté)  
 **Lié à** : `01-regles-ia.md`, `02-conventions-redaction.md`
 
 ---
@@ -58,7 +58,9 @@
 | `adp-docs/07-pilotage/` | Oui | Task packs : non / outputs : oui | Ne pas modifier le lotissement sans humain |
 | `adp-docs/08-handoffs/` | Oui | Oui si handoff en cours | |
 | `adp-legacy/` | Oui (lecture analyse) | Non | Source legacy intouchable |
-| `adp-app/` | Non | Non | Hors périmètre `adp-docs` |
+| `adp-app/` | Non (depuis adp-docs) | Non (depuis adp-docs) | Hors périmètre pour les agents adp-docs — voir R-25 pour les agents Lot 3 |
+
+> **Exception Lot 3** : les agents dont le task pack opère dans `adp-app/` ont le droit d'écrire dans adp-app si et seulement si `adp-app/` est explicitement listé dans les outputs du task pack. Ces agents ne doivent pas écrire dans adp-docs sauf mention explicite. Voir R-25.
 
 ---
 
