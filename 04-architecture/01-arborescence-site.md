@@ -56,6 +56,8 @@ astucesdepomme.com/
 └── Pages légales (footer uniquement)
     ├── /tarifs-prestations/       [HYPOTHÈSE — présent dans footer]
     ├── /faq/                      [HYPOTHÈSE — présent dans footer]
+    ├── /cgv/                      [FAIT — conservée depuis le legacy]
+    ├── /infos-fiscales/           [FAIT — conservée depuis le legacy, distincte de `/tarifs-prestations/`]
     ├── /mentions-legales/         [FAIT — obligatoire RGPD]
     └── /politique-confidentialite/ [FAIT — obligatoire RGPD]
 ```
@@ -98,6 +100,8 @@ Exemples :
 | Mentions légales | `/mentions-legales/` | Obligation légale |
 | Politique de confidentialité | `/politique-confidentialite/` | RGPD |
 | Tarifs & prestations | `/tarifs-prestations/` | Présente dans footer du brief |
+| CGV | `/cgv/` | Continuité contractuelle depuis le legacy |
+| Informations fiscales | `/infos-fiscales/` | Page fiscale dédiée conservée, distincte de `/tarifs-prestations/` |
 | FAQ | `/faq/` | Présente dans footer du brief |
 | Page 404 | — | Template à créer dans Divi |
 

@@ -1,13 +1,14 @@
 # Mapping de migration — URLs legacy → nouveau site
 
-**Statut** : Squelette — à compléter après analyse legacy et validation arborescence  
+**Statut** : En cours — mapping initial basé sur le legacy réel et l'arborescence cible validée  
 **Dernière mise à jour** : 2026-04-24  
-**Produit par** : Chef de projet — structure initiale  
+**Produit par** : Agent IA — première proposition de mapping  
 **Lié à** : `02-analyse-contenu.md`, `04-architecture/01-arborescence-site.md`, `01-cadrage/04-strategie-migration.md`
 
 > **Note agent** : Ne pas remplir ce document avant que les deux conditions suivantes soient réunies : (1) l'analyse legacy est terminée (`01-inventaire-legacy.md` et `02-analyse-contenu.md` complétés), (2) l'arborescence cible est validée (`04-architecture/01-arborescence-site.md`). Un mapping partiel ou basé sur des hypothèses est inutilisable et dangereux.
 
-> [DÉPENDANCE] Dépend de I-03 (changement de domaine ou redirection).
+> [FAIT] I-03 est validé : le domaine public est conservé (`https://astucesdepomme.com`).  
+> [RÈGLE] Ce mapping porte donc sur les URLs internes legacy → nouvelles URLs internes.
 
 ---
 
@@ -22,13 +23,13 @@
 
 ## Table de mapping
 
-> À compléter après analyse legacy et validation de l'arborescence cible.
-
 | URL source (legacy) | Titre legacy | Décision contenu | URL cible (nouveau site) | Type redirection | Statut |
 |--------------------|-------------|-----------------|--------------------------|-----------------|--------|
-| /exemple-article | Titre de l'article | Garder | /astuces/iphone/exemple | 301 | [À FAIRE] |
-| /exemple-2 | Titre 2 | Supprimer | /astuces/iphone/ (catégorie) | 301 | [À FAIRE] |
-| … | … | … | … | … | … |
+| / | Accueil | Réécrire | / | 301 implicite / remplacement direct | [PROPOSITION] |
+| /mentions-legales | Mentions legales | Réécrire | /mentions-legales/ | 301 | [PROPOSITION] |
+| /cgv | CGV | Réécrire | /cgv/ | 301 | [VALIDÉ] |
+| /infos-fiscales | Information Fiscale | Réécrire | /infos-fiscales/ | 301 | [VALIDÉ] |
+| /confidentialite | Confidentialité | Réécrire | /politique-confidentialite/ | 301 | [PROPOSITION] |
 
 ---
 
@@ -45,11 +46,15 @@
 
 ## URLs à fort enjeu SEO (priorité 1)
 
-> Lister ici les URLs avec le plus de trafic ou de backlinks — à traiter en priorité absolue.
+> Le legacy ne présente pas de corpus d'articles publié. Les URLs prioritaires sont donc les 5 pages existantes.
 
 | URL source | Trafic estimé | Backlinks | URL cible validée | Statut |
 |-----------|--------------|-----------|------------------|--------|
-| | | | | |
+| / | [INCONNUE] | [INCONNUE] | / | [PROPOSITION] |
+| /mentions-legales | [INCONNUE] | [INCONNUE] | /mentions-legales/ | [PROPOSITION] |
+| /confidentialite | [INCONNUE] | [INCONNUE] | /politique-confidentialite/ | [PROPOSITION] |
+| /cgv | [INCONNUE] | [INCONNUE] | /cgv/ | [VALIDÉ] |
+| /infos-fiscales | [INCONNUE] | [INCONNUE] | /infos-fiscales/ | [VALIDÉ] |
 
 ---
 
@@ -59,16 +64,25 @@
 
 | URL source | Titre | Problème | [À ARBITRER] par |
 |-----------|-------|----------|-----------------|
-| | | | Chef de projet |
+| | | | |
+
+---
+
+## Observations de mapping
+
+- [FAIT] Le legacy réel ne contient que 5 pages publiées et aucun article publié.
+- [FAIT] Le mapping ne dépend plus d'un changement de domaine.
+- [FAIT] Les pages légales obligatoires ont déjà des cibles naturelles dans l'arborescence cible pour `mentions-legales` et `politique-confidentialite`.
+- [FAIT] `/cgv` reste une page dédiée sur le nouveau site.
+- [FAIT] `/infos-fiscales` reste une page dédiée sur le nouveau site.
+- [FAIT] `/tarifs-prestations/` reste distincte de `/infos-fiscales/` et devra contenir une mention + un renvoi vers cette page fiscale.
 
 ---
 
 ## Signalement agent
 
-_(À compléter par l'agent qui réalise le mapping)_
-
-- **Tâche accomplie** :
-- **Hypothèses posées** :
-- **Inconnues rencontrées** :
-- **Points à arbitrer** :
-- **Prochaine étape recommandée** :
+- **Tâche accomplie** : premier mapping des 5 URLs réellement publiées sur le legacy, en cohérence avec le domaine conservé et l'arborescence cible actuelle.
+- **Hypothèses posées** : aucune hypothèse de trafic ou de backlinks ; seules des propositions de destination ont été formulées quand la cible est déjà identifiable.
+- **Inconnues rencontrées** : absence de données SEO fines (trafic, backlinks, requêtes réelles).
+- **Points à arbitrer** : aucun arbitrage structurel majeur restant sur les 5 pages publiées ; reste à confirmer l'ajout explicite de `/cgv/` et `/infos-fiscales/` dans l'arborescence cible documentaire si souhaité.
+- **Prochaine étape recommandée** : considérer le mapping V1 comme pratiquement validé, puis répercuter si besoin ces deux pages explicites dans l'arborescence cible.
