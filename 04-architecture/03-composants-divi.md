@@ -96,16 +96,17 @@ Ces modules sont les seuls à utiliser sauf besoin spécifique justifié. [FAIT 
 
 ## CSS personnalisé à prévoir
 
-Le CSS custom est **nécessaire** pour les éléments suivants. [FAIT — consigne brief]
+Le CSS custom est **nécessaire** pour les éléments suivants. [FAIT — consigne brief]  
+Convention de nommage : préfixe `adp-` obligatoire — voir `04-conventions-divi.md`. [FAIT — implémenté dans `adp-divi-child/assets/css/theme.css`]
 
-| Cible CSS | Objectif |
-|-----------|---------|
-| `.card-service` | Uniformiser les coins arrondis (16-24px), hauteur égale |
-| `.card-service:hover` | Hover subtil (ombre légère ou légère remontée) |
-| `.pill-thematique` | Forme capsule, contour léger, icône gauche |
-| `.btn-secondary` | Bouton contour clair + style de survol |
-| Media queries mobile | Empilement propre, boutons pleine largeur |
-| Header sticky | Transition discrète au scroll |
+| Cible CSS | Objectif | Statut |
+|-----------|---------|--------|
+| `.adp-card-service` | Uniformiser les coins arrondis (16-24px), hauteur égale | ✅ Implémenté |
+| `.adp-card-service:hover` | Hover subtil (ombre légère ou légère remontée) | ✅ Implémenté |
+| `.adp-pill-theme` | Forme capsule, contour léger, icône gauche | ✅ Implémenté |
+| `.adp-btn-secondary` | Bouton contour clair + style de survol | ✅ Implémenté |
+| Media queries mobile | Empilement propre, boutons pleine largeur | ✅ Implémenté |
+| Header sticky | Transition discrète au scroll | À faire en Lot 3 |
 
 ---
 
