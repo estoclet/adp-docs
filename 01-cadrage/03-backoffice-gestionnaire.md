@@ -1,6 +1,6 @@
 # Backoffice et gestion de contenu
 
-**Statut** : Hypothèses à valider — aucune information précise fournie  
+**Statut** : Base V1 cadrée — à compléter selon usages réels  
 **Dernière mise à jour** : 2026-04-24  
 **Lié à** : `02-architecture-cible.md`, `04-architecture/02-types-contenus.md`
 
@@ -16,10 +16,10 @@
 |------|------|-------------------|
 | Articles (Posts) | Astuces, tutoriels, guides | Post type natif |
 | Pages statiques | Accueil, À propos, Contact, CGU | Page type natif |
-| Démarches | Guides démarches administratives | [À ARBITRER : post type natif ou CPT ?] |
-| FAQ | Questions fréquentes | [À ARBITRER : page, CPT, plugin ?] |
+| Démarches | Guides démarches administratives | Post type natif avec catégorie dédiée |
+| FAQ | Questions fréquentes | Hors V1 |
 
-> [À ARBITRER] : La création de Custom Post Types (CPT) pour "Démarches" et "FAQ" est à évaluer selon le volume et la structuration du contenu. Les CPT ajoutent de la flexibilité mais complexifient la maintenance.
+> **Décision V1** : aucun CPT additionnel n'est prévu au démarrage.
 
 ---
 
@@ -29,11 +29,11 @@
 
 | Taxonomie | Type | Valeurs hypothétiques |
 |-----------|------|----------------------|
-| Catégories d'astuces | Hiérarchique (catégorie WP) | iPhone, Mac, iPad, Apple Watch, iCloud, Safari, Apple TV, Démarches |
+| Catégories d'astuces | Hiérarchique (catégorie WP) | iPhone, Mac, iPad, iCloud, Démarches |
 | Tags | Plate (étiquette WP) | Libres, à nettoyer depuis le legacy |
-| Niveau de difficulté | [HYPOTHÈSE] | Débutant, Intermédiaire, Avancé |
+| Niveau de difficulté | Non retenu en V1 | —
 
-> **Note** : La structure réelle des catégories sera déterminée par l'analyse du legacy (TP-001 + TP-002). Ne pas créer des catégories sans données réelles.
+> **Règle V1** : démarrer simple, sans sous-catégories ni taxonomie additionnelle tant que le volume réel ne l'impose pas.
 
 ---
 

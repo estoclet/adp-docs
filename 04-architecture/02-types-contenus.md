@@ -1,6 +1,6 @@
 # Types de contenus WordPress
 
-**Statut** : Proposition — [À ARBITRER] après analyse legacy  
+**Statut** : Arbitré V1 — architecture de contenu minimale retenue  
 **Dernière mise à jour** : 2026-04-24  
 **Lié à** : `01-arborescence-site.md`, `03-backoffice-gestionnaire.md`
 
@@ -18,16 +18,16 @@
 
 ---
 
-## Custom Post Types (CPT) à évaluer
+## Custom Post Types (CPT)
 
-[À ARBITRER] — Ne créer que si la valeur est démontrée.
+Décision V1 : **aucun CPT supplémentaire**.
 
-| CPT proposé | Justification | Décision |
-|-------------|--------------|----------|
-| `demarche` (Démarche administrative) | Contenu structuré différemment des astuces ; mises à jour fréquentes ; potentiel de template dédié | [À ARBITRER] |
-| `faq` (Question fréquente) | Si volume important de FAQ ; permet d'afficher des FAQ structurées (schema.org) | [À ARBITRER] |
+| Sujet | Décision V1 | Justification |
+|-------|-------------|---------------|
+| Démarches administratives | catégorie d'articles, pas de CPT | volume attendu limité et complexité évitée |
+| FAQ | pas de CPT, pas de page FAQ en V1 | pas de corpus suffisant à ce stade |
 
-> **Recommandation** : Si le volume de "Démarches" est inférieur à 20 contenus, utiliser le type Post avec une catégorie dédiée plutôt qu'un CPT. Moins de complexité, même résultat.
+> **Règle V1** : rester sur `Post`, `Page` et `Media` tant qu'un besoin métier ou éditorial clair ne démontre pas la nécessité d'un CPT.
 
 ---
 
@@ -35,49 +35,42 @@
 
 ### Catégories (hiérarchiques)
 
-| Catégorie | Slug | Niveau | Sous-catégories [HYPOTHÈSE] |
-|-----------|------|--------|---------------------------|
-| iPhone | iphone | 1 | iOS, Siri, Face ID, AirDrop… |
-| Mac | mac | 1 | macOS, Finder, Time Machine… |
-| iPad | ipad | 1 | iPadOS, Apple Pencil… |
-| iCloud | icloud | 1 | Stockage, Partage, Photos… |
-| Démarches | demarches | 1 | [Sous-cat à définir après analyse] |
-| Apple Watch | apple-watch | 1 | [HYPOTHÈSE] |
-| Safari | safari | 1 | [HYPOTHÈSE] |
+| Catégorie | Slug | Niveau | Notes |
+|-----------|------|--------|-------|
+| iPhone | iphone | 1 | catégorie V1 |
+| Mac | mac | 1 | catégorie V1 |
+| iPad | ipad | 1 | catégorie V1 |
+| iCloud | icloud | 1 | catégorie V1 |
+| Démarches | demarches | 1 | catégorie V1 |
 
-> Les sous-catégories sont des hypothèses. Confirmer après analyse du legacy.
+> **Règle V1** : pas de sous-catégories tant que le volume éditorial ne le justifie pas.
 
 ### Étiquettes (tags)
 
 | Règle | Détail |
 |-------|--------|
-| Usage | Thèmes transversaux (ex: "sécurité", "confidentialité", "débutant") |
-| Contrôle | Liste contrôlée — pas de tags libres en production |
-| Nettoyage | Les tags du legacy sont à auditer et nettoyer |
+| Usage | thèmes transversaux réellement utiles seulement |
+| Contrôle | liste contrôlée, pas de tags libres en production |
+| Nettoyage | aucun tag legacy repris sans audit |
 
-### Taxonomie personnalisée "Niveau de difficulté" (hypothèse)
+### Taxonomie personnalisée "Niveau de difficulté"
 
-[HYPOTHÈSE — à évaluer selon besoins UX]
+Décision V1 : **non retenue**.
 
-| Valeur | Slug | Définition |
-|--------|------|------------|
-| Débutant | debutant | Aucun prérequis technique |
-| Intermédiaire | intermediaire | Quelques bases nécessaires |
-| Avancé | avance | Utilisateurs expérimentés |
+Motif : ajoute de la charge éditoriale sans bénéfice démontré à ce stade.
 
 ---
 
 ## Champs personnalisés (Custom Fields / ACF)
 
-[HYPOTHÈSE — à évaluer selon les besoins des templates Divi]
+[V1 retenue — champs minimaux]
 
-| Champ | Type | Sur quel CPT/Post | Utilité |
-|-------|------|-----------------|---------|
-| `version_apple` | Texte | Post (astuce) | Indiquer la version iOS/macOS concernée |
-| `date_verification` | Date | Post (astuce) | Indiquer quand l'article a été vérifié |
-| `prerequis` | Textarea | Post (astuce) | Prérequis de l'astuce [HYPOTHÈSE] |
+| Champ | Type | Sur quel contenu | Utilité |
+|-------|------|------------------|---------|
+| `version_apple` | Texte | Post (article) | indiquer la version iOS/macOS concernée |
+| `date_verification` | Date | Post (article) | indiquer la date de vérification du contenu |
 
-> **Note** : Les champs personnalisés nécessitent ACF (Advanced Custom Fields) ou équivalent. À valider avant développement.
+> **Règle V1** : ne pas ajouter d'autres champs personnalisés sans besoin explicite de template ou de maintenance éditoriale.
 
 ---
 

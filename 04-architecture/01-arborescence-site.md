@@ -1,6 +1,6 @@
 # Arborescence cible du site
 
-**Statut** : Navigation validée client — structure de contenu en cours
+**Statut** : Navigation validée client — structure V1 arbitrée
 **Dernière mise à jour** : 2026-04-24
 **Lié à** : `ADR-002`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
 
@@ -33,7 +33,7 @@ astucesdepomme.com/
 │
 ├── /                              Accueil [VALIDÉ]
 │
-├── /prestations/                  Page hub des prestations [VALIDÉ — libellé menu]
+├── /prestations/                  Page hub des prestations [VALIDÉ — page unique V1]
 │   ├── #assistance                Section Assistance Apple
 │   ├── #formation                 Section Formation
 │   ├── #reseau                    Section Réseau & Wi-Fi
@@ -41,12 +41,13 @@ astucesdepomme.com/
 │   ├── #sauvegardes               Section Sauvegardes & Installation
 │   └── #conseil                   Section Conseil
 │
-├── /formations/                   Page ou hub des formations [VALIDÉ — libellé menu]
-│   └── [détail par thématique ?]  Communication, iCloud, Multimédia, Sécurité, Système & Réseau
+├── /formations/                   Page de formation [VALIDÉ — page unique V1]
+│   └── Sections thématiques        Communication, iCloud, Multimédia, Sécurité, Système & Réseau
 │
 ├── /a-propos/                     Page À propos [VALIDÉ — libellé menu]
 │
-├── /avis/                         Page Avis clients [VALIDÉ — libellé menu]
+├── /avis/                         Page Avis clients [VALIDÉ — page statique éditorialisée]
+│   └── Sélection d'avis GBP       Avec lien vers la source externe
 │
 ├── /blog/                         Archive Blog / Astuces [VALIDÉ — libellé menu]
 │   └── /blog/{slug}/              Article individuel
@@ -55,7 +56,6 @@ astucesdepomme.com/
 │
 └── Pages légales (footer uniquement)
     ├── /tarifs-prestations/       [HYPOTHÈSE — présent dans footer]
-    ├── /faq/                      [HYPOTHÈSE — présent dans footer]
     ├── /cgv/                      [FAIT — conservée depuis le legacy]
     ├── /infos-fiscales/           [FAIT — conservée depuis le legacy, distincte de `/tarifs-prestations/`]
     ├── /mentions-legales/         [FAIT — obligatoire RGPD]
@@ -66,7 +66,7 @@ astucesdepomme.com/
 
 ## Structure des URLs articles de blog
 
-Convention proposée [HYPOTHÈSE — à valider] :
+Convention retenue pour la V1 :
 
 ```
 /blog/{slug-article}/
@@ -80,16 +80,18 @@ Exemples :
 
 ---
 
-## Points à arbitrer sur l'arborescence
+## Arbitrages actés pour la V1
 
-| Question | Impact | [À ARBITRER] |
-|----------|--------|-------------|
-| /prestations/ : page unique avec ancres ou sous-pages ? | Architecture, SEO | Julien HACHE |
-| /formations/ : page unique ou sous-pages par thématique ? | Volume de contenu, SEO | Julien HACHE |
-| /avis/ : page statique ou intégration outil avis (Google, Trustpilot…) ? | Fonctionnel | Julien HACHE |
-| /faq/ et /tarifs-prestations/ : pages indexées ou non ? | SEO | Julien HACHE |
-| Blog = migration des astuces legacy ou nouveau contenu ? | Migration, Lot 4 | Eric STOCLET + analyse TP-001 |
-| Catégories de blog : reprendre les catégories legacy ou restructurer ? | Taxonomie WP | Analyse legacy requise |
+| Sujet | Décision actée | Impact |
+|-------|----------------|--------|
+| `/prestations/` | page unique avec ancres | simplicité, SEO local, mise en production plus rapide |
+| `/formations/` | page unique avec sections thématiques | simplicité éditoriale, évite la sur-architecture |
+| `/avis/` | page statique éditorialisée avec sélection d'avis GBP et lien externe | contrôle éditorial, dépendance technique réduite |
+| Homepage | intégration légère d'avis GBP sélectionnés ou d'un indicateur de note, sans widget lourd en V1 | réassurance sans dégrader les performances |
+| `/faq/` | hors V1 | évite une page faible sans corpus réel |
+| `/tarifs-prestations/` | page indexée | utile pour la conversion et le SEO |
+| `/infos-fiscales/` | page indexée | utile pour le cadre fiscal et la réassurance |
+| Blog | présent dès la V1 | cohérent avec le menu principal et la stratégie de contenu |
 
 ---
 
@@ -102,7 +104,6 @@ Exemples :
 | Tarifs & prestations | `/tarifs-prestations/` | Présente dans footer du brief |
 | CGV | `/cgv/` | Continuité contractuelle depuis le legacy |
 | Informations fiscales | `/infos-fiscales/` | Page fiscale dédiée conservée, distincte de `/tarifs-prestations/` |
-| FAQ | `/faq/` | Présente dans footer du brief |
 | Page 404 | — | Template à créer dans Divi |
 
 ---

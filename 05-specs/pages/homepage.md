@@ -77,6 +77,11 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 | CTA secondaire | Bouton contour clair "06 51 31 15 37" | [FAIT] |
 | Ligne réassurance | Étoiles + "Basé sur les avis de mes clients" | [FAIT] |
 
+**Décision V1 — avis** :
+- la homepage peut afficher un indicateur léger de preuve sociale issu des avis GBP
+- privilégier une intégration éditorialisée ou statique légère, pas un widget externe lourd en V1
+- la page `/avis/` reste la page de référence pour présenter une sélection d'avis avec lien vers la source externe
+
 ### Colonne droite (55%)
 
 | Élément | Contenu | Statut |
