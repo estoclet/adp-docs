@@ -25,10 +25,12 @@
 
 | Action interdite | Raison |
 |-----------------|--------|
-| Modifier `00-initialisation-projet.md` | Source de vérité unique — humain seulement |
+| Modifier `00-initialisation-projet.md` | Source de vérité unique — humain seulement (R-12) |
+| Modifier `07-pilotage/01-lotissement.md` | Structure du projet — humain seulement (R-12) |
+| Modifier `07-pilotage/02-journal-decisions.md` | Journal chef de projet — humain seulement (R-11, R-12) |
 | Créer ou clore un ADR sans validation | Décision structurante — humain seulement |
 | Modifier le périmètre IN/OUT | Décision humaine — voir `01-perimetre-projet.md` |
-| Écrire dans `adp-app/` | Hors périmètre de `adp-docs` |
+| Écrire dans `adp-app/` | Hors périmètre de `adp-docs` — exception R-25 pour agents Lot 3 |
 | Modifier des fichiers de `adp-legacy/` | Source legacy — lecture seule |
 | Supprimer un fichier de `adp-docs/` | Irréversible — humain seulement |
 | Affirmer un fait sans source | Interdit par R-01 |
