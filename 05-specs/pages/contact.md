@@ -46,9 +46,7 @@ Offrir un point de contact immédiat — téléphone en priorité, formulaire en
 | Message | Textarea | Oui |
 | Envoi | Bouton bleu "Envoyer ma demande" | — |
 
-**Plugin formulaire** : WPForms (déjà présent dans le legacy sous cookie-dough-compliance) → [À CONFIRMER — vérifier si WPForms est bien le plugin de formulaire ou si un dédié est à installer]. [HYPOTHÈSE]
-
-> [INCONNUE] Plugin de formulaire de contact à confirmer — le legacy utilise WPForms ou équivalent (à vérifier dans les plugins actifs).
+**Plugin formulaire** : WPForms Lite — [FAIT — retenu dans `01-cadrage/02-architecture-cible.md`, plugins V1]
 
 ---
 
@@ -87,7 +85,7 @@ Offrir un point de contact immédiat — téléphone en priorité, formulaire en
 ## Signalement agent
 
 - **Tâche accomplie** : spec modale Contact — coordonnées, formulaire, mobile, réseaux
-- **Hypothèses posées** : WPForms comme plugin formulaire (à confirmer), horaires non bloquants en V1
-- **Inconnues rencontrées** : I-17 (horaires), plugin formulaire
-- **Points à arbitrer** : solution modale unifiée (voir avis.md), plugin formulaire
-- **Prochaine étape recommandée** : arbitrer la solution modale, confirmer le plugin formulaire, recueillir I-17 si souhaité
+- **Hypothèses posées** : horaires non bloquants en V1 (I-17)
+- **Inconnues rencontrées** : I-17 (horaires — non bloquant V1)
+- **Points à arbitrer** : solution modale unifiée (voir avis.md)
+- **Prochaine étape recommandée** : arbitrer la solution modale, recueillir I-17 si souhaité
