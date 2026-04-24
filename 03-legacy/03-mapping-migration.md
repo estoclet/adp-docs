@@ -1,6 +1,6 @@
 # Mapping de migration — URLs legacy → nouveau site
 
-**Statut** : Terminé — mapping V1 complet, à valider par Eric STOCLET (une [PROPOSITION] en attente : /confidentialite → /politique-confidentialite/)  
+**Statut** : Terminé — mapping V1 complet, à valider par Eric STOCLET (URL `/politique-confidentialite/` [RECOMMANDÉ] — confirmation requise)  
 **Dernière mise à jour** : 2026-04-24  
 **Produit par** : Agent IA — première proposition de mapping  
 **Lié à** : `02-analyse-contenu.md`, `04-architecture/01-arborescence-site.md`, `01-cadrage/04-strategie-migration.md`
@@ -25,11 +25,11 @@
 
 | URL source (legacy) | Titre legacy | Décision contenu | URL cible (nouveau site) | Type redirection | Statut |
 |--------------------|-------------|-----------------|--------------------------|-----------------|--------|
-| / | Accueil | Réécrire | / | 301 implicite / remplacement direct | [PROPOSITION] |
-| /mentions-legales | Mentions legales | Réécrire | /mentions-legales/ | 301 | [PROPOSITION] |
-| /cgv | CGV | Réécrire | /cgv/ | 301 | [VALIDÉ] |
-| /infos-fiscales | Information Fiscale | Réécrire | /infos-fiscales/ | 301 | [VALIDÉ] |
-| /confidentialite | Confidentialité | Réécrire | /politique-confidentialite/ | 301 | [PROPOSITION] |
+| / | Accueil | Réécrire | / | 301 implicite / remplacement direct | [RECOMMANDÉ] |
+| /mentions-legales | Mentions legales | Réécrire | /mentions-legales/ | 301 | [RECOMMANDÉ] |
+| /cgv | CGV | Réécrire | /cgv/ | 301 | [FAIT] |
+| /infos-fiscales | Information Fiscale | Réécrire | /infos-fiscales/ | 301 | [FAIT] |
+| /confidentialite | Confidentialité | Réécrire | /politique-confidentialite/ | 301 | [RECOMMANDÉ] |
 
 ---
 
@@ -50,11 +50,11 @@
 
 | URL source | Trafic estimé | Backlinks | URL cible validée | Statut |
 |-----------|--------------|-----------|------------------|--------|
-| / | [INCONNUE] | [INCONNUE] | / | [PROPOSITION] |
-| /mentions-legales | [INCONNUE] | [INCONNUE] | /mentions-legales/ | [PROPOSITION] |
-| /confidentialite | [INCONNUE] | [INCONNUE] | /politique-confidentialite/ | [PROPOSITION] |
-| /cgv | [INCONNUE] | [INCONNUE] | /cgv/ | [VALIDÉ] |
-| /infos-fiscales | [INCONNUE] | [INCONNUE] | /infos-fiscales/ | [VALIDÉ] |
+| / | [INCONNUE] | [INCONNUE] | / | [RECOMMANDÉ] |
+| /mentions-legales | [INCONNUE] | [INCONNUE] | /mentions-legales/ | [RECOMMANDÉ] |
+| /confidentialite | [INCONNUE] | [INCONNUE] | /politique-confidentialite/ | [RECOMMANDÉ] |
+| /cgv | [INCONNUE] | [INCONNUE] | /cgv/ | [FAIT] |
+| /infos-fiscales | [INCONNUE] | [INCONNUE] | /infos-fiscales/ | [FAIT] |
 
 ---
 

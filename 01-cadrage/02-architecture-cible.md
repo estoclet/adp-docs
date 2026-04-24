@@ -115,12 +115,12 @@ Aucun plugin ne doit être ajouté sans validation dans ce document ou dans un A
 | Plugin | Rôle | Statut |
 |--------|------|--------|
 | Divi | Thème / builder principal | [FAIT — décision ferme] |
-| All in One SEO | SEO on-page + sitemap | [VALIDÉ — continuité avec le legacy] |
-| UpdraftPlus | Sauvegardes | [VALIDÉ — continuité avec le legacy] |
-| Redirection | Gestion des redirections 301 | [VALIDÉ — critique pour migration] |
-| WPForms Lite | Formulaire de contact | [VALIDÉ] |
-| Imagify | Optimisation média | [VALIDÉ] |
-| Complianz | Bannière / consentement | [VALIDÉ — remplace l'héritage legacy] |
+| All in One SEO | SEO on-page + sitemap | [FAIT — continuité avec le legacy] |
+| UpdraftPlus | Sauvegardes | [FAIT — continuité avec le legacy] |
+| Redirection | Gestion des redirections 301 | [FAIT — critique pour migration] |
+| WPForms Lite | Formulaire de contact | [FAIT] |
+| Imagify | Optimisation média | [FAIT] |
+| Complianz | Bannière / consentement | [FAIT — remplace l'héritage legacy] |
 
 ### Plugins explicitement non retenus par défaut en V1
 

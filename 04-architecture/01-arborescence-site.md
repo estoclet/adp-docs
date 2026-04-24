@@ -32,9 +32,9 @@ Les 6 items du menu principal sont **fermes** : [FAIT — ajustement client 2026
 ```
 astucesdepomme.com/
 │
-├── /                              Accueil [VALIDÉ]
+├── /                              Accueil [FAIT]
 │
-├── /prestations/                  Page hub des prestations [VALIDÉ — page unique V1]
+├── /prestations/                  Page hub des prestations [FAIT — page unique V1]
 │   ├── #assistance                Section Assistance Apple
 │   ├── #formation                 Section Formation
 │   ├── #reseau                    Section Réseau & Wi-Fi
@@ -42,10 +42,10 @@ astucesdepomme.com/
 │   ├── #sauvegardes               Section Sauvegardes & Installation
 │   └── #conseil                   Section Conseil
 │
-├── /formations/                   Page de formation [VALIDÉ — page unique V1]
+├── /formations/                   Page de formation [FAIT — page unique V1]
 │   └── Sections thématiques        Communication, iCloud, Multimédia, Sécurité, Système & Réseau
 │
-├── /a-propos/                     Page À propos [VALIDÉ — libellé menu]
+├── /a-propos/                     Page À propos [FAIT — libellé menu]
 │
 ├── /avis/                         → MODALE (contenu léger — sélection avis GBP)
 │

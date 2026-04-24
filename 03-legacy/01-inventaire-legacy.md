@@ -5,7 +5,7 @@
 **Produit par** : Agent IA — exécution partielle de TP-001  
 **Lié à** : `TP-001-analyse-legacy.md`, `03-mapping-migration.md`
 
-> **Note agent** : Ce document est un squelette structuré. Compléter uniquement les sections assignées dans le task pack TP-001. Ne pas inventer de valeurs. Utiliser `[À VÉRIFIER]` si une information est incertaine. Utiliser `[INCONNUE]` si elle est absente.
+> **Note agent** : Ce document est un squelette structuré. Compléter uniquement les sections assignées dans le task pack TP-001. Ne pas inventer de valeurs. Utiliser `[HYPOTHÈSE]` si une information est incertaine. Utiliser `[INCONNUE]` si elle est absente.
 
 ---
 
@@ -148,7 +148,7 @@
 | robots.txt | présent et valide ; `Disallow: /wp-admin/`, `Allow: /wp-admin/admin-ajax.php`, sitemaps déclarés | `curl -I -L` + lecture de `robots.txt` | [FAIT] |
 | Balises title / meta description | présentes sur la homepage ; title et description très génériques (`Astuces de pomme - Assistance dépannage formation Mac iPad iPhone...`) | lecture du HTML prod | [FAIT] |
 | Structure H1/H2/H3 | aucun `H1` détecté sur la homepage prod | extraction HTML (`rg '<h1'`) | [FAIT] |
-| Liens brisés | [INCONNUE] | crawler non lancé à ce stade | [À VÉRIFIER] |
+| Liens brisés | [INCONNUE] | crawler non lancé à ce stade | [INCONNUE] |
 | Nombre de backlinks externes | [INCONNUE] | Ahrefs / GSC / outil backlinks non disponible | [INCONNUE] |
 
 ---

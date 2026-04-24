@@ -1,7 +1,7 @@
 # Conventions de rédaction pour agents
 
 **Statut** : Actif — s'applique à tous les documents produits par des agents  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1, 3 et 4  
+**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1, 3, 4 et 8  
 **Lié à** : `01-regles-ia.md`, `03-perimetre-agents.md`
 
 ---
@@ -23,6 +23,7 @@ Ces marqueurs sont des **signaux de confiance épistémique**, pas des décorati
 | `[RÉSOLU PARTIEL]` | Inconnue partiellement levée : une portion est confirmée, le reste est à compléter — citer ce qui est connu et ce qui manque | "[RÉSOLU PARTIEL — I-07 — bleu marine #1e3264 extrait du logo ; tons complémentaires à confirmer]" |
 | `[OBSOLÈTE]` | Information qui ne fait plus autorité — ne pas utiliser | "[OBSOLÈTE] Cette décision a été remplacée par ADR-003" |
 | `[RECOMMANDÉ]` | Suggestion de l'agent, non décidée | "[RECOMMANDÉ] Utiliser Rank Math plutôt que Yoast pour sa légèreté" |
+| `[SANS OBJET]` | Métrique ou champ non applicable dans ce contexte (ex. qualité de contenu quand le volume est 0) | "[SANS OBJET — aucun article publié]" |
 
 ---
 
@@ -36,6 +37,12 @@ Ces marqueurs sont des **signaux de confiance épistémique**, pas des décorati
 ### Combinaison
 Un fait peut avoir une dépendance : `[FAIT — DÉPENDANCE]` est acceptable.  
 Un fait ne peut pas être une hypothèse simultanément : choisir le marqueur le plus restrictif.
+
+### Marqueurs non officiels — interdit
+Un agent n'invente pas de nouveaux marqueurs. Seuls les marqueurs listés dans ce tableau sont autorisés.
+
+**Interdit** : `[VALIDÉ]`, `[PROPOSITION]`, `[À VÉRIFIER]`, `[RÉSOLU OPÉRATIONNELLEMENT]`, ou tout autre marqueur absent de ce tableau.  
+**Si aucun marqueur officiel ne convient** : utiliser `[À ARBITRER]` et expliquer pourquoi dans le bloc Signalement.
 
 ### Marqueurs interdits pour les agents
 Les agents ne marquent jamais quelque chose `[FAIT]` sans pouvoir citer la source dans le même document ou en référence à un fichier existant dans `adp-docs/`.
@@ -70,7 +77,7 @@ Quand une inconnue identifiée par un identifiant `I-XX` est résolue :
 | "Nous pourrions envisager…" | Formulation floue | "Je recommande X pour Y raison. [RECOMMANDÉ]" |
 | "Il faudrait sans doute…" | Vague, non actionnable | "[HYPOTHÈSE] X semble pertinent si Y est confirmé" |
 | "Comme convenu…" | Supposer un accord non documenté | Citer le document ou le journal de décision |
-| "Le site actuel est…" | Affirmation sur legacy non vérifiée | "[À VÉRIFIER — analyse legacy]" |
+| "Le site actuel est…" | Affirmation sur legacy non vérifiée | "[HYPOTHÈSE — à vérifier via analyse legacy]" |
 | "D'après mes connaissances…" | Source externe non valide dans ce repo | "[HYPOTHÈSE] …" + citer I-XX si pertinent |
 | "Typiquement pour un site WordPress…" | Généralisation hors repo | "[HYPOTHÈSE] Sur des projets similaires…" |
 | "On peut supposer que…" | Supposition non assumée | "[HYPOTHÈSE] …" explicite |

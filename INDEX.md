@@ -103,3 +103,4 @@
 | [RÉSOLU PARTIEL] | Inconnue partiellement levée — reste une portion à confirmer |
 | [RECOMMANDÉ] | Suggestion de l'agent, non décidée — validation humaine requise |
 | [OBSOLÈTE] | Plus valide — ne pas utiliser |
+| [SANS OBJET] | Champ ou métrique non applicable dans ce contexte (ex. qualité d'un corpus à 0 article) |
