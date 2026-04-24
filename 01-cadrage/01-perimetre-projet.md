@@ -24,7 +24,7 @@
 | T-01 | Conserver WordPress + Divi comme stack | Haute | [FAIT — décision client] |
 | T-02 | Assurer la reprise du contenu utile du legacy | Haute | [FAIT] |
 | T-03 | Garantir une bonne performance (Core Web Vitals) | Moyenne | [HYPOTHÈSE — à spécifier] |
-| T-04 | Assurer la continuité SEO (redirections, structure URLs) | Haute | [HYPOTHÈSE — dépend de I-03] |
+| T-04 | Assurer la continuité SEO (redirections, structure URLs) | Haute | [FAIT — I-03 résolu : domaine conservé, redirections 301 suffisantes] |
 
 ---
 
@@ -44,7 +44,7 @@
 ## Périmètre OUT (ce qui n'est pas dans le projet)
 
 - Rédaction de contenu nouveau (sauf si explicitement commandé) [HYPOTHÈSE]
-- Refonte de la charte graphique complète (logo, identité) [HYPOTHÈSE — dépend de I-07]
+- Refonte de la charte graphique complète (logo, identité) [FAIT — I-07 résolu : conservation de l'identité existante, pas de refonte]
 - Développement d'une application mobile
 - Mise en place d'un espace client / extranet
 - Intégration d'un CRM ou outil de ticketing
@@ -61,7 +61,7 @@
 |------------|------|--------|
 | Stack WordPress + Divi imposé | Technique | Décision client |
 | Contenu legacy à reprendre (pas de départ de zéro) | Contenu | Contexte projet |
-| Hébergement inconnu | Technique | [À ARBITRER — I-01] |
+| Hébergement OVHcloud Hébergement Pro | Technique | [FAIT — I-01 résolu : VPS OVH préprod + mutualisé OVH prod] |
 | Budget et délais non communiqués | Gestion | [À ARBITRER — I-04] |
 
 ---
@@ -70,7 +70,7 @@
 
 | Rôle | Responsabilité | Statut info |
 |------|----------------|-------------|
-| Client / propriétaire du site | Décisions finales, contenu, arbitrages | [HYPOTHÈSE — personne seule ou équipe ?] |
+| Client / propriétaire du site | Décisions finales, contenu, arbitrages | [FAIT — Julien HACHE, indépendant] |
 | Chef de projet | Pilotage, gouvernance documentaire | [FAIT] |
 | Agents IA | Production de contenu bornée, analyse | [FAIT] |
 | Développeur WP/Divi | Intégration technique | [À IDENTIFIER] |
