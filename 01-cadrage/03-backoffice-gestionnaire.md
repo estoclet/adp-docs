@@ -72,7 +72,7 @@
 |-------|---------------|--------|
 | Nommage des fichiers | kebab-case, descriptif | [RECOMMANDÉ] |
 | Formats images | JPEG/WebP pour photos, PNG pour logos/icônes | [RECOMMANDÉ] |
-| Taille maximale upload | À configurer selon hébergeur | [DÉPENDANCE] → I-01 |
+| Taille maximale upload | À vérifier dans le panneau OVH — hébergement mutualisé Pro, limite PHP `upload_max_filesize` | [FAIT — I-01 résolu, valeur exacte à lire dans les paramètres OVH] |
 | Optimisation auto | Plugin Smush ou Imagify | [RECOMMANDÉ] |
 | Organisation bibliothèque | Par dossiers si plugin Media Library Folders | [HYPOTHÈSE] |
 

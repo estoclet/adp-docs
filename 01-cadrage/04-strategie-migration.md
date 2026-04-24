@@ -96,7 +96,7 @@ Options possibles :
 | Copie manuelle | Toujours possible | Sélectif | Long, erreurs |
 | Plugin WPAllImport | Accès WP admin legacy | Flexible | Plugin payant |
 
-> [À ARBITRER] : La méthode d'export doit être choisie après confirmation de I-06.
+> [FAIT — I-06 résolu] Accès BDD confirmé : dump prod importé 2026-04-24, DDEV adp-legacy opérationnel. **Méthode retenue pour V1** : export XML WordPress natif (WP admin legacy accessible) pour le contenu éditorial ; médias synchronisés séparément via rsync. Export direct BDD non nécessaire en V1 (faible volume : 5 pages, 0 articles, 82 médias).
 
 ---
 
