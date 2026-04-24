@@ -1,6 +1,6 @@
 # Arborescence cible du site
 
-**Statut** : Navigation client mise à jour — structure V1 arbitrée
+**Statut** : Navigation client mise à jour — structure V1 arbitrée, pattern modale acté
 **Dernière mise à jour** : 2026-04-24
 **Lié à** : `ADR-002`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
 
@@ -12,14 +12,16 @@
 
 Les 6 items du menu principal sont **fermes** : [FAIT — ajustement client 2026-04-24]
 
-| Item menu | URL cible | Type WP | Statut page |
-|-----------|-----------|---------|-------------|
-| Accueil | `/` | Page | Spec complète → `05-specs/pages/homepage.md` |
-| Prestations | `/prestations/` | Page | [À SPÉCIFIER] |
-| Formations | `/formations/` | Page | [À SPÉCIFIER] |
-| À propos | `/a-propos/` | Page | [À SPÉCIFIER] |
-| Avis | `/avis/` | Page | [À SPÉCIFIER] |
-| Contact | `/contact/` | Page | [À SPÉCIFIER] |
+| Item menu | URL cible | Type WP | Mode d'affichage | Statut page |
+|-----------|-----------|---------|-----------------|-------------|
+| Accueil | `/` | Page | Page normale | Spec complète → `05-specs/pages/homepage.md` |
+| Prestations | `/prestations/` | Page | Page normale | Spec → `05-specs/pages/prestations.md` |
+| Formations | `/formations/` | Page | Page normale | Spec → `05-specs/pages/formations.md` |
+| À propos | `/a-propos/` | Page | Page normale | Spec → `05-specs/pages/a-propos.md` |
+| Avis | — | Modale | **Modale** (contenu léger) | Spec → `05-specs/pages/avis.md` |
+| Contact | — | Modale | **Modale** (contenu léger) | Spec → `05-specs/pages/contact.md` |
+
+**Pattern modale** : [FAIT — décision chef de projet 2026-04-24] Les pages à contenu léger (Avis, Contact, pages légales footer) s'affichent en modale plutôt qu'en page dédiée. La solution technique (Divi popup natif, plugin, ou CSS/JS) est à arbitrer — voir `05-specs/pages/avis.md` pour la table de comparaison des options.
 
 **CTA header** : "Prendre rendez-vous" [FAIT]
 
@@ -45,17 +47,16 @@ astucesdepomme.com/
 │
 ├── /a-propos/                     Page À propos [VALIDÉ — libellé menu]
 │
-├── /avis/                         Page Avis clients [VALIDÉ — page statique éditorialisée]
-│   └── Sélection d'avis GBP       Avec lien vers la source externe
+├── /avis/                         → MODALE (contenu léger — sélection avis GBP)
 │
-├── /contact/                      Page Contact [VALIDÉ — libellé menu]
+├── /contact/                      → MODALE (contenu léger — formulaire + coordonnées)
 │
-└── Pages légales (footer uniquement)
-    ├── /tarifs-prestations/       [HYPOTHÈSE — présent dans footer]
+└── Pages légales (footer uniquement) → MODALES
     ├── /cgv/                      [FAIT — conservée depuis le legacy]
-    ├── /infos-fiscales/           [FAIT — conservée depuis le legacy, distincte de `/tarifs-prestations/`]
+    ├── /infos-fiscales/           [FAIT — conservée depuis le legacy]
     ├── /mentions-legales/         [FAIT — obligatoire RGPD]
-    └── /politique-confidentialite/ [FAIT — obligatoire RGPD]
+    ├── /politique-confidentialite/ [FAIT — obligatoire RGPD]
+    └── /tarifs-prestations/       [HYPOTHÈSE — présent dans footer]
 ```
 
 ---
@@ -77,7 +78,9 @@ Conséquences :
 |-------|----------------|--------|
 | `/prestations/` | page unique avec ancres | simplicité, SEO local, mise en production plus rapide |
 | `/formations/` | page unique avec sections thématiques | simplicité éditoriale, évite la sur-architecture |
-| `/avis/` | page statique éditorialisée avec sélection d'avis GBP et lien externe | contrôle éditorial, dépendance technique réduite |
+| `/avis/` | **modale** (contenu léger) — sélection d'avis GBP + lien vers fiche GBP | décision chef de projet 2026-04-24 |
+| Contact | **modale** (contenu léger) — formulaire + coordonnées | décision chef de projet 2026-04-24 |
+| Pages légales footer | **modales** — CGV, Mentions légales, Politique de confidentialité, Infos fiscales | décision chef de projet 2026-04-24 |
 | Homepage | intégration légère d'avis GBP sélectionnés ou d'un indicateur de note, sans widget lourd en V1 | réassurance sans dégrader les performances |
 | `/faq/` | hors V1 | évite une page faible sans corpus réel |
 | `/tarifs-prestations/` | page indexée | utile pour la conversion et le SEO |

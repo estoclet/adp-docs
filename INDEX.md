@@ -50,6 +50,11 @@
 | Sujet | Fichier | État |
 |-------|---------|------|
 | Page d'accueil | `05-specs/pages/homepage.md` | Validé client (2026-04-23) |
+| Page Prestations | `05-specs/pages/prestations.md` | Brouillon — à valider |
+| Page Formations | `05-specs/pages/formations.md` | Brouillon — à valider |
+| Page À propos | `05-specs/pages/a-propos.md` | Brouillon — à valider (I-15/16 manquants) |
+| Modale Avis | `05-specs/pages/avis.md` | Brouillon — à valider (I-18/19 manquants) |
+| Modale Contact | `05-specs/pages/contact.md` | Brouillon — à valider |
 | Template spec de page | `05-specs/pages/_template-page-spec.md` | Prêt |
 | Brief fonctionnel : recherche | `05-specs/fonctionnelles/recherche.md` | Ébauche initiale |
 | Template brief fonctionnel | `05-specs/fonctionnelles/_template-brief-fonctionnel.md` | Prêt |
