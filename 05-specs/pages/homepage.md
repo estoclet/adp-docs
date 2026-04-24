@@ -141,7 +141,7 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 | Centre | Titre "Services à la personne" + **50% de crédit d'impôt** (gros) + "sur toutes nos prestations" + mention légale | [FAIT] |
 | Droite | 3 puces réassurance : "Service déclaré" / "Intervention à domicile" / "Paiement par chèque ou virement" | [FAIT] |
 
-**Inconnue** : [INCONNUE] Texte exact de la mention légale (à rédiger par le client ou son comptable).
+**Mention légale** : [RÉSOLU — I-14] "Dans les limites prévues à l'article 199 sexdecies du code général des impôts" — source : CGV legacy.
 
 ### Mobile
 Empilement propre des 3 colonnes. [FAIT]
@@ -262,15 +262,15 @@ Empilement propre des 3 colonnes. [FAIT]
 
 Voir `ADR-002-identite-visuelle.md` pour la charte complète.
 
-| Rôle | Couleur | Usage |
-|------|---------|-------|
-| Bleu principal | À définir (ex : #1E5AFF ou similaire) | Bouton principal, accents, pictos actifs |
-| Bleu cyan / électrique | À définir | Petits détails, surlignages, icônes |
-| Noir / bleu nuit | À définir | Header, bandeau CTA final |
-| Blanc | #FFFFFF | Fonds principaux, cartes |
-| Bleu très clair / gris bleuté | À définir | Fonds secondaires, bandeaux |
-| Gris foncé | À définir | Texte courant |
-| Gris clair | À définir | Bordures discrètes |
+| Rôle | Couleur | Usage | Statut |
+|------|---------|-------|--------|
+| Bleu marine (primaire) | `#1e3264` | Header, pictos, bouton principal, bandeau CTA | [FAIT — extrait logo-dark.png 2026-04-24] |
+| Bleu vif (accent) | `#0070c8` | Liens, icônes actives, hover boutons | [FAIT — extrait maquette 2026-04-24] |
+| Noir / bleu nuit | `#1e3264` foncé ou var. | Header fond, bandeau CTA final | [HYPOTHÈSE — à confirmer en intégration] |
+| Blanc | `#ffffff` | Fonds principaux, cartes | [FAIT] |
+| Bleu très clair / gris bleuté | À préciser | Fonds secondaires, bandeaux réassurance | [HYPOTHÈSE — visible dans maquette] |
+| Gris foncé | À préciser | Texte courant | [HYPOTHÈSE] |
+| Gris clair | À préciser | Bordures discrètes | [HYPOTHÈSE] |
 
 **Police** : sans-serif moderne, sobre, très lisible. Carte blanche projet/client pour le choix final.  
 **Préconisation projet** : `Inter` en priorité, `DM Sans` en alternative. [FAIT — choix libre validé]

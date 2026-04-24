@@ -26,14 +26,15 @@
 | Architecture technique cible | `01-cadrage/02-architecture-cible.md` |
 | Backoffice et gestion de contenu | `01-cadrage/03-backoffice-gestionnaire.md` |
 | Stratégie de migration legacy → nouveau | `01-cadrage/04-strategie-migration.md` |
+| Assets design (logo, palette, maquette) | `01-cadrage/05-assets-design.md` |
 
 ## Analyse de l'existant (legacy)
 
 | Sujet | Fichier | État |
 |-------|---------|------|
-| Inventaire structure et contenu | `03-legacy/01-inventaire-legacy.md` | À compléter (TP-001) |
-| Analyse éditoriale du contenu | `03-legacy/02-analyse-contenu.md` | À compléter |
-| Mapping pages legacy → nouveau site | `03-legacy/03-mapping-migration.md` | À compléter |
+| Inventaire structure et contenu | `03-legacy/01-inventaire-legacy.md` | Terminé — à valider (TP-001) |
+| Analyse éditoriale du contenu | `03-legacy/02-analyse-contenu.md` | Terminé — à valider |
+| Mapping pages legacy → nouveau site | `03-legacy/03-mapping-migration.md` | Terminé — à valider (1 proposition) |
 
 ## Architecture cible
 
@@ -58,7 +59,7 @@
 | Décision | Fichier | Statut |
 |----------|---------|--------|
 | ADR-001 : WordPress + Divi | `06-decisions/ADR-001-wordpress-divi.md` | Acceptée |
-| ADR-002 : Identité visuelle et charte Divi | `06-decisions/ADR-002-identite-visuelle.md` | Acceptée — hex à préciser |
+| ADR-002 : Identité visuelle et charte Divi | `06-decisions/ADR-002-identite-visuelle.md` | Acceptée — palette précisée dans `01-cadrage/05-assets-design.md` |
 | Template ADR | `06-decisions/_template-adr.md` | Prêt |
 
 ## Pilotage
@@ -91,4 +92,6 @@
 | [À ARBITRER] | Décision humaine requise |
 | [DÉPENDANCE] | Bloqué par un autre travail ou une autre décision |
 | [INCONNUE] | Information manquante, impact à évaluer |
+| [RÉSOLU] | Inconnue levée — valeur et source citées |
+| [RÉSOLU PARTIEL] | Inconnue partiellement levée — reste une portion à confirmer |
 | [OBSOLÈTE] | Plus valide — ne pas utiliser |
