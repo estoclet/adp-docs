@@ -99,7 +99,7 @@
 | Point | Décision de travail | Statut |
 |------|----------------------|--------|
 | Stack serveur | Rester compatible hébergement mutualisé OVH | [FAIT] |
-| Préprod | À organiser sans supposer des environnements serveur complexes | [À PRÉPARER] |
+| Préprod | VPS OVH — `ssh vps-adp` — chemin : `/homez.31/astucesdib/www/dev/web` | [FAIT — confirmé 2026-04-24] |
 | Cache / perf | Choisir des solutions WordPress compatibles mutualisé | [DÉPENDANCE] |
 | Exploitation | Éviter les besoins d'administration système | [FAIT] |
 

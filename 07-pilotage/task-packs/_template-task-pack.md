@@ -35,6 +35,7 @@
 |---------|---------|
 | `adp-docs/02-gouvernance-ia/01-regles-ia.md` | Règles obligatoires |
 | `adp-docs/02-gouvernance-ia/02-conventions-redaction.md` | Marqueurs et conventions |
+| `adp-docs/02-gouvernance-ia/04-anti-patterns.md` | Anti-patterns à éviter |
 | `[autre fichier]` | [Raison] |
 
 ---
@@ -70,6 +71,7 @@ Si une instruction de ce task pack est ambiguë, contradictoire, ou si deux règ
 - [ ] Signaler toute inconnue bloquante avec `[INCONNUE BLOQUANTE]`
 - [ ] Terminer par un bloc "Signalement agent"
 - [ ] Ne pas créer de fichier supplémentaire jugé utile sans validation humaine (R-07b)
+- [ ] Vérifier qu'une issue GitHub existe pour cette action avant de commencer (R-16b)
 - [ ] [Contrainte spécifique à cette tâche]
 
 ---

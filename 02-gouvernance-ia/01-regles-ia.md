@@ -221,6 +221,20 @@ Le client ne modifie pas sans procédure :
 
 Toute exception doit être documentée et validée par le chef de projet.
 
+### R-22 — Pipeline de déploiement obligatoire
+
+Toute mise en production suit ce pipeline dans l'ordre :
+
+```
+Local (DDEV → adp-app/) → Préprod (vps-adp → /homez.31/astucesdib/www/dev/web) → Production (astucesdepomme.com)
+```
+
+**Interdit** : déployer directement en production sans passage en préprod.  
+**Interdit** : tester en production une fonctionnalité non validée en préprod.  
+**Interdit** : copier la base de données de production vers local sans anonymisation ou suppression des données personnelles.  
+**Autorisé** : correction urgente en production si la préprod est resynchronisée dans la foulée et le changement intégré dans Git.  
+**Autorisé** : déploiement de contenu éditorial simple (texte, image) directement en préprod ou prod si la structure n'est pas touchée.
+
 ---
 
 ## En cas de doute

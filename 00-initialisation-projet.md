@@ -48,6 +48,8 @@ Ces décisions sont **fermes**. Un agent ne doit pas les remettre en question sa
 | 5 | Navigation : Accueil · Prestations · Formations · À propos · Avis · Blog · Contact | Réunion client 2026-04-23 |
 | 6 | Périmètre : Assistance + Formation + Réseau + Démarches + Services à la personne | Réunion client 2026-04-23 |
 | 7 | Tarif : 80€/h (40€ après crédit d'impôt) — téléphone : 06 51 31 15 37 | Réunion client 2026-04-23 |
+| 8 | Environnement local : WordPress sous DDEV dans `adp-app/` — URL locale `http://adp.ddev.site` | Confirmé 2026-04-24 — issue #5 fermée |
+| 9 | Préprod : VPS OVH — accès `ssh vps-adp` — chemin `/homez.31/astucesdib/www/dev/web` | Confirmé 2026-04-24 — issue #5 fermée |
 
 ---
 
@@ -57,7 +59,7 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 
 | # | Inconnue | Impact | Statut |
 |---|----------|--------|--------|
-| I-01 | Hébergement cible (mutualisé / VPS / WP Cloud) | Architecture, performance | [À ARBITRER] |
+| I-01 | ~~Hébergement cible~~ | Architecture, performance | [RÉSOLU — voir décisions 8 et 9] |
 | I-02 | Volume réel du contenu legacy | Plan de migration | [ANALYSE REQUISE — TP-001] |
 | I-03 | Nom de domaine : redirection ou changement ? | SEO, migration | [À ARBITRER] |
 | I-04 | Budget et délais | Lotissement | [À ARBITRER] |
@@ -112,5 +114,6 @@ adp-docs/
 
 1. Lire `INDEX.md` pour la carte complète du dispositif.
 2. Lire `02-gouvernance-ia/01-regles-ia.md` (règles opérationnelles).
-3. Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md` pour inventorier l'existant.
-4. Arbitrer les inconnues I-01, I-03, I-04, I-07, I-08 avant de poursuivre.
+3. Lire `02-gouvernance-ia/04-anti-patterns.md` (anti-patterns récurrents à éviter).
+4. Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md` pour inventorier l'existant.
+5. Arbitrer les inconnues I-03, I-04, I-07, I-08 avant de poursuivre (I-01 résolue).
