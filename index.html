@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astuces De Pomme — Tableau de bord projet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --c-header:    #0F172A;
+      --c-primary:   #2563EB;
+      --c-primary-l: #DBEAFE;
+      --c-cyan:      #0EA5E9;
+      --c-danger:    #DC2626;
+      --c-danger-l:  #FEE2E2;
+      --c-warn:      #D97706;
+      --c-warn-l:    #FEF3C7;
+      --c-success:   #16A34A;
+      --c-success-l: #DCFCE7;
+      --c-bg:        #F1F5F9;
+      --c-surface:   #FFFFFF;
+      --c-border:    #E2E8F0;
+      --c-text:      #0F172A;
+      --c-muted:     #64748B;
+      --radius:      12px;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:   0 4px 12px rgba(0,0,0,.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--c-bg);
+      color: var(--c-text);
+      min-height: 100vh;
+      font-size: 14px;
+    }
+
+    /* ── Loading bar ── */
+    #loading-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--c-cyan); z-index: 999;
+      animation: load 1.2s ease-in-out infinite;
+    }
+    #loading-bar[hidden] { display: none; }
+    @keyframes load {
+      0%   { width: 0%;   opacity: 1; }
+      70%  { width: 90%;  opacity: 1; }
+      100% { width: 100%; opacity: 0; }
+    }
+
+    /* ── Header ── */
+    .hd {
+      background: var(--c-header);
+      color: #fff;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hd-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .hd-logo {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--c-primary);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 15px; color: #fff; flex-shrink: 0;
+    }
+    .hd-name { font-size: 16px; font-weight: 700; }
+    .hd-sub  { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 1px; }
+
+    .hd-stats {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-left: auto;
+    }
+    .stat {
+      display: flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 20px;
+      font-size: 12px; font-weight: 600;
+      background: rgba(255,255,255,.08);
+    }
+    .stat-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .stat.open     .stat-dot { background: #60A5FA; }
+    .stat.progress .stat-dot { background: var(--c-cyan); }
+    .stat.blocked  .stat-dot { background: #F87171; }
+    .stat.done     .stat-dot { background: #4ADE80; }
+
+    .hd-actions { display: flex; align-items: center; gap: 10px; }
+    .hd-meta { font-size: 11px; color: rgba(255,255,255,.4); text-align: right; }
+
+    .btn {
+      padding: 7px 14px; border: none; border-radius: 8px;
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: background .15s, opacity .15s;
+    }
+    .btn-primary { background: var(--c-primary); color: #fff; }
+    .btn-primary:hover { background: #1D4ED8; }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+    .btn-ghost {
+      background: rgba(255,255,255,.1); color: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.18); }
+
+    /* ── Token panel ── */
+    .token-panel {
+      background: var(--c-header);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 12px 24px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .token-panel label { color: rgba(255,255,255,.7); font-size: 13px; }
+    .token-panel input {
+      flex: 1; min-width: 240px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      color: #fff; font-family: monospace; font-size: 13px;
+    }
+    .token-panel input::placeholder { color: rgba(255,255,255,.3); }
+    .token-panel input:focus { outline: 2px solid var(--c-cyan); border-color: transparent; }
+    .token-hint { font-size: 11px; color: rgba(255,255,255,.4); }
+
+    /* ── Error banner ── */
+    .error-banner {
+      background: var(--c-danger-l); border-bottom: 1px solid #FECACA;
+      color: #B91C1C; padding: 10px 24px; font-size: 13px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .error-banner[hidden] { display: none; }
+
+    /* ── Progress overview ── */
+    .progress-section {
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      padding: 20px 24px;
+    }
+    .progress-section h2 {
+      font-size: 13px; font-weight: 600; color: var(--c-muted);
+      text-transform: uppercase; letter-spacing: .06em;
+      margin-bottom: 16px;
+    }
+
+    /* Global progress */
+    .global-progress {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 20px;
+    }
+    .global-pct {
+      font-size: 32px; font-weight: 700; color: var(--c-primary);
+      flex-shrink: 0; width: 72px;
+    }
+    .global-bar-wrap { flex: 1; }
+    .global-bar-track {
+      height: 10px; background: var(--c-border); border-radius: 6px; overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .global-bar-fill {
+      height: 100%; border-radius: 6px;
+      background: linear-gradient(90deg, var(--c-primary), var(--c-cyan));
+      transition: width .6s cubic-bezier(.4,0,.2,1);
+    }
+    .global-bar-legend { font-size: 12px; color: var(--c-muted); }
+
+    /* Lots progress */
+    .lots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .lot-card {
+      border: 1px solid var(--c-border); border-radius: 10px;
+      padding: 12px 14px;
+      background: var(--c-bg);
+      transition: border-color .15s;
+    }
+    .lot-card.active  { border-color: var(--c-primary); background: #EFF6FF; }
+    .lot-card.done-lot{ border-color: #A7F3D0; background: #F0FDF4; }
+    .lot-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+    .lot-name   { font-size: 13px; font-weight: 600; color: var(--c-text); }
+    .lot-counts { font-size: 11px; color: var(--c-muted); margin-left: auto; }
+    .lot-track  { height: 6px; background: var(--c-border); border-radius: 4px; overflow: hidden; }
+    .lot-fill   { height: 100%; border-radius: 4px; transition: width .5s ease; }
+    .lot-card.active   .lot-fill { background: var(--c-primary); }
+    .lot-card.done-lot .lot-fill { background: var(--c-success); }
+    .lot-card:not(.active):not(.done-lot) .lot-fill { background: #CBD5E1; }
+    .lot-status { font-size: 11px; margin-top: 6px; font-weight: 500; }
+    .lot-card.active   .lot-status { color: var(--c-primary); }
+    .lot-card.done-lot .lot-status { color: var(--c-success); }
+    .lot-card:not(.active):not(.done-lot) .lot-status { color: var(--c-muted); }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      padding: 10px 24px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .toolbar select {
+      padding: 6px 10px; border: 1px solid var(--c-border); border-radius: 8px;
+      font-size: 13px; font-family: inherit; color: var(--c-text);
+      background: var(--c-bg); cursor: pointer;
+    }
+    .toolbar select:focus { outline: 2px solid var(--c-primary); border-color: transparent; }
+    .toolbar-sep { width: 1px; height: 20px; background: var(--c-border); }
+    .toolbar-info { font-size: 12px; color: var(--c-muted); margin-left: auto; }
+    .repo-link {
+      font-size: 12px; color: var(--c-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .repo-link:hover { color: var(--c-primary); }
+
+    /* ── Kanban ── */
+    .kanban-wrap { padding: 20px 24px; overflow-x: auto; }
+    .kanban {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(260px, 1fr));
+      gap: 14px; min-width: 0;
+    }
+    .col { display: flex; flex-direction: column; gap: 8px; }
+    .col-hd {
+      display: flex; align-items: center; gap: 8px;
+      padding: 9px 13px; border-radius: 9px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+      position: sticky; top: 0; z-index: 1;
+    }
+    .col-hd .badge {
+      margin-left: auto; padding: 2px 7px; border-radius: 10px;
+      font-size: 11px; font-weight: 700; background: rgba(0,0,0,.09);
+    }
+    .col-todo    .col-hd { background: #F1F5F9; color: #475569; }
+    .col-doing   .col-hd { background: var(--c-primary-l); color: #1D4ED8; }
+    .col-blocked .col-hd { background: var(--c-danger-l); color: #B91C1C; }
+    .col-validate .col-hd{ background: var(--c-warn-l); color: #92400E; }
+    .col-cards { display: flex; flex-direction: column; gap: 8px; min-height: 60px; }
+
+    /* ── Cards ── */
+    .card {
+      display: block; text-decoration: none; color: var(--c-text);
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      padding: 13px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: box-shadow .15s, transform .1s, border-color .15s;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md); transform: translateY(-2px);
+      border-color: var(--c-primary);
+    }
+    .card-top { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+    .card-num { font-size: 11px; color: var(--c-muted); font-weight: 500; }
+    .card-lot {
+      font-size: 10px; font-weight: 700; padding: 2px 7px;
+      border-radius: 4px; background: var(--c-primary-l); color: var(--c-primary);
+      margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px;
+    }
+    .card-title { font-size: 13px; font-weight: 600; line-height: 1.45; margin-bottom: 9px; }
+    .card-lbls  { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 9px; }
+    .lbl {
+      font-size: 11px; padding: 2px 7px; border-radius: 4px;
+      font-weight: 500; line-height: 1.4;
+    }
+    .card-foot {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .avatars { display: flex; }
+    .avatar {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 2px solid var(--c-surface); margin-left: -4px;
+      object-fit: cover;
+    }
+    .avatars .avatar:first-child { margin-left: 0; }
+    .card-time { font-size: 11px; color: var(--c-muted); }
+
+    /* ── Empty states ── */
+    .empty { padding: 24px 0; text-align: center; color: var(--c-muted); font-size: 12px; }
+
+    /* ── Done section ── */
+    .done-section { padding: 0 24px 28px; }
+    .done-toggle {
+      width: 100%; display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px;
+      background: var(--c-surface); border: 1px solid var(--c-border);
+      border-radius: var(--radius); cursor: pointer;
+      font-family: inherit; font-size: 13px; font-weight: 600; color: var(--c-muted);
+      text-align: left; transition: background .15s;
+      margin-bottom: 12px;
+    }
+    .done-toggle:hover { background: #F8FAFC; }
+    .done-toggle .badge-done {
+      padding: 2px 8px; background: var(--c-success-l);
+      color: var(--c-success); border-radius: 10px; font-size: 11px; font-weight: 700;
+    }
+    .done-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 8px;
+    }
+    .done-grid .card { opacity: .6; filter: grayscale(.2); }
+    .done-grid .card:hover { opacity: 1; filter: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .kanban { grid-template-columns: repeat(2, minmax(250px, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .kanban { grid-template-columns: 1fr; }
+      .hd { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .hd-stats { margin-left: 0; }
+      .hd-actions { width: 100%; }
+      .kanban-wrap, .done-section { padding-left: 16px; padding-right: 16px; }
+      .progress-section, .toolbar { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading-bar" hidden></div>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="hd">
+  <div class="hd-brand">
+    <div class="hd-logo">ADP</div>
+    <div>
+      <div class="hd-name">Astuces De Pomme</div>
+      <div class="hd-sub">Tableau de bord projet · estoclet/adp-docs</div>
+    </div>
+  </div>
+
+  <div class="hd-stats">
+    <div class="stat open">
+      <span class="stat-dot"></span>
+      <span id="stat-open">—</span> ouverts
+    </div>
+    <div class="stat progress">
+      <span class="stat-dot"></span>
+      <span id="stat-progress">—</span> en cours
+    </div>
+    <div class="stat blocked">
+      <span class="stat-dot"></span>
+      <span id="stat-blocked">—</span> bloqués
+    </div>
+    <div class="stat done">
+      <span class="stat-dot"></span>
+      <span id="stat-done">—</span> terminés
+    </div>
+  </div>
+
+  <div class="hd-actions">
+    <div class="hd-meta">
+      <div id="last-refresh">—</div>
+      <div id="countdown" style="font-size:10px;opacity:.6"></div>
+    </div>
+    <button class="btn btn-ghost" id="btn-token" title="Configurer le token GitHub">🔑</button>
+    <button class="btn btn-primary" id="btn-refresh">Actualiser</button>
+  </div>
+</header>
+
+<!-- ══════════════ TOKEN PANEL ══════════════ -->
+<div class="token-panel" id="token-panel" hidden>
+  <label for="token-input">GitHub Personal Access Token</label>
+  <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx (requis si dépôt privé)">
+  <button class="btn btn-primary" id="btn-save-token">Enregistrer</button>
+  <span class="token-hint">Stocké en localStorage. Permissions requises : <code>repo</code> (privé) ou aucune (public).</span>
+</div>
+
+<!-- ══════════════ ERROR ══════════════ -->
+<div class="error-banner" id="error-banner" hidden></div>
+
+<!-- ══════════════ PROGRESSION ══════════════ -->
+<section class="progress-section">
+  <h2>Progression du projet</h2>
+
+  <div class="global-progress">
+    <div class="global-pct" id="global-pct">—</div>
+    <div class="global-bar-wrap">
+      <div class="global-bar-track">
+        <div class="global-bar-fill" id="global-bar" style="width:0%"></div>
+      </div>
+      <div class="global-bar-legend" id="global-legend">Chargement…</div>
+    </div>
+  </div>
+
+  <div class="lots-grid" id="lots-grid">
+    <!-- Lot cards rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════════ TOOLBAR ══════════════ -->
+<div class="toolbar">
+  <select id="filter-lot"><option value="">Tous les lots</option></select>
+  <div class="toolbar-sep"></div>
+  <select id="filter-type"><option value="">Tous les types</option></select>
+  <a class="repo-link" href="https://github.com/estoclet/adp-docs/issues" target="_blank" rel="noopener">
+    ↗ Voir sur GitHub
+  </a>
+  <span class="toolbar-info" id="toolbar-count"></span>
+</div>
+
+<!-- ══════════════ KANBAN ══════════════ -->
+<div class="kanban-wrap">
+  <div class="kanban">
+
+    <div class="col col-todo">
+      <div class="col-hd">À faire <span class="badge" id="c-todo-n">0</span></div>
+      <div class="col-cards" id="c-todo"></div>
+    </div>
+
+    <div class="col col-doing">
+      <div class="col-hd">En cours <span class="badge" id="c-doing-n">0</span></div>
+      <div class="col-cards" id="c-doing"></div>
+    </div>
+
+    <div class="col col-blocked">
+      <div class="col-hd">Bloqué <span class="badge" id="c-blocked-n">0</span></div>
+      <div class="col-cards" id="c-blocked"></div>
+    </div>
+
+    <div class="col col-validate">
+      <div class="col-hd">À valider <span class="badge" id="c-validate-n">0</span></div>
+      <div class="col-cards" id="c-validate"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ DONE ══════════════ -->
+<div class="done-section">
+  <button class="done-toggle" id="done-toggle">
+    <span id="done-arrow">▶</span>
+    Tickets terminés
+    <span class="badge-done" id="done-count-badge">0</span>
+    <span style="margin-left:auto;font-weight:400;font-size:12px;color:#94A3B8">Cliquer pour afficher</span>
+  </button>
+  <div class="done-grid" id="done-grid" hidden></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   CONFIGURATION — adapter si besoin
+═══════════════════════════════════════════════ */
+const CFG = {
+  owner:          'estoclet',
+  repo:           'adp-docs',
+  perPage:        100,
+  maxPages:       5,
+  refreshSeconds: 60,
+};
+
+/* Préfixes de labels (convention de ce projet) */
+const PFX_STATUS = 'statut:';
+const PFX_LOT    = 'lot:';
+const PFX_TYPE   = 'type:';
+
+/* Mapping label statut → colonne */
+const STATUS_MAP = {
+  'à faire':  'todo',
+  'en cours': 'doing',
+  'bloqué':   'blocked',
+  'à valider':'validate',
+};
+
+/* Ordre d'affichage des lots */
+const LOT_ORDER = ['0','1','2','3','4','5'];
+const LOT_LABELS = {
+  '0': 'Lot 0 — Cadrage',
+  '1': 'Lot 1 — Legacy',
+  '2': 'Lot 2 — Architecture',
+  '3': 'Lot 3 — Développement',
+  '4': 'Lot 4 — Migration',
+  '5': 'Lot 5 — Recette',
+};
+
+/* ═══════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════ */
+const S = {
+  issues:   [],
+  loading:  false,
+  filter:   { lot: '', type: '' },
+  doneOpen: false,
+  token:    localStorage.getItem('adp_gh_token') || '',
+  countdown: CFG.refreshSeconds,
+};
+
+let _refreshTimer = null;
+let _tickTimer    = null;
+
+/* ═══════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════ */
+const $ = sel => document.querySelector(sel);
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])
+  );
+}
+
+function relTime(iso) {
+  const s = Math.floor((Date.now() - new Date(iso)) / 1000);
+  if (s < 60)     return "à l'instant";
+  if (s < 3600)   return `il y a ${Math.floor(s/60)} min`;
+  if (s < 86400)  return `il y a ${Math.floor(s/3600)} h`;
+  if (s < 604800) return `il y a ${Math.floor(s/86400)} j`;
+  return `il y a ${Math.floor(s/604800)} sem.`;
+}
+
+function labelTextColor(hex) {
+  const r = parseInt(hex.slice(0,2), 16);
+  const g = parseInt(hex.slice(2,4), 16);
+  const b = parseInt(hex.slice(4,6), 16);
+  return (0.299*r + 0.587*g + 0.114*b) / 255 > 0.58 ? '#1E293B' : '#FFFFFF';
+}
+
+/* ─ Label parsing ─ */
+function issueStatus(issue) {
+  if (issue.state === 'closed') return 'done';
+  for (const lbl of issue.labels) {
+    const n = lbl.name.toLowerCase().trim();
+    if (n.startsWith(PFX_STATUS)) {
+      const v = n.slice(PFX_STATUS.length).trim();
+      return STATUS_MAP[v] ?? 'todo';
+    }
+  }
+  return 'todo';
+}
+
+function issueLot(issue) {
+  for (const lbl of issue.labels) {
+    const n = lbl.name.toLowerCase().trim();
+    if (n.startsWith(PFX_LOT)) return lbl.name.slice(PFX_LOT.length).trim();
+  }
+  return null;
+}
+
+function issueLotKey(issue) {
+  const lot = issueLot(issue);
+  if (!lot) return null;
+  const m = lot.match(/^(\d)/);
+  return m ? m[1] : null;
+}
+
+function issueType(issue) {
+  for (const lbl of issue.labels) {
+    const n = lbl.name.toLowerCase().trim();
+    if (n.startsWith(PFX_TYPE)) return lbl.name.slice(PFX_TYPE.length).trim();
+  }
+  return null;
+}
+
+/* ═══════════════════════════════════════════════
+   GITHUB API
+═══════════════════════════════════════════════ */
+async function fetchAll() {
+  const hdrs = { Accept: 'application/vnd.github.v3+json' };
+  if (S.token) hdrs.Authorization = `token ${S.token}`;
+
+  let all = [], page = 1;
+  while (page <= CFG.maxPages) {
+    const url = `https://api.github.com/repos/${CFG.owner}/${CFG.repo}/issues?state=all&per_page=${CFG.perPage}&page=${page}`;
+    const res  = await fetch(url, { headers: hdrs });
+    if (!res.ok) {
+      if (res.status === 401) throw new Error('Non autorisé — ce dépôt est privé. Cliquez sur 🔑 pour configurer un token.');
+      if (res.status === 403) {
+        const reset = res.headers.get('x-ratelimit-reset');
+        const t = reset ? new Date(reset * 1000).toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'}) : 'bientôt';
+        throw new Error(`Limite de requêtes GitHub atteinte. Réessayez après ${t} ou configurez un token (🔑).`);
+      }
+      if (res.status === 404) throw new Error('Dépôt introuvable — vérifiez owner/repo dans la configuration.');
+      throw new Error(`Erreur GitHub API ${res.status}`);
+    }
+    const data = await res.json();
+    all = all.concat(data.filter(i => !i.pull_request));
+    if (data.length < CFG.perPage) break;
+    page++;
+  }
+  return all;
+}
+
+/* ═══════════════════════════════════════════════
+   RENDER — Carte issue
+═══════════════════════════════════════════════ */
+function renderCard(issue) {
+  const lot   = issueLot(issue);
+  const shown = issue.labels.filter(l => {
+    const n = l.name.toLowerCase();
+    return !n.startsWith(PFX_STATUS) && !n.startsWith(PFX_LOT);
+  });
+
+  const lblsHtml = shown.map(l => {
+    const bg = '#' + l.color;
+    const fg = labelTextColor(l.color);
+    return `<span class="lbl" style="background:${bg};color:${fg}">${esc(l.name)}</span>`;
+  }).join('');
+
+  const avHtml = (issue.assignees || []).slice(0,3).map(a =>
+    `<img class="avatar" src="${a.avatar_url}&s=24" alt="${esc(a.login)}" title="${esc(a.login)}">`
+  ).join('');
+
+  return `<a class="card" href="${issue.html_url}" target="_blank" rel="noopener noreferrer">
+    <div class="card-top">
+      <span class="card-num">#${issue.number}</span>
+      ${lot ? `<span class="card-lot">${esc(lot)}</span>` : ''}
+    </div>
+    <p class="card-title">${esc(issue.title)}</p>
+    ${lblsHtml ? `<div class="card-lbls">${lblsHtml}</div>` : ''}
+    <div class="card-foot">
+      <div class="avatars">${avHtml}</div>
+      <span class="card-time">${relTime(issue.updated_at)}</span>
+    </div>
+  </a>`;
+}
+
+/* ═══════════════════════════════════════════════
+   RENDER — Progression par lots
+═══════════════════════════════════════════════ */
+function renderProgress(allIssues) {
+  const total  = allIssues.length;
+  const closed = allIssues.filter(i => i.state === 'closed').length;
+  const pct    = total === 0 ? 0 : Math.round((closed / total) * 100);
+
+  $('#global-pct').textContent   = pct + '%';
+  $('#global-bar').style.width   = pct + '%';
+  $('#global-legend').textContent = `${closed} terminé${closed > 1 ? 's' : ''} sur ${total} ticket${total > 1 ? 's' : ''} au total`;
+
+  /* Per-lot progress */
+  const lotStats = {};
+  for (const issue of allIssues) {
+    const key = issueLotKey(issue);
+    if (!key) continue;
+    if (!lotStats[key]) lotStats[key] = { total: 0, closed: 0 };
+    lotStats[key].total++;
+    if (issue.state === 'closed') lotStats[key].closed++;
+  }
+
+  /* Find current active lot (first lot with open issues) */
+  const activeLot = LOT_ORDER.find(k => {
+    const s = lotStats[k];
+    return s && s.closed < s.total;
+  });
+
+  const html = LOT_ORDER.map(key => {
+    const s   = lotStats[key] || { total: 0, closed: 0 };
+    const p   = s.total === 0 ? 0 : Math.round((s.closed / s.total) * 100);
+    const isDone   = s.total > 0 && s.closed === s.total;
+    const isActive = key === activeLot;
+    const cls      = isDone ? 'done-lot' : (isActive ? 'active' : '');
+    const statusTxt = s.total === 0
+      ? 'Aucun ticket'
+      : isDone ? '✓ Terminé'
+      : isActive ? '⚡ En cours'
+      : '○ À venir';
+
+    return `<div class="lot-card ${cls}">
+      <div class="lot-header">
+        <span class="lot-name">${esc(LOT_LABELS[key] || 'Lot ' + key)}</span>
+        <span class="lot-counts">${s.closed}/${s.total}</span>
+      </div>
+      <div class="lot-track"><div class="lot-fill" style="width:${p}%"></div></div>
+      <div class="lot-status">${statusTxt}</div>
+    </div>`;
+  }).join('');
+
+  $('#lots-grid').innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════
+   RENDER — Kanban
+═══════════════════════════════════════════════ */
+function filteredIssues() {
+  return S.issues.filter(i => {
+    if (S.filter.lot  && !( issueLot(i)  || '').includes(S.filter.lot))  return false;
+    if (S.filter.type && !( issueType(i) || '').includes(S.filter.type)) return false;
+    return true;
+  });
+}
+
+function renderKanban() {
+  const fi = filteredIssues();
+
+  const groups = { todo: [], doing: [], blocked: [], validate: [], done: [] };
+  for (const i of fi) groups[issueStatus(i)].push(i);
+
+  /* Stats header */
+  const openTotal = groups.todo.length + groups.doing.length + groups.blocked.length + groups.validate.length;
+  $('#stat-open').textContent    = openTotal;
+  $('#stat-progress').textContent = groups.doing.length;
+  $('#stat-blocked').textContent  = groups.blocked.length;
+  $('#stat-done').textContent     = S.issues.filter(i => i.state === 'closed').length;
+
+  /* Columns */
+  for (const col of ['todo','doing','blocked','validate']) {
+    $(`#c-${col}-n`).textContent    = groups[col].length;
+    $(`#c-${col}`).innerHTML        = groups[col].length
+      ? groups[col].map(renderCard).join('')
+      : '<p class="empty">Aucun ticket</p>';
+  }
+
+  /* Done */
+  const doneIssues = S.issues.filter(i => {
+    if (i.state !== 'closed') return false;
+    if (S.filter.lot  && !( issueLot(i)  || '').includes(S.filter.lot))  return false;
+    if (S.filter.type && !( issueType(i) || '').includes(S.filter.type)) return false;
+    return true;
+  });
+  $('#done-count-badge').textContent = doneIssues.length;
+  if (S.doneOpen) {
+    $('#done-grid').innerHTML = doneIssues.length
+      ? doneIssues.map(renderCard).join('')
+      : '<p class="empty">Aucun ticket terminé</p>';
+  }
+
+  /* Toolbar count */
+  $('#toolbar-count').textContent = `${fi.length} ticket${fi.length > 1 ? 's' : ''}`;
+
+  /* Filters */
+  updateFilters();
+}
+
+function render() {
+  renderProgress(S.issues);
+  renderKanban();
+}
+
+/* ═══════════════════════════════════════════════
+   FILTERS
+═══════════════════════════════════════════════ */
+function updateFilters() {
+  const lots  = [...new Set(S.issues.map(issueLot).filter(Boolean))].sort();
+  const types = [...new Set(S.issues.map(issueType).filter(Boolean))].sort();
+
+  function repopulate(id, opts, current, placeholder) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = `<option value="">${placeholder}</option>` +
+      opts.map(o => `<option value="${esc(o)}" ${o === current ? 'selected' : ''}>${esc(o)}</option>`).join('');
+  }
+  repopulate('filter-lot',  lots,  S.filter.lot,  'Tous les lots');
+  repopulate('filter-type', types, S.filter.type, 'Tous les types');
+}
+
+/* ═══════════════════════════════════════════════
+   LOAD CYCLE
+═══════════════════════════════════════════════ */
+async function load() {
+  if (S.loading) return;
+  S.loading = true;
+  clearTimeout(_refreshTimer);
+  clearInterval(_tickTimer);
+
+  const btn = $('#btn-refresh');
+  const err = $('#error-banner');
+  btn.disabled = true;
+  btn.textContent = '…';
+  err.hidden = true;
+  $('#loading-bar').hidden = false;
+
+  try {
+    S.issues = await fetchAll();
+    render();
+
+    const now = new Date();
+    $('#last-refresh').textContent =
+      'Mis à jour ' + now.toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+  } catch (e) {
+    err.textContent = '⚠ ' + e.message;
+    err.hidden = false;
+  } finally {
+    S.loading = false;
+    btn.disabled = false;
+    btn.textContent = 'Actualiser';
+    $('#loading-bar').hidden = true;
+    scheduleRefresh();
+  }
+}
+
+function scheduleRefresh() {
+  S.countdown = CFG.refreshSeconds;
+  updateCd();
+  _refreshTimer = setTimeout(load, CFG.refreshSeconds * 1000);
+  _tickTimer    = setInterval(() => {
+    S.countdown--;
+    updateCd();
+    if (S.countdown <= 0) clearInterval(_tickTimer);
+  }, 1000);
+}
+
+function updateCd() {
+  const el = $('#countdown');
+  if (el) el.textContent = S.countdown > 0 ? `↻ dans ${S.countdown}s` : '';
+}
+
+/* ═══════════════════════════════════════════════
+   EVENT LISTENERS
+═══════════════════════════════════════════════ */
+$('#btn-refresh').addEventListener('click', load);
+
+$('#filter-lot').addEventListener('change', e => {
+  S.filter.lot = e.target.value;
+  renderKanban();
+});
+
+$('#filter-type').addEventListener('change', e => {
+  S.filter.type = e.target.value;
+  renderKanban();
+});
+
+$('#done-toggle').addEventListener('click', () => {
+  S.doneOpen = !S.doneOpen;
+  const grid = $('#done-grid');
+  grid.hidden = !S.doneOpen;
+  $('#done-arrow').textContent   = S.doneOpen ? '▼' : '▶';
+  const hint = $('#done-toggle').querySelector('span:last-child');
+  if (hint) hint.textContent = S.doneOpen ? '' : 'Cliquer pour afficher';
+  if (S.doneOpen) renderKanban();
+});
+
+/* Token panel */
+$('#btn-token').addEventListener('click', () => {
+  const p = $('#token-panel');
+  p.hidden = !p.hidden;
+  if (!p.hidden) { $('#token-input').value = S.token; $('#token-input').focus(); }
+});
+$('#btn-save-token').addEventListener('click', () => {
+  const val = $('#token-input').value.trim();
+  S.token = val;
+  val ? localStorage.setItem('adp_gh_token', val) : localStorage.removeItem('adp_gh_token');
+  $('#token-panel').hidden = true;
+  load();
+});
+$('#token-input').addEventListener('keydown', e => { if (e.key === 'Enter') $('#btn-save-token').click(); });
+
+/* ═══════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════ */
+load();
+</script>
+</body>
+</html>

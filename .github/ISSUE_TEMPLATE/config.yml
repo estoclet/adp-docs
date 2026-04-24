@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation projet (adp-docs)
+    url: https://github.com/estoclet/adp-docs/tree/main
+    about: Lire la documentation avant de créer un ticket
+  - name: Tableau de bord
+    url: https://estoclet.github.io/adp-docs/
+    about: Voir l'état du projet en temps réel

@@ -1,0 +1,93 @@
+name: Ticket de travail
+description: Créer un ticket de travail standard pour le projet ADP
+title: "[TYPE] Titre du ticket"
+labels: ["statut: à faire"]
+assignees: ["estoclet"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Conventions** : un ticket = une tâche bornée et vérifiable.
+        Remplir tous les champs obligatoires. Lier les fichiers `adp-docs/` concernés.
+
+  - type: dropdown
+    id: lot
+    attributes:
+      label: Lot du projet
+      description: À quel lot de travail appartient ce ticket ?
+      options:
+        - "lot: 0 - cadrage"
+        - "lot: 1 - legacy"
+        - "lot: 2 - architecture"
+        - "lot: 3 - développement"
+        - "lot: 4 - migration"
+        - "lot: 5 - recette"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de travail
+      options:
+        - "type: spec"
+        - "type: décision"
+        - "type: analyse"
+        - "type: dev"
+        - "type: contenu"
+        - "type: bug"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorité
+      options:
+        - "priorité: haute"
+        - "priorité: moyenne"
+        - "priorité: basse"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Décrivez la tâche clairement. Qui fait quoi ? Quel output attendu ?
+      placeholder: |
+        Analyser les plugins installés dans adp-legacy/wp-content/plugins/
+        Output attendu : section "Plugins actifs" de adp-docs/03-legacy/01-inventaire-legacy.md complétée.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critères d'acceptation
+      description: Conditions vérifiables qui permettent de fermer ce ticket.
+      placeholder: |
+        - [ ] Liste des plugins complétée dans 03-legacy/01-inventaire-legacy.md
+        - [ ] Bloc "Signalement agent" présent
+        - [ ] Aucun fichier hors périmètre modifié
+    validations:
+      required: true
+
+  - type: textarea
+    id: refs
+    attributes:
+      label: Fichiers de référence (adp-docs)
+      description: Liens vers les fichiers markdown concernés.
+      placeholder: |
+        - adp-docs/07-pilotage/task-packs/TP-001-analyse-legacy.md
+        - adp-docs/03-legacy/01-inventaire-legacy.md
+        - adp-docs/02-gouvernance-ia/01-regles-ia.md
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Dépendances / bloquants
+      description: Ce ticket dépend-il d'un autre ticket ou d'une inconnue ?
+      placeholder: |
+        Dépend de #12 (inventaire legacy terminé)
+        Bloqué sur I-06 (accès BDD legacy)

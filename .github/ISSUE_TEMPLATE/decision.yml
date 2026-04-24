@@ -1,0 +1,77 @@
+name: Arbitrage / Décision requise
+description: Soumettre une décision à arbitrer par le chef de projet ou le client
+title: "[DÉCISION] Sujet de l'arbitrage"
+labels: ["statut: à valider", "type: décision"]
+assignees: ["estoclet"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ce template est pour les points qui nécessitent un arbitrage humain avant de pouvoir avancer.
+        Les inconnues bloquantes du projet sont référencées dans `adp-docs/00-initialisation-projet.md`.
+
+  - type: dropdown
+    id: lot
+    attributes:
+      label: Lot concerné
+      options:
+        - "lot: 0 - cadrage"
+        - "lot: 1 - legacy"
+        - "lot: 2 - architecture"
+        - "lot: 3 - développement"
+        - "lot: 4 - migration"
+        - "lot: 5 - recette"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgence
+      options:
+        - "priorité: haute — bloque d'autres tickets"
+        - "priorité: moyenne — à traiter avant le prochain lot"
+        - "priorité: basse — peut attendre"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: Pourquoi cette décision est nécessaire ? Qu'est-ce qui est bloqué ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options envisagées
+      placeholder: |
+        **Option A** : ...
+        - Pour : ...
+        - Contre : ...
+
+        **Option B** : ...
+        - Pour : ...
+        - Contre : ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommandation (si applicable)
+      description: Quelle option recommandez-vous et pourquoi ?
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact de la décision
+      description: Quels fichiers, tickets ou lots seront impactés par cette décision ?
+      placeholder: |
+        - Débloque : adp-docs/03-legacy/03-mapping-migration.md
+        - Impacte : tickets #8, #12
+        - Référence : adp-docs/00-initialisation-projet.md (inconnue I-03)
+    validations:
+      required: true
