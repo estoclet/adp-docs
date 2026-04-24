@@ -82,9 +82,10 @@
 
 ## Handoffs
 
-| Sujet | Fichier |
-|-------|---------|
-| Template de passation entre agents | `08-handoffs/_template-handoff.md` |
+| Sujet | Fichier | État |
+|-------|---------|------|
+| Template de passation entre agents | `08-handoffs/_template-handoff.md` | Prêt |
+| Pré-lancement TP-005 Homepage Divi | `08-handoffs/HO-001-pre-TP-005-homepage.md` | Prêt — 2026-04-24 |
 
 ---
 
