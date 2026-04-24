@@ -21,7 +21,7 @@ Toute affirmation sur le site, le client, les utilisateurs ou le contenu doit ê
 - un fichier de `adp-docs/` cité par son chemin exact (ex : `voir 00-initialisation-projet.md`)
 - un fichier de `adp-legacy/` cité par son chemin exact après analyse directe
 - une décision enregistrée dans `07-pilotage/02-journal-decisions.md`
-- une **mesure directe** effectuée par l'agent sur le site ou serveur concerné, citant explicitement l'outil, la commande et la date (ex : `Lighthouse CLI — 2026-04-24`, `ddev wp option get — 2026-04-24`, `curl -w time_total — 2026-04-24`)
+- une **mesure directe** effectuée par l'agent sur le site, le serveur, ou le dépôt Git du projet, citant explicitement l'outil, la commande et la date (ex : `Lighthouse CLI — 2026-04-24`, `ddev wp option get — 2026-04-24`, `curl -w time_total — 2026-04-24`, `git log adp-docs — 2026-04-24`)
 
 **Ne sont pas des sources valides** : la connaissance générale du monde, les meilleures pratiques du secteur, les expériences passées de l'agent, les articles de blog, les statistiques générales, ou toute information non mesurée et non présente dans ce repo.
 
@@ -120,6 +120,7 @@ Les actions suivantes requièrent une validation humaine **avant** exécution :
 |--------|-------------------|
 | Modifier `00-initialisation-projet.md` | Chef de projet |
 | Modifier `07-pilotage/02-journal-decisions.md` | Chef de projet (R-11 — ce fichier est tenu par le chef de projet, pas par les agents) |
+| Modifier `07-pilotage/01-lotissement.md` | Chef de projet (structure du projet — hors output d'agent) |
 | Créer ou clore un ADR | Chef de projet |
 | Modifier le périmètre IN/OUT | Chef de projet + client |
 | Décider de supprimer du contenu legacy | Chef de projet |
