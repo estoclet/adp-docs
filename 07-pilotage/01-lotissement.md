@@ -84,12 +84,12 @@
 
 | Tâche | Statut |
 |-------|--------|
-| Export contenu legacy | [DÉPENDANCE] → I-06 + méthode d'export |
+| Export contenu legacy | [FAIT — I-06 résolu] Méthode retenue : WP XML natif (faible volume V1) |
 | Import et nettoyage sur le nouveau site | À planifier |
-| Configuration des redirections 301 | [DÉPENDANCE] → mapping TP-004 |
+| Configuration des redirections 301 | [FAIT — mapping TP-004 terminé] À implémenter en Lot 3 |
 | Optimisation des images migrées | À planifier |
 
-**Bloquants** : Mapping validé, accès BDD ou export WP XML.
+**Bloquants** : Aucun bloquant documentaire — démarrage conditionné à la fin du Lot 3.
 
 ---
 
