@@ -65,8 +65,8 @@ Convention : `[Zone] — [Nom du bloc]`
 
 - Les couleurs ne sont **jamais** saisies en dur dans les modules : elles passent par les **couleurs globales Divi** (palette définie dans les Réglages Divi).
 - Les typographies passent par les **presets de texte Divi** ou le CSS du thème enfant.
-- [DÉPENDANCE] La palette exacte est bloquée par I-07 (hex à recueillir — Julien HACHE).
-- [FAIT] La police n'est plus bloquante : carte blanche client. Préconisation projet actuelle : `Inter`, avec fallback `DM Sans`.
+- [RÉSOLU PARTIEL — I-07] Palette V1 : bleu marine `#1e3264` (extrait de `logo-dark.png`) + bleu accent `#0070c8` (extrait de `maquette_homepage.png`). Source : `01-cadrage/05-assets-design.md`. Tons complémentaires non définis — non nécessaires pour V1.
+- [FAIT] Police validée : `Inter`. Carte blanche client — décision 2026-04-24. Fallback : `DM Sans`.
 
 ---
 

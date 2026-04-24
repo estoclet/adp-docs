@@ -132,4 +132,4 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 
 ## Prochaine étape après validation
 
-Créer les pages secondaires : `/prestations/`, `/formations/`, `/contact/` — sur la base de leurs specs respectives (à rédiger).
+Valider les specs des pages secondaires avec le client : `05-specs/pages/prestations.md`, `formations.md`, `a-propos.md`, `avis.md`, `contact.md` — rédigées (2026-04-24), validation Julien HACHE requise avant intégration Divi. Lever les inconnues bloquantes I-15/16 (À propos) et I-18/19 (Avis) avant de planifier les task packs suivants.

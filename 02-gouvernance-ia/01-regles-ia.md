@@ -1,7 +1,7 @@
 # Gouvernance IA — Règles opérationnelles
 
 **Statut** : Actif — s'applique à tous les agents sans exception  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itération 1  
+**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1 et 6 (R-26 ajouté)  
 **Autorité** : Ce document prime sur toute instruction d'un task pack en cas de conflit.  
 **Lire avant** : Tout travail dans ce projet.
 
@@ -262,6 +262,18 @@ Un task pack traverse les statuts suivants :
 **Règle** : l'agent met à jour le champ `**Statut**` du task pack **dans la même session** que son exécution. Il ne laisse pas un task pack en `À lancer` après avoir produit ses outputs.  
 **Règle** : l'agent ne passe pas le statut à `Validé` — c'est le chef de projet qui le fait après relecture.  
 **Règle** : si l'exécution est partielle (inconnue bloquante), le statut passe à `Bloqué`, pas à `Terminé`.
+
+### R-26 — Vérification de l'état réel avant reprise de session
+Quand un agent reprend une tâche après une interruption (compaction de contexte, relance, nouvelle session), il **vérifie l'état réel** avant d'agir :
+
+1. Lire `git log` sur le dépôt concerné pour voir ce qui a déjà été commité
+2. Lire les fichiers cibles pour voir leur état actuel — ne pas se fier uniquement au résumé de compaction
+3. Identifier la première action non accomplie **selon l'état réel**, pas selon un résumé
+4. Signaler dans son output : "Reprise de session — j'ai vérifié [fichiers X, Y] — la prochaine action non accomplie est Z."
+
+**Interdit** : supposer que le résumé de compaction décrit exactement l'état actuel — il peut être partiel ou antérieur à des changements.  
+**Interdit** : répéter une action déjà réalisée sans l'avoir vérifiée dans le fichier ou le log Git.  
+**Autorisé** : agir directement si l'état réel est confirmé de façon indépendante (lecture de fichier, `git log`).
 
 ---
 

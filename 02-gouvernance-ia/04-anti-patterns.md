@@ -1,7 +1,7 @@
 # Catalogue des anti-patterns agents IA
 
 **Statut** : Actif  
-**Dernière mise à jour** : 2026-04-24 — créé par boucle gouvernance itération 1  
+**Dernière mise à jour** : 2026-04-24 — créé par boucle gouvernance itération 1, étendu itération 6 (AP-12)  
 **Lié à** : `01-regles-ia.md`, `02-conventions-redaction.md`, `03-perimetre-agents.md`
 
 > Ce document catalogue les dérives récurrentes des agents IA sur des projets documentaires.  
@@ -153,6 +153,19 @@
 
 ---
 
+## AP-12 — La répétition silencieuse après compaction de contexte
+
+**Description** : Lors d'une reprise de session (compaction de contexte, relance, nouvelle session), l'agent refait un travail déjà accompli dans une session précédente, sans vérifier l'état réel des fichiers ou du dépôt Git.
+
+**Exemple** : Le résumé de compaction indique "R-25 a été ajouté à `01-regles-ia.md`". Sans vérifier le fichier réel, l'agent réécrit R-25 — résultant en un doublon ou en l'écrasement silencieux d'une version améliorée.
+
+**Pourquoi c'est dangereux** : Le travail répété peut introduire des incohérences, écraser des améliorations faites dans l'intervalle, ou produire des doublons difficiles à détecter sans relecture complète.
+
+**Règle opposée** : R-26  
+**Contre-mesure** : Lire le fichier cible et vérifier `git log` avant toute modification lors d'une reprise de session. Confirmer que l'action n'est pas déjà accomplie avant d'agir.
+
+---
+
 ## Résumé de détection rapide
 
 | Symptôme dans un document produit | Anti-pattern probable |
@@ -168,3 +181,4 @@
 | Listes de tâches dans le contenu | AP-09 |
 | Zones à remplir laissées vides sans marqueur | AP-10 |
 | Travail significatif commencé sans ticket | AP-11 |
+| Travail déjà fait répété après compaction | AP-12 |
