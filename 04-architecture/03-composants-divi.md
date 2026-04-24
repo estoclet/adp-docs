@@ -120,7 +120,7 @@ Les presets Divi permettent d'appliquer un style uniforme sans CSS inline. [RECO
 | Titre H2 section | Module Text | Couleur principale, centré ou gauche, taille définie |
 | Carte | Module Blurb | Fond blanc, ombre légère, coins 16-24px, padding généreux |
 
-> [DÉPENDANCE] : Les valeurs hex pour les presets sont bloquées sur I-hex (voir ADR-002 et homepage spec).
+> [RÉSOLU PARTIEL — I-07] Palette V1 disponible : bleu marine `#1e3264` + bleu accent `#0070c8`. Source : `01-cadrage/05-assets-design.md`. Tons complémentaires non définis mais non bloquants pour les presets V1.
 
 ---
 
@@ -168,10 +168,10 @@ Le CSS structurant reste versionné dans Git, idéalement dans le thème enfant 
 
 | Template | Pages | Statut |
 |----------|-------|--------|
-| Template Accueil | `/` | En cours de spécification |
-| Template Page statique | `/a-propos/`, `/contact/`, `/avis/` | À créer — Lot 3 |
-| Template Page Prestations | `/prestations/` | À créer — après spec |
-| Template Page Formations | `/formations/` | À créer — après spec |
+| Template Accueil | `/` | Spec validée client — TP-005 prêt |
+| Template Page statique | `/a-propos/`, `/prestations/`, `/formations/` | Spec rédigée — à valider client |
+| Modale Contact | déclenchée depuis header/footer | Spec rédigée — impl. [À ARBITRER] |
+| Modale Avis | déclenchée depuis navigation | Spec rédigée — impl. [À ARBITRER] |
 | Template 404 | Toute URL inexistante | À créer — Lot 3 |
 
 ---
