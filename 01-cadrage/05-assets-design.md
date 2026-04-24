@@ -1,0 +1,46 @@
+# Assets de design disponibles
+
+**Statut** : Actif  
+**Dernière mise à jour** : 2026-04-24  
+**Produit par** : Eric STOCLET  
+**Lié à** : `00-initialisation-projet.md`, `05-specs/pages/homepage.md`, `04-architecture/04-conventions-divi.md`
+
+---
+
+## Fichiers disponibles
+
+Tous les fichiers sont versionnés dans `adp-app/assets/design/`.
+
+| Fichier | Description | Résout |
+|---------|-------------|--------|
+| `logo-dark.png` | Monogramme "AdP" bleu marine sur fond blanc/transparent — usage fond clair | I-09 |
+| `logo-white.png` | Monogramme "AdP" blanc sur fond transparent — usage fond sombre | I-09 |
+| `hero-bg.png` | Photo hero : tablette, MacBook, iPhone sur bureau bois — fond blanc à gauche | Bloc 2 homepage |
+| `maquette_homepage.png` | Maquette complète de la homepage validée client (2026-04-23) | Référence visuelle |
+
+[FAIT] Fichiers copiés dans `adp-app/assets/design/` le 2026-04-24.  
+[FAIT] Ces fichiers sont la référence visuelle officielle — ils correspondent aux specs documentées dans `05-specs/pages/homepage.md` (ADR-002).
+
+---
+
+## Palette extraite
+
+Palette extraite directement des fichiers sources (mesure directe — Python PIL — 2026-04-24) :
+
+| Rôle | Hex | RGB | Source |
+|------|-----|-----|--------|
+| Bleu marine (primaire) | `#1e3264` | rgb(30, 50, 100) | logo-dark.png — couleur dominante (36 744 px) |
+| Bleu vif (secondaire / accent) | `#0070c8` | rgb(0, 112, 200) | maquette_homepage.png — boutons, icônes (6 300 px) |
+| Blanc (fond) | `#ffffff` | rgb(255, 255, 255) | maquette_homepage.png |
+
+[FAIT] I-07 partiellement résolue : les deux bleus sont extraits avec certitude.  
+[À ARBITRER] Couleurs complémentaires (texte, fond section, hover) — à confirmer avec Julien HACHE si la maquette ne fait pas autorité sur ces points.
+
+---
+
+## Notes
+
+- Le logo est un monogramme géométrique (initiales "A", "d", "P" stylisées dans un cercle).
+- `logo-white.png` est bien blanc sur fond transparent — invisible sur fond blanc, prévu pour le header sombre.
+- La photo `hero-bg.png` est cadrée avec un espace blanc à gauche — conçue pour la colonne droite du hero (55%).
+- La typographie visible dans la maquette n'est pas déterminable avec certitude depuis le PNG. [INCONNUE — I-13]

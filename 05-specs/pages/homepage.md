@@ -5,7 +5,8 @@
 **Produit par** : Eric STOCLET, d'après brief client
 **URL cible** : `/`
 **Template Divi** : Template Accueil (sur mesure, hors Theme Builder)
-**Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`, `04-architecture/03-composants-divi.md`
+**Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`, `04-architecture/03-composants-divi.md`, `01-cadrage/05-assets-design.md`  
+**Référence visuelle** : `adp-app/assets/design/maquette_homepage.png` [FAIT — livrée 2026-04-24]
 
 > **Note agent** : Ce document est basé sur le brief d'implémentation validé en réunion client (2026-04-23). Les éléments marqués [FAIT] sont fermes. Les éléments marqués [INCONNUE] nécessitent une information à recueillir avant développement. Ne pas inventer de valeurs pour les inconnues.
 
@@ -54,8 +55,8 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 
 **Menu principal** : Accueil · Prestations · Formations · À propos · Avis · Blog · Contact [FAIT]
 
-**Inconnues bloquantes** :
-- [INCONNUE] Logo / monogramme fourni par le client
+**Inconnues** :
+- [RÉSOLU — I-09] Logo disponible : `adp-app/assets/design/logo-dark.png` (fond clair) + `logo-white.png` (fond sombre)
 - [INCONNUE] Comportement du menu sur mobile (hamburger ?)
 
 ---
@@ -188,7 +189,7 @@ Empilement propre des 3 colonnes. [FAIT]
 |---|-------|---------|--------|
 | 1 | 40€ / heure | "après déduction fiscale" + "soit 80€ avant avantage fiscal" | [FAIT] |
 | 2 | Intervention à domicile | "sur rendez-vous" + "zone locale" | [FAIT] |
-| 3 | Secteur d'intervention | Communes ou zone couverte | [INCONNUE — à fournir par le client] |
+| 3 | Secteur d'intervention | "Région Lilloise, 60km autour d'Houplines" | [RÉSOLU — I-11 — source : homepage legacy ID 18] |
 | 4 | Système & Réseau | "configuration, optimisation, sécurisation des équipements connectés" | [FAIT] |
 
 ### Responsive
@@ -208,7 +209,7 @@ Empilement propre des 3 colonnes. [FAIT]
 | Gauche | Logo + titre "Besoin d'aide ? Parlons-en !" + sous-texte "Un conseil, une question ou un rendez-vous ? Je suis à votre écoute." | [FAIT] |
 | Droite | Bouton téléphone bleu "06 51 31 15 37" (prioritaire) + bouton email contour sombre | [FAIT] |
 
-**Inconnue** : [INCONNUE] Adresse email de contact du client.
+**Email** : [RÉSOLU — I-10] julien.hache@astucesdepomme.com — source : llms.txt legacy.
 
 ---
 
@@ -263,17 +264,17 @@ L'agent ou le développeur peut ajouter du CSS pour : [FAIT — consigne brief]
 
 ## Inconnues bloquantes récapitulatives
 
-| ID | Inconnue | Bloque |
-|----|----------|--------|
-| I-logo | Logo / monogramme (format PNG fond transparent) | Header, hero, CTA final |
-| I-email | Adresse email de contact | Bloc 8, footer |
-| I-zone | Zone / communes d'intervention | Bloc 7 |
-| I-hex | Valeurs hex exactes de la palette | Tous les blocs |
-| I-police | Police validée | Tous les blocs |
-| I-textes | Textes descriptifs des cartes et prestations | Blocs 3, 5 |
-| I-mention-legale | Mention légale crédit d'impôt | Bloc 4 |
-| I-visuels | Image hero + badge "Services à la personne" | Blocs 2, 4 |
-| I-reseaux | Réseaux sociaux présents et URLs | Footer |
+| ID | Inconnue | Bloque | Statut |
+|----|----------|--------|--------|
+| I-logo | Logo / monogramme (format PNG fond transparent) | Header, hero, CTA final | [RÉSOLU — I-09 — logo-dark.png + logo-white.png dans `adp-app/assets/design/`] |
+| I-email | Adresse email de contact | Bloc 8, footer | [RÉSOLU — I-10 — julien.hache@astucesdepomme.com] |
+| I-zone | Zone / communes d'intervention | Bloc 7 | [RÉSOLU — I-11 — "Région Lilloise, 60km autour d'Houplines"] |
+| I-hex | Valeurs hex exactes de la palette | Tous les blocs | [RÉSOLU PARTIEL — I-07 — `#1e3264` (primaire) + `#0070c8` (accent) — voir `01-cadrage/05-assets-design.md`] |
+| I-police | Police validée | Tous les blocs | [INCONNUE — I-13 — non déterminable depuis PNG] |
+| I-textes | Textes descriptifs des cartes et prestations | Blocs 3, 5 | [INCONNUE — I-12 — à recueillir auprès de Julien HACHE] |
+| I-mention-legale | Mention légale crédit d'impôt | Bloc 4 | [RÉSOLU — I-14 — "Dans les limites prévues à l'article 199 sexdecies du code général des impôts"] |
+| I-visuels | Image hero + badge "Services à la personne" | Blocs 2, 4 | [RÉSOLU PARTIEL — hero-bg.png disponible dans `adp-app/assets/design/` ; badge SAP à créer] |
+| I-reseaux | Réseaux sociaux présents et URLs | Footer | [INCONNUE — à recueillir auprès de Julien HACHE] |
 
 ---
 
@@ -299,6 +300,7 @@ Pas de module `Code` sauf si indispensable. [FAIT]
 
 - **Statut** : Brief client validé (réunion 2026-04-23) — spec rédigée en conséquence
 - **Hypothèses posées** : Liens internes (slugs des pages Prestations/Formations/Avis non encore créées), police suggérée
-- **Inconnues bloquantes** : logo, email, zone géo, palette hex, textes cartes — voir tableau ci-dessus
-- **Points à arbitrer** : Police exacte, valeurs hex
-- **Prochaine étape** : Recueillir les inconnues I-logo, I-email, I-zone, I-hex, I-textes auprès du client avant de lancer le développement
+- **Inconnues résolues** : logo (I-09), email (I-10), zone géo (I-11), palette primaire/accent (I-07 partiel), hero image (I-visuels partiel), mention légale (I-14)
+- **Inconnues restantes** : police (I-13), textes cartes services (I-12), réseaux sociaux (I-reseaux), badge SAP
+- **Points à arbitrer** : police exacte (I-13), couleurs complémentaires (hover, fond section)
+- **Prochaine étape** : recueillir I-13 (police) et I-12 (textes cartes) auprès de Julien HACHE — le reste est débloqué pour le développement

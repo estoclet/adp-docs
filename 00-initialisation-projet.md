@@ -65,9 +65,9 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 | I-04 | Budget et délais | Lotissement | [À ARBITRER] |
 | I-05 | Plugins WP actifs sur le legacy | Compatibilité | [RÉSOLU — TP-001 : 4 plugins actifs (AIOSEO 4.9.6.2, cookie-dough-compliance 2.2.5, ga-google-analytics 20260421, UpdraftPlus 2.26.1.0) — voir `03-legacy/01-inventaire-legacy.md`] |
 | I-06 | Accès BDD legacy pour export | Migration de contenu | [RÉSOLU — dump prod importé 2026-04-24, DDEV adp-legacy opérationnel sur `http://adp-legacy.ddev.site`] |
-| I-07 | Palette hex exacte (extraire de la carte de visite) | Charte Divi — **bloque le Lot 3** | [À RECUEILLIR — Julien HACHE] |
+| I-07 | Palette hex exacte (extraire de la carte de visite) | Charte Divi — **bloque le Lot 3** | [RÉSOLU PARTIEL — bleu marine `#1e3264` extrait du logo-dark.png (2026-04-24) ; couleurs secondaires et d'accentuation à confirmer avec Julien HACHE] |
 | I-08 | Persona cible détaillé | Architecture info, rédaction | [À ARBITRER] |
-| I-09 | Logo / monogramme PNG fond transparent | Header, footer, CTA | [À RECUEILLIR — Julien HACHE] |
+| I-09 | Logo / monogramme PNG fond transparent | Header, footer, CTA | [RÉSOLU — logo-dark.png + logo-white.png dans `adp-app/assets/design/` — 2026-04-24] |
 | I-10 | Adresse email de contact | Homepage bloc 8, footer | [RÉSOLU — julien.hache@astucesdepomme.com — voir `03-legacy/01-inventaire-legacy.md` section "Données métier"] |
 | I-11 | Zone / communes d'intervention | Homepage bloc 7 | [RÉSOLU — "Région Lilloise, 60km autour d'Houplines" — homepage legacy ID 18] |
 | I-12 | Textes descriptifs des cartes de services | Homepage blocs 3 et 5 | [À RECUEILLIR — Julien HACHE] |
@@ -116,4 +116,4 @@ adp-docs/
 2. Lire `02-gouvernance-ia/01-regles-ia.md` (règles opérationnelles).
 3. Lire `02-gouvernance-ia/04-anti-patterns.md` (anti-patterns récurrents à éviter).
 4. ~~Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md`~~ — terminé (Lot 1 clos, voir `03-legacy/`).
-5. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-07** (palette hex), **I-08** (persona), **I-09** (logo PNG), **I-12** (textes services), **I-13** (police) — I-01/02/03/05/06/10/11/14 résolues.
+5. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-07** (palette secondaire à confirmer), **I-08** (persona), **I-12** (textes services), **I-13** (police) — I-01/02/03/05/06/09/10/11/14 résolues, I-07 partiellement résolue.
