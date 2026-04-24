@@ -12,6 +12,34 @@ Divi permet de sauvegarder des sections, lignes ou modules comme "Saved Layouts"
 
 **Règle** : Un composant est sauvegardé en Divi Library s'il apparaît sur au moins 3 pages. En deçà, layout local.
 
+> [FAIT — règle projet] Les éléments visuels structurants Divi doivent être exportés en JSON et documentés. Git reste la source de vérité du code, mais les exports Divi JSON servent de référence pour Theme Builder, Theme Options, Divi Library, layouts importants et presets.
+
+---
+
+## Procédure — Export Divi JSON
+
+### Éléments à exporter
+
+| Élément | Référence attendue |
+|--------|---------------------|
+| Theme Builder | export JSON dédié |
+| Theme Options | export JSON dédié |
+| Divi Library | export JSON dédié |
+| Layouts importants | export JSON dédié |
+| Presets globaux | export JSON ou documentation explicite si couplés à des layouts |
+
+### Règles
+
+- exporter après toute modification structurante
+- nommer les exports avec date ISO + périmètre
+- documenter le périmètre exact de l'export
+- ne pas considérer un export JSON comme substitut à Git pour du CSS/JS/PHP
+
+Exemples de nommage :
+- `2026-04-24-theme-builder.json`
+- `2026-04-24-divi-library-homepage.json`
+- `2026-04-24-theme-options.json`
+
 ---
 
 ## Composants globaux (Theme Builder)
@@ -95,6 +123,46 @@ Les presets Divi permettent d'appliquer un style uniforme sans CSS inline. [RECO
 | Carte | Module Blurb | Fond blanc, ombre légère, coins 16-24px, padding généreux |
 
 > [DÉPENDANCE] : Les valeurs hex pour les presets sont bloquées sur I-hex (voir ADR-002 et homepage spec).
+
+---
+
+## Conventions de nommage Divi
+
+| Type | Convention | Exemple |
+|------|------------|---------|
+| Template global | `TB - <zone> - <scope>` | `TB - Header - Global` |
+| Template page | `TPL - <page>` | `TPL - Homepage` |
+| Section réutilisable | `LIB - <usage> - <variante>` | `LIB - CTA - Dark` |
+| Preset module | `PRESET - <module> - <usage>` | `PRESET - Button - Primary` |
+| Layout d'export | `<date>-<perimetre>` | `2026-04-24-homepage-v1` |
+
+### Règles
+
+- nommage en ASCII simple
+- préfixe obligatoire pour distinguer template, library et preset
+- éviter les noms vagues du type `section test`, `copie finale`, `nouveau header`
+- garder les noms stables pour limiter les ambiguïtés entre export, import et documentation
+
+---
+
+## Conventions CSS projet
+
+Le CSS structurant reste versionné dans Git, idéalement dans le thème enfant ou les assets projet, pas comme unique source dans Divi.
+
+| Sujet | Convention |
+|------|------------|
+| Format de classe | kebab-case |
+| Préfixe projet recommandé | `adp-` |
+| Classe de composant | `adp-card-service`, `adp-pill-theme` |
+| Classe utilitaire limitée | `adp-u-*` si nécessaire |
+| Éviter | noms génériques (`.blue`, `.box2`, `.custom-section`) |
+
+### Règles
+
+- une classe exprime un rôle, pas une couleur temporaire
+- le CSS global passe par Git
+- les snippets CSS ponctuels dans Divi doivent rester exceptionnels et documentés
+- tout comportement JS ou CSS critique ne doit pas dépendre uniquement d'un champ visuel Divi
 
 ---
 

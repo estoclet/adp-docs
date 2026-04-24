@@ -81,6 +81,20 @@ Chaque information critique (stack, périmètre, décisions) vit dans un seul fi
 **Interdit** : Copier le contenu de `00-initialisation-projet.md` dans `03-legacy/01-inventaire-legacy.md`.  
 **Autorisé** : "Voir `00-initialisation-projet.md` pour les décisions prises."
 
+### R-10b — Source de vérité WordPress / Divi
+Pour le projet WordPress + Divi, la source de vérité dépend du type d'artefact :
+
+| Artefact | Source de vérité |
+|---------|------------------|
+| Code (`PHP`, `CSS`, `JS`), thème enfant, scripts, documentation | Git |
+| Contenus (pages, articles, menus, taxonomies) | exports WordPress WXR / WP-CLI |
+| Éléments visuels structurants Divi (Theme Builder, Theme Options, Divi Library, layouts importants, presets) | exports Divi JSON |
+| Médias | synchronisation séparée (backup, `rsync` ou procédure équivalente) |
+
+**Interdit** : traiter `wp-content/uploads` comme source de vérité versionnée.  
+**Interdit** : considérer l'état de production comme seule référence sur du code ou des réglages structurants.  
+**Autorisé** : conserver une référence Git pour le code et des exports dédiés pour Divi / contenu.
+
 ### R-11 — Journal des décisions informelles
 Toute décision prise oralement, par message ou en dehors d'un ADR formel doit être enregistrée dans `07-pilotage/02-journal-decisions.md` par le chef de projet.
 
@@ -105,6 +119,7 @@ Les actions suivantes requièrent une validation humaine **avant** exécution :
 | Modifier un fichier de `02-gouvernance-ia/` | Chef de projet |
 | Renommer ou déplacer un fichier existant | Chef de projet |
 | Modifier une information déjà marquée `[FAIT]` dans un document existant | Chef de projet |
+| Modifier en production un template global Divi, preset, CSS global, PHP ou plugin | Chef de projet |
 
 ### R-13 — Signalement des inconnues bloquantes
 Si un agent identifie une inconnue qui bloque sa tâche, il la documente dans son output avec le marqueur `[INCONNUE BLOQUANTE]` et liste l'impact. Il ne continue pas en inventant une réponse.
@@ -146,6 +161,65 @@ Si un agent s'apprête à **entamer** une action bornée, traçable et pertinent
 **Autorisé** : ne pas créer d'issue pour une vérification ponctuelle, une lecture simple ou une commande exploratoire sans livrable.
 
 **Règle pratique** : si l'action peut raisonnablement apparaître dans le dashboard projet, elle doit avoir une issue.
+
+### R-17 — Git obligatoire pour les modifications de code
+Toute modification `CSS`, `JS`, `PHP`, script, thème enfant ou documentation doit passer par Git.
+
+**Interdit** : corriger un fichier de thème enfant uniquement en production sans réintégrer le changement dans Git.  
+**Interdit** : faire d'un export Divi un substitut au versionnement du code.  
+**Autorisé** : utiliser Divi pour la mise en page, mais versionner tout code associé dans Git.
+
+### R-18 — Exports obligatoires pour les modifications Divi structurantes
+Toute modification structurante faite dans Divi doit être exportée et documentée.
+
+Sont considérées comme structurantes :
+- Theme Builder
+- Theme Options
+- Divi Library
+- layouts importants
+- presets globaux
+
+**Interdit** : modifier durablement un template global Divi sans export JSON traçable.  
+**Autorisé** : modifier un contenu simple sans export Divi si la structure globale n'est pas touchée.
+
+### R-19 — Données non versionnables
+Les éléments suivants ne doivent pas être versionnés dans Git :
+- `wp-content/uploads`
+- backups
+- caches
+- logs
+- secrets
+- exports contenant des données personnelles
+
+**Règle** : ces éléments doivent être stockés ou synchronisés séparément, avec une procédure explicite adaptée.
+
+### R-20 — Modifications en production limitées et classées
+Les modifications faites directement en production doivent rester limitées, tracées et classées dans l'une de ces catégories :
+- contenu simple
+- configuration
+- code
+- modification risquée
+
+**Règle pratique** :
+- contenu simple : toléré si traçable
+- configuration : toléré si documenté
+- code : exceptionnel, à réintégrer immédiatement dans Git
+- modification risquée : validation humaine préalable obligatoire
+
+### R-21 — Périmètre d'autonomie du client
+Le client peut modifier sans procédure lourde :
+- les textes de contenu
+- les images de contenu
+
+Le client ne modifie pas sans procédure :
+- les templates globaux
+- les presets
+- les réglages Divi structurants
+- le CSS global
+- le PHP
+- les plugins
+
+Toute exception doit être documentée et validée par le chef de projet.
 
 ---
 

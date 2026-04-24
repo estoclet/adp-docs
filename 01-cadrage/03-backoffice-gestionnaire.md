@@ -76,6 +76,116 @@
 | Optimisation auto | Plugin Smush ou Imagify | [RECOMMANDÉ] |
 | Organisation bibliothèque | Par dossiers si plugin Media Library Folders | [HYPOTHÈSE] |
 
+> [FAIT — règle projet] `wp-content/uploads`, les backups, caches, logs, secrets et exports contenant des données personnelles ne doivent pas être versionnés dans Git.
+
+---
+
+## Référentiels de vérité projet
+
+| Sujet | Référence projet | Statut |
+|------|------------------|--------|
+| Code, thème enfant, scripts, documentation | Git | [FAIT — règle projet] |
+| Contenus WordPress | exports WXR / WP-CLI | [FAIT — règle projet] |
+| Structure Divi globale | exports Divi JSON | [FAIT — règle projet] |
+| Médias | synchronisation séparée | [FAIT — règle projet] |
+
+---
+
+## Procédure — Export / import WordPress WXR via WP-CLI
+
+### Export WXR
+
+| Étape | Commande / action | Notes |
+|------|--------------------|-------|
+| Export complet contenu | `wp export --dir=<chemin-export>` | Produit un WXR XML |
+| Export ciblé pages | `wp export --post_type=page --dir=<chemin-export>` | Utile pour migration partielle |
+| Export ciblé articles | `wp export --post_type=post --dir=<chemin-export>` | Utile pour blog |
+| Export avec date | nommer le dossier/fichier avec date ISO | ex. `2026-04-24-wxr/` |
+
+### Import WXR
+
+| Étape | Commande / action | Notes |
+|------|--------------------|-------|
+| Installer l'importer si nécessaire | `wp plugin install wordpress-importer --activate` | À utiliser sur env de travail |
+| Importer un WXR | `wp import <fichier.xml> --authors=create` | Adapter selon contexte |
+| Vérifier pages et contenus | contrôle WP-CLI + backoffice | obligatoire après import |
+
+### Règles
+
+- exporter les contenus avant migration significative
+- documenter l'origine, la date et le périmètre de l'export
+- ne pas versionner dans Git un export contenant des données personnelles non minimisées
+
+---
+
+## Procédure — Synchronisation des médias
+
+Les médias sont synchronisés séparément du code et des exports structurants.
+
+| Méthode | Usage | Notes |
+|--------|------|-------|
+| Backup hébergeur | restauration / snapshot | dépend de l'hébergeur |
+| `rsync` | synchronisation contrôlée de `uploads/` | recommandé pour copie ciblée |
+| archive ponctuelle | transfert manuel | acceptable pour petit volume |
+
+### Règles
+
+- ne pas versionner `wp-content/uploads`
+- documenter la source, la date et le périmètre de toute synchro média
+- vérifier les droits fichiers et la cohérence des URLs après synchronisation
+- traiter les médias comme des données séparées du code
+
+---
+
+## Politique de modification en production
+
+Toute modification en production doit être tracée et classée :
+
+| Classe | Exemples | Règle |
+|-------|----------|-------|
+| Contenu simple | texte de page, image de contenu, article | autorisé si traçable |
+| Configuration | option WP, menu, réglage non critique | autorisé si documenté |
+| Code | CSS, JS, PHP, scripts, thème enfant | exceptionnel, réintégration Git obligatoire |
+| Modification risquée | plugins, templates globaux, presets, structure Divi, migration de contenu, réglages critiques | validation humaine préalable |
+
+### Limites d'autonomie client
+
+Le client peut modifier :
+- les textes
+- les images de contenu
+
+Le client ne modifie pas sans procédure :
+- les templates globaux
+- les presets
+- les réglages Divi structurants
+- le CSS global
+- le PHP
+- les plugins
+
+---
+
+## Checklists avant / après déploiement
+
+### Avant déploiement
+
+- [ ] code à jour dans Git
+- [ ] exports Divi JSON à jour pour les éléments structurants modifiés
+- [ ] export WXR/WP-CLI prêt si le contenu est concerné
+- [ ] médias synchronisés ou plan de synchro confirmé
+- [ ] secrets, backups, caches, logs et données personnelles exclus du versionnement
+- [ ] vérification des URLs, du canonical et de l'environnement cible
+- [ ] validation humaine obtenue pour toute modification risquée
+
+### Après déploiement
+
+- [ ] contrôle visuel des templates globaux
+- [ ] contrôle des pages critiques
+- [ ] vérification des menus et taxonomies si contenu importé
+- [ ] vérification des médias et liens d'images
+- [ ] vérification des redirections, sitemap, robots.txt
+- [ ] vérification des formulaires et CTA
+- [ ] si modification de code : confirmation que Git reflète exactement l'état déployé
+
 ---
 
 ## Formulaires de contact
@@ -103,6 +213,8 @@ Le client doit pouvoir, sans aide technique :
 - Modifier un menu de navigation
 
 > [À CONFIRMER] : Le client a-t-il déjà une expérience de WordPress ? Ceci impacte le niveau de simplification de l'interface et le besoin en formation.
+
+> [FAIT — règle projet] Cette autonomie ne couvre pas les templates globaux, presets, réglages Divi structurants, CSS global, PHP ni plugins sans procédure dédiée.
 
 ---
 
