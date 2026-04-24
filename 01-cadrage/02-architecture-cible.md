@@ -13,7 +13,7 @@
 | CMS | WordPress (dernière version stable) | [FAIT — décision client] |
 | Page builder | Divi (Elegant Themes) | [FAIT — décision client] |
 | Environnement local | DDEV projet `adp` | [FAIT — voir `adp-app/.ddev/config.yaml`] |
-| Hébergement | Inconnu | [À ARBITRER — I-01] |
+| Hébergement | OVHcloud `Hébergement Pro` | [FAIT — validation client 2026-04-24] |
 | PHP | 8.3 en local | [FAIT — voir `adp-app/.ddev/config.yaml`] |
 | Base de données | MariaDB 11.8 en local | [FAIT — voir `adp-app/.ddev/config.yaml`] |
 | Web server local | nginx-fpm | [FAIT — voir `adp-app/.ddev/config.yaml`] |
@@ -81,18 +81,27 @@
 
 ---
 
-## Hébergement (inconnue I-01)
+## Hébergement (I-01 validé)
 
-Options possibles [HYPOTHÈSE — non arbitré] :
+| Élément | Valeur | Statut |
+|--------|--------|--------|
+| Hébergeur retenu | OVHcloud | [FAIT — validation client 2026-04-24] |
+| Offre retenue | `Hébergement Pro` | [FAIT — validation client 2026-04-24] |
+| URL de référence offre | `https://www.ovhcloud.com/fr/web-hosting/professional-offer/` | [FAIT — fournie par le chef de projet] |
+| Type d'hébergement | Mutualisé / web hosting managé | [FAIT] |
 
-| Option | Pour | Contre |
-|--------|------|--------|
-| Hébergement mutualisé WP | Économique, simple | Limites de performance, peu de contrôle |
-| VPS (OVH, Infomaniak…) | Flexible, performant | Maintenance requise |
-| WP Engine / Kinsta | Optimisé WP, CDN intégré | Coût plus élevé |
-| Infomaniak Site Creator WP | Français, conforme RGPD | Moins flexible |
+> [FAIT] Le client conserve son service actuel `Hébergement Pro` chez OVHcloud.  
+> [CONSÉQUENCE] L'architecture V1 ne doit pas supposer un VPS ni une plateforme WordPress managée tierce.  
+> [CONSÉQUENCE] La performance, le cache, les sauvegardes et les plugins doivent rester compatibles avec un hébergement mutualisé OVH.
 
-> [À ARBITRER] : Le choix de l'hébergeur impacte la configuration Divi, la mise en place du CDN et la stratégie de cache.
+### Impacts techniques
+
+| Point | Décision de travail | Statut |
+|------|----------------------|--------|
+| Stack serveur | Rester compatible hébergement mutualisé OVH | [FAIT] |
+| Préprod | À organiser sans supposer des environnements serveur complexes | [À PRÉPARER] |
+| Cache / perf | Choisir des solutions WordPress compatibles mutualisé | [DÉPENDANCE] |
+| Exploitation | Éviter les besoins d'administration système | [FAIT] |
 
 ---
 
@@ -153,8 +162,21 @@ Objectifs cibles [HYPOTHÈSE — à confirmer avec le client] :
 | URLs permanentes (slugs propres) | [RECOMMANDÉ] | À configurer dès l'installation WP |
 | Sitemap XML | [RECOMMANDÉ] | Via Yoast/Rank Math |
 | Robots.txt | [RECOMMANDÉ] | À personnaliser |
-| Redirections 301 legacy | [CRITIQUE] | [DÉPENDANCE] → I-03 + mapping legacy |
+| Redirections 301 legacy | [CRITIQUE] | domaine conservé, dépend du mapping legacy uniquement |
 | Schema.org | [HYPOTHÈSE] | À évaluer selon types de contenu |
+
+---
+
+## Domaine public
+
+| Élément | Valeur | Statut |
+|--------|--------|--------|
+| Domaine canonique | `https://astucesdepomme.com` | [FAIT — validation client 2026-04-24] |
+| Variante `www` | redirigée vers l'apex | [FAIT — observé en prod] |
+| Variante `http` | redirigée vers `https` | [FAIT — observé en prod] |
+
+> [FAIT] La refonte conserve le domaine actuel `astucesdepomme.com`.  
+> [CONSÉQUENCE] La stratégie de migration porte sur les URLs internes et les redirections `301`, pas sur un changement de domaine.
 
 ---
 

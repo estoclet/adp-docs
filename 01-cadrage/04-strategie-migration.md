@@ -15,9 +15,7 @@ Objectif : reprendre le contenu qui a de la valeur, pas tout migrer mécaniqueme
 
 ---
 
-## Approche retenue (hypothèse)
-
-[HYPOTHÈSE — à valider après analyse legacy]
+## Approche retenue
 
 **Migration par lots progressifs** :
 1. Inventorier le contenu existant (TP-001)
@@ -53,7 +51,8 @@ Chaque contenu legacy sera classé dans l'une de ces catégories :
 | Duplicate content pendant transition | Haute si coexistence | Canonicals, noindex temporaires |
 | Désindexation accidentelle | Faible si maîtrisé | Vérifier robots.txt + GSC après mise en ligne |
 
-> [DÉPENDANCE] : La stratégie de redirections 301 dépend de I-03 (changement de domaine ?) et du mapping `03-legacy/03-mapping-migration.md`.
+> [FAIT] I-03 validé le 2026-04-24 : le domaine public est conservé (`https://astucesdepomme.com`).  
+> [DÉPENDANCE] : La stratégie de redirections 301 dépend maintenant du mapping `03-legacy/03-mapping-migration.md`, pas d'un changement de domaine.
 
 ---
 
@@ -61,12 +60,26 @@ Chaque contenu legacy sera classé dans l'une de ces catégories :
 
 | Prérequis | Statut | Bloque |
 |-----------|--------|--------|
-| Inventaire legacy complet | [À FAIRE — TP-001] | Tout |
-| Analyse éditoriale du contenu | [À FAIRE — TP-002] | Qualification |
+| Inventaire legacy complet | [À VALIDER — TP-001 exécuté] | Tout |
+| Analyse éditoriale du contenu | [À VALIDER — analyse exécutée] | Qualification |
 | Mapping URL legacy → nouvelle URL | [À FAIRE] | Redirections |
-| Arbitrage I-03 (domaine) | [À ARBITRER] | Redirections |
+| Arbitrage I-03 (domaine) | [FAIT — domaine conservé] | Redirections internes uniquement |
 | Accès BDD legacy (I-06) | [À CONFIRMER] | Export WP XML ou migration directe |
 | Arborescence cible validée | [À VALIDER] | Mapping URLs |
+
+---
+
+## Domaine et redirections
+
+| Élément | Décision | Statut |
+|--------|----------|--------|
+| Domaine final | `https://astucesdepomme.com` | [FAIT — validation client 2026-04-24] |
+| `www` | redirection vers l'apex | [FAIT] |
+| `http` | redirection vers `https` | [FAIT] |
+| Nature du chantier de redirection | redirections `301` d'URLs legacy vers nouvelles URLs internes | [FAIT] |
+
+> [FAIT] Aucune migration de domaine n'est prévue pour la V1.  
+> [CONSÉQUENCE] Le mapping peut être préparé en supposant que les URLs sources et cibles restent sous `astucesdepomme.com`.
 
 ---
 
