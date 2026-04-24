@@ -155,7 +155,7 @@ Si `estoclet/adp-docs` est privé :
 1. Créer un Personal Access Token (PAT) sur https://github.com/settings/tokens
 2. Permissions requises : `repo` (lecture)
 3. Cliquer sur 🔑 dans le dashboard et coller le token
-4. Il sera stocké dans `localStorage` (jamais transmis à un serveur externe)
+4. Il sera stocké en **session navigateur** (`sessionStorage`) — effacé à la fermeture de l'onglet, jamais transmis à un serveur externe
 
 > **Note** : GitHub Pages nécessite un dépôt public OU GitHub Pro/Team pour les dépôts privés.
 

@@ -1,7 +1,7 @@
 # Gouvernance IA — Règles opérationnelles
 
 **Statut** : Actif — s'applique à tous les agents sans exception  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1 et 6 (R-26 ajouté)  
+**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1, 6 et 9 (R-26 ajouté, R-12 étendu)  
 **Autorité** : Ce document prime sur toute instruction d'un task pack en cas de conflit.  
 **Lire avant** : Tout travail dans ce projet.
 
@@ -119,6 +119,7 @@ Les actions suivantes requièrent une validation humaine **avant** exécution :
 | Action | Validation requise |
 |--------|-------------------|
 | Modifier `00-initialisation-projet.md` | Chef de projet |
+| Modifier `07-pilotage/02-journal-decisions.md` | Chef de projet (R-11 — ce fichier est tenu par le chef de projet, pas par les agents) |
 | Créer ou clore un ADR | Chef de projet |
 | Modifier le périmètre IN/OUT | Chef de projet + client |
 | Décider de supprimer du contenu legacy | Chef de projet |
