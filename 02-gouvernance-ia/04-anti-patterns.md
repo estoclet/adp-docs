@@ -1,7 +1,7 @@
 # Catalogue des anti-patterns agents IA
 
 **Statut** : Actif  
-**Dernière mise à jour** : 2026-04-24 — créé par boucle gouvernance itération 1, étendu itération 6 (AP-12)  
+**Dernière mise à jour** : 2026-04-24 — créé par boucle gouvernance itération 1, étendu itérations 6 et 8 (AP-12, AP-13)  
 **Lié à** : `01-regles-ia.md`, `02-conventions-redaction.md`, `03-perimetre-agents.md`
 
 > Ce document catalogue les dérives récurrentes des agents IA sur des projets documentaires.  
@@ -166,6 +166,19 @@
 
 ---
 
+## AP-13 — L'invention de marqueurs épistémiques
+
+**Description** : L'agent crée un marqueur non référencé dans les conventions (`[VALIDÉ]`, `[PROPOSITION]`, `[À CONFIRMER]`, `[À VÉRIFIER]`…) parce qu'aucun marqueur officiel ne lui semble parfaitement adapté, ou par analogie avec les marqueurs existants.
+
+**Exemple** : L'agent qualifie une URL de mapping avec `[VALIDÉ]` (son propre sens : "confirmé par le chef de projet") alors que le marqueur officiel est `[FAIT]` avec source citée.
+
+**Pourquoi c'est dangereux** : Le marqueur inventé n'a pas de définition officielle. Un autre agent ou le chef de projet peut l'interpréter différemment. L'accumulation de marqueurs non officiels fragmente le système épistémique du repo — chaque lecteur doit deviner le sens plutôt que de le retrouver dans les conventions. Le problème est difficile à détecter sans relecture exhaustive.
+
+**Règle opposée** : R-07d, `02-conventions-redaction.md` (section "Marqueurs non officiels — interdit")  
+**Contre-mesure** : Si aucun marqueur officiel ne convient → utiliser `[À ARBITRER]` et expliquer le besoin dans le bloc Signalement. Ne jamais créer un marqueur ad hoc.
+
+---
+
 ## Résumé de détection rapide
 
 | Symptôme dans un document produit | Anti-pattern probable |
@@ -182,3 +195,4 @@
 | Zones à remplir laissées vides sans marqueur | AP-10 |
 | Travail significatif commencé sans ticket | AP-11 |
 | Travail déjà fait répété après compaction | AP-12 |
+| Marqueur `[XXX]` absent des conventions | AP-13 |
