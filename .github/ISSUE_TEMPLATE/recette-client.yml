@@ -1,0 +1,85 @@
+name: Souhait ou remarque — recette client
+description: Julien — utilisez ce formulaire pour me remonter un souhait ou une remarque suite à votre recette du site
+title: "[RECETTE] "
+labels: ["type: recette-client", "statut: à faire", "lot: 5 - recette"]
+assignees: ["estoclet"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Bonjour Julien !**
+        Utilisez ce formulaire pour me signaler tout ce que vous observez lors de votre recette : quelque chose qui ne fonctionne pas comme prévu, un texte à corriger, un affichage qui ne vous convient pas, ou une idée d'amélioration.
+        **Pas besoin d'être technique** — décrivez simplement ce que vous voyez et ce que vous attendez.
+
+  - type: dropdown
+    id: nature
+    attributes:
+      label: De quoi s'agit-il ?
+      options:
+        - "🐛 Quelque chose ne fonctionne pas"
+        - "✏️ Texte ou contenu à corriger"
+        - "🎨 Problème d'affichage ou de mise en page"
+        - "💡 Souhait d'amélioration ou d'ajout"
+        - "❓ Question sur le fonctionnement"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: C'est urgent pour vous ?
+      options:
+        - "Oui, c'est bloquant — je ne peux pas valider sans cette correction"
+        - "C'est important mais je peux continuer la recette"
+        - "C'est une petite chose, à traiter quand c'est possible"
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Sur quelle page ou section ?
+      description: Nom de la page ou adresse (URL) du site concerné
+      placeholder: "Page d'accueil, section Contact, menu principal, page Prestations…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Ce que vous observez actuellement
+      description: Décrivez ce que vous voyez sur le site, le plus précisément possible
+      placeholder: |
+        Exemple : "En cliquant sur le bouton 'Prendre rendez-vous' depuis mon iPhone, il ne se passe rien."
+        Exemple : "Le texte de la carte 'Réseau & Wi-Fi' contient une faute de frappe."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ce que vous souhaitez à la place
+      description: Décrivez ce que vous attendez ou ce que vous préféreriez
+      placeholder: |
+        Exemple : "Je voudrais que le bouton ouvre directement le formulaire de contact."
+        Exemple : "Je voudrais que la couleur du bouton soit plus foncée pour mieux le voir."
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Captures d'écran (facultatif mais très utile)
+      description: |
+        Glissez-déposez vos captures directement dans cette zone.
+        Sur iPhone : bouton latéral + volume haut simultanément.
+        Sur Mac : Cmd + Maj + 4 pour une sélection.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Appareil et navigateur utilisés (facultatif)
+      placeholder: |
+        Exemple : "iPhone 15, Safari"
+        Exemple : "MacBook Air, Chrome"
+        Exemple : "iPad, Safari, orienté en mode paysage"

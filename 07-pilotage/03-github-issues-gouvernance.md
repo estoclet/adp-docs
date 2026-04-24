@@ -55,6 +55,7 @@ La lisibilité du dashboard dépend du respect strict de ces conventions de nomm
 | `type: dev` | Vert `#22C55E` | Développement WordPress / Divi |
 | `type: contenu` | Rose `#F472B6` | Contenu à fournir (textes, visuels) |
 | `type: bug` | Rouge `#EF4444` | Anomalie constatée |
+| `type: recette-client` | Violet clair `#A78BFA` | Souhait ou remarque remontés par le client lors de sa recette |
 
 ### Labels de priorité
 
