@@ -42,6 +42,7 @@
 | Arborescence du site | `04-architecture/01-arborescence-site.md` |
 | Types de contenus WordPress | `04-architecture/02-types-contenus.md` |
 | Composants Divi réutilisables | `04-architecture/03-composants-divi.md` |
+| Conventions Divi et CSS | `04-architecture/04-conventions-divi.md` |
 
 ## Specs fonctionnelles et pages
 

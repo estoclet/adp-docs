@@ -193,6 +193,8 @@ Les éléments suivants ne doivent pas être versionnés dans Git :
 
 **Règle** : ces éléments doivent être stockés ou synchronisés séparément, avec une procédure explicite adaptée.
 
+**Médias (`wp-content/uploads/`)** : synchronisation entre environnements via `rsync` ou équivalent. La procédure détaillée (commandes, sens de sync, fréquence) sera formalisée en Lot 4 au moment de la migration. D'ici là, les médias de dev restent locaux.
+
 ### R-20 — Modifications en production limitées et classées
 Les modifications faites directement en production doivent rester limitées, tracées et classées dans l'une de ces catégories :
 - contenu simple
