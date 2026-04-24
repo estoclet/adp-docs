@@ -1,6 +1,6 @@
 # Analyse éditoriale du contenu legacy
 
-**Statut** : En cours — complété partiellement après analyse réelle du legacy  
+**Statut** : Terminé — à valider par Eric STOCLET  
 **Dernière mise à jour** : 2026-04-24  
 **Produit par** : Agent IA — analyse éditoriale initiale  
 **Lié à** : `01-inventaire-legacy.md`, `03-mapping-migration.md`, `TP-001-analyse-legacy.md`

@@ -1,6 +1,6 @@
 # Mapping de migration — URLs legacy → nouveau site
 
-**Statut** : En cours — mapping initial basé sur le legacy réel et l'arborescence cible validée  
+**Statut** : Terminé — mapping V1 complet, à valider par Eric STOCLET (une [PROPOSITION] en attente : /confidentialite → /politique-confidentialite/)  
 **Dernière mise à jour** : 2026-04-24  
 **Produit par** : Agent IA — première proposition de mapping  
 **Lié à** : `02-analyse-contenu.md`, `04-architecture/01-arborescence-site.md`, `01-cadrage/04-strategie-migration.md`
