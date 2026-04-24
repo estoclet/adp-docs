@@ -1,7 +1,7 @@
 # Arborescence cible du site
 
 **Statut** : Navigation client mise à jour — structure V1 arbitrée, pattern modale acté
-**Dernière mise à jour** : 2026-04-24
+**Dernière mise à jour** : 2026-04-25 — `/tarifs-prestations/` promu `[FAIT]` (page publiée vérifiée)
 **Lié à** : `ADR-002`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
 
 > **Note agent** : La navigation principale a été validée en réunion client (2026-04-23), puis ajustée le 2026-04-24 avec suppression du blog à la demande du client. Les sous-pages et leur contenu restent des hypothèses à valider.

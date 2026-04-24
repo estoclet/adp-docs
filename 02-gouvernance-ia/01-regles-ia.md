@@ -1,7 +1,7 @@
 # Gouvernance IA — Règles opérationnelles
 
 **Statut** : Actif — s'applique à tous les agents sans exception  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1, 6 et 9 (R-26 ajouté, R-12 étendu)  
+**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 6, 9 et 10 (R-26 ajouté, R-12 étendu, R-27 et R-28 ajoutés)  
 **Autorité** : Ce document prime sur toute instruction d'un task pack en cas de conflit.  
 **Lire avant** : Tout travail dans ce projet.
 
@@ -264,6 +264,24 @@ Un task pack traverse les statuts suivants :
 **Règle** : l'agent met à jour le champ `**Statut**` du task pack **dans la même session** que son exécution. Il ne laisse pas un task pack en `À lancer` après avoir produit ses outputs.  
 **Règle** : l'agent ne passe pas le statut à `Validé` — c'est le chef de projet qui le fait après relecture.  
 **Règle** : si l'exécution est partielle (inconnue bloquante), le statut passe à `Bloqué`, pas à `Terminé`.
+
+### R-27 — Mettre à jour la date "Dernière mise à jour" lors d'une modification
+Quand un agent modifie un fichier qui contient un champ `**Dernière mise à jour**` dans son en-tête, il doit mettre ce champ à jour avec la date courante et une brève note de contexte (task pack ou itération concernée).
+
+**Règle** : la date d'en-tête doit refléter la dernière modification réelle du fichier, pas sa date de création.  
+**Interdit** : livrer un fichier modifié avec une date d'en-tête antérieure à la modification.  
+**Autorisé** : omettre cette mise à jour pour une correction de typographie ou de ponctuation sans impact sémantique.
+
+### R-28 — Promotion `[HYPOTHÈSE]` → `[FAIT]` — conditions strictes
+Un agent peut promouvoir un marqueur `[HYPOTHÈSE]` en `[FAIT]` **uniquement** si toutes les conditions suivantes sont réunies :
+
+1. La vérification est une mesure directe conforme à R-01 (outil, commande, et date explicitement cités)
+2. La source est citée **dans le document lui-même** — pas seulement dans le bloc Signalement
+3. La vérification porte sur un **fait technique ou observable** (existence d'une page, état d'un plugin, valeur d'un réglage WP) — pas sur un choix éditorial, un jugement client, une décision de design ou une préférence stratégique
+
+**Interdit** : promouvoir une hypothèse éditoriale, stratégique ou cliente en `[FAIT]` sans validation humaine (R-12).  
+**Autorisé** : `[FAIT — page publiée, vérifiée via ddev wp post list 2026-04-25]`.  
+**En cas de doute** : rester sur `[HYPOTHÈSE]`, signaler dans le bloc Signalement.
 
 ### R-26 — Vérification de l'état réel avant reprise de session
 Quand un agent reprend une tâche après une interruption (compaction de contexte, relance, nouvelle session), il **vérifie l'état réel** avant d'agir :

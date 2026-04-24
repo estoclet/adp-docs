@@ -1,7 +1,7 @@
 # Catalogue des anti-patterns agents IA
 
 **Statut** : Actif  
-**Dernière mise à jour** : 2026-04-24 — créé par boucle gouvernance itération 1, étendu itérations 6 et 8 (AP-12, AP-13)  
+**Dernière mise à jour** : 2026-04-25 — créé par boucle gouvernance itération 1, étendu itérations 6, 8 et 10 (AP-12, AP-13, AP-14)  
 **Lié à** : `01-regles-ia.md`, `02-conventions-redaction.md`, `03-perimetre-agents.md`
 
 > Ce document catalogue les dérives récurrentes des agents IA sur des projets documentaires.  
@@ -179,6 +179,19 @@
 
 ---
 
+## AP-14 — La date d'en-tête figée
+
+**Description** : L'agent modifie un fichier mais ne met pas à jour le champ `Dernière mise à jour` dans l'en-tête — ou il laisse la date d'une itération précédente sans vérifier.
+
+**Exemple** : Un agent ajoute une règle dans `01-regles-ia.md` le 2026-05-10 mais laisse `2026-04-24` dans l'en-tête.
+
+**Pourquoi c'est dangereux** : Un agent ou humain lisant la date croira que le fichier n'a pas été modifié depuis la date affichée. Il peut ignorer des changements récents, se fier à un état périmé, ou ne pas déclencher de relecture nécessaire.
+
+**Règle opposée** : R-27  
+**Contre-mesure** : Toujours mettre à jour `Dernière mise à jour` quand on modifie un fichier contenant ce champ. Exception : corrections typographiques sans impact sémantique.
+
+---
+
 ## Résumé de détection rapide
 
 | Symptôme dans un document produit | Anti-pattern probable |
@@ -196,3 +209,4 @@
 | Travail significatif commencé sans ticket | AP-11 |
 | Travail déjà fait répété après compaction | AP-12 |
 | Marqueur `[XXX]` absent des conventions | AP-13 |
+| Fichier modifié sans mise à jour de la date d'en-tête | AP-14 |
