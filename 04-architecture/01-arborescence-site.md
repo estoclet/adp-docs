@@ -56,7 +56,7 @@ astucesdepomme.com/
     ├── /infos-fiscales/           [FAIT — conservée depuis le legacy]
     ├── /mentions-legales/         [FAIT — obligatoire RGPD]
     ├── /politique-confidentialite/ [FAIT — obligatoire RGPD]
-    └── /tarifs-prestations/       [HYPOTHÈSE — présent dans footer]
+    └── /tarifs-prestations/       [FAIT — page publiée + arbitrage V1 acté]
 ```
 
 ---
