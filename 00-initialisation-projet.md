@@ -73,6 +73,11 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 | I-12 | Textes descriptifs des cartes de services | Homepage blocs 3 et 5 | [RÉSOLU — propositions projet validées, modifiables par Julien HACHE — voir `05-specs/pages/homepage.md`] |
 | I-13 | Police validée | CSS global Divi | [RÉSOLU — carte blanche client, préconisation projet : `Inter`] |
 | I-14 | Mention légale crédit d'impôt (texte exact) | Homepage bloc 4 | [RÉSOLU — "Dans les limites prévues à l'article 199 sexdecies du code général des impôts" — CGV legacy] |
+| I-15 | Photo portrait de Julien HACHE | Spec `/a-propos/` | [INCONNUE BLOQUANTE — à fournir par Julien HACHE] |
+| I-16 | Texte biographique (parcours, expertise, valeurs) | Spec `/a-propos/` | [INCONNUE BLOQUANTE — à fournir par Julien HACHE — issue #27] |
+| I-17 | Horaires d'intervention (jours, plages horaires) | Modale Contact | [INCONNUE — non bloquant V1, placeholder acceptable] |
+| I-18 | Sélection de 6 à 8 avis Google Business Profile | Modale Avis | [INCONNUE BLOQUANTE — à fournir par Julien HACHE — issue #28] |
+| I-19 | URL publique de la fiche Google Business Profile | Modale Avis | [INCONNUE BLOQUANTE — à fournir par Julien HACHE — issue #28] |
 
 ---
 
@@ -116,4 +121,4 @@ adp-docs/
 2. Lire `02-gouvernance-ia/01-regles-ia.md` (règles opérationnelles).
 3. Lire `02-gouvernance-ia/04-anti-patterns.md` (anti-patterns récurrents à éviter).
 4. ~~Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md`~~ — terminé (Lot 1 clos, voir `03-legacy/`).
-5. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-07** (palette secondaire à confirmer), **I-08** (persona) — I-01/02/03/05/06/09/10/11/12/13/14 résolues, I-07 partiellement résolue.
+5. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-08** (persona) — et lever les bloquantes : **I-15/16** (photo + bio Julien — À propos), **I-18/19** (avis GBP — modale Avis). I-01 à I-14 résolues ou partiellement résolues. I-17 (horaires) non bloquant.

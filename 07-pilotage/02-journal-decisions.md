@@ -2,7 +2,7 @@
 
 **Statut** : Actif — à alimenter au fil du projet  
 **Maintenu par** : Eric STOCLET (chef de projet)  
-**Dernière mise à jour** : 2026-04-24
+**Dernière mise à jour** : 2026-04-25
 
 > **Rôle** : Ce fichier trace toutes les décisions prises oralement, par message ou de façon informelle, qui n'ont pas (encore) fait l'objet d'un ADR formel. C'est le filet de sécurité contre la perte de mémoire collective.  
 > **Règle agent** : Les agents ne modifient pas ce fichier. Seul le chef de projet l'alimente.
@@ -24,6 +24,10 @@
 | D-006 | 2026-04-23 | Julien HACHE | Périmètre étendu confirmé : Assistance Apple + Formation + Réseau/Wi-Fi + Démarches + Services à la personne | Réunion client | — |
 | D-007 | 2026-04-23 | Julien HACHE | Tarification : 80€/h avant déduction, 40€/h après crédit d'impôt | Réunion client | — |
 | D-008 | 2026-04-23 | Julien HACHE | Téléphone de contact : 06 51 31 15 37 | Réunion client | — |
+| D-012 | 2026-04-24 | Eric STOCLET (carte blanche client) | Police `Inter` retenue pour V1 — fallback `DM Sans` | Julien HACHE laisse le choix au projet ; Inter choisie pour sa lisibilité et sa compatibilité Google Fonts | — |
+| D-013 | 2026-04-24 | Eric STOCLET | Divi 5.3.3 installé depuis le zip fourni par Julien HACHE et versionné dans Git (`adp-app/web/wp-content/themes/Divi/`) | Téléchargement direct depuis Elegant Themes impossible sans intervention du client ; zip fourni le 2026-04-24 ; versionnement garanti la reproductibilité de l'environnement | — |
+| D-014 | 2026-04-24 | Eric STOCLET | Les pages à contenu léger (Avis, Contact, pages légales du footer) s'affichent en modale, sans page WordPress dédiée | Évite les routes orphelines et simplifie l'arborescence publique ; implémentation technique (Divi popup / plugin / CSS+JS) restant à arbitrer | — |
+| D-015 | 2026-04-24 | Eric STOCLET | Le thème Divi parent est versionné dans Git pour garantir la reproductibilité de l'environnement local et préprod | Sans versionnement, toute réinstallation dépend de la disponibilité du zip ou du compte Elegant Themes ; le thème GPL autorise ce stockage | — |
 
 ---
 
@@ -39,8 +43,9 @@ Pour ajouter une décision :
 
 ## Décisions à formaliser en ADR
 
-| Décision | Urgence |
-|----------|---------|
-| Choix de l'hébergeur (I-01) | Avant Lot 3 |
-| Stratégie domaine (I-03) | Avant Lot 4 |
-| Présence ou non d'un CPT "Démarches" | Avant Lot 2 |
+| Décision | Urgence | Statut |
+|----------|---------|--------|
+| ~~Choix de l'hébergeur (I-01)~~ | ~~Avant Lot 3~~ | [RÉSOLU — D-009, I-01 : VPS OVH confirmé] |
+| ~~Stratégie domaine (I-03)~~ | ~~Avant Lot 4~~ | [RÉSOLU — I-03 : domaine conservé, pas de changement] |
+| Présence ou non d'un CPT "Démarches" | Avant Lot 2 | [À ARBITRER — D-010 exclut les CPT en V1, à confirmer formellement] |
+| Implémentation technique des modales (Contact, Avis) | Avant TP-006/007 | [À ARBITRER — voir `05-specs/pages/avis.md`] |
