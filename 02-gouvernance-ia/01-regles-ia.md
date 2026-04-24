@@ -125,6 +125,28 @@ Les agents ne produisent pas d'introductions génériques, de transitions de rem
 ### R-16 — Pas de backlog dans les markdown
 Les tickets de travail vivent dans **GitHub Issues** (`github.com/estoclet/adp-docs/issues`). Les markdown de `adp-docs` servent au cadrage, à la gouvernance, aux specs et aux handoffs — pas au suivi de tâches. Voir `07-pilotage/03-github-issues-gouvernance.md`.
 
+### R-16b — Toute action pertinente entamée doit avoir une issue
+Si un agent s'apprête à **entamer** une action bornée, traçable et pertinente pour le suivi projet, il doit vérifier qu'une issue GitHub existe déjà pour cette action.
+
+| Cas | Comportement requis |
+|-----|---------------------|
+| Une issue pertinente existe déjà | L'agent travaille sous cette issue et la référence dans son output |
+| Aucune issue n'existe et l'action mérite un suivi | L'agent crée l'issue **avant** ou **au moment d'entamer** l'action |
+| L'action est trop petite, instantanée ou sans valeur de suivi | L'agent peut agir sans issue, mais ne doit pas découper artificiellement le backlog |
+
+**Sont présumés pertinents pour une issue** :
+- toute analyse non triviale
+- toute mise en place d'environnement ou d'outillage
+- toute implémentation ou correction bornée
+- toute collecte d'éléments client ou arbitrage bloquant
+- toute action susceptible d'être relue, validée, bloquée ou planifiée
+
+**Interdit** : commencer un chantier significatif puis créer l'issue "plus tard" sans le signaler.  
+**Interdit** : laisser un travail réel sans ticket alors qu'il est assez important pour être suivi.  
+**Autorisé** : ne pas créer d'issue pour une vérification ponctuelle, une lecture simple ou une commande exploratoire sans livrable.
+
+**Règle pratique** : si l'action peut raisonnablement apparaître dans le dashboard projet, elle doit avoir une issue.
+
 ---
 
 ## En cas de doute

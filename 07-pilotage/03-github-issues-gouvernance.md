@@ -121,6 +121,34 @@ Fermer le ticket (closed = Terminé sur le dashboard)
 
 ---
 
+## Règle d'ouverture obligatoire par les agents
+
+Avant d'entamer une action significative, un agent IA doit appliquer cette séquence :
+
+1. Chercher s'il existe déjà une issue correspondant à l'action.
+2. Si elle existe, travailler sous cette issue et la citer dans son output.
+3. Si elle n'existe pas et que l'action est pertinente pour le suivi, créer l'issue immédiatement.
+4. Ensuite seulement, commencer l'exécution de l'action.
+
+### Une issue est considérée comme obligatoire si l'action :
+
+- produit un livrable identifiable
+- peut être bloquée ou validée
+- prend plus qu'une vérification ponctuelle
+- modifie le code, l'infrastructure locale, la documentation ou le contenu
+- prépare ou exécute un task pack
+- débloque ou structure un lot
+
+### Une issue n'est pas requise si l'action :
+
+- consiste seulement à lire, vérifier ou diagnostiquer très brièvement
+- ne produit aucun livrable durable
+- ne mérite pas d'apparaître dans le dashboard projet
+
+> Règle d'arbitrage : **si l'action pourrait légitimement être suivie, revue ou priorisée, elle doit avoir une issue**.
+
+---
+
 ## Configuration du dépôt privé
 
 Si `estoclet/adp-docs` est privé :

@@ -21,6 +21,7 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 | Prérequis | Fournisseur | Statut |
 |-----------|------------|--------|
 | WordPress + Divi installés et configurés dans `adp-app/` | Développeur WP | [À FAIRE] |
+| Reprise de la licence Divi présente sur l'instance legacy | Eric STOCLET + développeur WP | [À PRÉPARER] |
 | Logo / monogramme PNG fond transparent | Julien HACHE | [À RECUEILLIR] |
 | Valeurs hex exactes de la palette (ADR-002) | Julien HACHE + Eric STOCLET | [À RECUEILLIR] |
 | Police validée | Julien HACHE | [À RECUEILLIR] |
@@ -38,6 +39,7 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 - Client : Julien HACHE — assistance Apple, formation, réseau, démarches, services à la personne
 - Chef de projet : Eric STOCLET
 - Stack : WordPress + Divi dans `adp-app/`
+- Information projet : une licence Divi existe déjà sur l'instance legacy et doit être réutilisée dans `adp-app`
 - Repo applicatif : git@github.com:estoclet/adp-app.git
 - Brief homepage complet : `adp-docs/05-specs/pages/homepage.md`
 - Charte visuelle : `adp-docs/06-decisions/ADR-002-identite-visuelle.md`
@@ -88,6 +90,7 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 ## Contraintes impératives
 
 - [ ] Respecter strictement la spec `homepage.md` — pas de blocs supplémentaires
+- [ ] Réutiliser la licence Divi issue du legacy lors de l'activation de Divi dans `adp-app`
 - [ ] Pas de texte inventé — utiliser des placeholders `[TEXTE_À_FOURNIR]` si contenu manquant
 - [ ] Pas de couleurs inventées — utiliser les valeurs hex fournies uniquement
 - [ ] Utiliser uniquement les modules Divi listés dans `03-composants-divi.md`

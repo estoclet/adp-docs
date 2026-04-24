@@ -131,6 +131,12 @@
       display: flex; align-items: center; gap: 8px;
     }
     .error-banner[hidden] { display: none; }
+    .warning-banner {
+      background: var(--c-warn-l); border-bottom: 1px solid #FCD34D;
+      color: #92400E; padding: 10px 24px; font-size: 13px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .warning-banner[hidden] { display: none; }
 
     /* ── Progress overview ── */
     .progress-section {
@@ -279,6 +285,19 @@
 
     /* ── Empty states ── */
     .empty { padding: 24px 0; text-align: center; color: var(--c-muted); font-size: 12px; }
+    .empty p { margin-bottom: 10px; }
+    .reset-filters-btn {
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      background: var(--c-surface);
+      color: var(--c-text);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    .reset-filters-btn:hover { background: #F8FAFC; border-color: #CBD5E1; }
 
     /* ── Done section ── */
     .done-section { padding: 0 24px 28px; }
@@ -366,11 +385,12 @@
   <label for="token-input">GitHub Personal Access Token</label>
   <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx (requis si dépôt privé)">
   <button class="btn btn-primary" id="btn-save-token">Enregistrer</button>
-  <span class="token-hint">Stocké en localStorage. Permissions requises : <code>repo</code> (privé) ou aucune (public).</span>
+  <span class="token-hint">Stocké en session navigateur. Permissions requises : <code>repo</code> (privé) ou aucune (public).</span>
 </div>
 
 <!-- ══════════════ ERROR ══════════════ -->
 <div class="error-banner" id="error-banner" hidden></div>
+<div class="warning-banner" id="warning-banner" hidden></div>
 
 <!-- ══════════════ PROGRESSION ══════════════ -->
 <section class="progress-section">
@@ -452,6 +472,8 @@ const CFG = {
   refreshSeconds: 60,
 };
 
+const TOKEN_STORAGE_KEY = 'adp_gh_token';
+
 /* Préfixes de labels (convention de ce projet) */
 const PFX_STATUS = 'statut:';
 const PFX_LOT    = 'lot:';
@@ -465,6 +487,14 @@ const STATUS_MAP = {
   'à valider':'validate',
 };
 
+const STATUS_PROGRESS = {
+  todo: 0,
+  doing: 0.5,
+  blocked: 0.1,
+  validate: 0.9,
+  done: 1,
+};
+
 /* Ordre d'affichage des lots */
 const LOT_ORDER = ['0','1','2','3','4','5'];
 const LOT_LABELS = {
@@ -475,6 +505,19 @@ const LOT_LABELS = {
   '4': 'Lot 4 — Migration',
   '5': 'Lot 5 — Recette',
 };
+const TYPE_ORDER = ['analyse', 'décision', 'contenu', 'dev'];
+
+function loadStoredToken() {
+  const sessionToken = sessionStorage.getItem(TOKEN_STORAGE_KEY);
+  if (sessionToken) return sessionToken;
+
+  const legacyToken = localStorage.getItem(TOKEN_STORAGE_KEY) || '';
+  if (legacyToken) {
+    sessionStorage.setItem(TOKEN_STORAGE_KEY, legacyToken);
+    localStorage.removeItem(TOKEN_STORAGE_KEY);
+  }
+  return legacyToken;
+}
 
 /* ═══════════════════════════════════════════════
    STATE
@@ -484,7 +527,8 @@ const S = {
   loading:  false,
   filter:   { lot: '', type: '' },
   doneOpen: false,
-  token:    localStorage.getItem('adp_gh_token') || '',
+  token:    loadStoredToken(),
+  unknownStatuses: new Set(),
   countdown: CFG.refreshSeconds,
 };
 
@@ -518,6 +562,62 @@ function labelTextColor(hex) {
   return (0.299*r + 0.587*g + 0.114*b) / 255 > 0.58 ? '#1E293B' : '#FFFFFF';
 }
 
+function hasActiveFilters() {
+  return Boolean(S.filter.lot || S.filter.type);
+}
+
+function filterSummary() {
+  const parts = [];
+  if (S.filter.lot) parts.push(`lot ${S.filter.lot}`);
+  if (S.filter.type) parts.push(`type ${S.filter.type}`);
+  return parts.join(' · ');
+}
+
+function renderEmptyState(baseMessage) {
+  if (!hasActiveFilters()) return `<p class="empty">${baseMessage}</p>`;
+  return `<div class="empty">
+    <p>${baseMessage} pour le filtre actif (${esc(filterSummary())}).</p>
+    <button type="button" class="reset-filters-btn">Réinitialiser les filtres</button>
+  </div>`;
+}
+
+function resetFilters() {
+  S.filter.lot = '';
+  S.filter.type = '';
+  $('#filter-lot').value = '';
+  $('#filter-type').value = '';
+  render();
+}
+
+function renderWarnings() {
+  const warn = $('#warning-banner');
+  if (!warn) return;
+
+  if (!S.unknownStatuses.size) {
+    warn.hidden = true;
+    warn.textContent = '';
+    return;
+  }
+
+  const labels = [...S.unknownStatuses].map(s => `<code>${esc(s)}</code>`).join(', ');
+  warn.innerHTML = `⚠ Labels de statut inconnus détectés : ${labels}. Ils sont affichés par défaut dans « À faire ».`;
+  warn.hidden = false;
+}
+
+function collectUnknownStatuses(issues) {
+  const unknown = new Set();
+  for (const issue of issues) {
+    if (issue.state === 'closed') continue;
+    for (const lbl of issue.labels) {
+      const n = lbl.name.toLowerCase().trim();
+      if (!n.startsWith(PFX_STATUS)) continue;
+      const v = n.slice(PFX_STATUS.length).trim();
+      if (!STATUS_MAP[v]) unknown.add(lbl.name);
+    }
+  }
+  return unknown;
+}
+
 /* ─ Label parsing ─ */
 function issueStatus(issue) {
   if (issue.state === 'closed') return 'done';
@@ -525,10 +625,16 @@ function issueStatus(issue) {
     const n = lbl.name.toLowerCase().trim();
     if (n.startsWith(PFX_STATUS)) {
       const v = n.slice(PFX_STATUS.length).trim();
-      return STATUS_MAP[v] ?? 'todo';
+      if (STATUS_MAP[v]) return STATUS_MAP[v];
+      S.unknownStatuses.add(lbl.name);
+      return 'todo';
     }
   }
   return 'todo';
+}
+
+function issueProgress(issue) {
+  return STATUS_PROGRESS[issueStatus(issue)] ?? 0;
 }
 
 function issueLot(issue) {
@@ -552,6 +658,26 @@ function issueType(issue) {
     if (n.startsWith(PFX_TYPE)) return lbl.name.slice(PFX_TYPE.length).trim();
   }
   return null;
+}
+
+function compareLotOptions(a, b) {
+  const aKey = (a.match(/^(\d)/) || [])[1];
+  const bKey = (b.match(/^(\d)/) || [])[1];
+  const aIdx = aKey ? LOT_ORDER.indexOf(aKey) : -1;
+  const bIdx = bKey ? LOT_ORDER.indexOf(bKey) : -1;
+  const aRank = aIdx === -1 ? Number.MAX_SAFE_INTEGER : aIdx;
+  const bRank = bIdx === -1 ? Number.MAX_SAFE_INTEGER : bIdx;
+  return aRank - bRank || a.localeCompare(b, 'fr', { sensitivity: 'base' });
+}
+
+function compareTypeOptions(a, b) {
+  const aNorm = a.toLowerCase();
+  const bNorm = b.toLowerCase();
+  const aIdx = TYPE_ORDER.indexOf(aNorm);
+  const bIdx = TYPE_ORDER.indexOf(bNorm);
+  const aRank = aIdx === -1 ? Number.MAX_SAFE_INTEGER : aIdx;
+  const bRank = bIdx === -1 ? Number.MAX_SAFE_INTEGER : bIdx;
+  return aRank - bRank || a.localeCompare(b, 'fr', { sensitivity: 'base' });
 }
 
 /* ═══════════════════════════════════════════════
@@ -623,33 +749,30 @@ function renderCard(issue) {
 function renderProgress(allIssues) {
   const total  = allIssues.length;
   const closed = allIssues.filter(i => i.state === 'closed').length;
-  const pct    = total === 0 ? 0 : Math.round((closed / total) * 100);
+  const progressed = allIssues.reduce((sum, issue) => sum + issueProgress(issue), 0);
+  const pct    = total === 0 ? 0 : Math.round((progressed / total) * 100);
+  const scope  = hasActiveFilters() ? ' filtré' : '';
 
   $('#global-pct').textContent   = pct + '%';
   $('#global-bar').style.width   = pct + '%';
-  $('#global-legend').textContent = `${closed} terminé${closed > 1 ? 's' : ''} sur ${total} ticket${total > 1 ? 's' : ''} au total`;
+  $('#global-legend').textContent = `${closed} terminé${closed > 1 ? 's' : ''} sur ${total} ticket${total > 1 ? 's' : ''}${scope} · progression pondérée par statut`;
 
   /* Per-lot progress */
   const lotStats = {};
   for (const issue of allIssues) {
     const key = issueLotKey(issue);
     if (!key) continue;
-    if (!lotStats[key]) lotStats[key] = { total: 0, closed: 0 };
+    if (!lotStats[key]) lotStats[key] = { total: 0, closed: 0, progress: 0 };
     lotStats[key].total++;
     if (issue.state === 'closed') lotStats[key].closed++;
+    lotStats[key].progress += issueProgress(issue);
   }
 
-  /* Find current active lot (first lot with open issues) */
-  const activeLot = LOT_ORDER.find(k => {
-    const s = lotStats[k];
-    return s && s.closed < s.total;
-  });
-
   const html = LOT_ORDER.map(key => {
-    const s   = lotStats[key] || { total: 0, closed: 0 };
-    const p   = s.total === 0 ? 0 : Math.round((s.closed / s.total) * 100);
+    const s   = lotStats[key] || { total: 0, closed: 0, progress: 0 };
+    const p   = s.total === 0 ? 0 : Math.round((s.progress / s.total) * 100);
     const isDone   = s.total > 0 && s.closed === s.total;
-    const isActive = key === activeLot;
+    const isActive = s.total > 0 && s.progress > 0 && s.progress < s.total;
     const cls      = isDone ? 'done-lot' : (isActive ? 'active' : '');
     const statusTxt = s.total === 0
       ? 'Aucun ticket'
@@ -660,7 +783,7 @@ function renderProgress(allIssues) {
     return `<div class="lot-card ${cls}">
       <div class="lot-header">
         <span class="lot-name">${esc(LOT_LABELS[key] || 'Lot ' + key)}</span>
-        <span class="lot-counts">${s.closed}/${s.total}</span>
+        <span class="lot-counts">${p}% · ${s.closed}/${s.total} clos</span>
       </div>
       <div class="lot-track"><div class="lot-fill" style="width:${p}%"></div></div>
       <div class="lot-status">${statusTxt}</div>
@@ -682,38 +805,40 @@ function filteredIssues() {
 }
 
 function renderKanban() {
+  S.unknownStatuses = collectUnknownStatuses(S.issues);
   const fi = filteredIssues();
 
   const groups = { todo: [], doing: [], blocked: [], validate: [], done: [] };
   for (const i of fi) groups[issueStatus(i)].push(i);
 
-  /* Stats header */
-  const openTotal = groups.todo.length + groups.doing.length + groups.blocked.length + groups.validate.length;
-  $('#stat-open').textContent    = openTotal;
-  $('#stat-progress').textContent = groups.doing.length;
-  $('#stat-blocked').textContent  = groups.blocked.length;
-  $('#stat-done').textContent     = S.issues.filter(i => i.state === 'closed').length;
-
-  /* Columns */
-  for (const col of ['todo','doing','blocked','validate']) {
-    $(`#c-${col}-n`).textContent    = groups[col].length;
-    $(`#c-${col}`).innerHTML        = groups[col].length
-      ? groups[col].map(renderCard).join('')
-      : '<p class="empty">Aucun ticket</p>';
-  }
-
-  /* Done */
   const doneIssues = S.issues.filter(i => {
     if (i.state !== 'closed') return false;
     if (S.filter.lot  && !( issueLot(i)  || '').includes(S.filter.lot))  return false;
     if (S.filter.type && !( issueType(i) || '').includes(S.filter.type)) return false;
     return true;
   });
+
+  /* Stats header */
+  const openTotal = groups.todo.length + groups.doing.length + groups.blocked.length + groups.validate.length;
+  $('#stat-open').textContent    = openTotal;
+  $('#stat-progress').textContent = groups.doing.length;
+  $('#stat-blocked').textContent  = groups.blocked.length;
+  $('#stat-done').textContent     = doneIssues.length;
+
+  /* Columns */
+  for (const col of ['todo','doing','blocked','validate']) {
+    $(`#c-${col}-n`).textContent    = groups[col].length;
+    $(`#c-${col}`).innerHTML        = groups[col].length
+      ? groups[col].map(renderCard).join('')
+      : renderEmptyState('Aucun ticket');
+  }
+
+  /* Done */
   $('#done-count-badge').textContent = doneIssues.length;
   if (S.doneOpen) {
     $('#done-grid').innerHTML = doneIssues.length
       ? doneIssues.map(renderCard).join('')
-      : '<p class="empty">Aucun ticket terminé</p>';
+      : renderEmptyState('Aucun ticket terminé');
   }
 
   /* Toolbar count */
@@ -721,10 +846,11 @@ function renderKanban() {
 
   /* Filters */
   updateFilters();
+  renderWarnings();
 }
 
 function render() {
-  renderProgress(S.issues);
+  renderProgress(filteredIssues());
   renderKanban();
 }
 
@@ -732,8 +858,8 @@ function render() {
    FILTERS
 ═══════════════════════════════════════════════ */
 function updateFilters() {
-  const lots  = [...new Set(S.issues.map(issueLot).filter(Boolean))].sort();
-  const types = [...new Set(S.issues.map(issueType).filter(Boolean))].sort();
+  const lots  = [...new Set(S.issues.map(issueLot).filter(Boolean))].sort(compareLotOptions);
+  const types = [...new Set(S.issues.map(issueType).filter(Boolean))].sort(compareTypeOptions);
 
   function repopulate(id, opts, current, placeholder) {
     const el = document.getElementById(id);
@@ -803,12 +929,12 @@ $('#btn-refresh').addEventListener('click', load);
 
 $('#filter-lot').addEventListener('change', e => {
   S.filter.lot = e.target.value;
-  renderKanban();
+  render();
 });
 
 $('#filter-type').addEventListener('change', e => {
   S.filter.type = e.target.value;
-  renderKanban();
+  render();
 });
 
 $('#done-toggle').addEventListener('click', () => {
@@ -830,11 +956,16 @@ $('#btn-token').addEventListener('click', () => {
 $('#btn-save-token').addEventListener('click', () => {
   const val = $('#token-input').value.trim();
   S.token = val;
-  val ? localStorage.setItem('adp_gh_token', val) : localStorage.removeItem('adp_gh_token');
+  val ? sessionStorage.setItem(TOKEN_STORAGE_KEY, val) : sessionStorage.removeItem(TOKEN_STORAGE_KEY);
+  localStorage.removeItem(TOKEN_STORAGE_KEY);
   $('#token-panel').hidden = true;
   load();
 });
 $('#token-input').addEventListener('keydown', e => { if (e.key === 'Enter') $('#btn-save-token').click(); });
+
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('reset-filters-btn')) resetFilters();
+});
 
 /* ═══════════════════════════════════════════════
    INIT

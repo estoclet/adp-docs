@@ -140,6 +140,19 @@
 
 ---
 
+## AP-11 — L'action sans issue
+
+**Description** : L'agent entame un travail réel et suivi projet sans vérifier qu'une issue existe, ou crée l'issue seulement après coup.
+
+**Exemple** : L'agent configure un environnement local, lance une analyse legacy ou commence une implémentation, puis pense au ticket une fois le travail déjà avancé.
+
+**Pourquoi c'est dangereux** : Le travail échappe au backlog visible, au dashboard, aux priorités et aux validations. Cela produit un suivi partiel et rend le projet moins pilotable.
+
+**Règle opposée** : R-16b  
+**Contre-mesure** : Vérifier l'existence d'une issue avant toute action significative. Si aucune issue pertinente n'existe, la créer avant ou au moment d'entamer l'action.
+
+---
+
 ## Résumé de détection rapide
 
 | Symptôme dans un document produit | Anti-pattern probable |
@@ -154,3 +167,4 @@
 | Règles ignorées sur demande | AP-08 |
 | Listes de tâches dans le contenu | AP-09 |
 | Zones à remplir laissées vides sans marqueur | AP-10 |
+| Travail significatif commencé sans ticket | AP-11 |
