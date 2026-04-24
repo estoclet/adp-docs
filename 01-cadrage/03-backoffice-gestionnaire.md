@@ -211,7 +211,7 @@ Le client doit pouvoir, sans aide technique :
 - Ajouter un média
 - Modifier un menu de navigation
 
-> [À CONFIRMER] : Le client a-t-il déjà une expérience de WordPress ? Ceci impacte le niveau de simplification de l'interface et le besoin en formation.
+> [À ARBITRER] : Le client a-t-il déjà une expérience de WordPress ? Ceci impacte le niveau de simplification de l'interface et le besoin en formation.
 
 > [FAIT — règle projet] Cette autonomie ne couvre pas les templates globaux, presets, réglages Divi structurants, CSS global, PHP ni plugins sans procédure dédiée.
 

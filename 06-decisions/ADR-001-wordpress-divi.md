@@ -57,7 +57,7 @@ Le nouveau site sera développé avec **WordPress** (CMS) et **Divi** (page buil
 - **Performance** : Divi génère un JS/CSS volumineux — mitigé par WP Rocket + optimisation Divi
 - **Maintenance** : WordPress nécessite des mises à jour régulières — à intégrer dans le plan de maintenance
 - **Verrouillage** : Divi crée un couplage fort entre le contenu et le builder — risque à long terme si changement de builder
-- **Coût licence Divi** : Licence annuelle Elegant Themes — à vérifier si déjà disponible chez le client [À CONFIRMER]
+- **Coût licence Divi** : Licence annuelle Elegant Themes — à vérifier si déjà disponible chez le client [À ARBITRER]
 
 ---
 
@@ -66,7 +66,7 @@ Le nouveau site sera développé avec **WordPress** (CMS) et **Divi** (page buil
 Cette décision sera révisée si :
 - Le client change explicitement de préférence
 - Une contrainte technique rend WordPress + Divi incompatible avec les exigences de performance après optimisation
-- Le coût de la licence Divi est bloquant [À CONFIRMER]
+- Le coût de la licence Divi est bloquant [À ARBITRER]
 
 ---
 

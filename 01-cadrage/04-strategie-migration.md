@@ -62,9 +62,9 @@ Chaque contenu legacy sera classé dans l'une de ces catégories :
 |-----------|--------|--------|
 | Inventaire legacy complet | [À VALIDER — TP-001 exécuté] | Tout |
 | Analyse éditoriale du contenu | [À VALIDER — analyse exécutée] | Qualification |
-| Mapping URL legacy → nouvelle URL | [À FAIRE] | Redirections |
+| Mapping URL legacy → nouvelle URL | [FAIT — mapping TP-004 terminé, à valider] | Redirections |
 | Arbitrage I-03 (domaine) | [FAIT — domaine conservé] | Redirections internes uniquement |
-| Accès BDD legacy (I-06) | [À CONFIRMER] | Export WP XML ou migration directe |
+| Accès BDD legacy (I-06) | [FAIT — I-06 résolu : dump prod importé 2026-04-24] | Export WP XML ou migration directe |
 | Arborescence cible validée | [À VALIDER] | Mapping URLs |
 
 ---

@@ -38,10 +38,21 @@ Ces marqueurs sont des **signaux de confiance épistémique**, pas des décorati
 Un fait peut avoir une dépendance : `[FAIT — DÉPENDANCE]` est acceptable.  
 Un fait ne peut pas être une hypothèse simultanément : choisir le marqueur le plus restrictif.
 
-### Marqueurs non officiels — interdit
-Un agent n'invente pas de nouveaux marqueurs. Seuls les marqueurs listés dans ce tableau sont autorisés.
+### Marqueurs d'annotation (non épistémiques)
 
-**Interdit** : `[VALIDÉ]`, `[PROPOSITION]`, `[À VÉRIFIER]`, `[RÉSOLU OPÉRATIONNELLEMENT]`, ou tout autre marqueur absent de ce tableau.  
+Ces marqueurs ne qualifient pas le niveau de confiance — ils annotent le type de contenu. Ils sont autorisés en blockquote (`>`) uniquement.
+
+| Marqueur | Usage |
+|----------|-------|
+| `[CONSÉQUENCE]` | Conséquence directe d'une décision déjà actée |
+| `[RÈGLE]` | Règle opérationnelle du projet (en complément des règles de `02-gouvernance-ia/`) |
+
+> **Note** : `[À VALIDER]` peut apparaître dans le champ `**Statut**` des en-têtes de document et dans les tables de suivi comme indicateur de validation humaine en attente. Ce n'est pas un marqueur épistémique — ne pas l'utiliser dans des cellules portant sur la confiance d'une information.
+
+### Marqueurs non officiels — interdit
+Un agent n'invente pas de nouveaux marqueurs. Seuls les marqueurs listés dans ce tableau et les marqueurs d'annotation ci-dessus sont autorisés.
+
+**Interdit** : `[VALIDÉ]`, `[PROPOSITION]`, `[À VÉRIFIER]`, `[À CONFIRMER]`, `[RÉSOLU OPÉRATIONNELLEMENT]`, ou tout autre marqueur absent de ce tableau.  
 **Si aucun marqueur officiel ne convient** : utiliser `[À ARBITRER]` et expliquer pourquoi dans le bloc Signalement.
 
 ### Marqueurs interdits pour les agents
