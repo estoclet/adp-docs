@@ -1,7 +1,7 @@
 # Périmètre des agents IA
 
 **Statut** : Actif  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1 et 5 (R-25 ajouté)  
+**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 5 et 7 (R-25, zone 08-handoffs ajoutés)  
 **Lié à** : `01-regles-ia.md`, `02-conventions-redaction.md`
 
 ---
@@ -57,6 +57,7 @@
 | `adp-docs/06-decisions/` | Oui | Brouillon ADR autorisé | Validation humaine avant clôture |
 | `adp-docs/07-pilotage/` | Oui | Task packs : non / outputs : oui | Ne pas modifier le lotissement sans humain |
 | `adp-docs/08-handoffs/` | Oui | Oui si handoff en cours | |
+| `adp-docs/08-handoffs/` | Oui | Oui si handoff en cours | Passations entre agents — créer seulement si le handoff est pertinent et borné |
 | `adp-legacy/` | Oui (lecture analyse) | Non | Source legacy intouchable |
 | `adp-app/` | Non (depuis adp-docs) | Non (depuis adp-docs) | Hors périmètre pour les agents adp-docs — voir R-25 pour les agents Lot 3 |
 

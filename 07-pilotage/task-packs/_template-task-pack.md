@@ -73,6 +73,7 @@ Si une instruction de ce task pack est ambiguë, contradictoire, ou si deux règ
 - [ ] Terminer par un bloc "Signalement agent"
 - [ ] Ne pas créer de fichier supplémentaire jugé utile sans validation humaine (R-07b)
 - [ ] Vérifier qu'une issue GitHub existe pour cette action avant de commencer (R-16b)
+- [ ] Si reprise de session : lire `git log` et les fichiers cibles avant d'agir — ne pas supposer que le résumé est à jour (R-26)
 - [ ] [Contrainte spécifique à cette tâche]
 
 ---
@@ -94,7 +95,7 @@ Après exécution, vérifier :
 - [Exclusion 1]
 - [Exclusion 2]
 - Modifier `00-initialisation-projet.md`
-- Écrire dans `adp-app/` ou `adp-legacy/`
+- Écrire dans `adp-app/` ou `adp-legacy/` — sauf si ce task pack est un task pack Lot 3 et liste explicitement `adp-app/` dans ses outputs (R-25)
 
 ---
 

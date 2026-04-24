@@ -98,6 +98,8 @@
 | [À ARBITRER] | Décision humaine requise |
 | [DÉPENDANCE] | Bloqué par un autre travail ou une autre décision |
 | [INCONNUE] | Information manquante, impact à évaluer |
+| [INCONNUE BLOQUANTE] | Inconnue qui empêche de compléter la tâche en cours |
 | [RÉSOLU] | Inconnue levée — valeur et source citées |
 | [RÉSOLU PARTIEL] | Inconnue partiellement levée — reste une portion à confirmer |
+| [RECOMMANDÉ] | Suggestion de l'agent, non décidée — validation humaine requise |
 | [OBSOLÈTE] | Plus valide — ne pas utiliser |
