@@ -40,10 +40,13 @@
 > Lister les menus principaux tels qu'ils apparaissent sur le site. Ne pas interpréter, recopier fidèlement.
 
 ### Menu principal
-- [INCONNUE] Aucun menu WordPress listé via `ddev wp menu list`
+- [FAIT] Aucun menu WordPress enregistré via `ddev wp menu list`
+- [FAIT] La page d'accueil est une page statique WordPress : `Accueil` (ID `18`) via `show_on_front=page` et `page_on_front=18`
+- [FAIT] Les liens visibles relevés sur la homepage pointent surtout vers `/cgv`, `/confidentialite`, `/infos-fiscales`, `/mentions-legales` et l'adresse mail `julien.hache@astucesdepomme.com`
 
 ### Menu secondaire / footer
-- [INCONNUE] Aucun menu WordPress listé via `ddev wp menu list`
+- [FAIT] Aucun menu WordPress footer enregistré via `ddev wp menu list`
+- [FAIT] Le footer observé côté front est très minimal et affiche surtout une bannière SAP ; les liens légaux sont exposés dans la page elle-même plutôt que via un menu WordPress dédié
 
 ---
 
@@ -75,7 +78,7 @@
 |------|-----------------|------------------------|--------|
 | Articles publiés | 0 | `ddev wp post list --post_type=post --post_status=publish --format=count` | [FAIT] |
 | Pages statiques | 5 | `ddev wp post list --post_type=page --post_status=publish` | [FAIT] |
-| Images / médias | 63 pièces jointes ; répertoire uploads `232M` ; 10 dossiers de premier niveau | `ddev wp post list --post_type=attachment --format=count` + `du -sh wp-content/uploads` + `find wp-content/uploads` | [FAIT] |
+| Images / médias | 63 pièces jointes ; répertoire uploads `232M` ; 10 dossiers de premier niveau (`2021` à `2026`, `complianz`, `et-fonts`, `et_temp`, `wpforms`) | `ddev wp post list --post_type=attachment --format=count` + `du -sh wp-content/uploads` + `find wp-content/uploads` | [FAIT] |
 | Commentaires | 0 | `ddev wp comment list --format=count` | [FAIT] |
 | Auteurs | 1 utilisateur | `ddev wp user list --format=count` | [FAIT] |
 
@@ -93,6 +96,7 @@
 | updraftplus | 2.26.1.0 | Sauvegardes | [À ANALYSER] |
 
 > [FAIT] Liste vérifiée via `ddev wp plugin list --status=active`.
+> [FAIT] Les dossiers présents dans `wp-content/plugins/` correspondent exactement à ces 4 plugins ; aucun plugin installé supplémentaire n'a été relevé sur disque.
 
 ---
 
@@ -100,23 +104,34 @@
 
 | Attribut | Valeur | Statut |
 |----------|--------|--------|
-| Thème parent | Divi | [FAIT] |
+| Thème parent | Divi `4.27.6` | [FAIT — vérifié via `ddev wp theme list`] |
 | Thème enfant | [INCONNUE] | [INCONNUE — non observé via `template`/`stylesheet`] |
 | Page builder actuel | Divi | [FAIT] |
 | CSS personnalisé | [INCONNUE] | [INCONNUE — non mesuré à ce stade] |
+
+### Thèmes présents sur disque
+
+| Thème | Statut | Version | Source |
+|------|--------|---------|--------|
+| Divi | Actif | 4.27.6 | `ddev wp theme list` |
+| twentytwentyfive | Inactif | 1.4 | `ddev wp theme list` |
+| twentytwentyfour | Inactif | 1.4 | `ddev wp theme list` |
 
 ---
 
 ## Performances actuelles (à mesurer)
 
-> Mesurer via PageSpeed Insights, GTmetrix ou similaire sur la page d'accueil.
+> Mesurer idéalement via PageSpeed Insights ou Lighthouse. En attendant, quelques signaux de base ont été relevés directement sur la prod.
 
 | Métrique | Valeur | Outil | Date |
 |----------|--------|-------|------|
-| PageSpeed mobile | [INCONNUE] | | |
-| PageSpeed desktop | [INCONNUE] | | |
-| LCP | [INCONNUE] | | |
-| CLS | [INCONNUE] | | |
+| PageSpeed mobile | [INCONNUE] | PageSpeed Insights non lancé à ce stade | 2026-04-24 |
+| PageSpeed desktop | [INCONNUE] | PageSpeed Insights non lancé à ce stade | 2026-04-24 |
+| LCP | [INCONNUE] | Lighthouse / PSI non lancé à ce stade | 2026-04-24 |
+| CLS | [INCONNUE] | Lighthouse / PSI non lancé à ce stade | 2026-04-24 |
+| Time to first byte approximatif | `1.23s` | `curl -w time_starttransfer` sur `https://astucesdepomme.com/` | 2026-04-24 |
+| Temps de réponse total approximatif | `1.32s` | `curl -w time_total` sur `https://astucesdepomme.com/` | 2026-04-24 |
+| Taille HTML téléchargée | `220468` octets | `curl -w size_download` sur `https://astucesdepomme.com/` | 2026-04-24 |
 
 ---
 
@@ -124,12 +139,12 @@
 
 | Point | État | Outil | Statut |
 |-------|------|-------|--------|
-| Sitemap XML | [À VÉRIFIER] | | |
-| robots.txt | [À VÉRIFIER] | | |
-| Balises title / meta description | [À VÉRIFIER] | | |
-| Structure H1/H2/H3 | [À VÉRIFIER] | | |
-| Liens brisés | [À VÉRIFIER] | | |
-| Nombre de backlinks externes | [INCONNUE] | | |
+| Sitemap XML | `https://astucesdepomme.com/sitemap.xml` répond `200` et expose un index avec `page-sitemap.xml` | `curl -I -L` + lecture du XML | [FAIT] |
+| robots.txt | présent et valide ; `Disallow: /wp-admin/`, `Allow: /wp-admin/admin-ajax.php`, sitemaps déclarés | `curl -I -L` + lecture de `robots.txt` | [FAIT] |
+| Balises title / meta description | présentes sur la homepage ; title et description très génériques (`Astuces de pomme - Assistance dépannage formation Mac iPad iPhone...`) | lecture du HTML prod | [FAIT] |
+| Structure H1/H2/H3 | aucun `H1` détecté sur la homepage prod | extraction HTML (`rg '<h1'`) | [FAIT] |
+| Liens brisés | [INCONNUE] | crawler non lancé à ce stade | [À VÉRIFIER] |
+| Nombre de backlinks externes | [INCONNUE] | Ahrefs / GSC / outil backlinks non disponible | [INCONNUE] |
 
 ---
 
@@ -140,14 +155,20 @@
 - [FAIT] Le legacy est maintenant activable localement sous DDEV sur `http://adp-legacy.ddev.site`.
 - [FAIT] La copie locale repose sur un dump de la base de prod importé le 2026-04-24.
 - [FAIT] Le site legacy actif observé dans la base locale semble très léger en contenu éditorial : 0 article publié, 5 pages publiées, 63 médias.
-- [FAIT] La navigation WordPress n'expose aucun menu enregistré via `wp menu list`, ce qui suggère soit une navigation gérée autrement, soit une configuration minimaliste du site.
+- [FAIT] La navigation WordPress n'expose aucun menu enregistré via `wp menu list`; la structure visible repose surtout sur une homepage statique Divi et quelques pages légales.
+- [FAIT] La page d'accueil est une landing page statique configurée comme front page WordPress (`Accueil`, ID `18`) avec structure de services/contact plutôt qu'un blog.
+- [FAIT] La structure de permaliens est personnalisée en `/archives/%post_id%`, malgré l'absence actuelle d'articles publiés.
+- [FAIT] Le site charge All in One SEO côté front et expose dans ses métadonnées un téléphone, une présence Facebook et une présence LinkedIn.
+- [FAIT] La homepage prod ne contient pas de balise `H1`, ce qui constitue un signal SEO faible sur la structure sémantique.
+- [FAIT] Le sitemap XML prod n'expose qu'un sitemap de pages, cohérent avec l'absence de posts publiés.
+- [FAIT] Les signaux réseau simples montrent une réponse initiale autour de `1.23s` et un HTML assez lourd pour une simple page vitrine (`~220 KB` téléchargés hors assets).
 
 ---
 
 ## Signalement agent
 
-- **Tâche accomplie** : activation locale du legacy sous DDEV, import du dump prod, vérification du thème actif, des plugins actifs, des pages publiées, des volumes de contenu et des métriques structurelles simples.
+- **Tâche accomplie** : activation locale du legacy sous DDEV, import du dump prod, vérification du thème actif, des plugins/thèmes installés, des pages publiées, des volumes de contenu, de la front page et de la structure front observable.
 - **Hypothèses posées** : aucune hypothèse structurante ajoutée ; seules des valeurs vérifiées ont été renseignées.
-- **Inconnues rencontrées** : date de création du site, présence éventuelle d'un thème enfant, volume exact par type de média, structure de navigation rendue côté front si non pilotée par les menus WordPress.
+- **Inconnues rencontrées** : date de création du site, présence éventuelle d'un thème enfant, volume exact par type de média, structure précise du header si une partie est injectée par Divi Theme Builder plutôt que par un menu WordPress classique.
 - **Points à arbitrer** : aucun arbitrage immédiat issu de cette étape technique ; la suite dépend surtout de l'analyse du legacy front et éditorial.
-- **Prochaine étape recommandée** : poursuivre TP-001 côté navigation/front réel, puis enchaîner avec l'analyse éditoriale et SEO du legacy.
+- **Prochaine étape recommandée** : considérer TP-001 comme quasi complété, puis enchaîner avec l'analyse éditoriale (`#1`) et l'audit SEO/performance (`#2`) du legacy.
