@@ -65,7 +65,7 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 | I-04 | Budget et délais | Lotissement | [À ARBITRER] |
 | I-05 | Plugins WP actifs sur le legacy | Compatibilité | [RÉSOLU — TP-001 : 4 plugins actifs (AIOSEO 4.9.6.2, cookie-dough-compliance 2.2.5, ga-google-analytics 20260421, UpdraftPlus 2.26.1.0) — voir `03-legacy/01-inventaire-legacy.md`] |
 | I-06 | Accès BDD legacy pour export | Migration de contenu | [RÉSOLU — dump prod importé 2026-04-24, DDEV adp-legacy opérationnel sur `http://adp-legacy.ddev.site`] |
-| I-07 | Palette hex exacte (extraire de la carte de visite) | Charte Divi — **bloque le Lot 3** | [RÉSOLU PARTIEL — bleu marine `#1e3264` extrait du logo-dark.png (2026-04-24) ; couleurs secondaires et d'accentuation à confirmer avec Julien HACHE] |
+| I-07 | Palette hex exacte (extraire de la carte de visite) | Charte Divi | [RÉSOLU OPÉRATIONNELLEMENT — bleu marine `#1e3264`, bleu accent `#0070c8`, blanc `#ffffff` ; les tons complémentaires suivent la maquette et `01-cadrage/05-assets-design.md`] |
 | I-08 | Persona cible détaillé | Architecture info, rédaction | [À ARBITRER] |
 | I-09 | Logo / monogramme PNG fond transparent | Header, footer, CTA | [RÉSOLU — logo-dark.png + logo-white.png dans `adp-app/assets/design/` — 2026-04-24] |
 | I-10 | Adresse email de contact | Homepage bloc 8, footer | [RÉSOLU — julien.hache@astucesdepomme.com — voir `03-legacy/01-inventaire-legacy.md` section "Données métier"] |

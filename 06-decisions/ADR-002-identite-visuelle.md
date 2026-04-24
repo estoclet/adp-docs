@@ -26,20 +26,20 @@ Ambiance "tech de confiance" — propre, respirante, sans surcharge décorative.
 
 | Rôle | Description | Hex | Statut |
 |------|-------------|-----|--------|
-| Bleu principal | Bouton principal, accents, pictos actifs | [INCONNUE — extraire de la carte de visite] | [À PRÉCISER] |
-| Bleu cyan / électrique | Détails, surlignages, icônes secondaires | [INCONNUE] | [À PRÉCISER] |
-| Noir / bleu nuit | Header, bandeau CTA final | [INCONNUE] | [À PRÉCISER] |
-| Blanc | Fonds principaux, cartes | #FFFFFF | [FAIT] |
-| Bleu très clair / gris bleuté | Fonds secondaires, bandeaux d'info | [INCONNUE] | [À PRÉCISER] |
-| Gris foncé | Texte courant | [INCONNUE — approx. #333 ou #444] | [À PRÉCISER] |
-| Gris clair | Bordures discrètes | [INCONNUE — approx. #E0E0E0] | [À PRÉCISER] |
+| Bleu principal | Boutons, accents, pictos actifs | `#1e3264` | [FAIT — extrait du logo] |
+| Bleu accent | Détails, surlignages, icônes secondaires | `#0070c8` | [FAIT — extrait de la maquette] |
+| Blanc | Fonds principaux, cartes | `#ffffff` | [FAIT] |
+| Bleu nuit / tons sombres | Header, bandeau CTA final | voir maquette et assets de référence | [FAIT — référence visuelle] |
+| Tons clairs complémentaires | Fonds secondaires, bandeaux d'info | voir maquette et assets de référence | [FAIT — référence visuelle] |
+| Neutres texte / bordures | Texte courant, séparateurs | voir maquette et assets de référence | [FAIT — référence visuelle] |
 
-> [À PRÉCISER] : Les valeurs hex exactes doivent être extraites de la carte de visite fournie par le client ou définies avec lui lors d'un point dédié.
+> [FAIT] Pour la V1, les tokens fermes sont `#1e3264`, `#0070c8` et `#ffffff`. Les autres nuances suivent la maquette validée et les assets documentés dans `01-cadrage/05-assets-design.md`.
 
 ### Typographie
 
 - **Style** : sans-serif moderne, sobre, très lisible
-- **Candidates recommandées** : Inter, DM Sans, Nunito Sans, Poppins [RECOMMANDÉ — à valider]
+- **Police retenue en V1** : `Inter`
+- **Alternative crédible** : `DM Sans`
 - **Hiérarchie** :
   - H1 : très grand, gras
   - H2 : bien marqué
@@ -91,8 +91,8 @@ Ambiance "tech de confiance" — propre, respirante, sans surcharge décorative.
 - Style épuré : performant (moins de ressources graphiques)
 
 ### Négatives / risques
-- **Valeurs hex non définies** : les hex manquants doivent être fournis avant développement — [INCONNUE BLOQUANTE pour le Lot 3]
-- **Police** : si une police Google Fonts est choisie, elle impacte légèrement la performance (préférer preload)
+- la maquette reste la référence pour certaines nuances secondaires non promues en tokens autonomes
+- si une police Google Fonts est choisie, elle impacte légèrement la performance (préférer preload)
 
 ---
 
@@ -100,9 +100,9 @@ Ambiance "tech de confiance" — propre, respirante, sans surcharge décorative.
 
 | Action | Qui | Bloque |
 |--------|-----|--------|
-| Fournir les hex exacts de la carte de visite | Julien HACHE | Tous les styles Divi |
-| Valider la police choisie | Julien HACHE + Eric STOCLET | CSS global |
-| Fournir le logo / monogramme PNG fond transparent | Julien HACHE | Header, footer, CTA |
+| Utiliser les tokens `#1e3264`, `#0070c8`, `#ffffff` et la maquette comme référence complémentaire | Équipe projet | Non |
+| Utiliser `Inter` comme police V1 | Équipe projet | Non |
+| Utiliser les assets versionnés dans `adp-app/assets/design/` | Équipe projet | Non |
 
 ---
 
@@ -118,3 +118,4 @@ Cette décision sera révisée si le client change d'identité visuelle ou déci
 |------|--------|-----------|
 | 2026-04-23 | Eric STOCLET | Création — décisions validées en réunion client |
 | 2026-04-24 | Eric STOCLET | Formalisation dans ADR-002 |
+| 2026-04-24 | Eric STOCLET | Palette et typographie V1 précisées depuis les assets et validations projet |

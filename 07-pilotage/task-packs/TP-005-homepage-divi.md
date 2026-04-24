@@ -23,12 +23,12 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 | WordPress + Divi installés et configurés dans `adp-app/` | Développeur WP | [À FAIRE] |
 | Reprise de la licence Divi présente sur l'instance legacy | Eric STOCLET + développeur WP | [À PRÉPARER — voir `01-cadrage/02-architecture-cible.md`] |
 | Logo / monogramme PNG fond transparent | Julien HACHE | [À RECUEILLIR] |
-| Valeurs hex exactes de la palette (ADR-002) | Julien HACHE + Eric STOCLET | [À RECUEILLIR] |
-| Police validée | Projet (carte blanche client) | [FAIT — préconisation actuelle : `Inter`] |
-| Adresse email de contact | Julien HACHE | [À RECUEILLIR] |
-| Zone / communes d'intervention | Julien HACHE | [À RECUEILLIR] |
+| Palette V1 documentée (ADR-002 + assets) | Projet | [FAIT] |
+| Police validée | Projet (carte blanche client) | [FAIT — `Inter`] |
+| Adresse email de contact | Julien HACHE | [FAIT — documentée] |
+| Zone / communes d'intervention | Julien HACHE | [FAIT — documentée] |
 | Textes descriptifs cartes (blocs 3 et 5) | Projet, révisable par Julien HACHE | [FAIT — propositions documentées dans `homepage.md`] |
-| Image hero (bureau + devices) | Julien HACHE ou banque d'images | [À RECUEILLIR] |
+| Image hero (bureau + devices) | Projet | [FAIT — `adp-app/assets/design/hero-bg.png`] |
 | Mention légale crédit d'impôt | Julien HACHE (ou comptable) | [À RECUEILLIR] |
 
 ---

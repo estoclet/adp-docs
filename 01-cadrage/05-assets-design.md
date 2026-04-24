@@ -33,8 +33,8 @@ Palette extraite directement des fichiers sources (mesure directe — Python PIL
 | Bleu vif (secondaire / accent) | `#0070c8` | rgb(0, 112, 200) | maquette_homepage.png — boutons, icônes (6 300 px) |
 | Blanc (fond) | `#ffffff` | rgb(255, 255, 255) | maquette_homepage.png |
 
-[FAIT] I-07 partiellement résolue : les deux bleus sont extraits avec certitude.  
-[À ARBITRER] Couleurs complémentaires (texte, fond section, hover) — à confirmer avec Julien HACHE si la maquette ne fait pas autorité sur ces points.
+[FAIT] I-07 résolue opérationnellement : les deux bleus de référence et le blanc sont extraits avec certitude.  
+[FAIT] Pour la V1, la maquette `maquette_homepage.png` fait autorité sur les tons complémentaires (fonds clairs, contrastes, hiérarchie visuelle) si un token hex dédié n'a pas été isolé séparément.
 
 ---
 
