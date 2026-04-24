@@ -1,6 +1,6 @@
 # Inventaire du site legacy — astucesdepomme.com
 
-**Statut** : En cours — complété partiellement via TP-001  
+**Statut** : À valider — inventaire structurel complet via TP-001  
 **Dernière mise à jour** : 2026-04-24  
 **Produit par** : Agent IA — exécution partielle de TP-001  
 **Lié à** : `TP-001-analyse-legacy.md`, `03-mapping-migration.md`
@@ -78,7 +78,8 @@
 |------|-----------------|------------------------|--------|
 | Articles publiés | 0 | `ddev wp post list --post_type=post --post_status=publish --format=count` | [FAIT] |
 | Pages statiques | 5 | `ddev wp post list --post_type=page --post_status=publish` | [FAIT] |
-| Images / médias | 63 pièces jointes ; répertoire uploads `232M` ; 10 dossiers de premier niveau (`2021` à `2026`, `complianz`, `et-fonts`, `et_temp`, `wpforms`) | `ddev wp post list --post_type=attachment --format=count` + `du -sh wp-content/uploads` + `find wp-content/uploads` | [FAIT] |
+| Images / médias | 63 pièces jointes WP ; **82 fichiers originaux** sur disque (hors miniatures) ; `232M` total uploads | `ddev wp post list --post_type=attachment --format=count` + `find` filtré sur extensions images | [FAIT] |
+| Médias par année | 2021 : 59 · 2022 : 0 · 2023 : 16 · 2024 : 0 · 2025 : 7 · 2026 : 0 (+ dossiers `complianz`, `et-fonts`, `et_temp`, `wpforms`) | `find wp-content/uploads/YYYY -name "*.jpg|png…"` | [FAIT] |
 | Commentaires | 0 | `ddev wp comment list --format=count` | [FAIT] |
 | Auteurs | 1 utilisateur | `ddev wp user list --format=count` | [FAIT] |
 
@@ -107,7 +108,8 @@
 | Thème parent | Divi `4.27.6` | [FAIT — vérifié via `ddev wp theme list`] |
 | Thème enfant | [INCONNUE] | [INCONNUE — non observé via `template`/`stylesheet`] |
 | Page builder actuel | Divi | [FAIT] |
-| CSS personnalisé | [INCONNUE] | [INCONNUE — non mesuré à ce stade] |
+| CSS personnalisé Divi | Aucun | [FAIT — `ddev wp option list --search="*divi*css*"` : aucune option trouvée] |
+| CSS additionnel WP | Aucun | [FAIT — post type `custom_css` ID 130 : contenu vide] |
 
 ### Thèmes présents sur disque
 
@@ -119,19 +121,22 @@
 
 ---
 
-## Performances actuelles (à mesurer)
+## Performances actuelles
 
-> Mesurer idéalement via PageSpeed Insights ou Lighthouse. En attendant, quelques signaux de base ont été relevés directement sur la prod.
+> Mesures effectuées via Lighthouse CLI (headless Chromium) sur `https://astucesdepomme.com/` le 2026-04-24.
 
-| Métrique | Valeur | Outil | Date |
-|----------|--------|-------|------|
-| PageSpeed mobile | [INCONNUE] | PageSpeed Insights non lancé à ce stade | 2026-04-24 |
-| PageSpeed desktop | [INCONNUE] | PageSpeed Insights non lancé à ce stade | 2026-04-24 |
-| LCP | [INCONNUE] | Lighthouse / PSI non lancé à ce stade | 2026-04-24 |
-| CLS | [INCONNUE] | Lighthouse / PSI non lancé à ce stade | 2026-04-24 |
-| Time to first byte approximatif | `1.23s` | `curl -w time_starttransfer` sur `https://astucesdepomme.com/` | 2026-04-24 |
-| Temps de réponse total approximatif | `1.32s` | `curl -w time_total` sur `https://astucesdepomme.com/` | 2026-04-24 |
-| Taille HTML téléchargée | `220468` octets | `curl -w size_download` sur `https://astucesdepomme.com/` | 2026-04-24 |
+| Métrique | Mobile | Desktop | Seuil cible | Statut |
+|----------|--------|---------|-------------|--------|
+| Score Performance | **28 / 100** | **33 / 100** | > 80 | [FAIT — critique] |
+| FCP (First Contentful Paint) | 2,9 s | 2,6 s | < 1,8 s | [FAIT — à améliorer] |
+| LCP (Largest Contentful Paint) | **10,3 s** | **19,5 s** | < 2,5 s | [FAIT — critique] |
+| CLS (Cumulative Layout Shift) | **0,487** | 0,003 | < 0,1 | [FAIT — critique mobile] |
+| TBT (Total Blocking Time) | 450 ms | 570 ms | < 200 ms | [FAIT — à améliorer] |
+| Speed Index | 18,3 s | 20,4 s | < 3,4 s | [FAIT — critique] |
+| TTFB (curl time_starttransfer) | 1,23 s | — | < 0,8 s | [FAIT] |
+| Taille HTML téléchargée | ~220 KB | — | — | [FAIT] |
+
+> Ces scores justifient une refonte technique profonde. Le LCP et le CLS mobile sont particulièrement problématiques.
 
 ---
 
@@ -145,6 +150,28 @@
 | Structure H1/H2/H3 | aucun `H1` détecté sur la homepage prod | extraction HTML (`rg '<h1'`) | [FAIT] |
 | Liens brisés | [INCONNUE] | crawler non lancé à ce stade | [À VÉRIFIER] |
 | Nombre de backlinks externes | [INCONNUE] | Ahrefs / GSC / outil backlinks non disponible | [INCONNUE] |
+
+---
+
+## Données métier identifiées
+
+> Source : `adp-legacy/llms.txt` (généré par All in One SEO v4.9.6.2) + lecture des pages publiées.
+
+| Attribut | Valeur | Statut |
+|----------|--------|--------|
+| Raison sociale | Astuces de Pomme | [FAIT — llms.txt + CGV] |
+| Forme juridique | Micro-entreprise | [FAIT — CGV] |
+| Propriétaire | Julien Hache | [FAIT — CGV] |
+| SIRET | 50228208000022 | [FAIT — CGV legacy] |
+| APE | 8559B (Enseignement culturel) | [FAIT — CGV legacy] |
+| Numéro agrément SAP | 502282080 | [FAIT — CGV legacy] |
+| Acte SAP | 2020-063 — délivré le 11/09/2020 | [FAIT — CGV legacy] |
+| Email de contact | julien.hache@astucesdepomme.com | [FAIT — llms.txt + liens homepage] |
+| URL du site | https://astucesdepomme.com | [FAIT] |
+| `siteurl` en base | http://astucesdepomme.com (sans S) | [FAIT — `ddev wp option get siteurl`] |
+
+> Le SIRET, l'APE et le numéro SAP sont des données stables à réutiliser dans les mentions légales et CGV du nouveau site.  
+> La discordance `siteurl` HTTP vs HTTPS en prod mérite vérification — probablement géré par le serveur OVH via redirection.
 
 ---
 
@@ -167,8 +194,12 @@
 
 ## Signalement agent
 
-- **Tâche accomplie** : activation locale du legacy sous DDEV, import du dump prod, vérification du thème actif, des plugins/thèmes installés, des pages publiées, des volumes de contenu, de la front page et de la structure front observable.
-- **Hypothèses posées** : aucune hypothèse structurante ajoutée ; seules des valeurs vérifiées ont été renseignées.
-- **Inconnues rencontrées** : date de création du site, présence éventuelle d'un thème enfant, volume exact par type de média, structure précise du header si une partie est injectée par Divi Theme Builder plutôt que par un menu WordPress classique.
-- **Points à arbitrer** : aucun arbitrage immédiat issu de cette étape technique ; la suite dépend surtout de l'analyse du legacy front et éditorial.
-- **Prochaine étape recommandée** : considérer TP-001 comme quasi complété, puis enchaîner avec l'analyse éditoriale (`#1`) et l'audit SEO/performance (`#2`) du legacy.
+- **Tâche accomplie** : inventaire structurel complet — version WP, thème, plugins, pages, médias (82 originaux, répartition 2021–2026), navigation, données métier (SIRET, APE, SAP), performances Lighthouse (mobile 28/100, desktop 33/100), SEO de base (sitemap, robots.txt, absence H1), CSS custom (aucun).
+- **Hypothèses posées** : aucune — toutes les valeurs sont issues de commandes WP-CLI sur la base locale ou de mesures directes sur la prod.
+- **Inconnues rencontrées** :
+  - `[INCONNUE]` Date de création estimée du site
+  - `[INCONNUE]` Présence éventuelle d'un thème enfant Divi (aucun observé)
+  - `[INCONNUE]` Structure exacte du header Divi (Theme Builder vs template)
+  - `[INCONNUE]` Nombre de backlinks externes
+- **Points à arbitrer** : la discordance `siteurl` HTTP vs HTTPS en base mérite confirmation auprès du chef de projet (probablement redirigé côté serveur OVH).
+- **Prochaine étape recommandée** : TP-001 complet — passer à l'analyse éditoriale du contenu des 5 pages publiées (issue #1) et à l'audit SEO/performances approfondi (issue #2).
