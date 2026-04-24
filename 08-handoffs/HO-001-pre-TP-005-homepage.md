@@ -14,7 +14,7 @@
 - [x] Divi 5.3.3 (thème parent) installé et actif — commit `069d734`
 - [x] `adp-divi-child` v0.1.0 activé (thème enfant) — commit `7a389ee`
 - [x] CSS custom de base versionnée dans `adp-divi-child/assets/css/theme.css` : tokens couleurs, `.adp-card-service`, `.adp-pill-theme`, `.adp-btn-secondary`, responsive mobile
-- [x] 7 plugins actifs : AIOSEO, Complianz, Imagify, Redirection, UpdraftPlus, WPForms Lite (socle V1 validé)
+- [x] 6 plugins actifs : AIOSEO, Complianz, Imagify, Redirection, UpdraftPlus, WPForms Lite (socle V1 validé — vérifié 2026-04-25)
 - [x] 10 pages WordPress publiées avec les bons slugs
 - [x] Menu principal ordonné : Accueil · Prestations · Formations · À propos · Avis · Contact
 - [x] Menu footer configuré (5 liens légaux)
