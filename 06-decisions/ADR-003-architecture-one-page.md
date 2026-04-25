@@ -17,8 +17,9 @@ Condition associée (Eric STOCLET) : les modales doivent être **éditables par 
 
 Contraintes connues :
 - WordPress + Divi 5.3.3 installés [FAIT]
-- Divi 5 dispose d'un module Popup/Overlay natif [HYPOTHÈSE — à vérifier lors de TP-006]
-- Le contenu des popups Divi est normalement éditable dans le Visual Builder [HYPOTHÈSE — à vérifier]
+- Divi 5 dispose de 3 méthodes natives pour les popups (source : Elegant Themes docs) [FAIT — 2026-04-25]
+- **Méthode retenue (D-019)** : Interactions + Visibilité — contenu dans la page, éditable directement par le client dans le Visual Builder [FAIT — source Elegant Themes 2026-04-25]
+- Alternative si trop de popups dans la page : Canvases + Interactions (Méthode B) — éditabilité préservée
 - 11 pages WordPress publiées — certaines peuvent devenir des ancres ou redirections plutôt que des pages réelles [FAIT — à arbitrer]
 
 ---
@@ -61,7 +62,7 @@ Le site Astuces De Pomme V1 adopte une **architecture one page** : la homepage (
 - **Spec homepage à réviser** : `05-specs/pages/homepage.md` doit être réécrite pour intégrer les sections Prestations, Formations, À propos. Travail non négligeable — à faire avant TP-005.
 - **SEO** : les URLs `/prestations/`, `/formations/`, `/a-propos/` ne seront plus des pages réelles. Si elles sont référencées (Google, annuaires), mettre en place des redirections 301 vers `/#prestations`, etc. — impact faible car le site est en refonte.
 - **Pages WordPress orphelines** : les 11 pages publiées incluent `prestations`, `formations`, `a-propos` — décider si on les conserve comme ancres, redirections, ou on les supprime.
-- **Divi 5 popup editability** : [HYPOTHÈSE non vérifiée] — si Divi 5 ne permet pas l'édition autonome des popups, une solution alternative sera nécessaire (plugin, page draft masquée, etc.).
+- **Divi 5 popup editability** : [FAIT — source Elegant Themes 2026-04-25] La Méthode A (Interactions + Visibilité) permet l'édition autonome des popups par Julien HACHE directement dans le Visual Builder. Risque résiduel : si les 5 popups surchargent la page dans le builder, basculer sur la Méthode B (Canvases).
 - **Complexité homepage** : une seule page très dense — les tests responsive et performance seront plus importants.
 
 ### Risque atténué
@@ -97,3 +98,4 @@ Cette décision sera révisée si :
 | Date | Auteur | Changement |
 |------|--------|-----------|
 | 2026-04-25 | Agent IA (boucle gouvernance) | Création — sur décision Julien HACHE 2026-04-25 (D-018) |
+| 2026-04-25 | Agent IA (boucle gouvernance) | Mise à jour — popup Divi 5 Méthode A documentée (D-019, source Elegant Themes) |

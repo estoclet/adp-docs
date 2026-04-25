@@ -1,7 +1,7 @@
 # Composants Divi réutilisables
 
 **Statut** : Mis à jour — D-018 one page (2026-04-25) ; popup Divi documenté
-**Dernière mise à jour** : 2026-04-25 — D-018 : pattern popup Divi ; templates mis à jour
+**Dernière mise à jour** : 2026-04-25 — D-018/D-019 : 3 méthodes popup Divi 5 documentées ; méthode recommandée identifiée
 **Lié à** : `ADR-002-identite-visuelle.md`, `05-specs/pages/homepage.md`
 
 ---
@@ -96,7 +96,19 @@ Ces modules sont les seuls à utiliser sauf besoin spécifique justifié. [FAIT 
 
 **Module Code** : uniquement si nécessaire pour les pills / effets non faisables autrement. [FAIT]
 
-> **[D-019 — Condition éditabilité]** Le module Popup Divi 5 est l'option préférentielle pour les modales car son contenu est éditable dans le Visual Builder. À valider lors de TP-006 que Julien HACHE peut modifier les popups en autonomie. [HYPOTHÈSE à vérifier]
+### Implémentation des popups Divi 5 — 3 méthodes disponibles
+
+Source : documentation officielle Elegant Themes (article "How To Design Popups In Divi 5 — Three Different Ways"). [FAIT — 2026-04-25]
+
+| Méthode | Fonctionnement | Éditabilité client | Adapté au projet |
+|---------|----------------|-------------------|-----------------|
+| **A — Interactions + Visibilité** | Contenu popup dans la page, masqué par réglages de visibilité, déclenché par Interactions Divi | **Oui — édit directement dans le Visual Builder** | **Recommandé (D-019)** |
+| **B — Canvases + Interactions** | Popup dans un Canvas global (espace indépendant), déclenché par Interactions | Oui, mais le client doit naviguer dans les Canvases Divi | Alternative si la page devient trop longue |
+| **C — Plugin Bloom** | Popups marketing dédiés, intégrations emailing, templates pré-conçus | Oui, via tableau de bord WordPress dédié | Non adapté — usage marketing uniquement, pas de contenu éditorial |
+
+> **[FAIT — source Elegant Themes 2026-04-25]** La Méthode A (Interactions + Visibilité) est native Divi 5, sans plugin supplémentaire, et permet au client d'éditer le contenu des popups directement dans le Visual Builder. C'est la méthode retenue par défaut pour ce projet (D-019).
+
+> **[À ARBITRER — TP-006]** Si le nombre de popups (5 : Prestations, Formations, À propos, Avis, Contact) rend la page d'accueil trop chargée dans le builder, basculer sur la Méthode B (Canvases globaux). La décision finale est prise lors de l'implémentation TP-006.
 
 ---
 

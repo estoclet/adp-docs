@@ -1,7 +1,7 @@
 # Page Contact — Spec (Modale)
 
 **Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-25 — iter.8 (correction erreur factuelle WPForms/Complianz), R-27 appliqué  
+**Dernière mise à jour** : 2026-04-25 — D-019 : méthode popup Divi 5 Méthode A retenue  
 **Produit par** : Agent IA — issue #25  
 **URL cible** : N/A — **contenu affiché en modale** (décision chef de projet 2026-04-24)  
 **Déclencheur** : bouton "Prendre rendez-vous" (header, hero, blocs CTA), lien "Contact" dans navigation  
@@ -78,7 +78,9 @@ Offrir un point de contact immédiat — téléphone en priorité, formulaire en
 
 ## Note technique — Implémentation modale
 
-[DÉPENDANCE] Solution technique à arbitrer dans `05-specs/pages/avis.md` (décision commune à toutes les modales du site).
+[FAIT — D-019, 2026-04-25] Solution retenue : **Divi 5 — Interactions + Visibilité (Méthode A)** — native, sans plugin, éditabilité client dans le Visual Builder. Voir `04-architecture/03-composants-divi.md` et `05-specs/pages/avis.md` pour le détail des 3 méthodes.
+
+**Implémentation** : dans TP-006.
 
 ---
 
@@ -87,5 +89,5 @@ Offrir un point de contact immédiat — téléphone en priorité, formulaire en
 - **Tâche accomplie** : spec modale Contact — coordonnées, formulaire, mobile, réseaux
 - **Hypothèses posées** : horaires non bloquants en V1 (I-17)
 - **Inconnues rencontrées** : I-17 (horaires — non bloquant V1)
-- **Points à arbitrer** : solution modale unifiée (voir avis.md)
-- **Prochaine étape recommandée** : arbitrer la solution modale, recueillir I-17 si souhaité
+- **Points à arbitrer** : recueillir I-17 (horaires) si souhaité avant préprod
+- **Prochaine étape recommandée** : implémenter en TP-006 avec Divi 5 Méthode A

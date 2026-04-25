@@ -1,7 +1,7 @@
 # Page Avis — Spec (Modale)
 
 **Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-25 — D-016 : I-18 et I-19 débloquées (placeholders)  
+**Dernière mise à jour** : 2026-04-25 — D-016 placeholders ; D-019 : méthode popup Divi 5 Méthode A retenue  
 **Produit par** : Agent IA — issue #25  
 **URL cible** : N/A — **contenu affiché en modale** (décision chef de projet 2026-04-24)  
 **Déclencheur** : lien "Avis" dans la navigation principale  
@@ -53,15 +53,15 @@ Présenter une sélection d'avis clients Google Business Profile pour renforcer 
 
 ## Note technique — Implémentation modale
 
-[À ARBITRER] La solution technique pour les modales (Avis + Contact + pages légales) doit être homogène sur le site. Options en V1 avec Divi :
+[FAIT — D-019, 2026-04-25] La solution technique pour les modales est **Divi 5 natif — Méthode A (Interactions + Visibilité)**. Voir `04-architecture/03-composants-divi.md` pour le détail des 3 méthodes et la justification.
 
-| Option | Description | Avantages | Inconvénients |
-|--------|-------------|-----------|---------------|
-| A | Divi Popup natif (module Divi intégré) | Pas de plugin, intégré | Fonctionnalités limitées |
-| B | Plugin popup dédié (ex. WP Popups, Popup Maker) | Flexible, accessible | Plugin supplémentaire |
-| C | Section masquée + CSS/JS custom | Contrôle total | Maintenance code |
+| Méthode retenue | Description | Éditabilité client | Source |
+|-----------------|-------------|-------------------|--------|
+| **Divi 5 — Interactions + Visibilité** | Contenu popup dans la page, masqué, déclenché par Interactions | Oui — Visual Builder | Elegant Themes docs, 2026-04-25 |
 
-> Cette décision est structurante — elle s'applique à toutes les modales (Contact, Avis, pages légales). Un seul choix doit être fait et appliqué uniformément. [À ARBITRER — Eric STOCLET]
+**Alternative** : si 5 popups surchargent le builder de la homepage, basculer sur Canvases + Interactions (Méthode B) — éditabilité préservée — décision en TP-006.
+
+> Cette décision s'applique uniformément à toutes les modales du site (Avis, Contact, Prestations, Formations, À propos). [FAIT — D-018 + D-019]
 
 ---
 
@@ -70,5 +70,5 @@ Présenter une sélection d'avis clients Google Business Profile pour renforcer 
 - **Tâche accomplie** : spec modale `/avis/` — structure, contenu, inconnues identifiées
 - **Hypothèses posées** : 6 à 8 avis sélectionnés (format éditorialisé), grille 2 colonnes desktop
 - **Inconnues rencontrées** : I-18 (avis GBP), I-19 (URL GBP) — placeholder acceptable par D-016 (Eric STOCLET 2026-04-25) ; Julien HACHE remplace en préprod
-- **Points à arbitrer** : solution technique modale unifiée (voir table ci-dessus) ; voir aussi D-018 (site one page — confirme l'approche modale pour l'ensemble du site)
-- **Prochaine étape recommandée** : arbitrer la solution modale ; intégrer en TP-005 avec placeholders
+- **Points à arbitrer** : choix final Méthode A vs B selon charge builder lors de TP-006
+- **Prochaine étape recommandée** : implémenter en TP-006 (modales) avec Divi 5 Méthode A ; placeholders I-18/19 en place
