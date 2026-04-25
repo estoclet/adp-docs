@@ -1,6 +1,6 @@
 # Handoff — Pré-lancement TP-005 : Intégration Divi Homepage
 
-**Date** : 2026-04-24  
+**Date** : 2026-04-25 — mis à jour (11 pages, tons complémentaires, corrections spec homepage)  
 **De** : Agent IA (boucle gouvernance + maintenance projet)  
 **À** : Agent IA ou développeur WP/Divi exécutant TP-005  
 **Tâche ou lot** : Lot 3 — TP-005 Intégration Divi Homepage  
@@ -15,7 +15,7 @@
 - [x] `adp-divi-child` v0.1.0 activé (thème enfant) — commit `7a389ee`
 - [x] CSS custom de base versionnée dans `adp-divi-child/assets/css/theme.css` : tokens couleurs, `.adp-card-service`, `.adp-pill-theme`, `.adp-btn-secondary`, responsive mobile
 - [x] 6 plugins actifs : AIOSEO, Complianz, Imagify, Redirection, UpdraftPlus, WPForms Lite (socle V1 validé — vérifié 2026-04-25)
-- [x] 10 pages WordPress publiées avec les bons slugs
+- [x] 11 pages WordPress publiées avec les bons slugs (vérifié ddev 2026-04-25)
 - [x] Menu principal ordonné : Accueil · Prestations · Formations · À propos · Avis · Contact
 - [x] Menu footer configuré (5 liens légaux)
 - [x] Assets design versionnés dans `adp-app/assets/design/` : logo-dark.png, logo-white.png, hero-bg.png, maquette_homepage.png
@@ -28,7 +28,7 @@
 |---------|------|-------|
 | `adp-docs/05-specs/pages/homepage.md` | Complet — validé client | Source de vérité pour TP-005 |
 | `adp-docs/04-architecture/03-composants-divi.md` | Complet | Modules, presets, CSS, Library |
-| `adp-docs/04-architecture/04-conventions-divi.md` | Complet | Nommage presets, Library, CSS |
+| `adp-docs/04-architecture/04-conventions-divi.md` | Complet | Nommage presets, Library, CSS, tokens et classes versionnés |
 | `adp-docs/06-decisions/ADR-002-identite-visuelle.md` | Complet | Palette, typo, style général |
 | `adp-docs/04-architecture/01-arborescence-site.md` | Complet | URLs cibles pour les liens internes |
 | `adp-app/web/wp-content/themes/adp-divi-child/assets/css/theme.css` | Complet | CSS base déjà versionnée |
@@ -65,7 +65,7 @@
 |----------|--------|------------------|
 | Licence Divi non activée | Divi peut fonctionner sans licence mais sans mises à jour ni assets premium | Julien HACHE |
 | Badge SAP (logo officiel Services à la personne) | Bloc 4 peut utiliser un placeholder | Julien HACHE |
-| Tons complémentaires (gris texte, bleu clair fond) | À déterminer lors de l'intégration à partir de la maquette | TP-005 |
+| Tons complémentaires (gris texte, bleu clair fond) | Proposés dans `theme.css` : texte `#23344d`, fond `#f4f8fc`, bordure `#d7e1ec` — à valider lors de la recette Divi | Julien HACHE |
 | Implémentation modales Contact/Avis | Hors scope TP-005 — à arbitrer séparément | Eric STOCLET |
 
 ---
