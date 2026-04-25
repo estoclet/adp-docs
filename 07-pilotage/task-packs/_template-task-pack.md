@@ -74,6 +74,8 @@ Si une instruction de ce task pack est ambiguë, contradictoire, ou si deux règ
 - [ ] Ne pas créer de fichier supplémentaire jugé utile sans validation humaine (R-07b)
 - [ ] Vérifier qu'une issue GitHub existe pour cette action avant de commencer (R-16b)
 - [ ] Si reprise de session : lire `git log` et les fichiers cibles avant d'agir — ne pas supposer que le résumé est à jour (R-26)
+- [ ] Mettre à jour le champ `Dernière mise à jour` dans tout fichier modifié qui contient ce champ (R-27)
+- [ ] Toute promotion `[HYPOTHÈSE]` → `[FAIT]` : citer la source directement dans le document (outil + date), pas seulement dans le Signalement (R-28)
 - [ ] [Contrainte spécifique à cette tâche]
 
 ---

@@ -1,7 +1,7 @@
 # Conventions de rédaction pour agents
 
 **Statut** : Actif — s'applique à tous les documents produits par des agents  
-**Dernière mise à jour** : 2026-04-24 — renforcé par boucle gouvernance itérations 1, 3, 4 et 8  
+**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 3, 4, 8 et 10 (champ Signalement étendu)  
 **Lié à** : `01-regles-ia.md`, `03-perimetre-agents.md`
 
 ---
@@ -59,9 +59,13 @@ Un agent n'invente pas de nouveaux marqueurs. Seuls les marqueurs listés dans c
 Les agents ne marquent jamais quelque chose `[FAIT]` sans pouvoir citer la source dans le même document ou en référence à un fichier existant dans `adp-docs/`.
 
 ### Promotion et rétrogradation des marqueurs
-Un agent ne peut pas **promouvoir** un marqueur (`[HYPOTHÈSE]` → `[FAIT]`) sans ajouter simultanément la source traçable.  
+Un agent ne peut pas **promouvoir** un marqueur (`[HYPOTHÈSE]` → `[FAIT]`) sans ajouter simultanément la source traçable dans le document (pas seulement dans le Signalement). Voir R-28 pour les conditions complètes :
+
+- La promotion est réservée aux **faits techniques ou observables** (existence d'une page, état d'un plugin, valeur d'un réglage) — mesure directe conforme à R-01.
+- Les hypothèses éditoriales, stratégiques ou clients ne peuvent être promues en `[FAIT]` que par le chef de projet.
+
 Un agent peut **rétrograder** un marqueur (`[FAIT]` → `[OBSOLÈTE]`) uniquement si la décision de révision est enregistrée dans `07-pilotage/02-journal-decisions.md`.  
-Toute promotion ou rétrogradation doit être signalée dans le bloc "Signalement agent" avec la justification.
+Toute promotion ou rétrogradation doit être signalée dans le champ "Marqueurs promus" du bloc "Signalement agent" avec la justification.
 
 **Cycle de vie de `[RÉSOLU PARTIEL]`** : ce marqueur est une étape intermédiaire entre `[INCONNUE]` et `[RÉSOLU]`. Un agent peut promouvoir `[INCONNUE]` → `[RÉSOLU PARTIEL]` si une portion est confirmée avec source, en citant explicitement ce qui reste à confirmer. La promotion `[RÉSOLU PARTIEL]` → `[RÉSOLU]` suit les mêmes règles que `[HYPOTHÈSE]` → `[FAIT]` : source traçable obligatoire pour la portion manquante.
 
@@ -139,9 +143,10 @@ Tout document produit par un agent pour une tâche bornée doit se terminer par 
 ## Signalement agent
 
 - **Tâche accomplie** : [Ce qui a été fait]
-- **Hypothèses posées** : [Liste]
-- **Inconnues rencontrées** : [Liste avec identifiants]
-- **Points à arbitrer** : [Liste]
+- **Hypothèses posées** : [Liste — ou "aucune"]
+- **Inconnues rencontrées** : [Liste avec identifiants — ou "aucune"]
+- **Marqueurs promus** : [Toute promotion [HYPOTHÈSE]→[FAIT] avec source citée (R-28) — ou "aucune"]
+- **Points à arbitrer** : [Liste — ou "aucun"]
 - **Prochaine étape recommandée** : [Suggestion]
 ```
 
