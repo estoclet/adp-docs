@@ -1,7 +1,7 @@
 # Astuces De Pomme — Initialisation projet
 
 **Statut** : Cadrage initial  
-**Date** : 2026-04-24  
+**Date** : 2026-04-25 — mis à jour par Eric STOCLET  
 **Maintenu par** : Eric STOCLET (chef de projet)  
 **Rôle** : Point d'entrée unique. Premier document à lire. Dernier à modifier.
 
@@ -65,7 +65,7 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 | I-04 | Budget et délais | Lotissement | [À ARBITRER] |
 | I-05 | Plugins WP actifs sur le legacy | Compatibilité | [RÉSOLU — TP-001 : 4 plugins actifs (AIOSEO 4.9.6.2, cookie-dough-compliance 2.2.5, ga-google-analytics 20260421, UpdraftPlus 2.26.1.0) — voir `03-legacy/01-inventaire-legacy.md`] |
 | I-06 | Accès BDD legacy pour export | Migration de contenu | [RÉSOLU — dump prod importé 2026-04-24, DDEV adp-legacy opérationnel sur `http://adp-legacy.ddev.site`] |
-| I-07 | Palette hex exacte (extraire de la carte de visite) | Charte Divi | [RÉSOLU PARTIEL — tokens V1 fermes : `#1e3264`, `#0070c8`, `#ffffff` ; tons complémentaires suivent la maquette — voir `01-cadrage/05-assets-design.md`] |
+| I-07 | Palette hex exacte (extraire de la carte de visite) | Charte Divi | [RÉSOLU PARTIEL — tokens V1 fermes : `#1e3264`, `#0070c8`, `#ffffff` ; tons complémentaires proposés (`#23344d`, `#f4f8fc`, `#d7e1ec`) versionnés dans `adp-divi-child/theme.css` — à valider par Julien HACHE lors de la recette Divi — voir `01-cadrage/05-assets-design.md`] |
 | I-08 | Persona cible détaillé | Architecture info, rédaction | [À ARBITRER] |
 | I-09 | Logo / monogramme PNG fond transparent | Header, footer, CTA | [RÉSOLU — logo-dark.png + logo-white.png dans `adp-app/assets/design/` — 2026-04-24] |
 | I-10 | Adresse email de contact | Homepage bloc 8, footer | [RÉSOLU — julien.hache@astucesdepomme.com — voir `03-legacy/01-inventaire-legacy.md` section "Données métier"] |
@@ -121,4 +121,6 @@ adp-docs/
 2. Lire `02-gouvernance-ia/01-regles-ia.md` (règles opérationnelles).
 3. Lire `02-gouvernance-ia/04-anti-patterns.md` (anti-patterns récurrents à éviter).
 4. ~~Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md`~~ — terminé (Lot 1 clos, voir `03-legacy/`).
-5. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-08** (persona) — et lever les bloquantes : **I-15/16** (photo + bio Julien — À propos), **I-18/19** (avis GBP — modale Avis). I-01 à I-14 résolues ou partiellement résolues. I-17 (horaires) non bloquant.
+5. ~~Lot 2 — Architecture et specs~~ : terminé. Arborescence, composants Divi, specs 5 pages secondaires, ADR-002 produits. Validation client des specs secondaires en attente (issue #26).
+6. **En cours — Lot 3** : Lancer `07-pilotage/task-packs/TP-005-homepage-divi.md` (intégration homepage Divi). Lire d'abord `08-handoffs/HO-001-pre-TP-005-homepage.md` (état de l'environnement au 2026-04-25). DDEV doit être démarré (`ddev start`).
+7. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-08** (persona) — et lever les bloquantes : **I-15/16** (photo + bio Julien — À propos), **I-18/19** (avis GBP — modale Avis). I-01 à I-14 résolues ou partiellement résolues. I-17 (horaires) non bloquant.
