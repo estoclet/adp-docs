@@ -1,7 +1,7 @@
 # Page d'accueil — Spec
 
 **Statut** : Validé client — Julien HACHE (réunion 2026-04-23)
-**Dernière mise à jour** : 2026-04-24
+**Dernière mise à jour** : 2026-04-25 — colonne 3 footer corrigée (FAQ retiré, CGV + Infos fiscales ajoutés — aligné menu WP)
 **Produit par** : Eric STOCLET, d'après brief client
 **URL cible** : `/`
 **Template Divi** : Template Accueil (sur mesure, hors Theme Builder)
@@ -246,7 +246,7 @@ Empilement propre des 3 colonnes. [FAIT]
 |---------|---------|
 | 1 | Astuces De Pomme + Services à la personne + court texte présentation + icônes réseaux / contact |
 | 2 | Navigation : Accueil · Prestations · Formations · À propos · Avis · Contact |
-| 3 | Informations : Services à la personne · Tarifs & prestations · FAQ · Mentions légales · Politique de confidentialité |
+| 3 | Liens légaux : CGV · Informations fiscales · Politique de confidentialité · Tarifs & prestations · Mentions légales [FAIT — menu footer WordPress configuré, vérifié ddev 2026-04-25] |
 | 4 | Contact : téléphone · email · localisation |
 | Bas | Ligne de copyright |
 
@@ -275,7 +275,7 @@ Voir `ADR-002-identite-visuelle.md` pour la charte complète.
 **Police** : sans-serif moderne, sobre, très lisible. Carte blanche projet/client pour le choix final.  
 **Préconisation projet** : `Inter` en priorité, `DM Sans` en alternative. [FAIT — choix libre validé]
 
-**Inconnues couleurs** : [RÉSOLU PARTIEL — I-07] Tokens V1 fermes : `#1e3264` (primaire) + `#0070c8` (accent) + `#ffffff` (blanc). Les tons complémentaires (gris texte, bleu clair fond, bordures) restent des [HYPOTHÈSE] à confirmer lors de l'intégration Divi — référence : `adp-app/assets/design/maquette_homepage.png`.
+**Inconnues couleurs** : [RÉSOLU PARTIEL — I-07] Tokens V1 fermes : `#1e3264` (primaire) + `#0070c8` (accent) + `#ffffff` (blanc). Tons complémentaires proposés dans `adp-divi-child/theme.css` : texte `#23344d`, fond section `#f4f8fc`, bordure `#d7e1ec` — [HYPOTHÈSE à valider lors de la recette Divi par Julien HACHE]. Référence visuelle : `adp-app/assets/design/maquette_homepage.png`. Source détaillée : `01-cadrage/05-assets-design.md`.
 
 ---
 
