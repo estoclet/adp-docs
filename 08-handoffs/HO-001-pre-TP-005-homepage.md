@@ -1,6 +1,6 @@
 # Handoff — Pré-lancement TP-005 : Intégration Divi Homepage
 
-**Date** : 2026-04-25 — mis à jour (11 pages, tons complémentaires, corrections spec homepage, D-018 one page, I-15 résolue)  
+**Date** : 2026-04-25 — mis à jour (11 pages, D-018 one page, I-15 résolue, spec homepage révisée 10 blocs, D-019 Divi 5 Méthode A confirmée)  
 **De** : Agent IA (boucle gouvernance + maintenance projet)  
 **À** : Agent IA ou développeur WP/Divi exécutant TP-005  
 **Tâche ou lot** : Lot 3 — TP-005 Intégration Divi Homepage  
@@ -64,8 +64,9 @@
 
 **Décision Eric STOCLET (2026-04-25, D-016) : toutes les images et zones de texte manquantes sont couvertes par des placeholders — Julien HACHE les remplacera après livraison en préprod.**
 
-> **[ALERTE D-018 — 2026-04-25]** Julien HACHE a confirmé un **site one page** : la homepage absorbe toutes les sections (Prestations, Formations, À propos) avec des liens "Voir plus" ouvrant des modales. La spec homepage (`05-specs/pages/homepage.md`) doit être révisée avant de démarrer TP-005. Un **ADR-003** est à créer. Voir `04-architecture/01-arborescence-site.md` pour les détails.
-> D-019 : les modales doivent être éditables par Julien HACHE via Divi 5 natif (popup) — à valider en TP-006.
+> **[FAIT — D-018 + D-019, 2026-04-25]** Site one page confirmé. Spec homepage révisée : 10 blocs (Bloc 7 À propos ajouté), anchors CSS, liens "Voir plus" → popup. ADR-003 créé. Popup Divi 5 **Méthode A (Interactions + Visibilité)** retenue pour toutes les modales — éditabilité client confirmée via documentation Elegant Themes. Voir `04-architecture/03-composants-divi.md`.
+
+> **Prochaine validation** : Eric STOCLET valide `05-specs/pages/homepage.md` (statut "Révisé — à valider") avant de lancer TP-005.
 
 | Inconnue | Impact | Statut |
 |----------|--------|--------|
@@ -105,4 +106,4 @@
 
 - [ ] Eric STOCLET : valider que DDEV est démarré (`ddev start`) avant de lancer TP-005
 - [ ] Eric STOCLET : confirmer que la licence Divi peut fonctionner sans activation pour V1 locale (ou prévoir l'activation avec Julien HACHE)
-- [ ] **[NOUVEAU — D-018]** Eric STOCLET : créer ADR-003 (site one page) et réviser `05-specs/pages/homepage.md` avant de démarrer TP-005 — la spec homepage actuelle ne reflète pas encore le contenu one page + modales
+- [ ] Eric STOCLET : valider `05-specs/pages/homepage.md` (révisée D-018 — 10 blocs, statut "Révisé — à valider") — ADR-003 créé, spec révisée par l'agent
