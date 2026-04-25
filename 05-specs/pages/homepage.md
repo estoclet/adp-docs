@@ -1,7 +1,7 @@
 # Page d'accueil — Spec
 
-**Statut** : Validé client — Julien HACHE (réunion 2026-04-23)
-**Dernière mise à jour** : 2026-04-25 — colonne 3 footer corrigée (FAQ retiré, CGV + Infos fiscales ajoutés — aligné menu WP)
+**Statut** : [EN RÉVISION — ADR-003] Validé client mais nécessite révision pour absorber les sections Prestations, Formations, À propos + liens "Voir plus" → modales (D-018, 2026-04-25)
+**Dernière mise à jour** : 2026-04-25 — D-018 : spec en révision (one page — sections + modales à intégrer)
 **Produit par** : Eric STOCLET, d'après brief client
 **URL cible** : `/`
 **Template Divi** : Template Accueil (sur mesure, hors Theme Builder)
@@ -9,6 +9,8 @@
 **Référence visuelle** : `adp-app/assets/design/maquette_homepage.png` [FAIT — livrée 2026-04-24]
 
 > **Note agent** : Ce document est basé sur le brief d'implémentation validé en réunion client (2026-04-23). Les éléments marqués [FAIT] sont fermes. Les éléments marqués [INCONNUE] nécessitent une information à recueillir avant développement. Ne pas inventer de valeurs pour les inconnues.
+>
+> **[ALERTE D-018 — 2026-04-25]** La décision client "site one page" (ADR-003) impose de réviser cette spec. La homepage doit absorber des **sections résumées** pour Prestations, Formations et À propos, chacune avec un lien "Voir plus" → popup Divi. La structure des 9 blocs initiaux est conservée comme base, mais des sections supplémentaires s'y ajoutent. **Cette spec ne doit pas être utilisée telle quelle pour TP-005** — relire ADR-003 d'abord (R-29).
 
 ---
 

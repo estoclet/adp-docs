@@ -103,5 +103,6 @@
 | [RÉSOLU] | Inconnue levée — valeur et source citées |
 | [RÉSOLU PARTIEL] | Inconnue partiellement levée — reste une portion à confirmer |
 | [RECOMMANDÉ] | Suggestion de l'agent, non décidée — validation humaine requise |
+| [EN RÉVISION — ADR-XXX] | Spec ou document valide mais en cours de révision suite à un ADR — ne pas utiliser comme source de vérité sans lire l'ADR (R-29) |
 | [OBSOLÈTE] | Plus valide — ne pas utiliser |
 | [SANS OBJET] | Champ ou métrique non applicable dans ce contexte (ex. qualité d'un corpus à 0 article) |
