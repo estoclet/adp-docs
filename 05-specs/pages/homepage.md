@@ -1,7 +1,7 @@
 # Page d'accueil — Spec
 
-**Statut** : [EN RÉVISION — ADR-003] Validé client mais nécessite révision pour absorber les sections Prestations, Formations, À propos + liens "Voir plus" → modales (D-018, 2026-04-25)
-**Dernière mise à jour** : 2026-04-25 — D-018 : spec en révision (one page — sections + modales à intégrer)
+**Statut** : Révisé — D-018 intégré (one page, blocs sections + "Voir plus" → popups) — à valider par Eric STOCLET
+**Dernière mise à jour** : 2026-04-25 — D-018 : 10 blocs (Bloc 7 À propos ajouté) ; liens "Voir plus" → popup ; anchors de navigation
 **Produit par** : Eric STOCLET, d'après brief client
 **URL cible** : `/`
 **Template Divi** : Template Accueil (sur mesure, hors Theme Builder)
@@ -24,17 +24,20 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 
 ## Structure générale
 
-| # | Bloc | Type Divi |
-|---|------|-----------|
-| 1 | Header / navigation | Theme Builder — header global |
-| 2 | Hero principal | Section 2 colonnes |
-| 3 | Services rapides (4 cartes) | Section 4 colonnes |
-| 4 | Bandeau "Services à la personne / 50% crédit d'impôt" | Section fond coloré |
-| 5 | Prestations principales (6 cartes) | Section 2 × 3 colonnes |
-| 6 | Thématiques de formation (pills) | Section multi-colonnes |
-| 7 | Bandeau informations pratiques (4 blocs) | Section 4 colonnes fond clair |
-| 8 | CTA de contact | Section sombre 2 colonnes |
-| 9 | Footer | Theme Builder — footer global |
+> **[D-018 — 2026-04-25]** Architecture one page : les items de navigation (Prestations, Formations, À propos) scrollent vers leurs sections respectives via des ancres CSS ID. Chaque section a un lien "Voir plus" → popup Divi pour le contenu détaillé. L'implémentation technique des popups est définie en TP-006 (D-019).
+
+| # | Bloc | Type Divi | Ancre nav |
+|---|------|-----------|-----------|
+| 1 | Header / navigation | Theme Builder — header global | — |
+| 2 | Hero principal | Section 2 colonnes | — |
+| 3 | Services rapides (4 cartes) | Section 4 colonnes | `#prestations` |
+| 4 | Bandeau "Services à la personne / 50% crédit d'impôt" | Section fond coloré | — |
+| 5 | Prestations principales (6 cartes + CTA popup) | Section 2 × 3 colonnes | (suite section Prestations) |
+| 6 | Thématiques de formation (pills + CTA popup) | Section multi-colonnes | `#formations` |
+| **7** | **À propos — intro Julien HACHE (photo + texte + CTA popup)** | **Section 2 colonnes** | **`#a-propos`** |
+| 8 | Bandeau informations pratiques (4 blocs) | Section 4 colonnes fond clair | — |
+| 9 | CTA de contact | Section sombre 2 colonnes | — |
+| 10 | Footer | Theme Builder — footer global | — |
 
 **Largeur conteneur** : 1200 à 1280 px max. [FAIT]
 **Coins arrondis** : 16 à 24 px (régulier). [FAIT]
@@ -56,6 +59,8 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 | Extrême droite | Bouton CTA "Prendre rendez-vous" (bleu) | [FAIT] |
 
 **Menu principal** : Accueil · Prestations · Formations · À propos · Avis · Contact [FAIT — blog retiré sur décision client 2026-04-24]
+
+> **[D-018]** Navigation anchor-based : les items "Prestations", "Formations" et "À propos" scrollent vers les sections de la homepage (CSS ID : `#prestations`, `#formations`, `#a-propos`). "Avis" et "Contact" ouvrent leur popup. "Accueil" remonte en haut de page.
 
 **Inconnues** :
 - [RÉSOLU — I-09] Logo disponible : `adp-app/assets/design/logo-dark.png` (fond clair) + `logo-white.png` (fond sombre)
@@ -103,15 +108,18 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 **Type Divi** : Section, ligne 4 colonnes. [FAIT]
 **Fond** : blanc. [FAIT]
 **Style** : fond blanc, ombre légère, coins arrondis, icône dans cercle clair, hover subtil. [FAIT]
+**Ancre CSS** : `id="prestations"` sur cette section (navigation anchor — D-018). [RECOMMANDÉ]
 
 ### Cartes
 
 | # | Titre | Icône style | Lien |
 |---|-------|------------|------|
-| 1 | Assistance Apple | Blurb — icône bleu clair | /prestations/#assistance |
-| 2 | Formation | Blurb — icône bleu clair | /formations/ |
-| 3 | Réseau & Wi-Fi | Blurb — icône bleu clair | /prestations/#reseau |
-| 4 | Démarches administratives | Blurb — icône bleu clair | /prestations/#demarches |
+| 1 | Assistance Apple | Blurb — icône bleu clair | `[popup-prestations]` — voir note D-018 |
+| 2 | Formation | Blurb — icône bleu clair | `[popup-formations]` — voir note D-018 |
+| 3 | Réseau & Wi-Fi | Blurb — icône bleu clair | `[popup-prestations]` — voir note D-018 |
+| 4 | Démarches administratives | Blurb — icône bleu clair | `[popup-prestations]` — voir note D-018 |
+
+> **[D-018 — popup links]** Les liens "En savoir plus" des cartes déclenchent le popup correspondant (Prestations ou Formations). L'implémentation technique (ID popup Divi, déclencheur) est définie en TP-006. Notation `[popup-XXX]` = déclencheur popup à remplacer par le mécanisme Divi retenu.
 
 **Contenu par carte** : icône ronde + titre + descriptif 2-4 lignes + lien "En savoir plus". [FAIT]
 
@@ -160,14 +168,16 @@ Empilement propre des 3 colonnes. [FAIT]
 
 | # | Titre | Lien |
 |---|-------|------|
-| 1 | Dépannage | /prestations/#depannage |
-| 2 | Formation | /formations/ |
-| 3 | Sauvegardes & installation | /prestations/#sauvegardes |
-| 4 | Réseau domestique | /prestations/#reseau |
-| 5 | Conseil | /prestations/#conseil |
-| 6 | Démarches administratives | /prestations/#demarches |
+| 1 | Dépannage | `[popup-prestations]` |
+| 2 | Formation | `[popup-formations]` |
+| 3 | Sauvegardes & installation | `[popup-prestations]` |
+| 4 | Réseau domestique | `[popup-prestations]` |
+| 5 | Conseil | `[popup-prestations]` |
+| 6 | Démarches administratives | `[popup-prestations]` |
 
 **Contenu par carte** : icône + titre + description courte + lien "En savoir plus". [FAIT]
+
+**CTA de section (D-018)** : bouton secondaire "Voir toutes les prestations →" en bas de section, déclenche `[popup-prestations]`. [RECOMMANDÉ]
 
 ### Textes proposés
 
@@ -188,6 +198,7 @@ Empilement propre des 3 colonnes. [FAIT]
 
 **Type Divi** : Titre centré + ligne multi-colonnes ou modules stylés. [FAIT]
 **Titre de section** : "Thématiques de formation" (centré). [FAIT]
+**Ancre CSS** : `id="formations"` sur cette section (navigation anchor — D-018). [RECOMMANDÉ]
 
 ### Pills à afficher
 
@@ -203,9 +214,38 @@ Empilement propre des 3 colonnes. [FAIT]
 
 **Implémentation Divi** : Blurb stylés + CSS personnalisé ou modules Code si nécessaire. [FAIT]
 
+**CTA de section (D-018)** : bouton secondaire "Voir le détail des formations →" en bas de section, déclenche `[popup-formations]`. [RECOMMANDÉ]
+
 ---
 
-## Bloc 7 — Bandeau informations pratiques (4 blocs)
+## Bloc 7 — À propos — intro Julien HACHE *(nouveau — D-018)*
+
+**Type Divi** : Section fond blanc ou très légèrement teinté, ligne 2 colonnes 40/60. [RECOMMANDÉ]
+**Titre de section** : "À propos de Julien Hache" (centré ou aligné gauche). [RECOMMANDÉ]
+**Ancre CSS** : `id="a-propos"` sur cette section (navigation anchor — D-018). [RECOMMANDÉ]
+
+### Composition
+
+| Zone | Contenu | Statut |
+|------|---------|--------|
+| Colonne gauche (40%) | Photo de Julien HACHE — `adp-app/assets/design/julien-hache-portrait.png` | [FAIT — D-020, 2026-04-25 — 810×552 px, recadrage recommandé] |
+| H2 (colonne droite) | "Technicien Apple indépendant à votre domicile" | [RECOMMANDÉ] |
+| Texte intro (colonne droite) | 2-3 phrases de présentation — parcours, agrément SAP, zone d'intervention | [RECOMMANDÉ — placeholder I-16 acceptable (D-016)] |
+| CTA "En savoir plus" | Bouton secondaire → déclenche `[popup-a-propos]` | [RECOMMANDÉ] |
+
+### Texte intro proposé (placeholder I-16)
+
+> "Julien Hache accompagne particuliers et professionnels de la région lilloise pour simplifier leur quotidien numérique. Certifié services à la personne (agrément SAP N° 502282080), il intervient à domicile pour l'assistance Apple, la formation et les démarches administratives. 50% de crédit d'impôt sur toutes les prestations."
+
+*[RECOMMANDÉ — placeholder D-016 en attente du texte fourni par Julien HACHE]*
+
+### Mobile
+
+Image en pleine largeur → texte → bouton. [RECOMMANDÉ]
+
+---
+
+## Bloc 8 — Bandeau informations pratiques (4 blocs)
 
 **Type Divi** : Section fond très clair, ligne 4 colonnes. [FAIT]
 **Style** : pictogramme rond bleu, textes courts, séparateurs verticaux possibles sur desktop. [FAIT]
@@ -225,7 +265,7 @@ Empilement propre des 3 colonnes. [FAIT]
 
 ---
 
-## Bloc 8 — Grand CTA de contact
+## Bloc 9 — Grand CTA de contact
 
 **Type Divi** : Section sombre (bleu nuit / noir), coins arrondis, 2 colonnes. [FAIT]
 
@@ -240,7 +280,7 @@ Empilement propre des 3 colonnes. [FAIT]
 
 ---
 
-## Bloc 9 — Footer
+## Bloc 10 — Footer
 
 **Type Divi** : Theme Builder — footer global, 4 colonnes + barre copyright. [FAIT]
 
@@ -322,18 +362,20 @@ L'agent ou le développeur peut ajouter du CSS pour : [FAIT — consigne brief]
 
 ## Modules Divi à utiliser
 
-`Text` · `Button` · `Image` · `Blurb` · `Call To Action` · `Divider` · `Icon`
+`Text` · `Button` · `Image` · `Blurb` · `Call To Action` · `Divider` · `Icon` · **`Popup`** (D-018/D-019)
 CSS uniquement pour pills et finitions responsive. [FAIT]
 Pas de module `Code` sauf si indispensable. [FAIT]
+
+> **[D-019]** Les popups Prestations, Formations et À propos utilisent le module Popup natif Divi 5 — éditabilité client à valider en TP-006. Référence technique : voir `04-architecture/03-composants-divi.md` et ADR-003.
 
 ---
 
 ## Signalement
 
-- **Statut** : Brief client validé (réunion 2026-04-23) — spec rédigée en conséquence
-- **Hypothèses posées** : préconisation de police (`Inter`) dans le cadre de la carte blanche client
-- **Inconnues résolues** : logo (I-09), email (I-10), zone géo (I-11), palette primaire/accent (I-07 partiel), hero image (I-visuels partiel), mention légale (I-14), slugs pages créés en WP (vérifiés 2026-04-25)
-- **Inconnues restantes** : badge SAP, couleurs complémentaires (tokens proposés dans theme.css, à valider client)
-- **Marqueurs promus** : `[INCONNUE]` → `[FAIT]` hero-bg.png (R-28 — asset vérifié 2026-04-25) ; footer col.3 corrigé (FAQ→CGV+Infos fiscales — menu WP vérifié 2026-04-25)
-- **Points à arbitrer** : la forme finale du badge SAP, comportement menu mobile
-- **Prochaine étape** : intégrer la homepage sur base des textes proposés et des réseaux fournis, puis laisser Julien HACHE ajuster si besoin
+- **Statut** : Révisé D-018 (2026-04-25) — 10 blocs (Bloc 7 À propos ajouté) ; liens popup ; anchors navigation
+- **Hypothèses posées** : préconisation de police (`Inter`) ; texte intro Julien HACHE (placeholder I-16 D-016) ; position Bloc 7 entre Formations et Infos pratiques
+- **Inconnues résolues** : logo (I-09), email (I-10), zone géo (I-11), palette primaire/accent (I-07 partiel), hero image, mention légale (I-14), photo Julien (I-15 — D-020)
+- **Inconnues restantes** : bio Julien (I-16 — placeholder D-016), badge SAP (placeholder D-016), couleurs complémentaires (tokens `theme.css` à valider client), comportement menu mobile, implémentation popup Divi (mécanisme exact à définir en TP-006)
+- **Marqueurs promus** : aucun ajout dans cette révision
+- **Points à arbitrer** : forme badge SAP, comportement menu mobile, 3 méthodes popup Divi 5 (voir note D-019 ci-dessus) — à choisir en TP-006 en vérifiant éditabilité client
+- **Prochaine étape** : valider cette spec révisée (Eric STOCLET), puis lancer TP-005 (intégration Divi homepage)
