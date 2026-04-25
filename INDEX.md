@@ -65,6 +65,7 @@
 |----------|---------|--------|
 | ADR-001 : WordPress + Divi | `06-decisions/ADR-001-wordpress-divi.md` | Acceptée |
 | ADR-002 : Identité visuelle et charte Divi | `06-decisions/ADR-002-identite-visuelle.md` | Acceptée — palette précisée dans `01-cadrage/05-assets-design.md` |
+| ADR-003 : Architecture one page + modales | `06-decisions/ADR-003-architecture-one-page.md` | **Acceptée — D-018 (2026-04-25) — spec homepage à réviser avant TP-005** |
 | Template ADR | `06-decisions/_template-adr.md` | Prêt |
 
 ## Pilotage
@@ -78,7 +79,7 @@
 | Journal des décisions | `07-pilotage/02-journal-decisions.md` |
 | Template task pack | `07-pilotage/task-packs/_template-task-pack.md` |
 | TP-001 : Analyse du legacy | `07-pilotage/task-packs/TP-001-analyse-legacy.md` — Terminé, à valider |
-| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — **À lancer** (priorité Lot 3) |
+| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — **En attente** (spec à réviser D-018, puis lancer) |
 
 ## Handoffs
 

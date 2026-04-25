@@ -1,6 +1,6 @@
 # TP-005 — Intégration Divi de la page d'accueil
 
-**Statut** : À lancer — prérequis remplis (2026-04-24)
+**Statut** : En attente — spec homepage à réviser (D-018 one page, 2026-04-25)
 **Date de création** : 2026-04-24
 **Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi
 **Durée estimée** : Long (dépend de la disponibilité des assets client)
@@ -11,6 +11,12 @@
 ## Objectif unique
 
 Construire la page d'accueil complète dans Divi (dans `adp-app/`) conformément à la spec validée, avec tous les blocs, les composants globaux (header/footer), et le CSS custom nécessaire.
+
+---
+
+## ⚠ Alerte D-018 — À lire avant tout
+
+> **[DÉCISION 2026-04-25 — D-018]** Julien HACHE a confirmé un **site one page** : la homepage doit absorber les sections Prestations, Formations et À propos avec des liens "Voir plus" ouvrant des modales. La spec `05-specs/pages/homepage.md` doit être **révisée avant de démarrer ce task pack**. Voir **ADR-003** (`06-decisions/ADR-003-architecture-one-page.md`).
 
 ---
 
@@ -31,7 +37,8 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 | Textes descriptifs cartes (blocs 3 et 5) | Projet | [FAIT — propositions dans `05-specs/pages/homepage.md`] |
 | Image hero | Projet | [FAIT — `adp-app/assets/design/hero-bg.png`] |
 | Mention légale crédit d'impôt | Source legacy | [FAIT — "Dans les limites prévues à l'article 199 sexdecies du CGI"] |
-| Spec homepage complète | Projet | [FAIT — `05-specs/pages/homepage.md` validée client] |
+| Spec homepage révisée (one page — D-018) | Chef de projet | [**À FAIRE** — doit absorber sections Prestations/Formations/À propos + modales "Voir plus"] |
+| Photo portrait Julien HACHE (I-15) | Projet | [FAIT — `adp-app/assets/design/julien-hache-portrait.png` (D-020)] |
 | Specs pages secondaires | Projet | [FAIT — `05-specs/pages/prestations.md`, `formations.md`, `a-propos.md`, `avis.md`, `contact.md`] |
 
 ---
@@ -135,4 +142,4 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 
 ## Prochaine étape après validation
 
-Valider les specs des pages secondaires avec le client : `05-specs/pages/prestations.md`, `formations.md`, `a-propos.md`, `avis.md`, `contact.md` — rédigées (2026-04-24), validation Julien HACHE requise avant intégration Divi. Lever les inconnues bloquantes I-15/16 (À propos) et I-18/19 (Avis) avant de planifier les task packs suivants.
+Planifier **TP-006 — Implémentation des modales** : Prestations, Formations, À propos, Avis, Contact (pattern Divi 5 popup — D-019). Valider l'éditabilité des popups Divi par Julien HACHE avant la livraison préprod. I-15 résolue (photo). I-16 placeholder. I-18/19 placeholder.
