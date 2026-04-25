@@ -1,7 +1,7 @@
 # Architecture web cible
 
 **Statut** : Cadrage initial — éléments fermes + hypothèses  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (normalisation marqueurs [VALIDÉ]→[FAIT] plugins V1), R-27 appliqué  
 **Lié à** : `ADR-001`, `04-architecture/`, `01-perimetre-projet.md`
 
 ---

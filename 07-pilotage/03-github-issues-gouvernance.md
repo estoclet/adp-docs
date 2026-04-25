@@ -1,7 +1,7 @@
 # Gouvernance GitHub Issues
 
 **Statut** : Actif
-**Dernière mise à jour** : 2026-04-24
+**Dernière mise à jour** : 2026-04-25 — iter.9 (localStorage→sessionStorage), R-27 appliqué
 **Lié à** : `07-pilotage/01-lotissement.md`, `index.html` (dashboard)
 
 > Le backlog de ce projet vit dans GitHub Issues sur le dépôt `estoclet/adp-docs`.  

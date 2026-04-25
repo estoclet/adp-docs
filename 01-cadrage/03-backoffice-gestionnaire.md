@@ -1,7 +1,7 @@
 # Backoffice et gestion de contenu
 
 **Statut** : Base V1 cadrée — à compléter selon usages réels  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (normalisation [À CONFIRMER]→[À ARBITRER]), R-27 appliqué  
 **Lié à** : `02-architecture-cible.md`, `04-architecture/02-types-contenus.md`
 
 > **Note agent** : Ce document contient principalement des hypothèses raisonnables basées sur le contexte projet. Aucun fait vérifié sur l'organisation réelle du contenu n'est disponible à ce stade. Compléter après analyse legacy (TP-001) et arbitrages client.

@@ -1,7 +1,7 @@
 # Mapping de migration — URLs legacy → nouveau site
 
 **Statut** : Terminé — mapping V1 complet, à valider par Eric STOCLET (URL `/politique-confidentialite/` [RECOMMANDÉ] — confirmation requise)  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (normalisation marqueurs [PROPOSITION]→[RECOMMANDÉ], [VALIDÉ]→[FAIT]), R-27 appliqué  
 **Produit par** : Agent IA — première proposition de mapping  
 **Lié à** : `02-analyse-contenu.md`, `04-architecture/01-arborescence-site.md`, `01-cadrage/04-strategie-migration.md`
 

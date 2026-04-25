@@ -1,7 +1,7 @@
 # Page Contact — Spec (Modale)
 
 **Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (correction erreur factuelle WPForms/Complianz), R-27 appliqué  
 **Produit par** : Agent IA — issue #25  
 **URL cible** : N/A — **contenu affiché en modale** (décision chef de projet 2026-04-24)  
 **Déclencheur** : bouton "Prendre rendez-vous" (header, hero, blocs CTA), lien "Contact" dans navigation  

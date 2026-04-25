@@ -1,7 +1,7 @@
 # Stratégie de migration legacy → nouveau site
 
 **Statut** : Hypothèses initiales — dépend de l'analyse legacy  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (prérequis [À FAIRE/À CONFIRMER]→[FAIT] post-I-06), R-27 appliqué  
 **Lié à** : `03-legacy/`, `04-architecture/01-arborescence-site.md`, I-02, I-03, I-06
 
 > **Note agent** : Ce document définit l'approche de migration. Il sera affiné après l'analyse legacy (TP-001 et TP-002). Ne pas engager de migration sans validation humaine des priorités et du mapping (voir `03-legacy/03-mapping-migration.md`).
