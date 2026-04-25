@@ -1,7 +1,7 @@
 # Composants Divi réutilisables
 
-**Statut** : Mis à jour — brief homepage validé (2026-04-23)
-**Dernière mise à jour** : 2026-04-25 — note I-07 mise à jour (tons complémentaires versionnés)
+**Statut** : Mis à jour — D-018 one page (2026-04-25) ; popup Divi documenté
+**Dernière mise à jour** : 2026-04-25 — D-018 : pattern popup Divi ; templates mis à jour
 **Lié à** : `ADR-002-identite-visuelle.md`, `05-specs/pages/homepage.md`
 
 ---
@@ -10,7 +10,9 @@
 
 Divi permet de sauvegarder des sections, lignes ou modules comme "Saved Layouts" réutilisables globalement (Divi Library).
 
-**Règle** : Un composant est sauvegardé en Divi Library s'il apparaît sur au moins 3 pages. En deçà, layout local.
+**Règle** : Un composant est sauvegardé en Divi Library s'il est réutilisé dans au moins 2 contextes (pages ou modales). En deçà, layout local.
+
+> [MISE À JOUR — D-018] En architecture one page, "au moins 3 pages" n'est plus pertinent. La règle s'applique désormais aux réutilisations entre la homepage, les modales et les pages légales.
 
 > [FAIT — règle projet] Les éléments visuels structurants Divi doivent être exportés en JSON et documentés. Git reste la source de vérité du code, mais les exports Divi JSON servent de référence pour Theme Builder, Theme Options, Divi Library, layouts importants et presets.
 
@@ -84,13 +86,17 @@ Ces modules sont les seuls à utiliser sauf besoin spécifique justifié. [FAIT 
 | Module | Usage principal |
 |--------|----------------|
 | Text | Titres, paragraphes, H1/H2/H3 |
-| Button | CTA principaux et secondaires |
+| Button | CTA principaux et secondaires ; déclencheurs de popup |
 | Image | Visuel hero, photos, illustrations |
 | Blurb | Cartes services + icône + titre + texte |
 | Call To Action | Section CTA contact (bloc 8) |
 | Divider | Séparateurs visuels |
 | Icon | Pictos isolés |
+| **Popup** | Modales Prestations, Formations, À propos, Avis, Contact (D-018/D-019) |
+
 **Module Code** : uniquement si nécessaire pour les pills / effets non faisables autrement. [FAIT]
+
+> **[D-019 — Condition éditabilité]** Le module Popup Divi 5 est l'option préférentielle pour les modales car son contenu est éditable dans le Visual Builder. À valider lors de TP-006 que Julien HACHE peut modifier les popups en autonomie. [HYPOTHÈSE à vérifier]
 
 ---
 
@@ -167,12 +173,16 @@ Le CSS structurant reste versionné dans Git, idéalement dans le thème enfant 
 
 ## Templates de pages Divi
 
+> **[EN RÉVISION — ADR-003 / D-018]** L'architecture one page réduit le nombre de templates réels. La homepage absorbe toutes les sections. Les pages Prestations, Formations, À propos deviennent du contenu de popup.
+
 | Template | Pages | Statut |
 |----------|-------|--------|
-| Template Accueil | `/` | Spec validée client — TP-005 prêt |
-| Template Page statique | `/a-propos/`, `/prestations/`, `/formations/` | Spec rédigée — à valider client |
-| Modale Contact | déclenchée depuis header/footer | Spec rédigée — impl. [À ARBITRER] |
-| Modale Avis | déclenchée depuis navigation | Spec rédigée — impl. [À ARBITRER] |
+| Template Accueil (one page) | `/` | **[EN RÉVISION — D-018]** Spec homepage à réviser pour absorber toutes les sections |
+| Popup Prestations | Modale depuis homepage | Contenu = spec `prestations.md` — implémentation TP-006 |
+| Popup Formations | Modale depuis homepage | Contenu = spec `formations.md` — implémentation TP-006 |
+| Popup À propos | Modale depuis homepage | Contenu = spec `a-propos.md` — implémentation TP-006 |
+| Popup Avis | Modale depuis navigation | Spec rédigée — implémentation TP-006 |
+| Popup Contact | Modale depuis header/navigation | Spec rédigée — implémentation TP-006 |
 | Template 404 | Toute URL inexistante | À créer — Lot 3 |
 
 ---

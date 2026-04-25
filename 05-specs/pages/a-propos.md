@@ -1,10 +1,10 @@
 # Page À propos — Spec
 
-**Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-25 — I-15 résolue (photo récupérée) ; D-018 : spec à réviser (one page)  
+**Statut** : [EN RÉVISION — ADR-003] Cette spec devient le **contenu de la modale À propos** (D-018 one page, 2026-04-25)  
+**Dernière mise à jour** : 2026-04-25 — I-15 résolue (photo portrait D-020) ; D-018 : page → modale  
 **Produit par** : Agent IA — issue #25  
-**URL cible** : `/a-propos/`  
-**Template Divi** : Template À propos (sur mesure, hors Theme Builder)  
+**URL cible** : N/A — **contenu affiché en modale** depuis la homepage (D-018)  
+**Template Divi** : Popup Divi 5 (D-019)  
 **Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`
 
 ---

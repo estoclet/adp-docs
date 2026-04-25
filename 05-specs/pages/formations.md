@@ -1,10 +1,10 @@
 # Page Formations — Spec
 
-**Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-24  
+**Statut** : [EN RÉVISION — ADR-003] Cette spec devient le **contenu de la modale Formations** (D-018 one page, 2026-04-25)  
+**Dernière mise à jour** : 2026-04-25 — D-018 : page → modale ; spec en cours de révision  
 **Produit par** : Agent IA — issue #25  
-**URL cible** : `/formations/`  
-**Template Divi** : Template Formations (sur mesure, hors Theme Builder)  
+**URL cible** : N/A — **contenu affiché en modale** depuis la homepage (D-018)  
+**Template Divi** : Popup Divi 5 (D-019)  
 **Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`, `05-specs/pages/homepage.md`, `05-specs/pages/prestations.md`
 
 ---
