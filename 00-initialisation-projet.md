@@ -1,7 +1,7 @@
 # Astuces De Pomme — Initialisation projet
 
 **Statut** : Cadrage initial  
-**Date** : 2026-04-25 — mis à jour par Eric STOCLET  
+**Date** : 2026-04-25 — mis à jour (inconnues I-15/16/18/19 : placeholder décision Eric STOCLET)  
 **Maintenu par** : Eric STOCLET (chef de projet)  
 **Rôle** : Point d'entrée unique. Premier document à lire. Dernier à modifier.
 
@@ -73,11 +73,11 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 | I-12 | Textes descriptifs des cartes de services | Homepage blocs 3 et 5 | [RÉSOLU — propositions projet validées, modifiables par Julien HACHE — voir `05-specs/pages/homepage.md`] |
 | I-13 | Police validée | CSS global Divi | [RÉSOLU — carte blanche client, préconisation projet : `Inter`] |
 | I-14 | Mention légale crédit d'impôt (texte exact) | Homepage bloc 4 | [RÉSOLU — "Dans les limites prévues à l'article 199 sexdecies du code général des impôts" — CGV legacy] |
-| I-15 | Photo portrait de Julien HACHE | Spec `/a-propos/` | [INCONNUE BLOQUANTE — à fournir par Julien HACHE] |
-| I-16 | Texte biographique (parcours, expertise, valeurs) | Spec `/a-propos/` | [INCONNUE BLOQUANTE — à fournir par Julien HACHE — issue #27] |
-| I-17 | Horaires d'intervention (jours, plages horaires) | Modale Contact | [INCONNUE — non bloquant V1, placeholder acceptable] |
-| I-18 | Sélection de 6 à 8 avis Google Business Profile | Modale Avis | [INCONNUE BLOQUANTE — à fournir par Julien HACHE — issue #28] |
-| I-19 | URL publique de la fiche Google Business Profile | Modale Avis | [INCONNUE BLOQUANTE — à fournir par Julien HACHE — issue #28] |
+| I-15 | Photo portrait de Julien HACHE | Spec `/a-propos/` | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #27] |
+| I-16 | Texte biographique (parcours, expertise, valeurs) | Spec `/a-propos/` | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #27] |
+| I-17 | Horaires d'intervention (jours, plages horaires) | Modale Contact | [INCONNUE — placeholder acceptable] |
+| I-18 | Sélection de 6 à 8 avis Google Business Profile | Modale Avis | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #28] |
+| I-19 | URL publique de la fiche Google Business Profile | Modale Avis | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #28] |
 
 ---
 

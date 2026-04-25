@@ -16,6 +16,7 @@
 - [x] CSS custom de base versionnée dans `adp-divi-child/assets/css/theme.css` : tokens couleurs, `.adp-card-service`, `.adp-pill-theme`, `.adp-btn-secondary`, responsive mobile
 - [x] 6 plugins actifs : AIOSEO, Complianz, Imagify, Redirection, UpdraftPlus, WPForms Lite (socle V1 validé — vérifié 2026-04-25)
 - [x] 11 pages WordPress publiées avec les bons slugs (vérifié ddev 2026-04-25)
+- [x] Structure de permaliens corrigée : `/%postname%/` (anciennement date-based — corrigé 2026-04-25 via ddev wp rewrite)
 - [x] Menu principal ordonné : Accueil · Prestations · Formations · À propos · Avis · Contact
 - [x] Menu footer configuré (5 liens légaux)
 - [x] Assets design versionnés dans `adp-app/assets/design/` : logo-dark.png, logo-white.png, hero-bg.png, maquette_homepage.png
@@ -61,12 +62,18 @@
 
 ## Inconnues non résolues
 
-| Inconnue | Impact | Qui doit résoudre |
-|----------|--------|------------------|
-| Licence Divi non activée | Divi peut fonctionner sans licence mais sans mises à jour ni assets premium | Julien HACHE |
-| Badge SAP (logo officiel Services à la personne) | Bloc 4 peut utiliser un placeholder | Julien HACHE |
+**Décision Eric STOCLET (2026-04-25) : toutes les images et zones de texte manquantes sont couvertes par des placeholders — Julien HACHE les remplacera après livraison en préprod.**
+
+| Inconnue | Impact | Statut |
+|----------|--------|--------|
+| Licence Divi non activée | Divi peut fonctionner sans licence mais sans mises à jour ni assets premium | En attente Julien HACHE |
+| Badge SAP (logo officiel Services à la personne) | **Placeholder acceptable** — utiliser un bloc texte ou un carré coloré | Placeholder en TP-005 |
 | Tons complémentaires (gris texte, bleu clair fond) | Proposés dans `theme.css` : texte `#23344d`, fond `#f4f8fc`, bordure `#d7e1ec` — à valider lors de la recette Divi | Julien HACHE |
+| Photo Julien HACHE (I-15) | Spec `/a-propos/` — **placeholder acceptable** | Placeholder |
+| Bio Julien HACHE (I-16) | Spec `/a-propos/` — **placeholder acceptable** | Placeholder |
+| Avis GBP + URL fiche (I-18/19) | Modale Avis — **placeholder acceptable** | Placeholder |
 | Implémentation modales Contact/Avis | Hors scope TP-005 — à arbitrer séparément | Eric STOCLET |
+| Page draft `politique-de-confidentialite` | Doublon présumé de `politique-confidentialite` publiée — à supprimer | Eric STOCLET |
 
 ---
 
