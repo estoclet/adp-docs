@@ -1,10 +1,12 @@
 # Arborescence cible du site
 
-**Statut** : Navigation client mise à jour — structure V1 arbitrée, pattern modale acté
-**Dernière mise à jour** : 2026-04-25 — `/tarifs-prestations/` promu `[FAIT]` (page publiée vérifiée)
+**Statut** : Structure en cours de révision — décision D-018 (site one page, 2026-04-25) — voir note ci-dessous
+**Dernière mise à jour** : 2026-04-25 — D-018 : site one page, modales "Voir plus" pour tout le contenu secondaire
 **Lié à** : `ADR-002`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
 
-> **Note agent** : La navigation principale a été validée en réunion client (2026-04-23), puis ajustée le 2026-04-24 avec suppression du blog à la demande du client. Les sous-pages et leur contenu restent des hypothèses à valider.
+> **Note agent** : La navigation principale a été validée en réunion client (2026-04-23), puis ajustée le 2026-04-24 avec suppression du blog à la demande du client.
+>
+> **[DÉCISION D-018 — 2026-04-25]** Julien HACHE a confirmé un **site one page** : la homepage absorbe toutes les sections principales, et des liens "Voir plus" ouvrent des **modales** pour le contenu détaillé (Prestations, Formations, À propos). Ce document et la spec homepage doivent être révisés en conséquence. Un ADR-003 est à créer avant TP-005. Les URLs de pages secondaires (prestations/, formations/, a-propos/) restent utiles comme ancres ou redirections SEO — décision à prendre lors de l'ADR-003.
 
 ---
 
@@ -12,16 +14,20 @@
 
 Les 6 items du menu principal sont **fermes** : [FAIT — ajustement client 2026-04-24]
 
-| Item menu | URL cible | Type WP | Mode d'affichage | Statut page |
-|-----------|-----------|---------|-----------------|-------------|
-| Accueil | `/` | Page | Page normale | Spec complète → `05-specs/pages/homepage.md` |
-| Prestations | `/prestations/` | Page | Page normale | Spec → `05-specs/pages/prestations.md` |
-| Formations | `/formations/` | Page | Page normale | Spec → `05-specs/pages/formations.md` |
-| À propos | `/a-propos/` | Page | Page normale | Spec → `05-specs/pages/a-propos.md` |
-| Avis | — | Modale | **Modale** (contenu léger) | Spec → `05-specs/pages/avis.md` |
-| Contact | — | Modale | **Modale** (contenu léger) | Spec → `05-specs/pages/contact.md` |
+> **[EN RÉVISION — D-018]** : Le mode d'affichage des items "Prestations", "Formations" et "À propos" change. Ils deviennent des **ancres** vers des sections de la homepage + des modales "Voir plus". Les URLs de pages dédiées peuvent être conservées comme ancres ou redirections SEO — à arbitrer dans ADR-003.
 
-**Pattern modale** : [FAIT — décision chef de projet 2026-04-24] Les pages à contenu léger (Avis, Contact, pages légales footer) s'affichent en modale plutôt qu'en page dédiée. La solution technique (Divi popup natif, plugin, ou CSS/JS) est à arbitrer — voir `05-specs/pages/avis.md` pour la table de comparaison des options.
+| Item menu | URL / Ancre cible | Type WP | Mode d'affichage | Statut |
+|-----------|-------------------|---------|-----------------|--------|
+| Accueil | `/` | Page | Page normale | [FAIT] — Spec → `05-specs/pages/homepage.md` |
+| Prestations | `/#prestations` | Section homepage | Ancre + modale "Voir plus" | [EN RÉVISION — D-018] |
+| Formations | `/#formations` | Section homepage | Ancre + modale "Voir plus" | [EN RÉVISION — D-018] |
+| À propos | `/#a-propos` | Section homepage | Ancre + modale "Voir plus" | [EN RÉVISION — D-018] |
+| Avis | — | Modale | **Modale** (contenu léger) | [FAIT] — Spec → `05-specs/pages/avis.md` |
+| Contact | — | Modale | **Modale** (contenu léger) | [FAIT] — Spec → `05-specs/pages/contact.md` |
+
+**Pattern modale étendu (D-018)** : [FAIT — décision Julien HACHE 2026-04-25] L'ensemble du contenu secondaire du site (Prestations, Formations, À propos) s'affiche désormais en modale depuis la homepage. La solution technique (Divi 5 popup natif préférentiel — D-019) est à valider lors de l'implémentation.
+
+**Condition d'éditabilité (D-019)** : Les modales doivent être éditables par Julien HACHE en autonomie dans le backoffice Divi. [HYPOTHÈSE — à vérifier lors de TP-006]
 
 **CTA header** : "Prendre rendez-vous" [FAIT]
 

@@ -1,7 +1,7 @@
 # Page À propos — Spec
 
 **Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-25 — D-016 : I-15 et I-16 débloquées (placeholders)  
+**Dernière mise à jour** : 2026-04-25 — I-15 résolue (photo récupérée) ; D-018 : spec à réviser (one page)  
 **Produit par** : Agent IA — issue #25  
 **URL cible** : `/a-propos/`  
 **Template Divi** : Template À propos (sur mesure, hors Theme Builder)  
@@ -37,7 +37,7 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 | Élément | Contenu | Statut |
 |---------|---------|--------|
-| Colonne gauche | Photo de Julien HACHE | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
+| Colonne gauche | Photo de Julien HACHE | [FAIT — `adp-app/assets/design/julien-hache-portrait.png` (D-020, 2026-04-25) — 810×552 px, recadrage possible] |
 | H1 (colonne droite) | "Julien Hache — Astuces De Pomme" | [RECOMMANDÉ] |
 | Sous-titre | "Technicien Apple indépendant, à votre domicile dans la région lilloise." | [RECOMMANDÉ] |
 
@@ -113,7 +113,7 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 | Dépendance | Type | Bloque |
 |-----------|------|--------|
-| Photo Julien HACHE (I-15) | Asset client | Bloc 2 — placeholder acceptable (D-016) |
+| Photo Julien HACHE (I-15) | Asset client | Bloc 2 — [FAIT] `julien-hache-portrait.png` disponible (D-020) |
 | Texte bio (I-16) | Contenu client | Bloc 3 — placeholder acceptable (D-016) |
 | Module "Grand CTA" en Divi Library | Composant réutilisable | Bloc 6 |
 
@@ -123,7 +123,7 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 | ID | Inconnue | Impact | Statut |
 |----|----------|--------|--------|
-| I-15 | Photo de Julien HACHE (portrait) | Bloc 2 hero | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
+| I-15 | Photo de Julien HACHE (portrait) | Bloc 2 hero | [RÉSOLU — `adp-app/assets/design/julien-hache-portrait.png` (D-020, 2026-04-25)] |
 | I-16 | Texte biographique / histoire / valeurs | Bloc 3 | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
 
 > [À ARBITRER] Si Julien HACHE ne souhaite pas rédiger de bio longue, le Bloc 3 peut être remplacé par une présentation plus courte (3 phrases + 3 valeurs en cartes). La page reste valide.
@@ -134,6 +134,6 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 - **Tâche accomplie** : spec complète de `/a-propos/` — structure, contenu proposé, données légales SAP renseignées depuis les sources legacy
 - **Hypothèses posées** : 3 valeurs (clarté, proximité, honnêteté) — à valider ; format bio 150-300 mots
-- **Inconnues rencontrées** : I-15 (photo), I-16 (bio) — placeholder acceptable par D-016 (Eric STOCLET 2026-04-25) ; Julien HACHE remplace en préprod
-- **Points à arbitrer** : niveau de détail bio, présence ou non d'une photo ; voir aussi D-018 (site one page — impact sur le statut de cette page)
-- **Prochaine étape recommandée** : intégrer avec placeholders ; arbitrer l'impact de D-018 (one page)
+- **Inconnues rencontrées** : I-15 (photo) résolue (D-020) ; I-16 (bio) placeholder D-016
+- **Points à arbitrer** : niveau de détail bio ; **D-018 (site one page)** : cette page devient probablement une section de la homepage + modale "Voir plus" — spec à réviser dans ADR-003
+- **Prochaine étape recommandée** : réviser la spec en fonction de ADR-003 (one page) ; intégrer I-16 avec placeholder

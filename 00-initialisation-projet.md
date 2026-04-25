@@ -1,7 +1,7 @@
 # Astuces De Pomme — Initialisation projet
 
 **Statut** : Cadrage initial  
-**Date** : 2026-04-25 — mis à jour (inconnues I-15/16/18/19 : placeholder décision Eric STOCLET)  
+**Date** : 2026-04-25 — mis à jour (D-018 : site one page ; I-15 résolue : photo portrait récupérée)  
 **Maintenu par** : Eric STOCLET (chef de projet)  
 **Rôle** : Point d'entrée unique. Premier document à lire. Dernier à modifier.
 
@@ -50,6 +50,7 @@ Ces décisions sont **fermes**. Un agent ne doit pas les remettre en question sa
 | 7 | Tarif : 80€/h (40€ après crédit d'impôt) — téléphone : 06 51 31 15 37 | Réunion client 2026-04-23 |
 | 8 | Environnement local : WordPress sous DDEV dans `adp-app/` — URL locale `http://adp.ddev.site` | Confirmé 2026-04-24 — issue #5 fermée |
 | 9 | Préprod : VPS OVH — accès `ssh vps-adp` — chemin `/homez.31/astucesdib/www/dev/web` | Confirmé 2026-04-24 — issue #5 fermée |
+| 10 | **Site one page** : la homepage absorbe toutes les sections ; des liens "Voir plus" ouvrent des modales (D-018) — ADR-003 à créer | Julien HACHE, 2026-04-25 |
 
 ---
 
@@ -73,7 +74,7 @@ Ces inconnues doivent être arbitrées par un humain avant que le travail concer
 | I-12 | Textes descriptifs des cartes de services | Homepage blocs 3 et 5 | [RÉSOLU — propositions projet validées, modifiables par Julien HACHE — voir `05-specs/pages/homepage.md`] |
 | I-13 | Police validée | CSS global Divi | [RÉSOLU — carte blanche client, préconisation projet : `Inter`] |
 | I-14 | Mention légale crédit d'impôt (texte exact) | Homepage bloc 4 | [RÉSOLU — "Dans les limites prévues à l'article 199 sexdecies du code général des impôts" — CGV legacy] |
-| I-15 | Photo portrait de Julien HACHE | Spec `/a-propos/` | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #27] |
+| I-15 | Photo portrait de Julien HACHE | Spec `/a-propos/` | [RÉSOLU — `adp-app/assets/design/julien-hache-portrait.png` récupérée depuis le legacy prod (D-020, 2026-04-25) — 810×552 px, recadrage à prévoir selon intégration Divi] |
 | I-16 | Texte biographique (parcours, expertise, valeurs) | Spec `/a-propos/` | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #27] |
 | I-17 | Horaires d'intervention (jours, plages horaires) | Modale Contact | [INCONNUE — placeholder acceptable] |
 | I-18 | Sélection de 6 à 8 avis Google Business Profile | Modale Avis | [INCONNUE — placeholder acceptable (décision Eric STOCLET 2026-04-25) — Julien HACHE remplace après livraison préprod — issue #28] |
@@ -122,5 +123,6 @@ adp-docs/
 3. Lire `02-gouvernance-ia/04-anti-patterns.md` (anti-patterns récurrents à éviter).
 4. ~~Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md`~~ — terminé (Lot 1 clos, voir `03-legacy/`).
 5. ~~Lot 2 — Architecture et specs~~ : terminé. Arborescence, composants Divi, specs 5 pages secondaires, ADR-002 produits. Validation client des specs secondaires en attente (issue #26).
-6. **En cours — Lot 3** : Lancer `07-pilotage/task-packs/TP-005-homepage-divi.md` (intégration homepage Divi). Lire d'abord `08-handoffs/HO-001-pre-TP-005-homepage.md` (état de l'environnement au 2026-04-25). DDEV doit être démarré (`ddev start`).
-7. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-08** (persona) — et lever les bloquantes : **I-15/16** (photo + bio Julien — À propos), **I-18/19** (avis GBP — modale Avis). I-01 à I-14 résolues ou partiellement résolues. I-17 (horaires) non bloquant.
+6. **[PRIORITÉ — avant TP-005]** Créer **ADR-003** (architecture one page — D-018) et réviser `05-specs/pages/homepage.md` pour absorber les sections Prestations, Formations, À propos avec modales "Voir plus". Voir `04-architecture/01-arborescence-site.md` note D-018 et `07-pilotage/02-journal-decisions.md`.
+7. **En cours — Lot 3** : Lancer `07-pilotage/task-packs/TP-005-homepage-divi.md` (intégration homepage Divi) **après ADR-003**. Lire `08-handoffs/HO-001-pre-TP-005-homepage.md`. DDEV doit être démarré (`ddev start`).
+8. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-08** (persona). I-15 résolue (photo). I-16 placeholder (bio). I-17 placeholder. I-18/19 placeholder (avis GBP).

@@ -30,6 +30,9 @@
 | D-015 | 2026-04-24 | Eric STOCLET | Le thème Divi parent est versionné dans Git pour garantir la reproductibilité de l'environnement local et préprod | Sans versionnement, toute réinstallation dépend de la disponibilité du zip ou du compte Elegant Themes ; le thème GPL autorise ce stockage | — |
 | D-016 | 2026-04-25 | Eric STOCLET | Toutes les images et zones de texte manquantes (I-15/16/17/18/19, visuels pages secondaires) peuvent être couvertes par des placeholders en Lot 3 — Julien HACHE les remplacera après livraison en préprod | Déblocage du Lot 3 : évite d'attendre les contenus client pour démarrer l'intégration Divi | — |
 | D-017 | 2026-04-25 | Eric STOCLET | Structure de permaliens WordPress corrigée de `/%year%/%monthnum%/%day%/%postname%/` à `/%postname%/` dans l'environnement local DDEV | Prérequis SEO ; la structure date-based est le défaut WordPress mais inadaptée à un site vitrine sans blog | — |
+| D-018 | 2026-04-25 | Julien HACHE | Site one page : la homepage absorbe toutes les sections principales ; des liens "Voir plus" ouvrent des modales pour le contenu détaillé (Prestations, Formations, À propos) | Retour client 2026-04-25 — remplace la structure multi-pages initialement planifiée (D-004/D-005) ; renforce et étend D-014 (modales Avis/Contact) à l'ensemble du contenu secondaire | → ADR-003 |
+| D-019 | 2026-04-25 | Eric STOCLET | Les modales doivent être éditables par Julien HACHE en autonomie dans le backoffice Divi — Divi 5 popup natif est l'option préférentielle si l'éditabilité est confirmée | Condition fonctionnelle du chef de projet : éviter de bloquer le client sur des zones de contenu non modifiables ; à valider lors de l'implémentation TP-006 | — |
+| D-020 | 2026-04-25 | Eric STOCLET | Photo portrait de Julien HACHE récupérée depuis le legacy prod (`wp-content/uploads/2021/09/`) et versionnée dans `adp-app/assets/design/julien-hache-portrait.png` | I-15 levée — image 810×552 px (screenshot, orientation paysage) ; un recadrage sera peut-être nécessaire selon l'intégration Divi | — |
 
 ---
 
@@ -50,4 +53,5 @@ Pour ajouter une décision :
 | ~~Choix de l'hébergeur (I-01)~~ | ~~Avant Lot 3~~ | [RÉSOLU — D-009, I-01 : VPS OVH confirmé] |
 | ~~Stratégie domaine (I-03)~~ | ~~Avant Lot 4~~ | [RÉSOLU — I-03 : domaine conservé, pas de changement] |
 | ~~Présence ou non d'un CPT "Démarches"~~ | ~~Avant Lot 2~~ | [RÉSOLU — D-010 : pas de CPT en V1, décision Julien HACHE 2026-04-24] |
-| Implémentation technique des modales (Contact, Avis) | Avant TP-006/007 | [À ARBITRER — voir `05-specs/pages/avis.md`] |
+| Implémentation technique des modales (ensemble du site — D-018) | Avant TP-006 | [À ARBITRER — D-019 : Divi 5 popup natif préférentiel si éditabilité confirmée ; voir `05-specs/pages/avis.md`] |
+| **Architecture one page (D-018)** | **Avant TP-005** | **[→ ADR-003 à créer — D-018 modifie D-004/D-005 ; homepage spec à réviser]** |
