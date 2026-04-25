@@ -77,15 +77,15 @@
 | Plan de travail / lotissement | `07-pilotage/01-lotissement.md` |
 | Journal des décisions | `07-pilotage/02-journal-decisions.md` |
 | Template task pack | `07-pilotage/task-packs/_template-task-pack.md` |
-| TP-001 : Analyse du legacy | `07-pilotage/task-packs/TP-001-analyse-legacy.md` |
-| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` |
+| TP-001 : Analyse du legacy | `07-pilotage/task-packs/TP-001-analyse-legacy.md` — Terminé, à valider |
+| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — **À lancer** (priorité Lot 3) |
 
 ## Handoffs
 
 | Sujet | Fichier | État |
 |-------|---------|------|
 | Template de passation entre agents | `08-handoffs/_template-handoff.md` | Prêt |
-| Pré-lancement TP-005 Homepage Divi | `08-handoffs/HO-001-pre-TP-005-homepage.md` | Prêt — 2026-04-24 |
+| Pré-lancement TP-005 Homepage Divi | `08-handoffs/HO-001-pre-TP-005-homepage.md` | Prêt — vérifié 2026-04-25 |
 
 ---
 

@@ -1,7 +1,7 @@
 # Composants Divi réutilisables
 
 **Statut** : Mis à jour — brief homepage validé (2026-04-23)
-**Dernière mise à jour** : 2026-04-24
+**Dernière mise à jour** : 2026-04-25 — note I-07 mise à jour (tons complémentaires versionnés)
 **Lié à** : `ADR-002-identite-visuelle.md`, `05-specs/pages/homepage.md`
 
 ---
@@ -121,7 +121,7 @@ Les presets Divi permettent d'appliquer un style uniforme sans CSS inline. [RECO
 | Titre H2 section | Module Text | Couleur principale, centré ou gauche, taille définie |
 | Carte | Module Blurb | Fond blanc, ombre légère, coins 16-24px, padding généreux |
 
-> [RÉSOLU PARTIEL — I-07] Palette V1 disponible : bleu marine `#1e3264` + bleu accent `#0070c8`. Source : `01-cadrage/05-assets-design.md`. Tons complémentaires non définis mais non bloquants pour les presets V1.
+> [RÉSOLU PARTIEL — I-07] Palette V1 disponible : bleu marine `#1e3264` + bleu accent `#0070c8`. Tons complémentaires proposés et versionnés dans `adp-divi-child/theme.css` : texte `#23344d`, fond section `#f4f8fc`, bordure `#d7e1ec` — à valider lors de la recette Divi. Source : `01-cadrage/05-assets-design.md`.
 
 ---
 
