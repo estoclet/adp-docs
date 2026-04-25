@@ -28,6 +28,8 @@
 | D-013 | 2026-04-24 | Eric STOCLET | Divi 5.3.3 installé depuis le zip fourni par Julien HACHE et versionné dans Git (`adp-app/web/wp-content/themes/Divi/`) | Téléchargement direct depuis Elegant Themes impossible sans intervention du client ; zip fourni le 2026-04-24 ; versionnement garanti la reproductibilité de l'environnement | — |
 | D-014 | 2026-04-24 | Eric STOCLET | Les pages à contenu léger (Avis, Contact, pages légales du footer) s'affichent en modale, sans page WordPress dédiée | Évite les routes orphelines et simplifie l'arborescence publique ; implémentation technique (Divi popup / plugin / CSS+JS) restant à arbitrer | — |
 | D-015 | 2026-04-24 | Eric STOCLET | Le thème Divi parent est versionné dans Git pour garantir la reproductibilité de l'environnement local et préprod | Sans versionnement, toute réinstallation dépend de la disponibilité du zip ou du compte Elegant Themes ; le thème GPL autorise ce stockage | — |
+| D-016 | 2026-04-25 | Eric STOCLET | Toutes les images et zones de texte manquantes (I-15/16/17/18/19, visuels pages secondaires) peuvent être couvertes par des placeholders en Lot 3 — Julien HACHE les remplacera après livraison en préprod | Déblocage du Lot 3 : évite d'attendre les contenus client pour démarrer l'intégration Divi | — |
+| D-017 | 2026-04-25 | Eric STOCLET | Structure de permaliens WordPress corrigée de `/%year%/%monthnum%/%day%/%postname%/` à `/%postname%/` dans l'environnement local DDEV | Prérequis SEO ; la structure date-based est le défaut WordPress mais inadaptée à un site vitrine sans blog | — |
 
 ---
 
@@ -47,5 +49,5 @@ Pour ajouter une décision :
 |----------|---------|--------|
 | ~~Choix de l'hébergeur (I-01)~~ | ~~Avant Lot 3~~ | [RÉSOLU — D-009, I-01 : VPS OVH confirmé] |
 | ~~Stratégie domaine (I-03)~~ | ~~Avant Lot 4~~ | [RÉSOLU — I-03 : domaine conservé, pas de changement] |
-| Présence ou non d'un CPT "Démarches" | Avant Lot 2 | [À ARBITRER — D-010 exclut les CPT en V1, à confirmer formellement] |
+| ~~Présence ou non d'un CPT "Démarches"~~ | ~~Avant Lot 2~~ | [RÉSOLU — D-010 : pas de CPT en V1, décision Julien HACHE 2026-04-24] |
 | Implémentation technique des modales (Contact, Avis) | Avant TP-006/007 | [À ARBITRER — voir `05-specs/pages/avis.md`] |
