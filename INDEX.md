@@ -79,7 +79,7 @@
 | Journal des décisions | `07-pilotage/02-journal-decisions.md` |
 | Template task pack | `07-pilotage/task-packs/_template-task-pack.md` |
 | TP-001 : Analyse du legacy | `07-pilotage/task-packs/TP-001-analyse-legacy.md` — Terminé, à valider |
-| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — **En attente** (spec à réviser D-018, puis lancer) |
+| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — **À valider** (spec révisée D-018 — validation Eric STOCLET requise) |
 
 ## Handoffs
 

@@ -1,6 +1,6 @@
 # TP-005 — Intégration Divi de la page d'accueil
 
-**Statut** : En attente — spec homepage à réviser (D-018 one page, 2026-04-25)
+**Statut** : À valider — spec homepage révisée (D-018, 2026-04-25) — validation Eric STOCLET requise avant exécution
 **Date de création** : 2026-04-24
 **Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi
 **Durée estimée** : Long (dépend de la disponibilité des assets client)
@@ -14,9 +14,11 @@ Construire la page d'accueil complète dans Divi (dans `adp-app/`) conformément
 
 ---
 
-## ⚠ Alerte D-018 — À lire avant tout
+## Note D-018 — Architecture one page
 
-> **[DÉCISION 2026-04-25 — D-018]** Julien HACHE a confirmé un **site one page** : la homepage doit absorber les sections Prestations, Formations et À propos avec des liens "Voir plus" ouvrant des modales. La spec `05-specs/pages/homepage.md` doit être **révisée avant de démarrer ce task pack**. Voir **ADR-003** (`06-decisions/ADR-003-architecture-one-page.md`).
+> **[FAIT — 2026-04-25 — D-018]** Site one page : la homepage absorbe 10 blocs dont un Bloc 7 "À propos". Les items de navigation déclenchent un scroll vers les sections via anchors CSS. Les "Voir plus" ouvrent des popups Divi 5 (Méthode A — Interactions + Visibilité — D-019). Voir **ADR-003** et `04-architecture/03-composants-divi.md` pour le détail technique.
+
+> **Spec homepage révisée** : `05-specs/pages/homepage.md` — statut "Révisé — à valider Eric STOCLET". Valider avant de lancer l'intégration.
 
 ---
 
@@ -37,7 +39,7 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 | Textes descriptifs cartes (blocs 3 et 5) | Projet | [FAIT — propositions dans `05-specs/pages/homepage.md`] |
 | Image hero | Projet | [FAIT — `adp-app/assets/design/hero-bg.png`] |
 | Mention légale crédit d'impôt | Source legacy | [FAIT — "Dans les limites prévues à l'article 199 sexdecies du CGI"] |
-| Spec homepage révisée (one page — D-018) | Chef de projet | [**À FAIRE** — doit absorber sections Prestations/Formations/À propos + modales "Voir plus"] |
+| Spec homepage révisée (one page — D-018) | Projet | [FAIT — 2026-04-25 — 10 blocs, Bloc 7 À propos, anchors, popups — à valider Eric STOCLET] |
 | Photo portrait Julien HACHE (I-15) | Projet | [FAIT — `adp-app/assets/design/julien-hache-portrait.png` (D-020)] |
 | Specs pages secondaires | Projet | [FAIT — `05-specs/pages/prestations.md`, `formations.md`, `a-propos.md`, `avis.md`, `contact.md`] |
 
