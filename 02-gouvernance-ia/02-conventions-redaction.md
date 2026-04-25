@@ -1,7 +1,7 @@
 # Conventions de rédaction pour agents
 
 **Statut** : Actif — s'applique à tous les documents produits par des agents  
-**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 3, 4, 8 et 10 (champ Signalement étendu)  
+**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 3, 4, 8, 10 et 11 ([EN RÉVISION] formalisé comme statut)  
 **Lié à** : `01-regles-ia.md`, `03-perimetre-agents.md`
 
 ---
@@ -48,6 +48,8 @@ Ces marqueurs ne qualifient pas le niveau de confiance — ils annotent le type 
 | `[RÈGLE]` | Règle opérationnelle du projet (en complément des règles de `02-gouvernance-ia/`) |
 
 > **Note** : `[À VALIDER]` peut apparaître dans le champ `**Statut**` des en-têtes de document et dans les tables de suivi comme indicateur de validation humaine en attente. Ce n'est pas un marqueur épistémique — ne pas l'utiliser dans des cellules portant sur la confiance d'une information.
+>
+> **Note** : `[EN RÉVISION — ADR-XXX]` peut apparaître dans le champ `**Statut**` des specs (`05-specs/pages/`) pour signaler qu'une décision architecturale récente (ADR-XXX) rend la spec partiellement obsolète. Ce statut n'est pas un marqueur épistémique — il s'applique au document entier, pas à une affirmation individuelle. Les agents qui lisent une spec `[EN RÉVISION]` doivent appliquer R-29.
 
 ### Marqueurs non officiels — interdit
 Un agent n'invente pas de nouveaux marqueurs. Seuls les marqueurs listés dans ce tableau et les marqueurs d'annotation ci-dessus sont autorisés.
