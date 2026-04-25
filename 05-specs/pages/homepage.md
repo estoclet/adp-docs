@@ -329,8 +329,9 @@ Pas de module `Code` sauf si indispensable. [FAIT]
 ## Signalement
 
 - **Statut** : Brief client validé (réunion 2026-04-23) — spec rédigée en conséquence
-- **Hypothèses posées** : Liens internes (slugs des pages Prestations/Formations/Avis non encore créées), préconisation de police (`Inter`) dans le cadre de la carte blanche client
-- **Inconnues résolues** : logo (I-09), email (I-10), zone géo (I-11), palette primaire/accent (I-07 partiel), hero image (I-visuels partiel), mention légale (I-14)
-- **Inconnues restantes** : badge SAP, couleurs complémentaires (hover, fond section)
-- **Points à arbitrer** : uniquement les couleurs complémentaires et la forme finale du badge SAP
+- **Hypothèses posées** : préconisation de police (`Inter`) dans le cadre de la carte blanche client
+- **Inconnues résolues** : logo (I-09), email (I-10), zone géo (I-11), palette primaire/accent (I-07 partiel), hero image (I-visuels partiel), mention légale (I-14), slugs pages créés en WP (vérifiés 2026-04-25)
+- **Inconnues restantes** : badge SAP, couleurs complémentaires (tokens proposés dans theme.css, à valider client)
+- **Marqueurs promus** : `[INCONNUE]` → `[FAIT]` hero-bg.png (R-28 — asset vérifié 2026-04-25) ; footer col.3 corrigé (FAQ→CGV+Infos fiscales — menu WP vérifié 2026-04-25)
+- **Points à arbitrer** : la forme finale du badge SAP, comportement menu mobile
 - **Prochaine étape** : intégrer la homepage sur base des textes proposés et des réseaux fournis, puis laisser Julien HACHE ajuster si besoin
