@@ -87,7 +87,7 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 | Élément | Contenu | Statut |
 |---------|---------|--------|
 | Visuel hero | Bureau clair, laptop + tablette + smartphone, écrans fond noir/bleu/cyan lumineux, univers premium Apple-like | [FAIT — description] |
-| Visuel | Image rassurante, propre, lumineuse | [INCONNUE — à fournir ou générer] |
+| Visuel | Image rassurante, propre, lumineuse | [FAIT — `hero-bg.png` dans `adp-app/assets/design/` — versionnée 2026-04-24] |
 
 ### Mobile
 
