@@ -1,7 +1,7 @@
 # Page À propos — Spec
 
 **Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — D-016 : I-15 et I-16 débloquées (placeholders)  
 **Produit par** : Agent IA — issue #25  
 **URL cible** : `/a-propos/`  
 **Template Divi** : Template À propos (sur mesure, hors Theme Builder)  
@@ -37,7 +37,7 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 | Élément | Contenu | Statut |
 |---------|---------|--------|
-| Colonne gauche | Photo de Julien HACHE | [INCONNUE — I-15] |
+| Colonne gauche | Photo de Julien HACHE | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
 | H1 (colonne droite) | "Julien Hache — Astuces De Pomme" | [RECOMMANDÉ] |
 | Sous-titre | "Technicien Apple indépendant, à votre domicile dans la région lilloise." | [RECOMMANDÉ] |
 
@@ -50,9 +50,9 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 | Élément | Contenu | Statut |
 |---------|---------|--------|
 | H2 | "Qui suis-je ?" | [RECOMMANDÉ] |
-| Texte bio | À fournir par Julien HACHE — parcours, expérience, déclencheur de création d'entreprise | [INCONNUE — I-16] |
+| Texte bio | À fournir par Julien HACHE — parcours, expérience, déclencheur de création d'entreprise | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
 
-> [INCONNUE — I-16] Texte biographique à rédiger par Julien HACHE (ou dictée + reformulation). Longueur cible : 150 à 300 mots.
+> [INCONNUE — I-16] Texte biographique à rédiger par Julien HACHE (ou dictée + reformulation). Longueur cible : 150 à 300 mots. **Placeholder en intégration** : texte de substitution générique indiquant l'emplacement réservé.
 
 ---
 
@@ -113,18 +113,18 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 | Dépendance | Type | Bloque |
 |-----------|------|--------|
-| Photo Julien HACHE (I-15) | Asset client | Bloc 2 — non bloquant pour V1 si absent |
-| Texte bio (I-16) | Contenu client | Bloc 3 — bloquant pour finalisation |
+| Photo Julien HACHE (I-15) | Asset client | Bloc 2 — placeholder acceptable (D-016) |
+| Texte bio (I-16) | Contenu client | Bloc 3 — placeholder acceptable (D-016) |
 | Module "Grand CTA" en Divi Library | Composant réutilisable | Bloc 6 |
 
 ---
 
-## Inconnues bloquantes
+## Inconnues
 
-| ID | Inconnue | Impact |
-|----|----------|--------|
-| I-15 | Photo de Julien HACHE (portrait) | Bloc 2 hero — un placeholder peut être utilisé en V1 |
-| I-16 | Texte biographique / histoire / valeurs | Bloc 3 — **bloquant pour la finalisation** |
+| ID | Inconnue | Impact | Statut |
+|----|----------|--------|--------|
+| I-15 | Photo de Julien HACHE (portrait) | Bloc 2 hero | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
+| I-16 | Texte biographique / histoire / valeurs | Bloc 3 | [INCONNUE — placeholder acceptable (D-016) — Julien HACHE remplace après livraison préprod] |
 
 > [À ARBITRER] Si Julien HACHE ne souhaite pas rédiger de bio longue, le Bloc 3 peut être remplacé par une présentation plus courte (3 phrases + 3 valeurs en cartes). La page reste valide.
 
@@ -134,6 +134,6 @@ Humaniser le service, bâtir la confiance par la présentation de Julien HACHE (
 
 - **Tâche accomplie** : spec complète de `/a-propos/` — structure, contenu proposé, données légales SAP renseignées depuis les sources legacy
 - **Hypothèses posées** : 3 valeurs (clarté, proximité, honnêteté) — à valider ; format bio 150-300 mots
-- **Inconnues rencontrées** : I-15 (photo), I-16 (bio) — à recueillir auprès de Julien HACHE
-- **Points à arbitrer** : niveau de détail bio, présence ou non d'une photo
-- **Prochaine étape recommandée** : recueillir I-15 et I-16 auprès de Julien HACHE
+- **Inconnues rencontrées** : I-15 (photo), I-16 (bio) — placeholder acceptable par D-016 (Eric STOCLET 2026-04-25) ; Julien HACHE remplace en préprod
+- **Points à arbitrer** : niveau de détail bio, présence ou non d'une photo ; voir aussi D-018 (site one page — impact sur le statut de cette page)
+- **Prochaine étape recommandée** : intégrer avec placeholders ; arbitrer l'impact de D-018 (one page)
