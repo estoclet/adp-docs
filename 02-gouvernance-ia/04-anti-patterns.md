@@ -1,7 +1,7 @@
 # Catalogue des anti-patterns agents IA
 
 **Statut** : Actif  
-**Dernière mise à jour** : 2026-04-25 — créé par boucle gouvernance itération 1, étendu itérations 6, 8 et 10 (AP-12, AP-13, AP-14)  
+**Dernière mise à jour** : 2026-04-25 — créé par boucle gouvernance itération 1, étendu itérations 6, 8, 10 et 11 (AP-12, AP-13, AP-14, AP-15)  
 **Lié à** : `01-regles-ia.md`, `02-conventions-redaction.md`, `03-perimetre-agents.md`
 
 > Ce document catalogue les dérives récurrentes des agents IA sur des projets documentaires.  
@@ -192,6 +192,19 @@
 
 ---
 
+## AP-15 — L'implémentation depuis une spec `[EN RÉVISION]`
+
+**Description** : L'agent utilise une spec dont le statut est `[EN RÉVISION — ADR-XXX]` comme source de vérité pour une implémentation, sans avoir lu l'ADR référencé ni signalé que la spec est obsolète.
+
+**Exemple** : Le task pack TP-006 demande d'implémenter la modale "Prestations". L'agent lit `05-specs/pages/prestations.md`, ignore le statut `[EN RÉVISION — ADR-003]`, et intègre une page pleine au lieu d'un popup.
+
+**Pourquoi c'est dangereux** : Une spec `[EN RÉVISION]` peut contredire une décision architecturale récente. L'implémentation produite est incorrecte et doit être refaite. Dans un projet WordPress/Divi, les erreurs d'architecture sont coûteuses à défaire (templates globaux, presets, contenus imbriqués).
+
+**Règle opposée** : R-29  
+**Contre-mesure** : Toujours vérifier le statut d'une spec avant de l'utiliser. Si `[EN RÉVISION]`, lire l'ADR référencé et signaler dans l'output. N'implémenter que les parties non contredites.
+
+---
+
 ## Résumé de détection rapide
 
 | Symptôme dans un document produit | Anti-pattern probable |
@@ -210,3 +223,4 @@
 | Travail déjà fait répété après compaction | AP-12 |
 | Marqueur `[XXX]` absent des conventions | AP-13 |
 | Fichier modifié sans mise à jour de la date d'en-tête | AP-14 |
+| Spec `[EN RÉVISION]` utilisée sans lire l'ADR | AP-15 |

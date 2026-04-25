@@ -82,16 +82,16 @@ Conséquences :
 
 | Sujet | Décision actée | Impact |
 |-------|----------------|--------|
-| `/prestations/` | page unique avec ancres | simplicité, SEO local, mise en production plus rapide |
-| `/formations/` | page unique avec sections thématiques | simplicité éditoriale, évite la sur-architecture |
-| `/avis/` | **modale** (contenu léger) — sélection d'avis GBP + lien vers fiche GBP | décision chef de projet 2026-04-24 |
-| Contact | **modale** (contenu léger) — formulaire + coordonnées | décision chef de projet 2026-04-24 |
-| Pages légales footer | **modales** — CGV, Mentions légales, Politique de confidentialité, Infos fiscales | décision chef de projet 2026-04-24 |
-| Homepage | intégration légère d'avis GBP sélectionnés ou d'un indicateur de note, sans widget lourd en V1 | réassurance sans dégrader les performances |
-| `/faq/` | hors V1 | évite une page faible sans corpus réel |
-| `/tarifs-prestations/` | page indexée | utile pour la conversion et le SEO |
-| `/infos-fiscales/` | page indexée | utile pour le cadre fiscal et la réassurance |
-| Blog | hors V1 | décision client explicite |
+| Architecture globale | **Site one page** — homepage hub unique, navigation anchor-based, "Voir plus" → modales | D-018 (Julien HACHE 2026-04-25) — voir ADR-003 |
+| Prestations | Section de la homepage + modale "Voir plus" (contenu détaillé) | D-018 — remplace l'ancienne page `/prestations/` |
+| Formations | Section de la homepage + modale "Voir plus" (contenu détaillé) | D-018 — remplace l'ancienne page `/formations/` |
+| À propos | Section de la homepage + modale "Voir plus" (bio, valeurs, agrément SAP) | D-018 — remplace l'ancienne page `/a-propos/` |
+| `/avis/` | **Modale** (sélection d'avis GBP + lien fiche GBP) | D-014 (2026-04-24) — confirmé par D-018 |
+| Contact | **Modale** (formulaire + coordonnées) | D-014 (2026-04-24) — confirmé par D-018 |
+| Pages légales footer | Pages WordPress indexées — CGV, Mentions légales, Politique de confidentialité, Infos fiscales, Tarifs | Obligations légales + SEO — non affectées par D-018 |
+| Homepage | Hub unique : 9 blocs + sections secondaires (spec à réviser) | D-018 — spec homepage à réécrire avant TP-005 |
+| `/faq/` | Hors V1 | D-010 (2026-04-24) |
+| Blog | Hors V1 | D-009 (2026-04-24) — décision client explicite |
 
 ---
 

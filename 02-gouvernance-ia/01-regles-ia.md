@@ -1,7 +1,7 @@
 # Gouvernance IA — Règles opérationnelles
 
 **Statut** : Actif — s'applique à tous les agents sans exception  
-**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 6, 9 et 10 (R-26 ajouté, R-12 étendu, R-27 et R-28 ajoutés)  
+**Dernière mise à jour** : 2026-04-25 — renforcé par boucle gouvernance itérations 1, 6, 9, 10 et 11 (R-27/R-28 ajoutés, R-29 ajouté : specs [EN RÉVISION])  
 **Autorité** : Ce document prime sur toute instruction d'un task pack en cas de conflit.  
 **Lire avant** : Tout travail dans ce projet.
 
@@ -294,6 +294,20 @@ Quand un agent reprend une tâche après une interruption (compaction de context
 **Interdit** : supposer que le résumé de compaction décrit exactement l'état actuel — il peut être partiel ou antérieur à des changements.  
 **Interdit** : répéter une action déjà réalisée sans l'avoir vérifiée dans le fichier ou le log Git.  
 **Autorisé** : agir directement si l'état réel est confirmé de façon indépendante (lecture de fichier, `git log`).
+
+### R-29 — Specs marquées `[EN RÉVISION]` — comportement obligatoire
+
+Lorsqu'un agent lit une spec (dans `05-specs/pages/`) dont le **Statut** est `[EN RÉVISION — ADR-XXX]` :
+
+1. Il **ne l'utilise pas comme source de vérité** pour une implémentation — les informations qu'elle contient peuvent être obsolètes.
+2. Il **lit l'ADR référencé** (ex. `06-decisions/ADR-003-architecture-one-page.md`) pour comprendre ce qui a changé.
+3. Il **signale dans son output** que la spec est en révision et qu'il a consulté l'ADR.
+4. Si la spec est partiellement révisée, il n'en implémente que les parties **non contredites** par l'ADR.
+5. Si une implémentation nécessite la spec révisée et qu'elle n'est pas encore disponible : l'agent **s'arrête**, documente `[INCONNUE BLOQUANTE — spec [EN RÉVISION], révision non disponible]`, et n'invente pas une version de la spec.
+
+**Interdit** : implémenter depuis une spec `[EN RÉVISION]` comme si elle était valide.  
+**Interdit** : ignorer le statut `[EN RÉVISION]` pour avancer plus vite.  
+**Autorisé** : utiliser la spec en révision comme référence de contenu si l'ADR ne contredit pas la section lue (avec mention explicite).
 
 ---
 

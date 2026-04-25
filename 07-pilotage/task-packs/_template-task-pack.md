@@ -76,6 +76,7 @@ Si une instruction de ce task pack est ambiguë, contradictoire, ou si deux règ
 - [ ] Si reprise de session : lire `git log` et les fichiers cibles avant d'agir — ne pas supposer que le résumé est à jour (R-26)
 - [ ] Mettre à jour le champ `Dernière mise à jour` dans tout fichier modifié qui contient ce champ (R-27)
 - [ ] Toute promotion `[HYPOTHÈSE]` → `[FAIT]` : citer la source directement dans le document (outil + date), pas seulement dans le Signalement (R-28)
+- [ ] Avant d'utiliser une spec de `05-specs/pages/` : vérifier que son statut n'est pas `[EN RÉVISION — ADR-XXX]` — si oui, lire l'ADR référencé avant toute implémentation (R-29)
 - [ ] [Contrainte spécifique à cette tâche]
 
 ---
