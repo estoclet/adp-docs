@@ -1,7 +1,7 @@
 # Plan de travail — Lotissement
 
 **Statut** : Proposition initiale — [À VALIDER] après arbitrage I-04 (budget / délais)  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — D-018 one page : TP-005 en attente (spec homepage à réviser) ; ajout TP-006 modales  
 **Chef de projet** : Eric STOCLET  
 **Client** : Julien HACHE  
 **Lié à** : `00-initialisation-projet.md`, `07-pilotage/task-packs/`
@@ -57,7 +57,7 @@
 | Valider types de contenus et taxonomies | ✅ Rédigés — à valider |
 | Rédiger specs pages principales | ✅ Fait — homepage validée client, 5 autres en brouillon |
 
-**Bloquants** : Validation client sur arborescence, types de contenus, specs pages secondaires. I-15/16 (photo + bio) bloquent la spec À propos. I-18/19 (avis GBP) bloquent la spec Avis.
+**Bloquants** : Révision specs pour ADR-003 (one page — D-018). I-15 résolue (photo portrait). I-16/17/18/19 : placeholders acceptables (D-016). Validation client des specs secondaires (issue #26).
 
 ---
 
@@ -70,11 +70,12 @@
 |-------|-----------|--------|
 | Installation WP + configuration de base | — | ✅ Fait — DDEV adp-app, WP 6.9.4 fr_FR |
 | Installation et activation Divi | — | ✅ Fait — Divi 5.3.3, adp-divi-child v0.1.0 (commit 069d734) |
-| Intégration Divi homepage (header, footer, 9 blocs) | TP-005 | À lancer — prérequis remplis (2026-04-24) |
-| Intégration des pages secondaires | À planifier | [DÉPENDANCE] → TP-005 + validation specs |
+| Révision spec homepage (D-018 one page) | — | **[PRIORITÉ]** À faire avant TP-005 — voir ADR-003 |
+| Intégration Divi homepage (one page + sections) | TP-005 | **En attente** — spec homepage à réviser d'abord (D-018) |
+| Intégration des modales (Prestations, Formations, À propos, Avis, Contact) | TP-006 | [DÉPENDANCE] → TP-005 terminé — Divi 5 popup (D-019) |
 | Configuration plugins (SEO, cache, sécurité, formulaires) | À planifier | À planifier |
 
-**Bloquants** : Licence Divi (activation sur adp-app — credentials Elegant Themes Julien HACHE). Validation specs pages secondaires avant intégration.
+**Bloquants** : Révision spec homepage (D-018 — ADR-003) avant TP-005. Licence Divi (activation sur adp-app — credentials Elegant Themes Julien HACHE). Éditabilité popup Divi à valider (D-019) avant livraison.
 
 ---
 
