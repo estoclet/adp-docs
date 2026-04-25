@@ -1,7 +1,7 @@
 # Inventaire du site legacy — astucesdepomme.com
 
 **Statut** : À valider — inventaire structurel complet via TP-001  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (normalisation [À VÉRIFIER]→[HYPOTHÈSE]/[INCONNUE]), R-27 appliqué  
 **Produit par** : Agent IA — exécution partielle de TP-001  
 **Lié à** : `TP-001-analyse-legacy.md`, `03-mapping-migration.md`
 

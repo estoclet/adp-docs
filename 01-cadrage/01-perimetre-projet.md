@@ -1,7 +1,7 @@
 # Périmètre et objectifs du projet
 
 **Statut** : Cadrage initial — à valider avec le client  
-**Dernière mise à jour** : 2026-04-24  
+**Dernière mise à jour** : 2026-04-25 — iter.8 (normalisation marqueurs), R-27 appliqué  
 **Lié à** : `00-initialisation-projet.md`, `ADR-001`
 
 ---
