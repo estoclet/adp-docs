@@ -1,7 +1,7 @@
 # Page d'accueil — Spec
 
-**Statut** : Révisé — D-018 intégré (one page, blocs sections + "Voir plus" → popups) — à valider par Eric STOCLET
-**Dernière mise à jour** : 2026-04-25 — D-018 : 10 blocs (Bloc 7 À propos ajouté) ; liens "Voir plus" → popup ; anchors de navigation
+**Statut** : Validé — Eric STOCLET 2026-04-27
+**Dernière mise à jour** : 2026-04-27 — Validation Eric STOCLET ; TP-005 lancé
 **Produit par** : Eric STOCLET, d'après brief client
 **URL cible** : `/`
 **Template Divi** : Template Accueil (sur mesure, hors Theme Builder)
@@ -345,7 +345,7 @@ L'agent ou le développeur peut ajouter du CSS pour : [FAIT — consigne brief]
 | I-police | Police validée | Tous les blocs | [RÉSOLU — I-13 — carte blanche client ; préconisation projet : `Inter`] |
 | I-textes | Textes descriptifs des cartes et prestations | Blocs 3, 5 | [RÉSOLU — I-12 — proposition projet autorisée, révisable par Julien HACHE] |
 | I-mention-legale | Mention légale crédit d'impôt | Bloc 4 | [RÉSOLU — I-14 — "Dans les limites prévues à l'article 199 sexdecies du code général des impôts"] |
-| I-visuels | Image hero + badge "Services à la personne" | Blocs 2, 4 | [RÉSOLU PARTIEL — hero-bg.png disponible dans `adp-app/assets/design/` ; badge SAP à créer] |
+| I-visuels | Image hero + badge "Services à la personne" | Blocs 2, 4 | [FAIT — hero-bg.png + logo-sap.png disponibles dans `adp-app/assets/design/`] |
 | I-reseaux | Réseaux sociaux présents et URLs | Footer | [RÉSOLU — Facebook + LinkedIn fournis le 2026-04-24] |
 
 ---

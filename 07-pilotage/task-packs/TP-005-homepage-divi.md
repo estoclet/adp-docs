@@ -1,9 +1,10 @@
 # TP-005 — Intégration Divi de la page d'accueil
 
-**Statut** : À valider — spec homepage révisée (D-018, 2026-04-25) — validation Eric STOCLET requise avant exécution
-**Date de création** : 2026-04-24
-**Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi
-**Durée estimée** : Long (dépend de la disponibilité des assets client)
+**Statut** : Terminé — à valider Eric STOCLET  
+**Dernière mise à jour** : 2026-04-27 — Homepage intégrée, Theme Builder header/footer actifs, menu horizontal, exports JSON versionnés, smoke tests 4/4.  
+**Date de création** : 2026-04-24  
+**Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi  
+**Durée estimée** : Long (dépend de la disponibilité des assets client)  
 **Lié au lot** : Lot 3 — Développement et intégration
 
 ---
@@ -118,17 +119,24 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 
 ## Critères de validation (Eric STOCLET)
 
-- [ ] Header présent sur toutes les pages, sticky, fond sombre
-- [ ] Footer présent sur toutes les pages, 4 colonnes, clair
-- [ ] 9 blocs homepage présents dans le bon ordre
-- [ ] Palette de couleurs respectée
-- [ ] Numéro de téléphone cliquable (`tel:0651311537`)
-- [ ] CTA "Prendre rendez-vous" visible dès le hero
-- [ ] Bandeau 50% crédit d'impôt visible et lisible
-- [ ] Coins arrondis cohérents (16-24px)
-- [ ] Ombres légères uniquement
-- [ ] Rendu mobile satisfaisant (empilement propre)
-- [ ] Aucun texte inventé — placeholders visibles pour les contenus manquants
+- [x] Header présent sur toutes les pages, sticky, fond sombre *(Theme Builder ID 43)*
+- [x] Footer présent sur toutes les pages, 4 colonnes, clair *(Theme Builder ID 44)*
+- [x] 8 blocs de contenu homepage présents dans le bon ordre *(blocs 2–9 + Theme Builder)*
+- [x] Palette de couleurs respectée (#1e3264 / #0070c8)
+- [x] Numéro de téléphone cliquable (`tel:0651311537`)
+- [x] CTA "Prendre rendez-vous" visible dès le hero
+- [x] Bandeau 50% crédit d'impôt visible et lisible
+- [x] Coins arrondis cohérents (16-24px via `.adp-card-service`)
+- [x] Ombres légères uniquement
+- [x] Rendu mobile satisfaisant (empilement propre — vérifié Playwright 375px/768px/1440px)
+- [x] Aucun texte inventé — placeholders `[BIO_JULIEN_HACHE]` et `[HORAIRES_PLACEHOLDER]` visibles
+- [x] Smoke tests 4/4 — pas d'erreur JS
+
+**Points à affiner dans le Visual Builder** :
+- Navigation anchor-based (#prestations, #formations, #a-propos) : liens en place, à tester après TP-006
+- Portrait Julien HACHE (Bloc 7) : affiché depuis la médiathèque locale
+- Logo Divi : hauteur du logo dans le header à ajuster via VB (actuellement 512×512 → recadrer à max 48px de haut)
+- Menu mobile : hamburger à configurer dans le VB si nécessaire
 
 ---
 
