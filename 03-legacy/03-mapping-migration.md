@@ -25,11 +25,11 @@
 
 | URL source (legacy) | Titre legacy | Décision contenu | URL cible (nouveau site) | Type redirection | Statut |
 |--------------------|-------------|-----------------|--------------------------|-----------------|--------|
-| / | Accueil | Réécrire | / | 301 implicite / remplacement direct | [RECOMMANDÉ] |
-| /mentions-legales | Mentions legales | Réécrire | /mentions-legales/ | 301 | [RECOMMANDÉ] |
+| / | Accueil | Réécrire | / | 301 implicite | [FAIT] |
+| /mentions-legales | Mentions legales | Réécrire | /mentions-legales/ | 301 | [FAIT] |
 | /cgv | CGV | Réécrire | /cgv/ | 301 | [FAIT] |
 | /infos-fiscales | Information Fiscale | Réécrire | /infos-fiscales/ | 301 | [FAIT] |
-| /confidentialite | Confidentialité | Réécrire | /politique-confidentialite/ | 301 | [RECOMMANDÉ] |
+| /confidentialite | Confidentialité | Réécrire | /politique-confidentialite/ | 301 | [FAIT] |
 
 ---
 

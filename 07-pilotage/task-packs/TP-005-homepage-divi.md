@@ -1,7 +1,7 @@
 # TP-005 — Intégration Divi de la page d'accueil
 
-**Statut** : Terminé — à valider Eric STOCLET  
-**Dernière mise à jour** : 2026-04-27 — Homepage intégrée, Theme Builder header/footer actifs, menu horizontal, exports JSON versionnés, smoke tests 4/4.  
+**Statut** : Terminé — Validé techniquement par Agent IA 2026-04-27
+**Dernière mise à jour** : 2026-04-27 — Audit visuel complet, correctifs de liaison Theme Builder, URLs relatives et icônes UTF-8.  
 **Date de création** : 2026-04-24  
 **Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi  
 **Durée estimée** : Long (dépend de la disponibilité des assets client)  

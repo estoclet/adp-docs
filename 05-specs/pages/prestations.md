@@ -1,196 +1,120 @@
-# Page Prestations — Spec
+# Modale Prestations — Spec (Contenu)
 
-**Statut** : [EN RÉVISION — ADR-003] Cette spec devient le **contenu de la modale Prestations** (D-018 one page, 2026-04-25)  
-**Dernière mise à jour** : 2026-04-25 — D-018 : page → modale ; spec en cours de révision  
-**Produit par** : Agent IA — issue #25  
-**URL cible** : N/A — **contenu affiché en modale** depuis la homepage (D-018)  
-**Template Divi** : Popup Divi 5 (D-019)  
-**Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`, `05-specs/pages/homepage.md`
-
----
-
-## Objectif de la page
-
-Présenter l'ensemble des 6 prestations de manière détaillée, permettre au visiteur de qualifier son besoin, et le convertir vers un contact ou rendez-vous.
-
-**Esprit** : page hub claire et rassurante — chaque prestation est autonome (ancre directe depuis le menu, les cards homepage, Google). [FAIT]
+**Statut** : [FAIT] Révisé ADR-003 (D-018 one page) — prêt pour intégration  
+**Dernière mise à jour** : 2026-04-27 — Transformation page → contenu de modale  
+**Produit par** : Agent IA  
+**Déclencheur** : Lien "Voir plus" du Bloc 3 (Prestations) ou Bloc 5 (Services SAP) de la Homepage  
+**ID Modale cible** : `#modal-prestations`  
+**Template Divi** : Popup Divi 5 (Méthode A — Interactions + Visibilité)  
+**Lié à** : `ADR-003`, `05-specs/pages/homepage.md`, `04-architecture/03-composants-divi.md`
 
 ---
 
-## Structure de la page
+## Objectif du contenu
 
-| # | Bloc | Type Divi |
-|---|------|-----------|
-| 1 | Header / navigation | Theme Builder — header global |
-| 2 | Hero prestations | Section fond clair, 1 colonne centrée |
-| 3 | Navigation rapide (pills ancres) | Section fond blanc, inline |
-| 4 | Section Assistance Apple | Section 2 colonnes |
-| 5 | Section Formation | Section 2 colonnes (inversée) |
-| 6 | Section Réseau & Wi-Fi | Section 2 colonnes |
-| 7 | Section Démarches administratives | Section 2 colonnes (inversée) |
-| 8 | Section Sauvegardes & installation | Section 2 colonnes |
-| 9 | Section Conseil | Section 2 colonnes (inversée) |
-| 10 | Bandeau SAP / crédit d'impôt | Section fond bleu clair (réutilisation homepage) |
-| 11 | Grand CTA de contact | Section fond bleu nuit (réutilisation homepage) |
-| 12 | Footer | Theme Builder — footer global |
-
-**Largeur conteneur** : identique à la homepage (1200–1280 px max). [FAIT]
+Détailler les 6 domaines d'intervention d'Astuces De Pomme pour les visiteurs souhaitant approfondir après le résumé de la homepage. Le contenu doit être riche, structuré et inciter à la prise de contact.
 
 ---
 
-## Bloc 2 — Hero prestations
+## Structure du contenu (dans la modale)
 
-**Type Divi** : Section fond très clair, centré, 1 colonne. [FAIT]
+La modale est un conteneur défilable (scrollable) reprenant les sections détaillées.
 
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H1 | "Mes prestations" | [RECOMMANDÉ] |
-| Sous-titre | "Assistance, formation et accompagnement Apple à domicile dans la région lilloise." | [RECOMMANDÉ] |
-| CTA | Bouton bleu "Prendre rendez-vous" → `/contact/` | [FAIT] |
-
----
-
-## Bloc 3 — Navigation rapide (ancres)
-
-**Type Divi** : Ligne de pills/boutons texte cliquables, centrés, fond blanc.
-
-| Pill | Ancre |
-|------|-------|
-| Assistance Apple | `#assistance` |
-| Formation | `#formation` |
-| Réseau & Wi-Fi | `#reseau` |
-| Démarches administratives | `#demarches` |
-| Sauvegardes & installation | `#sauvegardes` |
-| Conseil | `#conseil` |
-
-**Style** : identique aux pills de la homepage (Bloc 6). [FAIT]
+| # | Bloc | Type Divi | Notes |
+|---|------|-----------|-------|
+| 1 | Titre de la modale | H2 / Titre de section | "Nos services en détail" |
+| 2 | Navigation rapide (ancres) | Ligne de pills (optionnel) | Permet de sauter aux sections |
+| 3 | Section Assistance Apple | Ligne 2 colonnes | Texte + Icône/Illustration |
+| 4 | Section Formation | Ligne 2 colonnes | Texte + Icône/Illustration |
+| 5 | Section Réseau & Wi-Fi | Ligne 2 colonnes | Texte + Icône/Illustration |
+| 6 | Section Démarches | Ligne 2 colonnes | Texte + Icône/Illustration |
+| 7 | Section Sauvegardes | Ligne 2 colonnes | Texte + Icône/Illustration |
+| 8 | Section Conseil | Ligne 2 colonnes | Texte + Icône/Illustration |
+| 9 | Bouton de fermeture / CTA | Bouton centré | "Fermer et prendre rendez-vous" |
 
 ---
 
-## Blocs 4 à 9 — Sections prestations
+## Navigation rapide (ancres internes)
 
-Chaque section suit le même schéma :
-
-| Élément | Description |
-|---------|-------------|
-| Ancre HTML | `id="[slug]"` sur la section |
-| H2 | Titre de la prestation |
-| Description | 3 à 6 lignes — détail, exemples concrets |
-| Liste à puces | 4 à 6 cas d'usage ou exemples |
-| CTA | "Prendre rendez-vous" → `/contact/` |
-| Visuel | Icône ronde bleue (identique homepage) ou photo d'illustration [INCONNUE — I-visuels] |
-
-**Alternance** : sections paires → 2 colonnes image/icône à gauche, texte à droite ; sections impaires → inversé. [RECOMMANDÉ]
+Si la modale est longue, des boutons "pills" permettent de naviguer à l'intérieur :
+`Assistance` · `Formation` · `Réseau` · `Démarches` · `Sauvegardes` · `Conseil`
 
 ---
 
-### Section 4 — Assistance Apple (`#assistance`)
+## Détail des sections
 
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H2 | "Assistance Apple" | [RECOMMANDÉ] |
-| Description | "Votre iPhone ne démarre plus, votre Mac est lent ou votre réseau Wi-Fi ne répond plus ? J'interviens à domicile pour diagnostiquer et résoudre votre problème rapidement, sans jargon." | [RECOMMANDÉ] |
-| Exemples | Mac qui ne démarre plus ou trop lent · iPhone bloqué ou écran figé · iPad inaccessible · iCloud non synchronisé · Problème de connexion réseau ou Wi-Fi · Perte de données ou d'accès à un compte Apple | [RECOMMANDÉ] |
+### Section Assistance Apple
+- **Titre** : "Assistance Apple"
+- **Texte** : "Votre iPhone ne démarre plus, votre Mac est lent ou votre réseau Wi-Fi ne répond plus ? J'interviens à domicile pour diagnostiquer et résoudre votre problème rapidement, sans jargon."
+- **Points clés** : 
+    - Diagnostic panne Mac/iPhone/iPad
+    - Résolution problèmes iCloud et comptes
+    - Nettoyage et optimisation système
+    - Récupération de données
 
----
+### Section Formation Apple
+- **Titre** : "Formation personnalisée"
+- **Texte** : "Apprenez à maîtriser votre iPhone, Mac ou iPad à votre rythme. Les séances sont personnalisées, adaptées à votre niveau et à vos objectifs."
+- **Points clés** :
+    - Prise en main débutant
+    - Usages avancés et productivité
+    - Photos, vidéos et partage familial
+    - Sécurité et bonnes pratiques
 
-### Section 5 — Formation (`#formation`)
+### Section Réseau & Wi-Fi
+- **Titre** : "Réseau & Wi-Fi"
+- **Texte** : "Wi-Fi instable, équipements déconnectés, box mal configurée ? J'optimise votre installation pour un fonctionnement fiable."
+- **Points clés** :
+    - Installation et paramétrage de box
+    - Extension de couverture Wi-Fi (Mesh, répéteurs)
+    - Connexion TV, imprimantes, objets connectés
 
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H2 | "Formation Apple" | [RECOMMANDÉ] |
-| Description | "Apprenez à maîtriser votre iPhone, Mac ou iPad à votre rythme. Les séances sont personnalisées, à domicile, adaptées à votre niveau et à vos objectifs du moment." | [RECOMMANDÉ] |
-| Exemples | Prise en main d'un nouvel appareil Apple · iCloud, FaceTime, Messages · Sécurité et vie privée · Photos, vidéos et partage · Usages avancés Mac (Spotlight, Finder, raccourcis) | [RECOMMANDÉ] |
-| Lien complémentaire | "Voir le programme complet →" → `/formations/` | [FAIT] |
+### Section Démarches administratives
+- **Titre** : "Accompagnement administratif"
+- **Texte** : "Je vous accompagne pas à pas pour vos démarches en ligne (Impôts, Ameli, Retraite...) en toute sérénité."
+- **Points clés** :
+    - Aide aux déclarations en ligne
+    - Création et gestion d'identifiants (FranceConnect)
+    - Navigation sécurisée sur les portails publics
 
----
+### Section Sauvegardes & Installation
+- **Titre** : "Sauvegardes & Installation"
+- **Texte** : "Protégez vos données avec iCloud ou Time Machine. J'installe et configure vos nouveaux appareils pour une transition sans perte."
+- **Points clés** :
+    - Stratégie de sauvegarde (Cloud + Local)
+    - Transfert de données vers nouvel appareil
+    - Mises à jour et sécurité
 
-### Section 6 — Réseau & Wi-Fi (`#reseau`)
-
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H2 | "Réseau & Wi-Fi" | [RECOMMANDÉ] |
-| Description | "Wi-Fi instable, équipements déconnectés, box mal configurée ? J'analyse et optimise votre réseau domestique pour un fonctionnement fiable et sécurisé." | [RECOMMANDÉ] |
-| Exemples | Configuration de box internet (Orange, SFR, Free, Bouygues) · Extension Wi-Fi (répéteurs, mesh) · Connexion TV, imprimante, NAS · Sécurisation réseau et Wi-Fi · Résolution de coupures ou lenteurs | [RECOMMANDÉ] |
-
----
-
-### Section 7 — Démarches administratives (`#demarches`)
-
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H2 | "Démarches administratives en ligne" | [RECOMMANDÉ] |
-| Description | "Ameli, impots.gouv, FranceConnect, DémarchesSimplifiées, retraite… Je vous accompagne pas à pas pour accéder à vos droits et effectuer vos démarches en toute sérénité." | [RECOMMANDÉ] |
-| Exemples | Espace Ameli et remboursements · Déclaration d'impôts en ligne · FranceConnect et identité numérique · Portail Ma Retraite · Demandes en ligne CAF, Pôle Emploi · Récupération de comptes ou mots de passe | [RECOMMANDÉ] |
-
----
-
-### Section 8 — Sauvegardes & installation (`#sauvegardes`)
-
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H2 | "Sauvegardes & installation" | [RECOMMANDÉ] |
-| Description | "Protégez vos photos, contacts et documents avec iCloud ou Time Machine. J'installe, configure et vérifie vos sauvegardes pour ne rien perdre en cas de panne ou de changement d'appareil." | [RECOMMANDÉ] |
-| Exemples | Configuration iCloud et gestion de l'espace · Time Machine (sauvegarde Mac) · Transfert de données vers un nouvel appareil · Installation et mise à jour macOS / iOS · Configuration d'un iPhone ou Mac neuf | [RECOMMANDÉ] |
-
----
-
-### Section 9 — Conseil (`#conseil`)
-
-| Élément | Contenu proposé | Statut |
-|---------|-----------------|--------|
-| H2 | "Conseil avant achat" | [RECOMMANDÉ] |
-| Description | "Vous hésitez avant un achat ou ne savez pas quel équipement choisir ? Je vous guide avec un avis impartial, adapté à votre usage réel et à votre budget." | [RECOMMANDÉ] |
-| Exemples | Choisir entre iPhone et iPad · Quel Mac pour quel usage ? · Accessoires utiles vs marketing · Quand réparer, quand remplacer ? · Comparaison opérateurs et forfaits | [RECOMMANDÉ] |
+### Section Conseil avant achat
+- **Titre** : "Conseil avant achat"
+- **Texte** : "Hésitation avant un achat ? Je vous guide avec un avis impartial adapté à votre usage et budget."
+- **Points clés** :
+    - Aide au choix du modèle (Mac vs iPad...)
+    - Analyse des besoins réels
+    - Optimisation du budget équipement
 
 ---
 
-## Bloc 10 — Bandeau SAP
+## CTA de sortie
 
-[FAIT] Identique au Bloc 4 de la homepage — réutiliser le module Divi Library.
-
----
-
-## Bloc 11 — Grand CTA
-
-[FAIT] Identique au Bloc 8 de la homepage — réutiliser le module Divi Library.
+En bas de modale, un bouton principal :
+- **Libellé** : "Prendre rendez-vous"
+- **Action** : Fermer la modale et scroller vers `#contact` sur la homepage (ou ouvrir la modale contact si implémentée via ID).
 
 ---
 
-## SEO
+## Design & Comportement
 
-| Élément | Valeur proposée | Statut |
-|---------|----------------|--------|
-| Balise title | "Prestations · Assistance Apple, Formation, Réseau à domicile — Astuces De Pomme" | [RECOMMANDÉ] |
-| Meta description | "Assistance, formation, réseau Wi-Fi, démarches administratives, sauvegardes… Julien Hache intervient à votre domicile dans la région lilloise. 50 % de crédit d'impôt." | [RECOMMANDÉ] |
-| H1 | "Mes prestations" | [RECOMMANDÉ] |
-| Mot-clé principal | assistance apple domicile lille | [HYPOTHÈSE] |
-
----
-
-## Comportement mobile
-
-- Pills ancres en scroll horizontal ou 2 × 3. [RECOMMANDÉ]
-- Sections 2 colonnes → empilement : visuel dessus, texte dessous. [FAIT]
-- CTA pleine largeur. [FAIT]
-
----
-
-## Dépendances
-
-| Dépendance | Type | Bloque |
-|-----------|------|--------|
-| Header + Footer globaux | Composant Theme Builder | Toute la page |
-| Module "Bandeau SAP" en Divi Library | Composant réutilisable | Bloc 10 |
-| Module "Grand CTA" en Divi Library | Composant réutilisable | Bloc 11 |
-| Visuels / icônes par prestation | Assets | Blocs 4 à 9 (icônes homepage OK ; photos illus INCONNUE) |
+- **Fond** : Blanc ou très léger gris (`#f4f8fc`).
+- **Typographie** : Identique homepage (`Inter`).
+- **Fermeture** : Croix en haut à droite + clic à l'extérieur + bouton de sortie.
+- **Mobile** : Contenu empilé verticalement, texte centré.
 
 ---
 
 ## Signalement agent
 
-- **Tâche accomplie** : spec complète de `/prestations/` — 6 sections avec textes proposés, SEO, mobile, dépendances
-- **Hypothèses posées** : alternance colonnes impaires/paires, contenu descriptif de chaque prestation (à valider/retoucher par Julien HACHE), titre H1 "Mes prestations"
-- **Inconnues rencontrées** : visuels d'illustration par section (photos contextuelles) — les icônes de la homepage suffisent pour V1
-- **Points à arbitrer** : présence ou non de photos d'illustration par section (les icônes de la homepage peuvent suffire en V1)
-- **Prochaine étape recommandée** : validation de la structure et des textes par Eric STOCLET + Julien HACHE avant intégration Divi
+- **Modification** : Transformation complète de la spec page en spec contenu modale.
+- **Retrait** : Blocs Header, Footer, Hero dédié et sections SEO (devenus sans objet).
+- **ID cible** : `#modal-prestations` défini pour l'intégration Divi.
+- **Cohérence** : Alignement sur ADR-003.

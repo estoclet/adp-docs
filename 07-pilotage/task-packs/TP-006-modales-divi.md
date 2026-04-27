@@ -1,10 +1,22 @@
 # TP-006 — Implémentation des modales Divi
 
-**Statut** : À lancer  
-**Date de création** : 2026-04-27  
-**Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi  
-**Durée estimée** : Moyen  
-**Lié au lot** : Lot 3 — Développement et intégration
+**Statut** : Terminé — Validé techniquement par Agent IA 2026-04-27  
+**Dernière mise à jour** : 2026-04-27 — 5 modales implémentées (Méthode A), contrôlées par JS/CSS, validation Playwright OK.
+
+---
+
+## Résumé de l'exécution
+
+- **Méthode** : Divi 5 Méthode A (Sections masquées injectées dans la homepage).
+- **Modales créées** :
+    - `#modal-prestations` : Détails services.
+    - `#modal-formations` : Pédagogie + thématiques.
+    - `#modal-a-propos` : Portrait + Bio.
+    - `#modal-avis` : Témoignages (placeholders).
+    - `#modal-contact` : Coordonnées + placeholder WPForms.
+- **Contrôle JS** : `adp-modals.js` gère l'ouverture (`.adp-modal-open`) et la fermeture (croix, clic extérieur, Echap).
+- **CSS** : `adp-modal-container` ajouté dans `theme.css` pour l'overlay et le responsive.
+- **Validation** : ✅ Test Playwright `test-modals.spec.ts` réussi (ouverture/fermeture `#modal-a-propos`).
 
 ---
 

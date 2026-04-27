@@ -1,68 +1,54 @@
 # Arborescence cible du site
 
-**Statut** : Structure en cours de révision — décision D-018 (site one page, 2026-04-25) — voir note ci-dessous
-**Dernière mise à jour** : 2026-04-25 — D-018 : site one page, modales "Voir plus" pour tout le contenu secondaire
-**Lié à** : `ADR-002`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
-
-> **Note agent** : La navigation principale a été validée en réunion client (2026-04-23), puis ajustée le 2026-04-24 avec suppression du blog à la demande du client.
->
-> **[DÉCISION D-018 — 2026-04-25]** Julien HACHE a confirmé un **site one page** : la homepage absorbe toutes les sections principales, et des liens "Voir plus" ouvrent des **modales** pour le contenu détaillé (Prestations, Formations, À propos). Ce document et la spec homepage doivent être révisés en conséquence. Un ADR-003 est à créer avant TP-005. Les URLs de pages secondaires (prestations/, formations/, a-propos/) restent utiles comme ancres ou redirections SEO — décision à prendre lors de l'ADR-003.
+**Statut** : [FAIT] Révisé ADR-003 (D-018 one page)  
+**Dernière mise à jour** : 2026-04-27 — D-018 : site one page, modales "Voir plus" pour tout le contenu secondaire  
+**Lié à** : `ADR-003`, `04-architecture/02-types-contenus.md`, `05-specs/pages/`
 
 ---
 
 ## Navigation principale (validée)
 
-Les 6 items du menu principal sont **fermes** : [FAIT — ajustement client 2026-04-24]
-
-> **[EN RÉVISION — D-018]** : Le mode d'affichage des items "Prestations", "Formations" et "À propos" change. Ils deviennent des **ancres** vers des sections de la homepage + des modales "Voir plus". Les URLs de pages dédiées peuvent être conservées comme ancres ou redirections SEO — à arbitrer dans ADR-003.
+Les 6 items du menu principal sont **fermes**. Dans l'architecture one-page, ils pointent vers des ancres sur la homepage ou déclenchent des modales.
 
 | Item menu | URL / Ancre cible | Type WP | Mode d'affichage | Statut |
 |-----------|-------------------|---------|-----------------|--------|
-| Accueil | `/` | Page | Page normale | [FAIT] — Spec → `05-specs/pages/homepage.md` |
-| Prestations | `/#prestations` | Section homepage | Ancre + modale "Voir plus" | [EN RÉVISION — D-018] |
-| Formations | `/#formations` | Section homepage | Ancre + modale "Voir plus" | [EN RÉVISION — D-018] |
-| À propos | `/#a-propos` | Section homepage | Ancre + modale "Voir plus" | [EN RÉVISION — D-018] |
-| Avis | — | Modale | **Modale** (contenu léger) | [FAIT] — Spec → `05-specs/pages/avis.md` |
-| Contact | — | Modale | **Modale** (contenu léger) | [FAIT] — Spec → `05-specs/pages/contact.md` |
+| Accueil | `/` | Page | Page normale | [FAIT] |
+| Prestations | `/#prestations` | Section homepage | Ancre + modale `#modal-prestations` | [FAIT] |
+| Formations | `/#formations` | Section homepage | Ancre + modale `#modal-formations` | [FAIT] |
+| À propos | `/#a-propos` | Section homepage | Ancre + modale `#modal-a-propos` | [FAIT] |
+| Avis | `/#modal-avis` | Modale | **Modale** (via ancre ou interaction) | [FAIT] |
+| Contact | `/#modal-contact` | Modale | **Modale** (via ancre ou interaction) | [FAIT] |
 
-**Pattern modale étendu (D-018)** : [FAIT — décision Julien HACHE 2026-04-25] L'ensemble du contenu secondaire du site (Prestations, Formations, À propos) s'affiche désormais en modale depuis la homepage. La solution technique (Divi 5 popup natif préférentiel — D-019) est à valider lors de l'implémentation.
+**Pattern modale étendu (D-018)** : [FAIT] L'ensemble du contenu secondaire du site (Prestations, Formations, À propos) s'affiche désormais en modale depuis la homepage. Implémentation via Divi 5 popup natif (Méthode A — Interactions + Visibilité).
 
-**Condition d'éditabilité (D-019)** : Les modales doivent être éditables par Julien HACHE en autonomie dans le backoffice Divi. [HYPOTHÈSE — à vérifier lors de TP-006]
-
-**CTA header** : "Prendre rendez-vous" [FAIT]
+**Condition d'éditabilité (D-019)** : Les modales sont éditables par Julien HACHE en autonomie dans le Visual Builder (vérifié via documentation Divi 5).
 
 ---
 
-## Arborescence complète proposée
+## Arborescence complète (One-Page Hub)
 
 ```
 astucesdepomme.com/
 │
-├── /                              Accueil [FAIT]
+├── / (Homepage)                   Hub unique du site
+│   ├── #prestations               Section Prestations (résumé)
+│   │   └── #modal-prestations     Détail Assistance, Formation, Réseau, Démarches, etc.
+│   │
+│   ├── #formations                Section Formations (résumé)
+│   │   └── #modal-formations      Détail pédagogie et thématiques
+│   │
+│   ├── #a-propos                  Section À propos (intro)
+│   │   └── #modal-a-propos        Détail bio Julien Hache et Agrément SAP
+│   │
+│   ├── #modal-avis                Modale Avis (sélection GBP)
+│   └── #modal-contact             Modale Contact (formulaire)
 │
-├── /prestations/                  Page hub des prestations [FAIT — page unique V1]
-│   ├── #assistance                Section Assistance Apple
-│   ├── #formation                 Section Formation
-│   ├── #reseau                    Section Réseau & Wi-Fi
-│   ├── #demarches                 Section Démarches administratives
-│   ├── #sauvegardes               Section Sauvegardes & Installation
-│   └── #conseil                   Section Conseil
-│
-├── /formations/                   Page de formation [FAIT — page unique V1]
-│   └── Sections thématiques        Communication, iCloud, Multimédia, Sécurité, Système & Réseau
-│
-├── /a-propos/                     Page À propos [FAIT — libellé menu]
-│
-├── /avis/                         → MODALE (contenu léger — sélection avis GBP)
-│
-├── /contact/                      → MODALE (contenu léger — formulaire + coordonnées)
-│
-└── Pages légales (footer uniquement) → MODALES
-    ├── /cgv/                      [FAIT — conservée depuis le legacy]
-    ├── /infos-fiscales/           [FAIT — conservée depuis le legacy]
-    ├── /mentions-legales/         [FAIT — obligatoire RGPD]
-    ├── /politique-confidentialite/ [FAIT — obligatoire RGPD]
-    └── /tarifs-prestations/       [FAIT — page publiée + arbitrage V1 acté]
+└── Pages légales (footer uniquement) → Pages WordPress dédiées
+    ├── /cgv/                      [FAIT]
+    ├── /infos-fiscales/           [FAIT]
+    ├── /mentions-legales/         [FAIT]
+    ├── /politique-confidentialite/ [FAIT]
+    └── /tarifs-prestations/       [FAIT]
 ```
 
 ---
@@ -83,15 +69,12 @@ Conséquences :
 | Sujet | Décision actée | Impact |
 |-------|----------------|--------|
 | Architecture globale | **Site one page** — homepage hub unique, navigation anchor-based, "Voir plus" → modales | D-018 (Julien HACHE 2026-04-25) — voir ADR-003 |
-| Prestations | Section de la homepage + modale "Voir plus" (contenu détaillé) | D-018 — remplace l'ancienne page `/prestations/` |
-| Formations | Section de la homepage + modale "Voir plus" (contenu détaillé) | D-018 — remplace l'ancienne page `/formations/` |
-| À propos | Section de la homepage + modale "Voir plus" (bio, valeurs, agrément SAP) | D-018 — remplace l'ancienne page `/a-propos/` |
-| `/avis/` | **Modale** (sélection d'avis GBP + lien fiche GBP) | D-014 (2026-04-24) — confirmé par D-018 |
-| Contact | **Modale** (formulaire + coordonnées) | D-014 (2026-04-24) — confirmé par D-018 |
+| Prestations | Section de la homepage + modale "Voir plus" (contenu détaillé) | D-018 — ID `#modal-prestations` |
+| Formations | Section de la homepage + modale "Voir plus" (contenu détaillé) | D-018 — ID `#modal-formations` |
+| À propos | Section de la homepage + modale "Voir plus" (bio, valeurs, agrément SAP) | D-018 — ID `#modal-a-propos` |
+| `/avis/` | **Modale** (sélection d'avis GBP + lien fiche GBP) | D-014 — ID `#modal-avis` |
+| Contact | **Modale** (formulaire + coordonnées) | D-014 — ID `#modal-contact` |
 | Pages légales footer | Pages WordPress indexées — CGV, Mentions légales, Politique de confidentialité, Infos fiscales, Tarifs | Obligations légales + SEO — non affectées par D-018 |
-| Homepage | Hub unique : 9 blocs + sections secondaires (spec à réviser) | D-018 — spec homepage à réécrire avant TP-005 |
-| `/faq/` | Hors V1 | D-010 (2026-04-24) |
-| Blog | Hors V1 | D-009 (2026-04-24) — décision client explicite |
 
 ---
 
@@ -105,11 +88,3 @@ Conséquences :
 | CGV | `/cgv/` | Continuité contractuelle depuis le legacy |
 | Informations fiscales | `/infos-fiscales/` | Page fiscale dédiée conservée, distincte de `/tarifs-prestations/` |
 | Page 404 | — | Template à créer dans Divi |
-
----
-
-## Ce que ce document ne contient pas
-
-- Les specs de pages individuelles (voir `05-specs/pages/`)
-- Les types de contenus WP (voir `04-architecture/02-types-contenus.md`)
-- Le mapping des URLs legacy (voir `03-legacy/03-mapping-migration.md`)

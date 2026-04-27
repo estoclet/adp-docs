@@ -50,9 +50,9 @@
 | Sujet | Fichier | État |
 |-------|---------|------|
 | Page d'accueil | `05-specs/pages/homepage.md` | Validé client (2026-04-23) |
-| Page Prestations | `05-specs/pages/prestations.md` | [EN RÉVISION — ADR-003] Devient modale (D-018) |
-| Page Formations | `05-specs/pages/formations.md` | [EN RÉVISION — ADR-003] Devient modale (D-018) |
-| Page À propos | `05-specs/pages/a-propos.md` | [EN RÉVISION — ADR-003] Devient modale (D-018) — I-15 résolue |
+| Modale Prestations | `05-specs/pages/prestations.md` | [FAIT] Contenu détaillé |
+| Modale Formations | `05-specs/pages/formations.md` | [FAIT] Contenu détaillé |
+| Modale À propos | `05-specs/pages/a-propos.md` | [FAIT] Bio et valeurs |
 | Modale Avis | `05-specs/pages/avis.md` | Brouillon — à valider (I-18/19 manquants) |
 | Modale Contact | `05-specs/pages/contact.md` | Brouillon — à valider |
 | Template spec de page | `05-specs/pages/_template-page-spec.md` | Prêt |

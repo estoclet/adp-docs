@@ -1,12 +1,12 @@
-# Page Contact — Spec (Modale)
+# Modale Contact — Spec (Contenu)
 
-**Statut** : Brouillon — à valider par Eric STOCLET  
-**Dernière mise à jour** : 2026-04-25 — D-019 : méthode popup Divi 5 Méthode A retenue  
-**Produit par** : Agent IA — issue #25  
-**URL cible** : N/A — **contenu affiché en modale** (décision chef de projet 2026-04-24)  
-**Déclencheur** : bouton "Prendre rendez-vous" (header, hero, blocs CTA), lien "Contact" dans navigation  
-**Template Divi** : Popup / overlay Divi  
-**Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`
+**Statut** : [FAIT] Révisé ADR-003 (D-018 one page) — prêt pour intégration  
+**Dernière mise à jour** : 2026-04-27 — Promotion au statut FAIT ; ID #modal-contact assigné  
+**Produit par** : Agent IA  
+**Déclencheur** : Boutons "Prendre rendez-vous" et menu "Contact"  
+**ID Modale cible** : `#modal-contact`  
+**Template Divi** : Popup Divi 5 (Méthode A — Interactions + Visibilité)  
+**Lié à** : `ADR-003`, `05-specs/pages/homepage.md`, `01-cadrage/02-architecture-cible.md`
 
 > [FAIT] Décision 2026-04-24 : page à contenu léger → affichage en modale. Pas de page WordPress dédiée `/contact/` en V1.
 
