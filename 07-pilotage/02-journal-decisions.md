@@ -2,7 +2,7 @@
 
 **Statut** : Actif — à alimenter au fil du projet  
 **Maintenu par** : Eric STOCLET (chef de projet)  
-**Dernière mise à jour** : 2026-04-25
+**Dernière mise à jour** : 2026-04-29
 
 > **Rôle** : Ce fichier trace toutes les décisions prises oralement, par message ou de façon informelle, qui n'ont pas (encore) fait l'objet d'un ADR formel. C'est le filet de sécurité contre la perte de mémoire collective.  
 > **Règle agent** : Les agents ne modifient pas ce fichier. Seul le chef de projet l'alimente.
@@ -33,6 +33,7 @@
 | D-018 | 2026-04-25 | Julien HACHE | Site one page : la homepage absorbe toutes les sections principales ; des liens "Voir plus" ouvrent des modales pour le contenu détaillé (Prestations, Formations, À propos) | Retour client 2026-04-25 — remplace la structure multi-pages initialement planifiée (D-004/D-005) ; renforce et étend D-014 (modales Avis/Contact) à l'ensemble du contenu secondaire | → ADR-003 |
 | D-019 | 2026-04-25 | Eric STOCLET | Les modales sont éditables par Julien HACHE via **Divi 5 Méthode A (Interactions + Visibilité)** — contenu dans la page, éditable directement dans le Visual Builder | Confirmé par documentation Elegant Themes 2026-04-25 ; aucun plugin supplémentaire requis ; Méthode B (Canvases) en fallback si 5 popups surchargent le builder — voir `04-architecture/03-composants-divi.md` | — |
 | D-020 | 2026-04-25 | Eric STOCLET | Photo portrait de Julien HACHE récupérée depuis le legacy prod (`wp-content/uploads/2021/09/`) et versionnée dans `adp-app/assets/design/julien-hache-portrait.png` | I-15 levée — image 810×552 px (screenshot, orientation paysage) ; un recadrage sera peut-être nécessaire selon l'intégration Divi | — |
+| D-021 | 2026-04-29 | Eric STOCLET | La documentation utilisateur du site est stockée dans `adp-app/documentation-client/` et intégrée directement dans le backoffice WordPress | Vise l'autonomie client sur les tâches courantes ; accès via menu admin dédié, widget de tableau de bord et aide contextuelle par écran | — |
 
 ---
 
@@ -54,4 +55,4 @@ Pour ajouter une décision :
 | ~~Stratégie domaine (I-03)~~ | ~~Avant Lot 4~~ | [RÉSOLU — I-03 : domaine conservé, pas de changement] |
 | ~~Présence ou non d'un CPT "Démarches"~~ | ~~Avant Lot 2~~ | [RÉSOLU — D-010 : pas de CPT en V1, décision Julien HACHE 2026-04-24] |
 | Implémentation technique des modales (ensemble du site — D-018) | Avant TP-006 | [À ARBITRER — D-019 : Divi 5 popup natif préférentiel si éditabilité confirmée ; voir `05-specs/pages/avis.md`] |
-| **Architecture one page (D-018)** | **Avant TP-005** | **[→ ADR-003 à créer — D-018 modifie D-004/D-005 ; homepage spec à réviser]** |
+| **Architecture one page (D-018)** | **Avant TP-005** | **[RÉSOLU — ADR-003 acceptée ; homepage spec révisée puis intégrée]** |

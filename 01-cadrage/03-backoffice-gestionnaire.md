@@ -1,10 +1,10 @@
 # Backoffice et gestion de contenu
 
-**Statut** : Base V1 cadrée — à compléter selon usages réels  
-**Dernière mise à jour** : 2026-04-25 — iter.8 (normalisation [À CONFIRMER]→[À ARBITRER]), R-27 appliqué  
+**Statut** : Base V1 cadrée et partiellement réalisée dans `adp-app`  
+**Dernière mise à jour** : 2026-04-29 — documentation client intégrée au backoffice WordPress  
 **Lié à** : `02-architecture-cible.md`, `04-architecture/02-types-contenus.md`
 
-> **Note agent** : Ce document contient principalement des hypothèses raisonnables basées sur le contexte projet. Aucun fait vérifié sur l'organisation réelle du contenu n'est disponible à ce stade. Compléter après analyse legacy (TP-001) et arbitrages client.
+> **Note agent** : Ce document mélange cadrage initial et état réellement livré dans `adp-app`. Les éléments marqués [FAIT] correspondent à des vérifications locales dans le backoffice WordPress.
 
 ---
 
@@ -47,6 +47,45 @@
 | Révision | Éditeur (si applicable) | [HYPOTHÈSE — client seul ou équipe ?] |
 | Publication | Éditeur / Admin | Visible publiquement |
 | Révision programmée | Admin | Mise à jour d'articles anciens |
+
+---
+
+## Documentation client dans le backoffice
+
+> **[FAIT — 2026-04-29]** Le backoffice local expose maintenant une documentation client directement dans WordPress, en plus des fichiers Markdown versionnés dans `adp-app/documentation-client/`.
+
+### Source de vérité
+
+| Élément | Emplacement | Statut |
+|--------|-------------|--------|
+| Guides client Markdown | `adp-app/documentation-client/` | [FAIT] |
+| Plugin d'intégration admin | `adp-app/web/wp-content/plugins/adp-client-documentation/` | [FAIT] |
+| Capture écran page admin | `adp-app/tests/screenshots/admin-documentation-client.png` | [FAIT] |
+| Capture écran widget dashboard | `adp-app/tests/screenshots/admin-dashboard-documentation-widget.png` | [FAIT] |
+| Capture écran aide contextuelle | `adp-app/tests/screenshots/admin-help-tab-pages.png` | [FAIT] |
+
+### Points d'entrée disponibles pour le client
+
+| Point d'entrée | Fonction | Statut |
+|---------------|----------|--------|
+| Menu admin `Documentation client` | Accès à l'ensemble des guides | [FAIT] |
+| Widget tableau de bord `Commencer avec le site` | Raccourcis vers les actions fréquentes | [FAIT] |
+| Onglet d'aide contextuelle | Guides ciblés selon l'écran admin (`Pages`, édition, `Médias`, zones Divi) | [FAIT] |
+
+### Limite assumée
+
+La documentation intégrée vise l'autonomie sur les contenus courants :
+- corriger un texte
+- changer une image
+- mettre à jour un bouton
+- modifier une page simple
+- vérifier avant publication
+
+Elle ne remplace pas une procédure technique pour :
+- modifier le CSS global
+- changer le PHP
+- reconfigurer les plugins
+- refondre les templates globaux Divi
 
 ---
 
@@ -214,6 +253,8 @@ Le client doit pouvoir, sans aide technique :
 > [À ARBITRER] : Le client a-t-il déjà une expérience de WordPress ? Ceci impacte le niveau de simplification de l'interface et le besoin en formation.
 
 > [FAIT — règle projet] Cette autonomie ne couvre pas les templates globaux, presets, réglages Divi structurants, CSS global, PHP ni plugins sans procédure dédiée.
+
+> **[FAIT — 2026-04-29]** Une première couche d'accompagnement embarqué existe désormais dans le backoffice via `adp-client-documentation`, ce qui réduit le besoin d'une transmission orale systématique pour les tâches simples.
 
 ---
 

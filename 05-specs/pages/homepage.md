@@ -1,16 +1,14 @@
 # Page d'accueil — Spec
 
-**Statut** : Validé — Eric STOCLET 2026-04-27
-**Dernière mise à jour** : 2026-04-27 — Validation Eric STOCLET ; TP-005 lancé
+**Statut** : Validé et intégré dans `adp-app`
+**Dernière mise à jour** : 2026-04-29 — TP-005 réalisé ; passe UI premium et prises d'écran locales
 **Produit par** : Eric STOCLET, d'après brief client
 **URL cible** : `/`
 **Template Divi** : Template Accueil (sur mesure, hors Theme Builder)
 **Lié à** : `ADR-002`, `04-architecture/01-arborescence-site.md`, `04-architecture/03-composants-divi.md`, `01-cadrage/05-assets-design.md`  
 **Référence visuelle** : `adp-app/assets/design/maquette_homepage.png` [FAIT — livrée 2026-04-24]
 
-> **Note agent** : Ce document est basé sur le brief d'implémentation validé en réunion client (2026-04-23). Les éléments marqués [FAIT] sont fermes. Les éléments marqués [INCONNUE] nécessitent une information à recueillir avant développement. Ne pas inventer de valeurs pour les inconnues.
->
-> **[ALERTE D-018 — 2026-04-25]** La décision client "site one page" (ADR-003) impose de réviser cette spec. La homepage doit absorber des **sections résumées** pour Prestations, Formations et À propos, chacune avec un lien "Voir plus" → popup Divi. La structure des 9 blocs initiaux est conservée comme base, mais des sections supplémentaires s'y ajoutent. **Cette spec ne doit pas être utilisée telle quelle pour TP-005** — relire ADR-003 d'abord (R-29).
+> **Note agent** : Cette spec correspond a la version one page retenue pour la V1 et a servi de base a l'integration TP-005. Les ajustements UI realises ensuite dans `adp-app` restent compatibles avec cette structure fonctionnelle.
 
 ---
 
@@ -39,7 +37,7 @@ Accueillir un visiteur qui a besoin d'aide sur Apple ou d'accompagnement pour de
 | 9 | CTA de contact | Section sombre 2 colonnes | — |
 | 10 | Footer | Theme Builder — footer global | — |
 
-**Largeur conteneur** : 1200 à 1280 px max. [FAIT]
+**Largeur conteneur** : 1200 à 1280 px max pour le contenu ; hero autorisé en full width. [FAIT]
 **Coins arrondis** : 16 à 24 px (régulier). [FAIT]
 **Ombres** : légères, uniquement sur cartes et CTA. [FAIT]
 

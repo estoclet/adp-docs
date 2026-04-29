@@ -1,6 +1,6 @@
 # Handoff — Pré-lancement TP-005 : Intégration Divi Homepage
 
-**Date** : 2026-04-25 — mis à jour (11 pages, D-018 one page, I-15 résolue, spec homepage révisée 10 blocs, D-019 Divi 5 Méthode A confirmée)  
+**Date** : 2026-04-25 — mis à jour ; document désormais obsolète depuis la réalisation de TP-005 et les travaux de prise en main client du 2026-04-29  
 **De** : Agent IA (boucle gouvernance + maintenance projet)  
 **À** : Agent IA ou développeur WP/Divi exécutant TP-005  
 **Tâche ou lot** : Lot 3 — TP-005 Intégration Divi Homepage  
@@ -20,6 +20,9 @@
 - [x] Menu principal ordonné : Accueil · Prestations · Formations · À propos · Avis · Contact
 - [x] Menu footer configuré (5 liens légaux)
 - [x] Assets design versionnés dans `adp-app/assets/design/` : logo-dark.png, logo-white.png, hero-bg.png, maquette_homepage.png
+- [x] Homepage intégrée, relue visuellement puis raffinée (hero full width, section Services retravaillée, direction premium local rassurant)
+- [x] Documentation client créée dans `adp-app/documentation-client/`
+- [x] Documentation client intégrée dans le backoffice WordPress via `adp-client-documentation`
 
 ---
 
@@ -38,6 +41,8 @@
 ---
 
 ## Ce qui reste à faire (dans TP-005)
+
+> **[OBSOLÈTE — 2026-04-29]** La liste ci-dessous correspond au pré-lancement historique de TP-005. Le task pack est désormais terminé ; conserver ce handoff uniquement comme archive de contexte.
 
 - [ ] Configurer la police `Inter` dans les réglages Divi (Divi → Theme Options → General)
 - [ ] Créer les presets boutons et titres dans Divi (4 presets : bouton-primaire, bouton-secondaire, titre-section, carte-service)
@@ -107,3 +112,14 @@
 - [ ] Eric STOCLET : valider que DDEV est démarré (`ddev start`) avant de lancer TP-005
 - [ ] Eric STOCLET : confirmer que la licence Divi peut fonctionner sans activation pour V1 locale (ou prévoir l'activation avec Julien HACHE)
 - [ ] Eric STOCLET : valider `05-specs/pages/homepage.md` (révisée D-018 — 10 blocs, statut "Révisé — à valider") — ADR-003 créé, spec révisée par l'agent
+
+---
+
+## Note de clôture
+
+Pour l'état actuel du projet, ne plus utiliser ce handoff comme point d'entrée principal.
+
+Lire à la place :
+- `07-pilotage/task-packs/TP-005-homepage-divi.md`
+- `01-cadrage/03-backoffice-gestionnaire.md`
+- `05-specs/pages/homepage.md`

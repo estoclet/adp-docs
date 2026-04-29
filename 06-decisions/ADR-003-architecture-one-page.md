@@ -20,7 +20,7 @@ Contraintes connues :
 - Divi 5 dispose de 3 méthodes natives pour les popups (source : Elegant Themes docs) [FAIT — 2026-04-25]
 - **Méthode retenue (D-019)** : Interactions + Visibilité — contenu dans la page, éditable directement par le client dans le Visual Builder [FAIT — source Elegant Themes 2026-04-25]
 - Alternative si trop de popups dans la page : Canvases + Interactions (Méthode B) — éditabilité préservée
-- 11 pages WordPress publiées — certaines peuvent devenir des ancres ou redirections plutôt que des pages réelles [FAIT — à arbitrer]
+- 11 pages WordPress publiées — certaines peuvent devenir des ancres ou redirections plutôt que des pages réelles [FAIT]
 
 ---
 
@@ -59,14 +59,14 @@ Le site Astuces De Pomme V1 adopte une **architecture one page** : la homepage (
 - Cohérence totale du pattern modale sur le site.
 
 ### Négatives / risques
-- **Spec homepage à réviser** : `05-specs/pages/homepage.md` doit être réécrite pour intégrer les sections Prestations, Formations, À propos. Travail non négligeable — à faire avant TP-005.
+- `05-specs/pages/homepage.md` a dû être réécrite pour intégrer les sections Prestations, Formations, À propos. Travail réalisé avant TP-005. [FAIT]
 - **SEO** : les URLs `/prestations/`, `/formations/`, `/a-propos/` ne seront plus des pages réelles. Si elles sont référencées (Google, annuaires), mettre en place des redirections 301 vers `/#prestations`, etc. — impact faible car le site est en refonte.
-- **Pages WordPress orphelines** : les 11 pages publiées incluent `prestations`, `formations`, `a-propos` — décider si on les conserve comme ancres, redirections, ou on les supprime.
+- **Pages WordPress orphelines** : les 11 pages publiées incluent `prestations`, `formations`, `a-propos` — un nettoyage ou une redirection pourra être finalisé lors de la stabilisation préprod.
 - **Divi 5 popup editability** : [FAIT — source Elegant Themes 2026-04-25] La Méthode A (Interactions + Visibilité) permet l'édition autonome des popups par Julien HACHE directement dans le Visual Builder. Risque résiduel : si les 5 popups surchargent la page dans le builder, basculer sur la Méthode B (Canvases).
 - **Complexité homepage** : une seule page très dense — les tests responsive et performance seront plus importants.
 
 ### Risque atténué
-- L'éditabilité Divi sera vérifiée en TP-006 (implémentation modales) avant la livraison préprod.
+- L'éditabilité Divi des modales reste à contrôler dans l'instance fonctionnelle finale lors de TP-006 et de la recette préprod.
 - Les pages WordPress orphelines peuvent être conservées transitoirement et supprimées ou redirigées après validation.
 
 ---
@@ -75,12 +75,12 @@ Le site Astuces De Pomme V1 adopte une **architecture one page** : la homepage (
 
 | Document | Action requise |
 |----------|---------------|
-| `05-specs/pages/homepage.md` | **Réécriture** — absorber les sections Prestations, Formations, À propos avec blocs summary + liens "Voir plus" → modale |
+| `05-specs/pages/homepage.md` | **Réécriture réalisée** — sections Prestations, Formations, À propos absorbées avec blocs summary + liens "Voir plus" → modale |
 | `05-specs/pages/prestations.md` | Devient la spec du **contenu de la modale Prestations** |
 | `05-specs/pages/formations.md` | Devient la spec du **contenu de la modale Formations** |
 | `05-specs/pages/a-propos.md` | Devient la spec du **contenu de la modale À propos** |
 | `04-architecture/01-arborescence-site.md` | Mis à jour — navigation anchor-based documentée |
-| `07-pilotage/task-packs/TP-005-homepage-divi.md` | Mise à jour des prérequis — homepage spec révisée avant de démarrer |
+| `07-pilotage/task-packs/TP-005-homepage-divi.md` | Mis à jour — homepage spec révisée puis intégration réalisée |
 
 ---
 

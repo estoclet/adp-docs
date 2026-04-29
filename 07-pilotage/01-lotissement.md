@@ -1,7 +1,7 @@
 # Plan de travail — Lotissement
 
 **Statut** : Proposition initiale — [À VALIDER] après arbitrage I-04 (budget / délais)  
-**Dernière mise à jour** : 2026-04-27 — TP-005 terminé (homepage Divi intégrée, Theme Builder actif, smoke 4/4) ; TP-006 à lancer  
+**Dernière mise à jour** : 2026-04-29 — homepage premium finalisée ; documentation client intégrée au backoffice  
 **Chef de projet** : Eric STOCLET  
 **Client** : Julien HACHE  
 **Lié à** : `00-initialisation-projet.md`, `07-pilotage/task-packs/`
@@ -63,9 +63,11 @@
 | Installation WP + configuration de base | — | ✅ Fait |
 | Installation et activation Divi | — | ✅ Fait |
 | Révision spec homepage (D-018 one page) | — | ✅ Fait — ADR-003 intégré |
-| Intégration Divi homepage (one page) | TP-005 | ✅ Terminé — à valider Eric STOCLET |
+| Intégration Divi homepage (one page) | TP-005 | ✅ Terminé — homepage intégrée puis raffinée |
 | Intégration des modales (TP-006) | TP-006 | ⏳ À lancer |
 | Configuration plugins (SEO, Redirection) | — | ✅ Fait — redirections.json prêt |
+| Documentation client dans `adp-app` | — | ✅ Fait — guides Markdown + captures |
+| Intégration doc client dans le backoffice | — | ✅ Fait — plugin admin, widget dashboard, aide contextuelle |
 
 ---
 

@@ -1,7 +1,7 @@
 # Astuces De Pomme — Initialisation projet
 
 **Statut** : Cadrage initial  
-**Date** : 2026-04-25 — mis à jour (D-018 : site one page ; I-15 résolue : photo portrait récupérée)  
+**Date** : 2026-04-29 — mis à jour (homepage intégrée, doc client backoffice, pré-lancement TP-005 archivé)  
 **Maintenu par** : Eric STOCLET (chef de projet)  
 **Rôle** : Point d'entrée unique. Premier document à lire. Dernier à modifier.
 
@@ -50,7 +50,8 @@ Ces décisions sont **fermes**. Un agent ne doit pas les remettre en question sa
 | 7 | Tarif : 80€/h (40€ après crédit d'impôt) — téléphone : 06 51 31 15 37 | Réunion client 2026-04-23 |
 | 8 | Environnement local : WordPress sous DDEV dans `adp-app/` — URL locale `http://adp.ddev.site` | Confirmé 2026-04-24 — issue #5 fermée |
 | 9 | Préprod : VPS OVH — accès `ssh vps-adp` — chemin `/homez.31/astucesdib/www/dev/web` | Confirmé 2026-04-24 — issue #5 fermée |
-| 10 | **Site one page** : la homepage absorbe toutes les sections ; des liens "Voir plus" ouvrent des modales (D-018) — ADR-003 à créer | Julien HACHE, 2026-04-25 |
+| 10 | **Site one page** : la homepage absorbe toutes les sections ; des liens "Voir plus" ouvrent des modales (D-018) — ADR-003 acceptée | Julien HACHE, 2026-04-25 |
+| 11 | Documentation client intégrée au backoffice WordPress via un plugin dédié | Vérifié localement 2026-04-29 — voir `01-cadrage/03-backoffice-gestionnaire.md` |
 
 ---
 
@@ -123,6 +124,7 @@ adp-docs/
 3. Lire `02-gouvernance-ia/04-anti-patterns.md` (anti-patterns récurrents à éviter).
 4. ~~Lancer `07-pilotage/task-packs/TP-001-analyse-legacy.md`~~ — terminé (Lot 1 clos, voir `03-legacy/`).
 5. ~~Lot 2 — Architecture et specs~~ : terminé. Arborescence, composants Divi, specs 5 pages secondaires, ADR-002 produits. Validation client des specs secondaires en attente (issue #26).
-6. **[PRIORITÉ — avant TP-005]** Créer **ADR-003** (architecture one page — D-018) et réviser `05-specs/pages/homepage.md` pour absorber les sections Prestations, Formations, À propos avec modales "Voir plus". Voir `04-architecture/01-arborescence-site.md` note D-018 et `07-pilotage/02-journal-decisions.md`.
-7. **En cours — Lot 3** : Lancer `07-pilotage/task-packs/TP-005-homepage-divi.md` (intégration homepage Divi) **après ADR-003**. Lire `08-handoffs/HO-001-pre-TP-005-homepage.md`. DDEV doit être démarré (`ddev start`).
-8. Arbitrer les inconnues ouvertes : **I-04** (budget/délais), **I-08** (persona). I-15 résolue (photo). I-16 placeholder (bio). I-17 placeholder. I-18/19 placeholder (avis GBP).
+6. **Lot 3 réalisé en grande partie** : homepage one page intégrée dans `adp-app`, raffinée visuellement et vérifiée par captures locales. Voir `07-pilotage/task-packs/TP-005-homepage-divi.md`.
+7. **Prise en main client ajoutée** : documentation utilisateur créée dans `adp-app/documentation-client/` et intégrée dans le backoffice via un plugin admin dédié. Voir `01-cadrage/03-backoffice-gestionnaire.md`.
+8. Prochaine priorité technique : poursuivre ou finaliser `TP-006` pour les modales si des écarts subsistent entre la spec et l'instance.
+9. Arbitrer les inconnues encore ouvertes : **I-04** (budget/délais), **I-08** (persona), **I-16** (bio), **I-17** (horaires), **I-18/19** (avis GBP).

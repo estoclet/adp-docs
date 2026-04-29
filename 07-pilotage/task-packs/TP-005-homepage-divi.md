@@ -1,7 +1,7 @@
 # TP-005 — Intégration Divi de la page d'accueil
 
-**Statut** : Terminé — Validé techniquement par Agent IA 2026-04-27
-**Dernière mise à jour** : 2026-04-27 — Audit visuel complet, correctifs de liaison Theme Builder, URLs relatives et icônes UTF-8.  
+**Statut** : Terminé — homepage intégrée et raffinée visuellement
+**Dernière mise à jour** : 2026-04-29 — passe UI premium, hero full width, vérifications desktop/mobile, documentation client raccordée au backoffice  
 **Date de création** : 2026-04-24  
 **Agent assigné** : Agent IA (Claude ou Codex) + développeur WP/Divi  
 **Durée estimée** : Long (dépend de la disponibilité des assets client)  
@@ -13,13 +13,15 @@
 
 Construire la page d'accueil complète dans Divi (dans `adp-app/`) conformément à la spec validée, avec tous les blocs, les composants globaux (header/footer), et le CSS custom nécessaire.
 
+> **État atteint au 2026-04-29** : objectif fonctionnel réalisé. La homepage a ensuite reçu une passe de raffinement UI orientée "premium local rassurant" dans le thème enfant, avec vérifications par captures locales.
+
 ---
 
 ## Note D-018 — Architecture one page
 
 > **[FAIT — 2026-04-25 — D-018]** Site one page : la homepage absorbe 10 blocs dont un Bloc 7 "À propos". Les items de navigation déclenchent un scroll vers les sections via anchors CSS. Les "Voir plus" ouvrent des popups Divi 5 (Méthode A — Interactions + Visibilité — D-019). Voir **ADR-003** et `04-architecture/03-composants-divi.md` pour le détail technique.
 
-> **Spec homepage révisée** : `05-specs/pages/homepage.md` — statut "Révisé — à valider Eric STOCLET". Valider avant de lancer l'intégration.
+> **Spec homepage de référence** : `05-specs/pages/homepage.md` — version one page validée et utilisée pour l'intégration.
 
 ---
 
@@ -40,7 +42,7 @@ Ce task pack **ne peut pas démarrer** tant que les éléments suivants ne sont 
 | Textes descriptifs cartes (blocs 3 et 5) | Projet | [FAIT — propositions dans `05-specs/pages/homepage.md`] |
 | Image hero | Projet | [FAIT — `adp-app/assets/design/hero-bg.png`] |
 | Mention légale crédit d'impôt | Source legacy | [FAIT — "Dans les limites prévues à l'article 199 sexdecies du CGI"] |
-| Spec homepage révisée (one page — D-018) | Projet | [FAIT — 2026-04-25 — 10 blocs, Bloc 7 À propos, anchors, popups — à valider Eric STOCLET] |
+| Spec homepage révisée (one page — D-018) | Projet | [FAIT — 2026-04-25 — 10 blocs, Bloc 7 À propos, anchors, popups — validée puis intégrée] |
 | Photo portrait Julien HACHE (I-15) | Projet | [FAIT — `adp-app/assets/design/julien-hache-portrait.png` (D-020)] |
 | Specs pages secondaires | Projet | [FAIT — `05-specs/pages/prestations.md`, `formations.md`, `a-propos.md`, `avis.md`, `contact.md`] |
 
@@ -82,10 +84,12 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 | Cible | Action | Description |
 |-------|--------|-------------|
 | Theme Builder Divi | Créer | Header global + Footer global |
-| Page d'accueil Divi | Créer | 9 blocs conformes à la spec homepage |
+| Page d'accueil Divi | Créer | 10 blocs conformes à la spec homepage one page |
 | Presets Divi | Créer | Bouton principal, bouton secondaire, titre H2, carte |
 | CSS custom Divi | Ajouter | Selon liste dans `03-composants-divi.md` |
 | Divi Library | Sauvegarder | Composants réutilisables (carte, CTA, bandeau) |
+| `documentation-client/` | Créer | Guides client pour la prise en main des contenus |
+| `web/wp-content/plugins/adp-client-documentation/` | Créer | Intégration de la documentation dans le backoffice |
 
 ---
 
@@ -153,3 +157,11 @@ Ce task pack travaille dans `adp-app/` (code du site), pas dans `adp-docs/`.
 ## Prochaine étape après validation
 
 Planifier **TP-006 — Implémentation des modales** : Prestations, Formations, À propos, Avis, Contact (pattern Divi 5 popup — D-019). Valider l'éditabilité des popups Divi par Julien HACHE avant la livraison préprod. I-15 résolue (photo). I-16 placeholder. I-18/19 placeholder.
+
+## Compléments livrés après TP-005
+
+- documentation client créée dans `adp-app/documentation-client/`
+- captures d'administration locale produites pour les guides
+- plugin `adp-client-documentation` ajouté au backoffice WordPress
+- widget dashboard `Commencer avec le site`
+- aide contextuelle sur `Pages`, édition de page, `Médias` et certaines zones Divi

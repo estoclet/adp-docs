@@ -49,7 +49,7 @@
 
 | Sujet | Fichier | État |
 |-------|---------|------|
-| Page d'accueil | `05-specs/pages/homepage.md` | Validé client (2026-04-23) |
+| Page d'accueil | `05-specs/pages/homepage.md` | Validée et intégrée dans `adp-app` |
 | Modale Prestations | `05-specs/pages/prestations.md` | [FAIT] Contenu détaillé |
 | Modale Formations | `05-specs/pages/formations.md` | [FAIT] Contenu détaillé |
 | Modale À propos | `05-specs/pages/a-propos.md` | [FAIT] Bio et valeurs |
@@ -79,14 +79,14 @@
 | Journal des décisions | `07-pilotage/02-journal-decisions.md` |
 | Template task pack | `07-pilotage/task-packs/_template-task-pack.md` |
 | TP-001 : Analyse du legacy | `07-pilotage/task-packs/TP-001-analyse-legacy.md` — Terminé, à valider |
-| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — **À valider** (spec révisée D-018 — validation Eric STOCLET requise) |
+| TP-005 : Intégration Divi homepage | `07-pilotage/task-packs/TP-005-homepage-divi.md` — Terminé ; complété par une passe UI premium et la doc client backoffice |
 
 ## Handoffs
 
 | Sujet | Fichier | État |
 |-------|---------|------|
 | Template de passation entre agents | `08-handoffs/_template-handoff.md` | Prêt |
-| Pré-lancement TP-005 Homepage Divi | `08-handoffs/HO-001-pre-TP-005-homepage.md` | Prêt — vérifié 2026-04-25 |
+| Pré-lancement TP-005 Homepage Divi | `08-handoffs/HO-001-pre-TP-005-homepage.md` | Archive — obsolète depuis 2026-04-29 |
 
 ---
 

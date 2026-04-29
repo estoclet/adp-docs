@@ -185,11 +185,11 @@ Le CSS structurant reste versionné dans Git, idéalement dans le thème enfant 
 
 ## Templates de pages Divi
 
-> **[EN RÉVISION — ADR-003 / D-018]** L'architecture one page réduit le nombre de templates réels. La homepage absorbe toutes les sections. Les pages Prestations, Formations, À propos deviennent du contenu de popup.
+> **[FAIT — ADR-003 / D-018]** L'architecture one page réduit le nombre de templates réels. La homepage absorbe toutes les sections. Les pages Prestations, Formations, À propos deviennent du contenu de popup.
 
 | Template | Pages | Statut |
 |----------|-------|--------|
-| Template Accueil (one page) | `/` | **[EN RÉVISION — D-018]** Spec homepage à réviser pour absorber toutes les sections |
+| Template Accueil (one page) | `/` | **[FAIT]** Spec homepage révisée puis intégrée dans `adp-app` |
 | Popup Prestations | Modale depuis homepage | Contenu = spec `prestations.md` — implémentation TP-006 |
 | Popup Formations | Modale depuis homepage | Contenu = spec `formations.md` — implémentation TP-006 |
 | Popup À propos | Modale depuis homepage | Contenu = spec `a-propos.md` — implémentation TP-006 |
